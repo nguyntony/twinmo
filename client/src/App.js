@@ -4,6 +4,8 @@ import {PageHook} from './components/HomeHook'
 
 import Home from './components/Home'
 import Login from './components/Login'
+import TestSignup from './components/TestSignup'
+import TestLogin from './components/TestLogin'
 
 function App() {
   const {page, setPage} = PageHook(false)
@@ -32,8 +34,10 @@ function App() {
   
           <Switch>
               {/* more routes will go here */}
-              <Route path='/' exact component={Home}></Route>
-              <Route path='/user/login' exact component={Login}></Route>
+              <Route path='/' exact component={Home}/>
+              <Route path='/user/login' exact component={Login}/>
+              <Route path='/test/dummy/signup' exact component={TestSignup}/>
+              <Route path='/test/dummy/login' exact component={TestLogin}/>
               
           </Switch>
 
