@@ -41,6 +41,11 @@
 
         a {
           text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+            text-decoration-color: $dark-pink;
+          }
         }
 
         li {
