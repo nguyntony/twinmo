@@ -1,0 +1,36 @@
+#bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  .circle1,
+  .circle2,
+  .circle3,
+  .circle4 {
+    width: 75rem;
+    height: 75rem;
+    background-color: $med-orange;
+    border-radius: 100%;
+  }
+
+  .circle1 {
+    position: relative;
+    right: 0;
+    // transform: translate(-50%, 50%) scale(0.9);
+  }
+
+  .circle2 {
+    background-color: $shadow-purple;
+    transform: translate(100%, -130%) scale(1.2);
+  }
+
+  .circle3 {
+    background-color: $light-purple;
+    transform: translate(110%, -225%) scale(1.2);
+  }
+
+  .circle4 {
+    background-color: $med-orange;
+    transform: translate(150%, -275%) scale(0.6);
+  }
+}

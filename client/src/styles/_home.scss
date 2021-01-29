@@ -1,0 +1,13 @@
+.heroImg {
+  // width: 50%;
+  flex: 1;
+
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.mainContentContainer {
+  flex: 1;
+}

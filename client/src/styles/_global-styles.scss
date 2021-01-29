@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
+$Noto: "Noto Sans JP", sans-serif;
+// $shadow-purple: #6f5dd9;
+$dark-purple: #5849ad;
+$med-purple: #9381ff;
+$light-purple: #b8b8ff;
+$dark-orange: #fcc6a3;
+$med-orange: #ffd8be;
+$light-orange: #ffeedd;
+$ghost-white: #f8f7ff;
+$shell-white: #f9f8ff;
+$boldest: 900;
+$bolder: 700;
+$bold: 500;
+
+html {
+  font-size: 62.5%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 4rem;
+  color: rgb(35, 35, 35);
+}
+
+h2 {
+  font-size: 3rem;
+  color: rgb(45, 45, 45);
+}
+
+h3 {
+  font-size: 2rem;
+  color: rgb(45, 45, 45);
+}
+
+h4 {
+  font-size: 1.8rem;
+  color: rgb(45, 45, 45);
+}
+
+p {
+  font-size: 1.5rem;
+  color: rgb(55, 55, 55);
+}
