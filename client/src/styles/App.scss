@@ -37,7 +37,7 @@
         display: flex;
         justify-content: space-around;
         list-style-type: none;
-        width: 20rem;
+        width: 30rem;
 
         a {
           text-decoration: none;
@@ -67,3 +67,4 @@
 
 @import "home";
 @import "background";
+@import "homeForms";

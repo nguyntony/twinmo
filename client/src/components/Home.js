@@ -1,23 +1,8 @@
 import hero from '../assets/hero.png'
 import {Link} from 'react-router-dom'
-import { useEffect } from 'react'
-import {PageHook} from './HomeHook'
 
-export default function Home({match}) {
-  const {page, setPage} = PageHook(false)
-  const path = match.path
+export default function Home() {
 
-  useEffect(()=>{
-    if (path === '/') {
-      setPage(true)
-    }
-  }, [])
-
-  const underline = {
-    textDecoration: 'underline',
-    textDecorationColor: '#ff778f',
-  }
-  
   return (
 
     <section className="contentContainer">
@@ -26,18 +11,14 @@ export default function Home({match}) {
       </div>
       <div className="mainContentContainer">
         <div className="homeContent">
-          <Link to='/user/signup' className="btnLink"><button className="joinBtn">Join now</button></Link>
 
           <div className="description">
             <h1>Best way to send money?</h1>
             <h2>Just send it <span className="emphasis">(with us)!</span></h2>
-            <h3>twinmo is a quick, easy and secure way to send/receive money from anyone.</h3>
+            <h3>Quick, easy and secure way to send/receive money from anyone.</h3>
           </div>
 
-
-
-          <Link to='#' className="btnLink"><button className="infoBtn">more info<i className="far fa-arrow-alt-circle-right"></i></button>
-          </Link>
+          <Link to='/user/signup' className="btnLink"><button className="joinBtn">Join now</button></Link>
         </div>
       </div>
     </section>
