@@ -7,18 +7,18 @@ function App() {
   return (
     <Router>
       <div className="App">
-          {/* <section id="bg">
+          <section id="bg">
             <div className="circle1"></div>
             <div className="circle2"></div>
             <div className="circle3"></div>
             <div className="circle4"></div>
-          </section> */}
+          </section>
   
         {/* I can have the window here but what gets rendered will be changed via routes. */}
         <div id="window">
           
           <nav>
-            <h2>twinmo.</h2>
+            <h2>twinmo</h2>
             
             <ul className="nav-list">
               <li>home</li>

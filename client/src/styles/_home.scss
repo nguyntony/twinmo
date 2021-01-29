@@ -1,9 +1,12 @@
 .heroImg {
   // width: 50%;
+  display: flex;
+  justify-content: center;
   flex: 1;
+  margin: 1rem;
 
   img {
-    width: 100%;
+    width: 90%;
     object-fit: contain;
   }
 }

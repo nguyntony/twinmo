@@ -1,7 +1,7 @@
 @import "global-styles";
 
 .App {
-  background-image: url("../assets/altered-bg.png");
+  // background-image: url("../assets/altered-bg.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-color: $med-purple;
@@ -16,7 +16,7 @@
   #window {
     background: $dark-purple;
     border-radius: 2.5rem;
-    box-shadow: 15px 15px 15px rgba(46, 54, 68, 0.3);
+    box-shadow: 15px 15px 15px rgba(46, 54, 68, 0.4);
     display: flex;
     flex-direction: column;
     // height: 50rem; // this will need to be changed possibly
@@ -24,6 +24,7 @@
     width: 120rem; // this will need to be changed possibly
     z-index: 100;
     // display: none;
+    margin: 3rem;
 
     nav {
       align-items: center;
@@ -60,3 +61,4 @@
 }
 
 @import "home";
+@import "background";
