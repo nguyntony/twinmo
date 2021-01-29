@@ -34,3 +34,5 @@
     transform: translate(150%, -275%) scale(0.6);
   }
 }
+
+// the above does not work as intended, may need to set bg container to have a higher z idx instead of using position absolute. make the circles be position absolute/fixed and then control their placement via top,btm,left,right
