@@ -15,19 +15,18 @@ const processSignup = async(req, res) => {
             hash
         })
         console.log('API: User created successfully.')
-        // res.status(200).json({
-        //     message:"Success"
-        // });
-        res.redirect('/user/login')
+        res.status(200).json({
+            message:"Success"
+        });
     } catch (e) {
         console.log(e.name);
         if (e.name === "SequelizeUniqueConstraintError") {
             console.log("API: Username or email already taken.")
             // When the component renders at start, there shouldn't be an error message. If the user inputs an existing name, express will send back a json message that will be tied to a url. Conditionally render the message? 
-            res.json({
+            res.status(400).json({
                 message: "Username or email already taken."
             })
-            res.redirect('user/signup')
+            res.redirect('/user/signup')
         }
     }
 }
@@ -45,29 +44,58 @@ const processLogin = async (req, res) => {
         if (isValid) {
             console.log('API: Password Success')
             req.session.user = {
-                username,
+                username: user.username,
                 id: user.id
             }
             req.session.save(() => {
                 console.log('API: Login Success');
-                res.redirect('/member/home')
+                res.status(200).json({
+                    message: "Login successful",
+                    id: user.id,
+                });
             })
         } else {
             console.log('API: Username or Password is incorrect.');
-            res.json({
+            res.status(400).json({
                 message: 'Username or Password is incorrect.'
             })
-            res.redirect('./user/login')
         }
 
     }
 }
 
+const testData = async (req, res) => {
+    res.json({
+        status: 'okay'
+    })
+}
+
 const logout = (req, res) => {
     console.log('API: Logging Out.')
+    req.session.destroy(() => {
+        res.status(200).json({
+            message: 'API: Logout Success'
+        })
+        return;
+    })
+}
+
+const loginStatus = (req, res) => {
+    console.log('API: Checking login status')
+    if (req.session.user) {
+        res.status(200).json({
+            status: "OK"
+        })
+    } else {
+        res.status(400).json({
+            status: "API: No active session"
+        })
+    }
 }
 
 module.exports = {
     processSignup,
-    processLogin
+    processLogin,
+    testData,
+    loginStatus
 }
