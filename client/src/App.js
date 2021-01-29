@@ -21,12 +21,13 @@ function App() {
             <h2>twinmo</h2>
             
             <ul className="nav-list">
-              <li>home</li>
-              <li>login</li>
+              <Link to='/'><li>home</li></Link>
+              <Link to='/user/login'><li>login</li></Link>
             </ul>
           </nav>
   
           <Switch>
+              {/* more routes will go here */}
               <Route path='/' exact component={Home}></Route>
               
           </Switch>
