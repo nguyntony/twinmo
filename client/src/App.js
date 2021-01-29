@@ -1,9 +1,13 @@
 import './styles/App.scss'
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
-import Home from './components/Home'
+import {PageHook} from './components/HomeHook'
 
+import Home from './components/Home'
+import Login from './components/Login'
 
 function App() {
+  const {page, setPage} = PageHook(false)
+
   return (
     <Router>
       <div className="App">
@@ -29,6 +33,7 @@ function App() {
           <Switch>
               {/* more routes will go here */}
               <Route path='/' exact component={Home}></Route>
+              <Route path='/user/login' exact component={Login}></Route>
               
           </Switch>
 

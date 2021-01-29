@@ -1,7 +1,23 @@
 import hero from '../assets/hero.png'
 import {Link} from 'react-router-dom'
+import { useEffect } from 'react'
+import {PageHook} from './HomeHook'
 
-export default function Home() {
+export default function Home({match}) {
+  const {page, setPage} = PageHook(false)
+  const path = match.path
+
+  useEffect(()=>{
+    if (path === '/') {
+      setPage(true)
+    }
+  }, [])
+
+  const underline = {
+    textDecoration: 'underline',
+    textDecorationColor: '#ff778f',
+  }
+  
   return (
 
     <section className="contentContainer">
