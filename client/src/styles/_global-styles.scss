@@ -49,3 +49,24 @@ p {
   font-size: 1.5rem;
   color: rgb(55, 55, 55);
 }
+
+@mixin bigBtn {
+  background-color: $dark-pink;
+  border-radius: 3.5rem;
+  border: none;
+  font-family: $Noto;
+  font-size: 3rem;
+  font-weight: bold;
+  outline: none;
+  padding: 1rem 4rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $med-pink;
+  }
+}
+
+.btnLink {
+  text-decoration: none;
+  width: fit-content;
+}

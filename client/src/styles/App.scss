@@ -1,7 +1,6 @@
 @import "global-styles";
 
 .App {
-  // background-image: url("../assets/altered-bg.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-color: $med-purple;
@@ -19,11 +18,9 @@
     box-shadow: 15px 15px 15px rgba(46, 54, 68, 0.4);
     display: flex;
     flex-direction: column;
-    // height: 50rem; // this will need to be changed possibly
     padding: 2rem 3rem;
     width: 120rem; // this will need to be changed possibly
     z-index: 100;
-    // display: none;
     margin: 3rem;
 
     nav {
@@ -42,6 +39,10 @@
         list-style-type: none;
         width: 20rem;
 
+        a {
+          text-decoration: none;
+        }
+
         li {
           @extend h3;
           color: $ghost-white;
@@ -51,7 +52,6 @@
     }
 
     .contentContainer {
-      // background: $dark-orange;
       flex-grow: 1;
       width: 100%;
       display: flex;
