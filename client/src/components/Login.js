@@ -6,7 +6,7 @@ export default function Login() {
       <div className="mainContentContainer">
         <div className="description">
           <div className="form">
-          <h1>Login</h1>
+          <h1>Welcome back</h1>
             <form>
               <div className="one-line">
                 <div className="field email">

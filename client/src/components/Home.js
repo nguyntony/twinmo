@@ -14,8 +14,9 @@ export default function Home() {
 
           <div className="description">
             <h1>Best way to send money?</h1>
-            <h2>Just send it <span className="emphasis">(with us)!</span></h2>
-            <h3>Quick, easy and secure way to send/receive money from anyone.</h3>
+            {/* <h2>Just send it <span className="emphasis">(with us)!</span></h2> */}
+            <h2>Send it <span className="emphasis">with us!</span></h2>
+            <h3>Quick, easy and secure way to transfer money.</h3>
           </div>
 
           <Link to='/user/signup' className="btnLink"><button className="joinBtn">Join now</button></Link>

@@ -35,6 +35,7 @@
       h2 {
         color: $med-orange;
         margin-bottom: 0.5rem;
+
         .emphasis {
           font-style: italic;
         }
@@ -42,8 +43,7 @@
 
       h3 {
         color: rgba($med-orange, 0.9);
-        width: 80%;
-        font-size: 1.7rem;
+        font-size: 2rem;
       }
     }
   }
