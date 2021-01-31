@@ -9,7 +9,7 @@ $dark-orange: #fcc6a3;
 $med-orange: #ffd8be;
 $light-orange: #ffeedd;
 $dark-pink: #ff778f;
-$med-pink: #fe98b8;
+$med-pink: #ff99ab;
 $light-pink: #ffd2dc;
 $ghost-white: #f8f7ff;
 $shell-white: #f9f8ff;
@@ -55,12 +55,12 @@ p {
   background-color: $dark-pink;
   border-radius: 3.5rem;
   border: none;
+  cursor: pointer;
   font-family: $Noto;
   font-size: 3rem;
-  font-weight: bold;
+  font-weight: $bolder;
   outline: none;
-  padding: 1rem 4rem;
-  cursor: pointer;
+  padding: 1rem 3rem;
 
   &:hover {
     background-color: $med-pink;

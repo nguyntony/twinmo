@@ -7,6 +7,7 @@ export default function Nav() {
   const underline = {
     textDecoration: 'underline', 
     textDecorationColor: '#ff778f',
+    textDecorationThickness: '0.3rem'
   }
 
   const homeUnderline = currentPath === '/' ? {...underline} : null
