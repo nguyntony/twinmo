@@ -22,7 +22,7 @@ const processSignup = async(req, res) => {
         console.log(e.name);
         if (e.name === "SequelizeUniqueConstraintError") {
             console.log("API: Username or email already taken.")
-            // When the component renders at start, there shouldn't be an error message. If the user inputs an existing name, express will send back a json message that will be tied to a url. Conditionally render the message? 
+            // When the component renders at start, there shouldn't be an error message. If the user inputs an existing name, express will send back a json message that will be tied to a url. Conditionally render the message? Possibly.
             res.status(400).json({
                 message: "Username or email already taken."
             })
