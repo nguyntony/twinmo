@@ -14,7 +14,7 @@ export default function Signup() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [passwordCheck, setPasswordCheck] = useState('')
-  const [showMessage, setShowMessage] = useState(true) 
+  const [showMessage, setShowMessage] = useState(false) 
   const [alert, setAlert] = useState('default')
 
   const emailHandler = async (e) => {
@@ -23,13 +23,10 @@ export default function Signup() {
       const resp = await axios.post('/api/user/email-check', {
         email
       })
-      
-    } catch (e) {
-      const resp = await axios.get('/api/user/email-check')
-      const data = resp.data
-      console.log(data.status)
-      setShowMessage(false)
+      setShowMessage(true)
       setAlert('Email is already in use.')
+    } catch (e) {
+      console.log(e)
     }
   }
 
@@ -54,7 +51,7 @@ export default function Signup() {
 
               <div className="one-line">
                 <div className="field email">
-                  <input type="email" name="email" required autoComplete="off" placeholder=" " onChange={e => setEmail(e.target.value)} onBlur={emailHandler}/>
+                  <input type="email" name="email" required autoComplete="off" placeholder=" " onChange={e => setEmail(e.target.value)} onBlur={emailHandler} onFocus={e => setShowMessage(false)}/>
                   <label htmlFor="email" className="label">Email</label>
                 </div>
                   {/* {!showMessage && <p>Email is already in use.</p>} */}
@@ -78,7 +75,7 @@ export default function Signup() {
                 </div>
               </div>
               
-              {showMessage && <p>{alert}</p>}
+              {showMessage && <p className="alert">{alert}</p>}
               
               <div className="submit signup">
                 <button type="submit"><i className="fas fa-arrow-alt-circle-right"></i></button>
