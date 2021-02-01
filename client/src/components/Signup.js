@@ -48,7 +48,7 @@ export default function Signup() {
                 </div>
               </div>
               
-              <p className="errorMessage">{message}</p>
+              {test && <p>{message}</p>}
               
               <div className="submit signup">
                 <button type="submit"><i className="fas fa-arrow-alt-circle-right"></i></button>

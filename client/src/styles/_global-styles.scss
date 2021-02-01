@@ -13,6 +13,8 @@ $med-pink: #ff99ab;
 $light-pink: #ffd2dc;
 $ghost-white: #f8f7ff;
 $shell-white: #f9f8ff;
+$white: #f0f3ff;
+$light-black: rgb(70, 70, 70);
 $boldest: 900;
 $bolder: 700;
 $bold: 500;
@@ -70,4 +72,10 @@ p {
 .btnLink {
   text-decoration: none;
   width: fit-content;
+}
+
+@mixin standardCard {
+  padding: 2rem 3rem;
+  border-radius: 2.5rem;
+  box-shadow: 15px 15px 15px rgba(46, 54, 68, 0.4);
 }
