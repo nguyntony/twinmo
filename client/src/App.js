@@ -5,6 +5,7 @@ import Home from './components/Home'
 import Nav from './components/Nav'
 import Login from './components/Login'
 import Signup from './components/Signup'
+import About from './components/About'
 import TestSignup from './components/TestSignup'
 import TestLogin from './components/TestLogin'
 
@@ -28,6 +29,7 @@ function App() {
               <Route path='/' exact component={Home}/>
               <Route path='/user/login' exact component={Login}/>
               <Route path='/user/signup' exact component={Signup}/>
+              <Route path='/about' exact component={About}/>
               <Route path='/test/dummy/signup' exact component={TestSignup}/>
               <Route path='/test/dummy/login' exact component={TestLogin}/>
               

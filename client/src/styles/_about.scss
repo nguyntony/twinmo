@@ -1,0 +1,136 @@
+.aboutContainer {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem 4rem;
+
+  .profileContainer {
+    // background-color: coral;
+    // flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    height: 50rem; // may have to change this?
+    min-width: 48rem;
+
+    .headshot {
+      width: 30rem;
+      height: 30rem;
+      overflow: hidden;
+      border-radius: 100%;
+      box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.4);
+
+      img {
+        width: 100%;
+        cursor: pointer;
+        transform: scale(1);
+        transition: 1s;
+
+        &:hover {
+          transform: scale(1.05);
+          transition: 1s;
+        }
+      }
+    }
+
+    .one {
+      position: absolute;
+      bottom: 1rem;
+      z-index: 1;
+    }
+
+    .two {
+      position: absolute;
+      right: 0;
+    }
+
+    .three {
+      width: 10rem;
+      height: 10rem;
+      border-radius: 100%;
+      background-color: $med-pink;
+      position: absolute;
+      bottom: 6rem;
+      right: 10rem;
+      box-shadow: 5px 5px 5px rgba(46, 54, 68, 0.4);
+      z-index: 10;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 70%;
+        transform: scale(1);
+        transition: 1s;
+
+        &:hover {
+          transform: scale(1.05);
+          transition: 1s;
+        }
+      }
+    }
+  }
+
+  .aboutContentContainer {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .aboutCard {
+      width: 90%;
+      background-color: $white;
+      border-radius: 2.5rem;
+      padding: 2rem 3rem;
+      box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.4);
+
+      .aboutContent {
+        .titleHeading {
+          margin-bottom: 3rem;
+        }
+
+        .profileDescription {
+          background-color: $light-purple;
+          margin: -2rem -3rem;
+          padding: 2rem 3rem;
+          border-radius: 2rem;
+          a {
+            color: $dark-purple;
+            text-decoration: none;
+
+            &:hover {
+              color: $med-purple;
+            }
+          }
+        }
+
+        .profileNav {
+          margin-top: 3rem;
+          margin-bottom: 2rem;
+          position: relative;
+
+          ul {
+            list-style-type: none;
+            font-size: 2.5rem;
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            right: 0;
+
+            li {
+              margin: 0 0.7rem;
+
+              a {
+                color: rgb(55, 55, 55);
+
+                &:hover {
+                  color: $dark-pink;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
