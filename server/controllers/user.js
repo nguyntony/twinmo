@@ -114,6 +114,13 @@ const photoUpload = async (req, res) => {
     })
 }
 
+const photo = async (req, res) => {
+    const {id} = req.session.user;
+    const user = await User.findByPk(id)
+
+    const photo = user
+}
+
 
 module.exports = {
     processSignup,
