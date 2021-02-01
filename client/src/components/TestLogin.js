@@ -31,20 +31,17 @@ export default function TestLogin() {
 
   const processPicUpload = async (e) => {
     e.preventDefault()
-    console.log(file)
-    const resp = await axios.put('/api/user/profile-picture', file)
+    // console.log(file)
+    // const resp = await axios.put('/api/user/profile-picture', file)
 
-    // const data = new FormData();
-    // data.append('file', file)
-    // console.log(data)
-    // try {
-    //   const resp = await axios.put('/api/user/profile-picture', data)
-    //   console.log('PHOTO RES SUCCESS')
-    //   // here if the user is logged in, we set the state to true and then we can conditionally do something with the bool
-    // } catch (e) {
-    //   console.log('Cant login')
-    //   // if the user failed to log in, we can do something else 
-    // }
+    const data = new FormData();
+    data.append('file', file)
+    try {
+      const resp = await axios.put('/api/user/profile-picture', data)
+      console.log('PHOTO RES SUCCESS')
+    } catch (e) {
+      console.log('Cant upload')
+    }
   }
 
   // we can add that state as a dependency to this use effect hook, it will be set to false and whenever the user clicks on button to log in, we can register that event to manually change something, in the event the user failed to log in, we will render a message
@@ -102,7 +99,7 @@ export default function TestLogin() {
         <input type="submit" value="Submit"/>
       </form>
       <h1>Photo under</h1>
-      <img src={photo} alt=""/>
+      <img src='/uploads/3fc47e8c8f348acb211eb048ab7bf443' alt=""/>
     </section>
   )
 }

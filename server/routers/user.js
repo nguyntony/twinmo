@@ -10,7 +10,7 @@ router
     .post('/user/login', userController.processLogin)
     .get('/login-status', userController.loginStatus)
     .get('/test', userController.testData)
-    .put('/user/profile-picture', upload.single('content'), userController.photoUpload)
+    .put('/user/profile-picture', upload.single('file'), userController.photoUpload)
     .get('/user/profile-picture', userController.image)
 
 module.exports = router
