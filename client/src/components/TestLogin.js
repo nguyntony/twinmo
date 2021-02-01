@@ -99,7 +99,7 @@ export default function TestLogin() {
         <input type="submit" value="Submit"/>
       </form>
       <h1>Photo under</h1>
-      <img src='/uploads/3fc47e8c8f348acb211eb048ab7bf443' alt=""/>
+      {/* <img src='/uploads/3fc47e8c8f348acb211eb048ab7bf443' alt=""/> */}
     </section>
   )
 }
