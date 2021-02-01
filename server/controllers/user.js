@@ -102,14 +102,17 @@ const loginStatus = (req, res) => {
 
 const photoUpload = async (req, res) => {
     const {file} = req
-    console.log('GOT PHOTO REQ', file.filename);
+    console.log('GOT PHOTO REQ', file);
     res.status(200).json({
         status: 'ok'
+        // send here 
     })
 }
 
 const image = (req, res) => {
-    res.send('/uploads/3fc47e8c8f348acb211eb048ab7bf443')
+    res.json({
+        photo: '/uploads/3fc47e8c8f348acb211eb048ab7bf443'
+    })
 }
 
 module.exports = {
