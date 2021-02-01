@@ -59,11 +59,19 @@
         pointer-events: none;
         transition: all 0.3s ease;
       }
+
+      .status {
+        position: absolute;
+        right: -3rem;
+        bottom: 1rem;
+        font-size: 2rem;
+        color: $dark-orange;
+      }
     }
 
     .email {
       input {
-        width: 23rem;
+        width: 25rem;
       }
     }
   }
@@ -81,11 +89,13 @@
         text-decoration-color: $dark-pink;
       }
     }
+  }
 
-    .alert {
-      color: $ghost-white;
-      font-weight: bold;
-    }
+  #alert {
+    color: $ghost-white;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
   }
 
   .signup {
