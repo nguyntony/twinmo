@@ -53,7 +53,7 @@ export default function Signup() {
               <div className="submit signup">
                 <button type="submit"><i className="fas fa-arrow-alt-circle-right"></i></button>
               </div>
-              <p className="message">Already a member? <a href="/user/signup">Login</a></p>
+              <p className="message">Already a member? <a href="/user/login">Login</a></p>
             </form>
 
             
