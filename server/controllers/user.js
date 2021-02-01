@@ -101,19 +101,19 @@ const loginStatus = (req, res) => {
 }
 
 const photoUpload = async (req, res) => {
+    const { id } = req.session.user;
+    const user = await User.findByPk(id);
+    
     const {file} = req
-    console.log('GOT PHOTO REQ', file);
+    console.log('GOT PHOTO REQ', file.filename);
+    const profilePic = "/uploads/"+file.filename
+    user.update({profilePic})
     res.status(200).json({
         status: 'ok'
         // send here 
     })
 }
 
-const image = (req, res) => {
-    res.json({
-        photo: '/uploads/3fc47e8c8f348acb211eb048ab7bf443'
-    })
-}
 
 module.exports = {
     processSignup,
@@ -121,5 +121,4 @@ module.exports = {
     testData,
     loginStatus,
     photoUpload,
-    image,
 }
