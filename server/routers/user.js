@@ -9,7 +9,9 @@ router
     .post('/user/new', userController.processSignup)
     .post('/user/login', userController.processLogin)
     .get('/login-status', userController.loginStatus)
-    .get('/test', userController.testData)
     .put('/user/profile-picture', upload.single('file'), userController.photoUpload)
+    .get('/user/profile-pic')
+    .post('/user/email-check', userController.uniqueEmailCheck)
+    .post('/user/username-check')
 
 module.exports = router

@@ -18,9 +18,16 @@ export default function Signup() {
   const [alert, setAlert] = useState('default')
 
   const emailHandler = async (e) => {
+    console.log(email)
     try {
-      const resp = await axios.post('/api/user/email-check', email)
+      const resp = await axios.post('/api/user/email-check', {
+        email
+      })
+      
     } catch (e) {
+      const resp = await axios.get('/api/user/email-check')
+      const data = resp.data
+      console.log(data.status)
       setShowMessage(false)
       setAlert('Email is already in use.')
     }
@@ -47,7 +54,7 @@ export default function Signup() {
 
               <div className="one-line">
                 <div className="field email">
-                  <input type="email" name="email" required autoComplete="off" placeholder=" " onChange={e => e.target.value} onBlur={emailHandler}/>
+                  <input type="email" name="email" required autoComplete="off" placeholder=" " onChange={e => setEmail(e.target.value)} onBlur={emailHandler}/>
                   <label htmlFor="email" className="label">Email</label>
                 </div>
                   {/* {!showMessage && <p>Email is already in use.</p>} */}

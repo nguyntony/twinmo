@@ -14,19 +14,58 @@ const processSignup = async(req, res) => {
             username,
             hash
         })
-        console.log('API: User created successfully.')
+        // console.log('API: User created successfully.')
         res.status(200).json({
-            message:"Success"
+            status:"API: User created successfully"
         });
     } catch (e) {
         console.log(e.name);
         if (e.name === "SequelizeUniqueConstraintError") {
-            console.log("API: Username or email already taken.")
+            // console.log("API: Username or email already taken.")
             // When the component renders at start, there shouldn't be an error message. If the user inputs an existing name, express will send back a json message that will be tied to a url. Conditionally render the message? Possibly.
             res.status(400).json({
-                message: "Username or email already taken."
+                status: "API: Username or email already taken"
             })
         }
+    }
+}
+
+const uniqueUsernameCheck = async (req, res) => {
+    const {username} = req.body;
+    const user = await User.findOne({
+        where: {
+            username
+        }
+    })
+
+    if (user) {
+        res.status(200).json({
+            status: "API: Username is not taken"
+        })
+    } else {
+        res.status(400).json({
+            status: "API: Username is taken"
+        })
+    }
+}
+
+const uniqueEmailCheck = async (req, res) => {
+    const {email} = req.body;
+
+    const user = await User.findOne({
+        where: {
+            email
+        }
+    })
+    console.log(user)
+    if (user) {
+        res.status(200).json({
+            status: "API: Email is not taken"
+        })
+    } else {
+        res.status(400).json({
+            status: "API: Email is taken"
+        })
     }
 }
 
@@ -50,14 +89,13 @@ const processLogin = async (req, res) => {
             req.session.save(() => {
                 console.log('API: Login Success');
                 res.status(200).json({
-                    message: "Login successful",
-                    id: user.id,
+                    status: "API: Login successful",
                 });
             })
         } else {
             console.log('API: Username or Password is incorrect.');
             res.status(400).json({
-                message: 'Username or Password is incorrect.'
+                status: 'API: Username or Password is incorrect.'
             })
         }
     
@@ -66,32 +104,26 @@ const processLogin = async (req, res) => {
         // res.redirect(`${req.baseUrl}/login`);
         console.log("API: invalid username");
         res.status(400).json({
-            message: "Invalid username or password",
+            stauts: "API: Invalid username or password",
         });
         }
-}
-
-const testData = async (req, res) => {
-    res.json({
-        status: 'okay'
-    })
 }
 
 const logout = (req, res) => {
     console.log('API: Logging Out.')
     req.session.destroy(() => {
         res.status(200).json({
-            message: 'API: Logout Success'
+            status: 'API: Logout Success'
         })
         return;
     })
 }
 
 const loginStatus = (req, res) => {
-    console.log('API: Checking login status')
+    // console.log('API: Checking login status')
     if (req.session.user) {
         res.status(200).json({
-            status: "OK"
+            status: "API: Active session"
         })
     } else {
         res.status(400).json({
@@ -109,7 +141,7 @@ const photoUpload = async (req, res) => {
     const profilePic = "/uploads/"+file.filename
     user.update({profilePic})
     res.status(200).json({
-        status: 'ok'
+        status: 'API: Photo uploaded'
         // send here 
     })
 }
@@ -125,7 +157,8 @@ const photo = async (req, res) => {
 module.exports = {
     processSignup,
     processLogin,
-    testData,
     loginStatus,
     photoUpload,
+    uniqueEmailCheck,
+    uniqueUsernameCheck
 }
