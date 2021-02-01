@@ -88,7 +88,7 @@ const loginStatus = (req, res) => {
         })
     } else {
         res.status(400).json({
-            status: "API: No active session"
+            status: "API: No active session",
         })
     }
 }
