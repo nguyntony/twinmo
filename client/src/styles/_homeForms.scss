@@ -81,6 +81,11 @@
         text-decoration-color: $dark-pink;
       }
     }
+
+    .alert {
+      color: $ghost-white;
+      font-weight: bold;
+    }
   }
 
   .signup {
