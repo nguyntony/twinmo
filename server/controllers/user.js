@@ -16,7 +16,7 @@ const processSignup = async(req, res) => {
         })
         // console.log('API: User created successfully.')
         res.status(200).json({
-            status:"API: User created successfully"
+            status:"User created successfully"
         });
     } catch (e) {
         console.log(e.name);
@@ -24,7 +24,7 @@ const processSignup = async(req, res) => {
             // console.log("API: Username or email already taken.")
             // When the component renders at start, there shouldn't be an error message. If the user inputs an existing name, express will send back a json message that will be tied to a url. Conditionally render the message? Possibly.
             res.status(400).json({
-                status: "API: Username or email already taken"
+                status: "Username or email is already taken"
             })
         }
     }
@@ -40,11 +40,11 @@ const uniqueUsernameCheck = async (req, res) => {
 
     if (user) {
         res.status(200).json({
-            status: "API: Username is not taken"
+            status: "Username is not taken"
         })
     } else {
         res.status(400).json({
-            status: "API: Username is taken"
+            status: "Username is taken"
         })
     }
 }
@@ -60,17 +60,16 @@ const uniqueEmailCheck = async (req, res) => {
     console.log(user)
     if (user) {
         res.status(200).json({
-            status: "API: Email is not taken"
+            status: "Email is not taken"
         })
     } else {
         res.status(400).json({
-            status: "API: Email is taken"
+            status: "Email is taken"
         })
     }
 }
 
 const processLogin = async (req, res) => {
-    console.log('API: GETTING INFO FROM REACT')
     const {email, password} = req.body;
 
     const user = await User.findOne({
@@ -78,7 +77,6 @@ const processLogin = async (req, res) => {
             email
         }
     })
-    console.log('API: GETTING USER FROM DB');
     if (user) {
         const isValid = bcrypt.compareSync(password, user.hash);
         if (isValid) {
@@ -89,22 +87,23 @@ const processLogin = async (req, res) => {
             req.session.save(() => {
                 console.log('API: Login Success');
                 res.status(200).json({
-                    status: "API: Login successful",
+                    status: "Login successful yes",
+                    loginStatus: true
                 });
             })
         } else {
             console.log('API: Username or Password is incorrect.');
-            res.status(400).json({
-                status: 'API: Username or Password is incorrect.'
+            res.status(200).json({
+                status: 'Username or Password is not correct.',
+                loginStatus: false
             })
         }
     
     } else {
-        console.log('not a valid user');
-        // res.redirect(`${req.baseUrl}/login`);
         console.log("API: invalid username");
-        res.status(400).json({
-            stauts: "API: Invalid username or password",
+        res.status(200).json({
+            status: "Invalid username or password",
+            loginStatus: false
         });
         }
 }
@@ -115,7 +114,6 @@ const logout = (req, res) => {
         res.status(200).json({
             status: 'API: Logout Success'
         })
-        return;
     })
 }
 
@@ -163,5 +161,7 @@ module.exports = {
     loginStatus,
     photoUpload,
     uniqueEmailCheck,
-    uniqueUsernameCheck
+    uniqueUsernameCheck,
+    photo,
+    logout
 }
