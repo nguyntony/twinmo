@@ -26,12 +26,12 @@ const processSignup = async(req, res) => {
             res.status(400).json({
                 message: "Username or email already taken."
             })
-            res.redirect('/user/signup')
         }
     }
 }
 
 const processLogin = async (req, res) => {
+    console.log('API: GETTING INFO FROM REACT')
     const {email, password} = req.body;
 
     const user = await User.findOne({
@@ -39,12 +39,12 @@ const processLogin = async (req, res) => {
             email
         }
     })
+    console.log('API: GETTING USER FROM DB');
     if (user) {
         const isValid = bcrypt.compareSync(password, user.hash);
         if (isValid) {
             console.log('API: Password Success')
             req.session.user = {
-                username: user.username,
                 id: user.id
             }
             req.session.save(() => {
@@ -60,8 +60,15 @@ const processLogin = async (req, res) => {
                 message: 'Username or Password is incorrect.'
             })
         }
-
-    }
+    
+    } else {
+        console.log('not a valid user');
+        // res.redirect(`${req.baseUrl}/login`);
+        console.log("API: invalid username");
+        res.status(400).json({
+            message: "Invalid username or password",
+        });
+        }
 }
 
 const testData = async (req, res) => {
@@ -93,9 +100,23 @@ const loginStatus = (req, res) => {
     }
 }
 
+const photoUpload = async (req, res) => {
+    const {file} = req
+    console.log('GOT PHOTO REQ', file.filename);
+    res.status(200).json({
+        status: 'ok'
+    })
+}
+
+const image = (req, res) => {
+    res.send('/uploads/3fc47e8c8f348acb211eb048ab7bf443')
+}
+
 module.exports = {
     processSignup,
     processLogin,
     testData,
-    loginStatus
+    loginStatus,
+    photoUpload,
+    image,
 }

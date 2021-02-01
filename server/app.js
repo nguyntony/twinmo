@@ -15,6 +15,9 @@ const routes = require('./routers')
 
 const {requireLogin} = require('./auth')
 
+const multer = require('multer');
+const upload = multer({ dest: 'public/uploads/' });
+
 const app = express()
 const server = http.createServer(app)
 
@@ -42,6 +45,7 @@ app.use(
 
 app.use(logger)
 
+app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 

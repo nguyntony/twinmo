@@ -1,5 +1,7 @@
 import axios from 'axios'
 import React, {useState, useEffect} from 'react'
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
+
 
 export default function TestSignup() {
   const [first, setFirst] = useState('')
@@ -9,6 +11,7 @@ export default function TestSignup() {
   const [password, setPassword] = useState('')
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [canLogin, setCanLogin] = useState("")
 
   const processSignup = async (e) => {
     e.preventDefault();
@@ -21,12 +24,15 @@ export default function TestSignup() {
         password
       })
       console.log('CLIENT:'+ resp)
+      setCanLogin('yes')
     } catch (e) {
       console.log('invalid')
+      setCanLogin('no')
     }
   }
   
   useEffect(() => {
+    setCanLogin("")
     async function checkLogin() {
       try {
         const resp = await axios.get('/api/login-status');
@@ -44,9 +50,7 @@ export default function TestSignup() {
     <section className="contentContainer">
       <h2>this is a test signup route</h2>
 
-      {isLoggedIn ?
-      <h1>Logged in</h1>
-      : <h1>Not logged in</h1>}
+    {canLogin === 'no' && <h1>Failed</h1>}
 
       <form onSubmit={processSignup}>
         <br/>
@@ -71,6 +75,11 @@ export default function TestSignup() {
 
         <input type="submit" value='submit'/>
       </form>
+      <Switch>
+        <Route exact path="/test/dummy/signup">
+          {canLogin === 'yes' && <Redirect to="/" />}
+        </Route>
+      </Switch>
     </section>
   )
 }
