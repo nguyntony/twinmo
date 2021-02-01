@@ -150,7 +150,10 @@ const photo = async (req, res) => {
     const {id} = req.session.user;
     const user = await User.findByPk(id)
 
-    const photo = user
+    const photo = user.profilePic
+    res.status(200).json({
+        photo
+    })
 }
 
 
