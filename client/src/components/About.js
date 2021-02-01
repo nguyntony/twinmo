@@ -11,9 +11,9 @@ export default function About() {
   const content = [
     {
       title: 'What is twinmo?',
-      description: `Imagine if Venmo and Zelle had a baby. A more focused view of Venmo but redesigning the look and feel of Zelle. Keep track of your payments and requests. Check out our sister app for `,
+      description: `twinmo takes the best from both Venmo and Zelle. It features a more focused view of Venmo but redesigning the look and feel of Zelle. Keep track of your payments and requests. Check out our sister app for `,
       link: true,
-      subtitle: null,
+      subtitle: 'Venmo/Zelle Clone',
       contact: null,
     },
     {
@@ -57,7 +57,7 @@ export default function About() {
           <img src={tylerHeadshot} alt="tyler" onClick={clickTyler}/>
         </div>
         <div className="three" onClick={defaultInfo}>
-        <img src="https://img.icons8.com/plasticine/100/000000/bank-card-back-side.png"/>
+        <img src="https://img.icons8.com/plasticine/100/000000/bank-card-back-side.png" alt="credit card"/>
         </div>
       </div>
 
@@ -82,7 +82,6 @@ export default function About() {
                   <li><a href={content[contentID].contact[0]} target="_blank" rel="noreferrer"><i className="fas fa-address-card"></i></a></li>
                   <li><a href={content[contentID].contact[1]} target="_blank" rel="noreferrer"><i className="fab fa-linkedin"></i></a></li>
                   <li><a href={content[contentID].contact[2]} target="_blank" rel="noreferrer"><i className="fab fa-github"></i></a></li>
-
                 </ul>
               </nav>}
               </p>
