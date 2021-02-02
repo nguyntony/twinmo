@@ -15,7 +15,7 @@ export default function Nav() {
   const aboutUnderline = currentPath === '/about' ? {...underline} : null
 
   return (
-    <nav>
+    <nav id="homeNav">
       <h2>twinmo</h2>
       
       <ul className="nav-list">

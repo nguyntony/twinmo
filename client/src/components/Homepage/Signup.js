@@ -1,4 +1,4 @@
-import signupImage from '../assets/signup.png'
+import signupImage from '../../assets/signup.png'
 import {useEffect, useState} from 'react'
 import axios from 'axios';
 import {Switch, Route, Redirect} from 'react-router-dom'
@@ -90,6 +90,7 @@ export default function Signup() {
     cursor: btnPointer
   }
 
+  // check if the passwords match
   useEffect(()=> {
     if (password === passwordConfirmation && passwordConfirmation) {
       setPasswordIcon(validIcon)
@@ -103,6 +104,7 @@ export default function Signup() {
     }
   },[password, passwordConfirmation])
 
+  // check if all three fields are valid
   useEffect(() => {
     if (emailIcon === validIcon && usernameIcon === validIcon && passwordIcon === validIcon) {
       setDisableSubmit(false)
@@ -115,6 +117,7 @@ export default function Signup() {
     }
   }, [emailIcon, usernameIcon, passwordIcon])
 
+  // onload, set successful signup to false
   useEffect(()=> {
     setSuccessfulSignup(false)
   }, [])

@@ -1,13 +1,15 @@
 import './styles/App.scss'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
-import Home from './components/Home'
-import Nav from './components/Nav'
-import Login from './components/Login'
-import Signup from './components/Signup'
-import About from './components/About'
+import Home from './components/Homepage/Home'
+import Nav from './components/Homepage/Nav'
+import Login from './components/Homepage/Login'
+import Signup from './components/Homepage/Signup'
+import About from './components/Homepage/About'
 import TestSignup from './components/TestSignup'
 import TestLogin from './components/TestLogin'
+
+import Dashboard from './components/Member/Dashboard'
 
 function App() {
 
@@ -25,13 +27,14 @@ function App() {
           <Nav />
   
           <Switch>
-              {/* more routes will go here */}
+
               <Route path='/' exact component={Home}/>
               <Route path='/user/login' exact component={Login}/>
               <Route path='/user/signup' exact component={Signup}/>
               <Route path='/about' exact component={About}/>
               <Route path='/test/dummy/signup' exact component={TestSignup}/>
               <Route path='/test/dummy/login' exact component={TestLogin}/>
+              <Route path='/member/dashboard' exact component={Dashboard}/>
               
           </Switch>
 
