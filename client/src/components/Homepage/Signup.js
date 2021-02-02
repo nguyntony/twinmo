@@ -108,16 +108,18 @@ export default function Signup() {
 
   // check if all three fields are valid
   useEffect(() => {
-    if (emailIcon === validIcon && usernameIcon === validIcon && passwordIcon === validIcon) {
+    if (emailIcon === validIcon && usernameIcon === validIcon && passwordIcon === validIcon && first && last) {
+      
       setDisableSubmit(false)
       setBtnColor(null)
       setBtnPointer(null)
+      
     } else {
       setDisableSubmit(true)
       setBtnColor('#9e9898')
       setBtnPointer('unset')
     }
-  }, [emailIcon, usernameIcon, passwordIcon])
+  }, [emailIcon, usernameIcon, passwordIcon, first, last])
 
   // onload, set successful signup to false
   useEffect(()=> {
