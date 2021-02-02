@@ -91,23 +91,23 @@ const processLogin = async (req, res) => {
             req.session.save(() => {
                 // console.log('API: Login Success');
                 res.status(200).json({
-                    status: "Login successful",
-                    loginStatus: true
+                    message: "Login successful",
+                    status: true
                 });
             })
         } else {
             // console.log('API: Email or Password is incorrect.');
             res.status(200).json({
-                status: 'Email or Password is incorrect',
-                loginStatus: false
+                message: 'Email or Password is incorrect',
+                status: false
             })
         }
     
     } else {
         // console.log("API: invalid email");
         res.status(200).json({
-            status: "User does not exist",
-            loginStatus: false
+            message: "User does not exist",
+            status: false
         });
         }
 }
@@ -116,7 +116,7 @@ const logout = (req, res) => {
     console.log('API: Logging Out')
     req.session.destroy(() => {
         res.status(200).json({
-            status: 'Logout uccess'
+            message: 'Logout success'
         })
     })
 }
@@ -125,11 +125,13 @@ const loginStatus = (req, res) => {
     // console.log('API: Checking login status')
     if (req.session.user) {
         res.status(200).json({
-            status: "Active session"
+            status: true,
+            message: "Active session"
         })
     } else {
-        res.status(400).json({
-            status: "No active session",
+        res.status(200).json({
+            status: false,
+            message: "No active session",
         })
     }
 }
