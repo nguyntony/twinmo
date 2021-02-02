@@ -9,7 +9,7 @@ import About from './components/Homepage/About'
 import TestSignup from './components/TestSignup'
 import TestLogin from './components/TestLogin'
 
-import Dashboard from './components/Member/Dashboard'
+import DashboardContainer from './components/Member/DashboardContainer'
 import TestMember from './components/Member/TestMember'
 import { useEffect, useState } from 'react'
 
@@ -23,6 +23,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        {/* <Switch>  */}
           <section id="bg">
             <div className="circle1"></div>
             <div className="circle2"></div>
@@ -43,24 +44,13 @@ function App() {
               <Route path='/test/dummy/login' exact component={TestLogin}/>
               
               <Protected isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}>
-
-                
+                <Route path='/member/dashboard' component={DashboardContainer}/>
               </Protected>
-
-
-              {/* <Route path='/member' component={TestMember}/> */}
-              <Route path='/member' component={TestMember} />
-              {/* we want a component that */}
-              {/* conditional rendering for the route component itself */}
-              {/* or, we could have a protectd custom comp. pass in isLoggedIn and pass props.children or it wont. */}
-              <Route path='/member/dashboard' component={Dashboard}/>
-              {/* <Protected> </Protected> */}
-              {/* <Route path="*" component={TestMember}/> */}
               
           </Switch>
 
         </div>
-  
+      {/* </Switch> */}
       </div>
     </Router>
   );

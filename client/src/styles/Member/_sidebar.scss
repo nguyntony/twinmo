@@ -1,0 +1,73 @@
+#sidebar {
+  background-color: $dark-purple;
+  margin: -2rem 0;
+  margin-left: -3rem;
+  padding: 2rem 3rem;
+  width: 25%; // may need to change later
+  border-radius: 2.5rem 0 0 2.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .profilePicture {
+    width: 20rem;
+    height: 20rem;
+    border-radius: 100%;
+    background-color: $dark-pink;
+    align-self: center;
+
+    // will include img css here
+  }
+
+  .nameCard {
+    padding: 0.5rem 0;
+    background-color: $egg-white;
+    margin: 1.5rem 0;
+    border-radius: 1.1rem;
+    text-align: center;
+
+    // h3 {
+    //   color: $ghost-white;
+    // }
+  }
+
+  #dashNav,
+  #dashSubNav {
+    ul {
+      list-style: none;
+      li {
+        margin: 0.5rem 0;
+        a {
+          color: $ghost-white;
+          text-decoration: none;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  #dashNav {
+    a {
+      padding: 1rem;
+    }
+  }
+
+  #dashSubNav {
+    position: absolute;
+    bottom: 1rem;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      li {
+        a {
+          font-size: 2.5rem;
+          i {
+            margin-right: 2rem;
+            color: #b7b3ba;
+          }
+        }
+      }
+    }
+  }
+}
