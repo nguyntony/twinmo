@@ -65,7 +65,14 @@
         right: -3rem;
         bottom: 1rem;
         font-size: 2rem;
-        color: $dark-orange;
+
+        .fa-check-circle {
+          color: #7fda8d;
+        }
+
+        .fa-times-circle {
+          color: #ee6f59;
+        }
       }
     }
 
