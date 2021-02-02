@@ -5,7 +5,7 @@ import {Switch, Route, Redirect} from 'react-router-dom'
 
 export default function Signup() {
 
-  // hooks for form
+  // hooks for form!
   const [first, setFirst] = useState('')
   const [last, setLast] = useState('')
   const [email, setEmail] = useState('')

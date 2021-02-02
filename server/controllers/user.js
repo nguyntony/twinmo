@@ -144,14 +144,13 @@ const photoUpload = async (req, res) => {
     user.update({profilePic})
     res.status(200).json({
         status: 'API: Photo uploaded'
-        // send here 
+
     })
 }
 
 const photo = async (req, res) => {
     const {id} = req.session.user;
     const user = await User.findByPk(id)
-
     const photo = user.profilePic
     res.status(200).json({
         photo
