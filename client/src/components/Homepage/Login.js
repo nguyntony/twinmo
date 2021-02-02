@@ -14,13 +14,11 @@ export default function Login() {
     e.preventDefault();
     const resp = await axios.post('/api/user/login', {email, password})
 
-    if (resp.data.loginStatus) {
-      // will need to add a condition so that we can redirect to the member dashboard
-      console.log('login successful')
+    if (resp.data.status) {
       setSuccessfulLogin(true)
     } else {
       setShowMessage(true)
-      setAlert(resp.data.status)
+      setAlert(resp.data.message)
       setSuccessfulLogin(false)
     }
   }

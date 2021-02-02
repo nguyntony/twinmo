@@ -1,0 +1,13 @@
+#dashboardContainer {
+  background-color: $egg-white;
+  margin: -2rem -3rem;
+  padding: 2rem 3rem;
+  border-radius: 2.5rem;
+  height: 50rem; // will need to change this later
+  display: flex;
+  flex-direction: row;
+  // background: rgba(255, 255, 255, 0.1);
+  // backdrop-filter: blur(20px);
+}
+@import "./sidebar";
+@import "./dashboardContent";
