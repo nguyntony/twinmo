@@ -11,6 +11,12 @@ export default function TestLogin() {
   const [file, setFile] = useState('')
   const [photo, setPhoto] = useState('')
 
+  const getUsers = async (e) => {
+    e.preventDefault();
+    const resp = await axios.get('/api/member/get-users');
+
+  }
+
   // const processLogin = async (e) => {
   //   e.preventDefault();
   //   console.log('SENDING INFO');
@@ -110,11 +116,6 @@ export default function TestLogin() {
         <input type="submit" value='submit'/>
 
       </form>
-      <Switch>
-        <Route exact path="/test/dummy/login">
-          {/* {isLoggedIn ? <Redirect to="/" /> : ""} */}
-        </Route>
-      </Switch>
     </section>
     <section>
       <form onSubmit={processPicUpload}>
@@ -125,6 +126,7 @@ export default function TestLogin() {
       <button onClick={getPhoto}>PHTOT</button>
       {photo && <img src={photo} alt=""/> }
     </section>
+    <button onClick={getUsers}>GET USERS</button>
     </>
   )
 }
