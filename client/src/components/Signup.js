@@ -170,10 +170,7 @@ export default function Signup() {
 
                   {passwordValidation && <p className="status"><i className={passwordIcon}></i></p>}
                 </div>
-              </div>
-              
-              {/* {showMessage && <p id="alert">{alert}</p>} */}
-              
+              </div>    
               <div className="submit signup">
                 <button type="submit" disabled={disableSubmit}><i className="fas fa-arrow-alt-circle-right" style={disabledBtnStyle}></i></button>
               </div>
