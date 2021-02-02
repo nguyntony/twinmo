@@ -80,39 +80,39 @@ const processLogin = async (req, res) => {
     if (user) {
         const isValid = bcrypt.compareSync(password, user.hash);
         if (isValid) {
-            console.log('API: Password Success')
+            // console.log('API: Password Success')
             req.session.user = {
                 id: user.id
             }
             req.session.save(() => {
-                console.log('API: Login Success');
+                // console.log('API: Login Success');
                 res.status(200).json({
-                    status: "Login successful yes",
+                    status: "Login successful",
                     loginStatus: true
                 });
             })
         } else {
-            console.log('API: Username or Password is incorrect.');
+            // console.log('API: Email or Password is incorrect.');
             res.status(200).json({
-                status: 'Username or Password is not correct.',
+                status: 'Email or Password is incorrect',
                 loginStatus: false
             })
         }
     
     } else {
-        console.log("API: invalid username");
+        // console.log("API: invalid email");
         res.status(200).json({
-            status: "Invalid username or password",
+            status: "User does not exist",
             loginStatus: false
         });
         }
 }
 
 const logout = (req, res) => {
-    console.log('API: Logging Out.')
+    console.log('API: Logging Out')
     req.session.destroy(() => {
         res.status(200).json({
-            status: 'API: Logout Success'
+            status: 'Logout uccess'
         })
     })
 }
@@ -121,11 +121,11 @@ const loginStatus = (req, res) => {
     // console.log('API: Checking login status')
     if (req.session.user) {
         res.status(200).json({
-            status: "API: Active session"
+            status: "Active session"
         })
     } else {
         res.status(400).json({
-            status: "API: No active session",
+            status: "No active session",
         })
     }
 }
