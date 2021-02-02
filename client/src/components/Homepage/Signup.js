@@ -5,7 +5,7 @@ import {Switch, Route, Redirect} from 'react-router-dom'
 
 export default function Signup() {
 
-  // hooks for form
+  // hooks for form!
   const [first, setFirst] = useState('')
   const [last, setLast] = useState('')
   const [email, setEmail] = useState('')
@@ -29,12 +29,12 @@ export default function Signup() {
 
   // event handler fns
   const emailCheckHandler = async (e) => {
-    try {
-      const resp = await axios.post('/api/user/email-check', {email})
+    const resp = await axios.post('/api/user/email-check', {email});
+    
+    if (resp.data.status) {
       setEmailIcon(invalidIcon)
       setEmailValidation(true)
-
-    } catch (e) {
+    } else {
       if (email.includes('@')) {
         setEmailIcon(validIcon)
         setEmailValidation(true)
@@ -50,11 +50,12 @@ export default function Signup() {
   }
 
   const usernameCheckHandler = async (e) => {
-    try {
-      const resp = await axios.post('/api/user/username-check', {username})
+    const resp = await axios.post('/api/user/username-check', {username});
+
+    if (resp.data.status) {
       setUsernameIcon(invalidIcon)
       setUsernameValidation(true)
-    } catch (e) {
+    } else {
       if (username.length !== 0) {
         setUsernameIcon(validIcon)
         setUsernameValidation(true)
@@ -71,16 +72,17 @@ export default function Signup() {
 
   const processSignup = async (e) => {
     e.preventDefault();
-    try {
-      const resp = await axios.post('/api/user/new', {
-        first,
-        last,
-        email,
-        username,
-        password
-      })
+    const resp = await axios.post('/api/user/new', {
+      first,
+      last,
+      email,
+      username,
+      password
+    })
+
+    if (resp.data.status) {
       setSuccessfulSignup(true)
-    } catch (e) {
+    } else {
       setSuccessfulSignup(false)
     }
   }

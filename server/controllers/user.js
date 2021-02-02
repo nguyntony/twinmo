@@ -16,15 +16,15 @@ const processSignup = async(req, res) => {
         })
         // console.log('API: User created successfully.')
         res.status(200).json({
-            status:"User created successfully"
+            status: true,
+            message: "User created successfully"
         });
     } catch (e) {
         console.log(e.name);
         if (e.name === "SequelizeUniqueConstraintError") {
-            // console.log("API: Username or email already taken.")
-            // When the component renders at start, there shouldn't be an error message. If the user inputs an existing name, express will send back a json message that will be tied to a url. Conditionally render the message? Possibly.
-            res.status(400).json({
-                status: "Username or email is already taken"
+            res.status(200).json({
+                status: false,
+                message: "Username or email is already taken"
             })
         }
     }
@@ -40,11 +40,13 @@ const uniqueUsernameCheck = async (req, res) => {
 
     if (user) {
         res.status(200).json({
-            status: "Username is not taken"
+            status: true,
+            message: "Username is not taken"
         })
     } else {
-        res.status(400).json({
-            status: "Username is taken"
+        res.status(200).json({
+            status: false,
+            message: "Username is taken"
         })
     }
 }
@@ -60,11 +62,13 @@ const uniqueEmailCheck = async (req, res) => {
     console.log(user)
     if (user) {
         res.status(200).json({
-            status: "Email is not taken"
+            status: true,
+            message: "Email is taken"
         })
     } else {
-        res.status(400).json({
-            status: "Email is taken"
+        res.status(200).json({
+            status: false,
+            message: "Email is not taken"
         })
     }
 }
@@ -140,14 +144,13 @@ const photoUpload = async (req, res) => {
     user.update({profilePic})
     res.status(200).json({
         status: 'API: Photo uploaded'
-        // send here 
+
     })
 }
 
 const photo = async (req, res) => {
     const {id} = req.session.user;
     const user = await User.findByPk(id)
-
     const photo = user.profilePic
     res.status(200).json({
         photo
