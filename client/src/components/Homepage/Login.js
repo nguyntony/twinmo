@@ -58,7 +58,6 @@ export default function Login() {
             <Switch>
               <Route path='/user/login' exact>
                 {successfulLogin && <Redirect to='/member/dashboard'/>}
-
               </Route>
             </Switch>
           </div>

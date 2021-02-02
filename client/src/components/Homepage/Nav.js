@@ -31,7 +31,7 @@ export default function Nav() {
     } else {
       setShowNav(false)
     }
-  }, [])
+  }, [currentPath])
 
   return (
     <>
