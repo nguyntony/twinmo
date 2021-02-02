@@ -66,8 +66,9 @@
   }
 }
 
-@import "home";
-@import "background";
-@import "homeForms";
-@import "about";
-@import "dashboard";
+@import "./Homepage/home";
+@import "./Homepage/background";
+@import "./Homepage/homeForms";
+@import "./Homepage/about";
+@import "./Member/sidebar";
+@import "./Member/dashboard";
