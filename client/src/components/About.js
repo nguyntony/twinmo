@@ -70,12 +70,14 @@ export default function About() {
                 {content[contentID].subtitle && <h3>{content[contentID].subtitle}</h3>}
               </div>
 
-              <p className="profileDescription">
+              <div className="profileDescription">
                 
 
-                {content[contentID].description} 
-              
+                <p>{content[contentID].description}
                 {content[contentID].link && <a href="https://twintracker.me/">personal finance.</a>}
+                </p>
+              
+              
               {content[contentID].contact && 
               <nav className="profileNav">
                 <ul>
@@ -84,7 +86,7 @@ export default function About() {
                   <li><a href={content[contentID].contact[2]} target="_blank" rel="noreferrer"><i className="fab fa-github"></i></a></li>
                 </ul>
               </nav>}
-              </p>
+              </div>
           </div>
         </div>
 
