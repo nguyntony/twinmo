@@ -22,32 +22,77 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        first: "Pearl",
+        first: "Bismuth",
         last: "Nguyen",
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
-        email: "pearl@mail.com",
-        username: "Pearlizer",
+        email: "bismuth@mail.com",
+        username: "Down_To_Bismuth",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        first: "Pearl",
+        first: "Amethyst",
         last: "Nguyen",
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
-        email: "pearl@mail.com",
-        username: "Pearlizer",
+        email: "amethyst@mail.com",
+        username: "Purple_Puma",
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        first: "Pearl",
-        last: "Nguyen",
+        first: "Lapis",
+        last: "Lazuli",
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
-        email: "pearl@mail.com",
-        username: "Pearlizer",
+        email: "lapis@mail.com",
+        username: "Watergirl",
         createdAt: new Date(),
         updatedAt: new Date()
-      }
+      },
+      {
+        first: "Greg",
+        last: "Universe",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "greg@mail.com",
+        username: "muzak_man",
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Connie",
+        last: "Maheswaran",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "connie@mail.com",
+        username: "Blade122",
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Onion",
+        last: "?",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "onion@mail.com",
+        username: "Onion",
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Laramie",
+        last: "Barriga",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "lars@mail.com",
+        username: "Lars",
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Sadie",
+        last: "Miller",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "sadie@mail.com",
+        username: "Donut_Girl007",
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
     ], {})
   },
 
@@ -58,5 +103,7 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+    return await queryInterface.bulkDelete("Users")
+
   }
 };
