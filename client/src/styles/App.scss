@@ -23,7 +23,7 @@
     z-index: 100;
     margin: 3rem;
 
-    nav {
+    #homeNav {
       align-items: center;
       display: flex;
       justify-content: space-between;
@@ -70,3 +70,4 @@
 @import "background";
 @import "homeForms";
 @import "about";
+@import "dashboard";

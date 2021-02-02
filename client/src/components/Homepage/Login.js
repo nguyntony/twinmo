@@ -1,12 +1,14 @@
-import loginImage from '../assets/login.png'
-import {useState} from 'react'
+import loginImage from '../../assets/login.png'
+import {useState, useEffect} from 'react'
 import axios from 'axios'
+import {Switch, Route, Redirect} from 'react-router-dom'
 
 export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showMessage, setShowMessage] = useState(false)
   const [alert, setAlert] = useState('')
+  const [successfulLogin, setSuccessfulLogin] = useState(false)
 
   const processLogin = async (e) => {
     e.preventDefault();
@@ -15,11 +17,18 @@ export default function Login() {
     if (resp.data.loginStatus) {
       // will need to add a condition so that we can redirect to the member dashboard
       console.log('login successful')
+      setSuccessfulLogin(true)
     } else {
       setShowMessage(true)
       setAlert(resp.data.status)
+      setSuccessfulLogin(false)
     }
   }
+  
+  // onload set successful login to false
+  useEffect(() => {
+    setSuccessfulLogin(false)
+  }, [])
 
   return (
     <section className="contentContainer">
@@ -45,6 +54,13 @@ export default function Login() {
               {showMessage && <p id="alert">{alert}</p>}
               <p className="message">Not a member? <a href="/user/signup">Signup</a></p>
             </form>
+
+            <Switch>
+              <Route path='/user/login' exact>
+                {successfulLogin && <Redirect to='/member/dashboard'/>}
+
+              </Route>
+            </Switch>
           </div>
         </div>
       </div>

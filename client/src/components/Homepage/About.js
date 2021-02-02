@@ -1,7 +1,7 @@
 // this component will briefly explain the app but also showcase the members 
 // it will contain different css to the home component
-import tonyHeadshot from '../assets/tony-headshot.jpg'
-import tylerHeadshot from '../assets/tyler-headshot.jpg'
+import tonyHeadshot from '../../assets/tony-headshot.jpg'
+import tylerHeadshot from '../../assets/tyler-headshot.jpg'
 import {useState} from 'react'
 
 export default function About() {
@@ -79,7 +79,7 @@ export default function About() {
               
               
               {content[contentID].contact && 
-              <nav className="profileNav">
+              <nav id="profileNav">
                 <ul>
                   <li><a href={content[contentID].contact[0]} target="_blank" rel="noreferrer"><i className="fas fa-address-card"></i></a></li>
                   <li><a href={content[contentID].contact[1]} target="_blank" rel="noreferrer"><i className="fab fa-linkedin"></i></a></li>
