@@ -10,6 +10,7 @@ import TestSignup from './components/TestSignup'
 import TestLogin from './components/TestLogin'
 
 import Dashboard from './components/Member/Dashboard'
+import TestMember from './components/Member/TestMember'
 
 function App() {
 
@@ -34,7 +35,8 @@ function App() {
               <Route path='/about' exact component={About}/>
               <Route path='/test/dummy/signup' exact component={TestSignup}/>
               <Route path='/test/dummy/login' exact component={TestLogin}/>
-              <Route path='/member/dashboard' exact component={Dashboard}/>
+              {/* <Route path='/member' component={TestMember}/> */}
+              <Route path='/member/dashboard' component={Dashboard}/>
               
           </Switch>
 
