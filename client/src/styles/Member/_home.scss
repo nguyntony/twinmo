@@ -1,5 +1,113 @@
 #dashboardContentContainer {
-  h1 {
-    color: blue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 1rem;
+  margin-left: 3rem;
+
+  .request-container,
+  .pending-container {
+    width: 30rem;
+    height: 40rem;
+    background-color: #e4e4f1;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    justify-content: space-around;
+    // box-shadow: 5px 5px 5px rgba(46, 54, 68, 0.4);
+    position: relative;
+    overflow: hidden;
+
+    .half-circle-bg {
+      position: absolute;
+      background-color: $light-pink;
+      bottom: -15rem;
+      width: 50rem;
+      height: 45rem;
+      border-radius: 50%;
+    }
+
+    .icon {
+      width: 17rem;
+      height: 17rem;
+      background-color: $deep-pink;
+      border-radius: 100%;
+      position: relative;
+      overflow: hidden;
+      // border: 1px solid $light-black;
+      box-shadow: 2px 2px 2px rgba(46, 54, 68, 0.4);
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .mostRecent {
+      width: 90%;
+      height: 6rem;
+      background-color: $med-pink;
+      border-radius: 1.3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+
+      h3 {
+        text-align: center;
+
+        .divider {
+          height: 1rem;
+          width: 0.5rem;
+          background-color: $light-black;
+          border: 2px solid $light-black;
+          border-radius: 2px;
+          margin: 0 1rem;
+        }
+      }
+      p {
+        text-align: center;
+      }
+    }
+
+    .title {
+      position: relative;
+
+      h1 {
+        a {
+          color: rgb(35, 35, 35);
+          text-decoration: none;
+
+          &:hover {
+            color: $deep-pink;
+          }
+        }
+      }
+    }
+
+    .badge {
+      position: absolute;
+      top: -0.5rem;
+      right: -2.8rem;
+      background-color: $deep-pink;
+      padding: 0.5rem;
+      border-radius: 100%;
+      width: 3rem;
+      height: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      font-size: 2rem;
+
+      p {
+        color: $ghost-white;
+        font-weight: $bold;
+      }
+    }
   }
 }

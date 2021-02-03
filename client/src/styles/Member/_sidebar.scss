@@ -4,7 +4,7 @@
   margin-left: -3rem;
   padding: 2rem 3rem;
   width: 25rem; // may need to change later
-  border-radius: 2.5rem 0 0 2.5rem;
+  border-radius: 2.5rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -15,8 +15,11 @@
     border-radius: 100%;
     background-color: $dark-pink;
     align-self: center;
+    overflow: hidden;
 
-    // will include img css here
+    img {
+      width: 100%;
+    }
   }
 
   .nameCard {
@@ -36,11 +39,15 @@
     ul {
       list-style: none;
       li {
-        margin: 0.5rem 0;
+        margin: 0.7rem 0;
         a {
           color: $ghost-white;
           text-decoration: none;
           font-size: 1.5rem;
+
+          &:hover {
+            color: $med-pink;
+          }
         }
       }
     }
@@ -64,7 +71,11 @@
           font-size: 2.5rem;
           i {
             margin-right: 2rem;
-            color: #b7b3ba;
+            color: $med-grey;
+
+            &:hover {
+              color: $med-pink;
+            }
           }
         }
       }
