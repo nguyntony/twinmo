@@ -38,6 +38,7 @@ module.exports = {
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
         email: "pearl@mail.com",
         username: "Pearlizer",
+        profilePic: '/uploads/10a65ba3349fa4719cb9443889e7777d',
         createdAt: new Date(),
         updatedAt: new Date()
       },

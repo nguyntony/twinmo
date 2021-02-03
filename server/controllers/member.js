@@ -1,6 +1,7 @@
 const {User} = require('../models')
 const {Op} = require('sequelize');
-const {Friend} = require('../models')
+const {Friend} = require('../models');
+const { Sequelize } = require('sequelize');
 
 const userData = async (req, res) => {
     const {id} = req.session.user;
@@ -17,32 +18,84 @@ const userData = async (req, res) => {
 
 const findUsers = async (req, res) => {
     const {id} = req.session.user;
-    // const {input} = req.body;
-    const input = 'nguyen'
+    // let {input} = req.body;
+    let input = 'ruby facet'
 
-    const users = await User.findAll({
-        where: {
-            [Op.or]: [
-                {
-                    first: {
-                        [Op.iLike]: '%'+input+'%'
+    let users = []
+
+    if (input.includes(' ')) {
+        input = input.split(' ')
+        
+        users = await User.findAll({
+            where: {
+                [Op.or]: [
+                    {
+                        first: {
+                            [Op.iLike]: '%'+input[0]+'%'
+                        },
+                        last: {
+                            [Op.iLike]: '%'+input[1]+'%'
+                        }
+                    },
+                    {
+                        first: {
+                            [Op.iLike]: '%'+input[1]+'%'
+                        },
+                        last: {
+                            [Op.iLike]: '%'+input[0]+'%'
+                        }
+                    },
+                ]
+            }
+        })
+    //     for (i of users) {
+    //         const isFriend = await Friend.findOne({
+    //             where: {
+    //                 [Op.or]: [
+    //                     {
+    //                         userID: id,
+    //                         friendID: i.id
+    //                     },
+    //                     {
+    //                         userID: i.id,
+    //                         friendID: id
+    //                     }
+    //                 ]
+    //             }
+    //         });
+
+    //     // Everyone is added a new key:value pair that is dynamically adjusted depending on who is searching for friends. That way react can easily utilize data and generate an "already friends" or "add friends" option.
+    //     if (isFriend) {
+    //         i.dataValues.friendship = true
+    //     } else {
+    //         i.dataValues.friendship = false
+    //     }
+    // }
+    // res.status(200).json(users)  
+    } else {
+        users = await User.findAll({
+            where: {
+                [Op.or]: [
+                    {
+                        first: {
+                            [Op.iLike]: '%'+input+'%'
+                        }
+                    },
+                    {
+                        last: {
+                            [Op.iLike]: '%'+input+'%'
+                        }
+                    },
+                    {
+                        username: {
+                            [Op.iLike]: '%'+input+'%'
+                        }
                     }
-                },
-                {
-                    last: {
-                        [Op.iLike]: '%'+input+'%'
-                    }
-                },
-                {
-                    username: {
-                        [Op.iLike]: '%'+input+'%'
-                    }
-                }
-            ]
-        },
-        attributes: ['id', 'first', 'last', 'username', 'profilePic']
-    })
-    
+                ]
+            },
+            attributes: ['id', 'first', 'last', 'username', 'profilePic']
+        })
+    }
     // Used to tell a component whether or not a user is friends with someone or not. When searching for a friend, if that 
     for (i of users) {
         const isFriend = await Friend.findOne({
@@ -63,20 +116,17 @@ const findUsers = async (req, res) => {
         // Everyone is added a new key:value pair that is dynamically adjusted depending on who is searching for friends. That way react can easily utilize data and generate an "already friends" or "add friends" option.
         if (isFriend) {
             i.dataValues.friendship = true
-            console.log(i, 'YES')
         } else {
             i.dataValues.friendship = false
-            console.log(i, 'NO')
         }
     }
-
-    res.status(200).json(users)
+    res.status(200).json(users)  
 }
 
 const addFriend = async (req, res) => {
     const {id} = req.session.user;
     // const {friendID} = req.body;
-    const friendID = 1
+    const friendID = id+4
 
     const createFriendship = await Friend.create({
         userID: id,
@@ -89,7 +139,7 @@ const addFriend = async (req, res) => {
     })
 }
 
-const findFriends = async (req, res) => {
+const findAllFriends = async (req, res) => {
     const {id} = req.session.user;
 
     // Searches for the friendships in the table.
@@ -137,5 +187,5 @@ module.exports = {
     userData,
     findUsers,
     addFriend,
-    findFriends
+    findAllFriends
 }

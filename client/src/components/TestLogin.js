@@ -11,6 +11,7 @@ export default function TestLogin() {
   const [file, setFile] = useState('')
   const [photo, setPhoto] = useState('')
 
+  // ------------------------------------------------
   const getUsers = async (e) => {
     e.preventDefault();
     const resp = await axios.get('/api/member/get-users');
@@ -28,6 +29,15 @@ export default function TestLogin() {
     const resp = await axios.get('/api/member/friend/find-all');
     console.log(resp.data)
   }
+  
+  // ------------------------------------------------
+
+  const allPending = async (e) => {
+    e.preventDefault();
+    const resp = await axios.get('/api/member/pending/list');
+    console.log(resp.data)
+  }
+
 
   const processLogin = async (e) => {
     e.preventDefault();
@@ -124,6 +134,8 @@ export default function TestLogin() {
     <button onClick={addFriend}>ADD FRIEND</button>
     <br/>
     <button onClick={listFriend}>LIST ALL FRIENDS</button>
+    <br/>
+    <button onClick={allPending}>ALL PENDING (USER SENT)</button>
     </>
   )
 }

@@ -7,6 +7,6 @@ router
     .get('/user-data', memberController.userData)
     .get('/get-users', memberController.findUsers)
     .post('/friend/add', memberController.addFriend)
-    .get('/friend/find-all', memberController.findFriends)
+    .get('/friend/find-all', memberController.findAllFriends)
 
 module.exports = router
