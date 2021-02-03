@@ -4,6 +4,8 @@ import {useState, useEffect} from 'react'
 export default function PayRequestForm() {
   const [searchInput, setSearchInput] = useState('')
   const [friend, setFriend] = useState(false)
+  const [amount, setAmount] = useState('')
+  const [type, setType] = useState('')
   
   // evnt handler 
   const showForm = () => {
@@ -12,6 +14,10 @@ export default function PayRequestForm() {
 
   const submitHandler = (e) => {
     e.preventDefault()
+  }
+
+  const amountHandler = (e) => {
+    setAmount('$' + e.target.value)
   }
 
   useEffect(()=> {
@@ -35,15 +41,23 @@ export default function PayRequestForm() {
 
                 </div>
 
-                <input type="number" min="1"/>
+                <input type="number" min="1" className="amount" placeholder="$0" onChange={amountHandler}/>
 
                 <input type="text" placeholder="Description"/>
 
-                <input type="radio" name="type" value="payment" id="payment"/>
-                <label htmlFor="payment">Pay</label>
-
-                <input type="radio" name="type" value="request" id="request"/>
-                <label htmlFor="request">Request</label>
+                <div className="type">
+                  <ul>
+                    <li>
+                      <input type="radio" name="type" value="payment" id="payment" onClick={() => setType('payment')}/>
+                      <label htmlFor="payment">Payment</label>
+                    </li>
+    
+                    <li>
+                      <input type="radio" name="type" value="request" id="request" onClick={() => setType('request')}/>
+                      <label htmlFor="request">Request</label>
+                    </li>
+                  </ul>
+                </div>
 
 
 
