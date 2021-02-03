@@ -1,0 +1,35 @@
+#homepageContainer {
+  #homeNav {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    h2 {
+      color: $ghost-white;
+      font-weight: $boldest;
+    }
+
+    .nav-list {
+      display: flex;
+      justify-content: space-around;
+      list-style-type: none;
+      width: 30rem;
+
+      a {
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+          text-decoration-color: $dark-pink;
+          text-decoration-thickness: 0.3rem;
+        }
+      }
+
+      li {
+        @extend h3;
+        color: $ghost-white;
+        font-weight: $bolder;
+      }
+    }
+  }
+}

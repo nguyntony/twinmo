@@ -1,20 +1,13 @@
 import './styles/App.scss'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import { useState } from 'react'
 
-import Home from './components/Homepage/Home'
-import Nav from './components/Homepage/Nav'
-import Login from './components/Homepage/Login'
-import Signup from './components/Homepage/Signup'
-import About from './components/Homepage/About'
 import TestSignup from './components/TestSignup'
 import TestLogin from './components/TestLogin'
 
-import DashboardContainer from './components/Member/DashboardContainer'
-import TestMember from './components/Member/TestMember'
-import { useEffect, useState } from 'react'
-
-
 import Protected from './components/Member/Protected'
+import {HomepageLayout, homeRoute} from './components/Homepage/HomeLayout'
+import {MemberLayout, memberRoute} from './components/Member/MemberLayout'
 
 function App() {
 
@@ -23,34 +16,33 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* <Switch>  */}
-          <section id="bg">
-            <div className="circle1"></div>
-            <div className="circle2"></div>
-            <div className="circle3"></div>
-            <div className="circle4"></div>
-          </section>
-  
-        <div id="window">
-          <Nav />
-  
+      
           <Switch>
 
-              <Route path='/' exact component={Home}/>
-              <Route path='/user/login' exact component={Login}/>
-              <Route path='/user/signup' exact component={Signup}/>
-              <Route path='/about' exact component={About}/>
+              {/* will be deleted */}
               <Route path='/test/dummy/signup' exact component={TestSignup}/>
               <Route path='/test/dummy/login' exact component={TestLogin}/>
-              
+
+              {/* homepage */}
+              {homeRoute.map(r => (
+                <Route path={r.path} key={r.route} exact>
+                  <HomepageLayout component={r.component}/>
+                </Route>
+              ))}
+
+
+              {/* members-only */}
               <Protected isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}>
-                <Route path='/member/dashboard' component={DashboardContainer}/>
+                
+                {memberRoute.map(r => (
+                  <Route path={r.path} key={r.route} exact>
+                    <MemberLayout component={r.component}/>
+                  </Route>
+                ))}
+
               </Protected>
               
           </Switch>
-
-        </div>
-      {/* </Switch> */}
       </div>
     </Router>
   );
