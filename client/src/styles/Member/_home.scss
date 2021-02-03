@@ -16,11 +16,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem 0;
+    // padding: 2rem 0;
     justify-content: space-around;
     // box-shadow: 5px 5px 5px rgba(46, 54, 68, 0.4);
     position: relative;
     overflow: hidden;
+    margin: 2rem;
 
     .half-circle-bg {
       position: absolute;

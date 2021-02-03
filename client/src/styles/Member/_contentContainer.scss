@@ -8,7 +8,8 @@
   box-shadow: 15px 15px 15px rgba(46, 54, 68, 0.4);
   // background: rgba(255, 255, 255, 0.1);
   // backdrop-filter: blur(20px);
-  width: 100rem;
+  width: fit-content; //may need to change?
+  max-width: 140rem; // may need to change?
   margin: 3rem;
   z-index: 100;
   // display: none;
@@ -16,3 +17,5 @@
 @import "./background";
 @import "./sidebar";
 @import "./home";
+@import "./friends";
+@import "./payrequestForm";

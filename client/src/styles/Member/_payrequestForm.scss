@@ -1,0 +1,30 @@
+#payRequestForm {
+  width: 100%;
+  margin-left: 3rem;
+  // background-color: peachpuff;
+
+  .form {
+    height: 100%;
+    background-color: peachpuff;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 100%;
+      background-color: palevioletred;
+
+      .searchBar {
+        width: 35rem;
+        height: 4rem;
+        border-radius: 1.2rem;
+        outline: none;
+        border: none;
+        background-color: $light-grey;
+        font-family: $Noto;
+        font-size: 1.5rem;
+        padding: 2rem;
+      }
+    }
+  }
+}

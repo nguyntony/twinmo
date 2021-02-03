@@ -1,7 +1,7 @@
 import {useLocation} from 'react-router-dom'
 import userProfilePicture from '../../assets/demo_assets/stevenuni.jpg'
 
-export default function Sidarbar() {
+export default function Sidebar() {
 
   const location = useLocation()
   const currentPath = location.pathname

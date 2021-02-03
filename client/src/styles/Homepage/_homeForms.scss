@@ -46,6 +46,7 @@
         border: none;
         border-radius: 2rem;
         background-color: $light-purple;
+        font-family: $Noto;
 
         &:focus {
           background-color: $lighter-purple;
@@ -58,6 +59,7 @@
         left: 2rem;
         pointer-events: none;
         transition: all 0.3s ease;
+        font-family: $Noto;
       }
 
       .status {
@@ -129,7 +131,7 @@
 .form input:focus + .label,
 .form input:valid + .label,
 .form input:not(:placeholder-shown):not(:focus):invalid + .label {
-  transform: translateY(-180%);
+  transform: translateY(-140%);
   font-size: 1.3rem;
   font-weight: bold;
   letter-spacing: 0.5px;
