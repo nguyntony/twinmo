@@ -1,13 +1,16 @@
 const bcrypt = require('bcryptjs')
 const {User} = require('../models')
+// const { v4: uuidv4 } = require('uuid');
 
 const processSignup = async(req, res) => {
     const {first, last, email, username, password} = req.body;
     
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
+    // const uuid = uuidv4();
     try {
         const newUser = await User.create({
+            // id: uuid,
             first,
             last,
             email,

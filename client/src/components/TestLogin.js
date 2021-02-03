@@ -23,24 +23,11 @@ export default function TestLogin() {
     console.log(resp.data.message)
   }
 
-  // const processLogin = async (e) => {
-  //   e.preventDefault();
-  //   console.log('SENDING INFO');
-  //   try {
-  //     const resp = await axios.post('/api/user/login', {
-  //       email,
-  //       password
-  //     })
-  //     console.log(resp.data.status)
-  //     setLoginFailed(false)
-  //     // here if the user is logged in, we set the state to true and then we can conditionally do something with the bool
-  //   } catch (e) {
-  //     console.log(e)
-  //     console.log('Cant login')
-  //     setLoginFailed(true)
-  //     // if the user failed to log in, we can do something else 
-  //   }
-  // }
+  const listFriend = async (e) => {
+    e.preventDefault();
+    const resp = await axios.get('/api/member/friend/find-all');
+    console.log(resp.data)
+  }
 
   const processLogin = async (e) => {
     e.preventDefault();
@@ -133,7 +120,10 @@ export default function TestLogin() {
       {photo && <img src={photo} alt=""/> }
     </section>
     <button onClick={getUsers}>GET USERS</button>
+    <br/>
     <button onClick={addFriend}>ADD FRIEND</button>
+    <br/>
+    <button onClick={listFriend}>LIST ALL FRIENDS</button>
     </>
   )
 }
