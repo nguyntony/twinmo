@@ -3,7 +3,11 @@ const {User} = require('../models')
 // const { v4: uuidv4 } = require('uuid');
 
 const processSignup = async(req, res) => {
-    const {first, last, email, username, password} = req.body;
+    let {first, last, email, username, password} = req.body;
+
+    first = first.charAt(0).toUpperCase() + first.slice(1);
+    last = last.charAt(0).toUpperCase() + last.slice(1);
+    username = username.toLowerCase();
     
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
