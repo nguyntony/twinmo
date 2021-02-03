@@ -14,7 +14,13 @@ export default function TestLogin() {
   const getUsers = async (e) => {
     e.preventDefault();
     const resp = await axios.get('/api/member/get-users');
+    console.log(resp.data)
+  } 
 
+  const addFriend = async (e) => {
+    e.preventDefault();
+    const resp = await axios.post('/api/member/friend/add');
+    console.log(resp.data.message)
   }
 
   // const processLogin = async (e) => {
@@ -127,6 +133,7 @@ export default function TestLogin() {
       {photo && <img src={photo} alt=""/> }
     </section>
     <button onClick={getUsers}>GET USERS</button>
+    <button onClick={addFriend}>ADD FRIEND</button>
     </>
   )
 }

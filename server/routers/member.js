@@ -7,6 +7,6 @@ const {memberController} = require('../controllers')
 router
     .get("*", requireLogin)
     .get('/get-users', memberController.findUsers)
-
+    .post('/friend/add', memberController.addFriend)
 
 module.exports = router
