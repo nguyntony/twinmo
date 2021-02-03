@@ -8,15 +8,20 @@ $lighter-purple: #c6c6fa;
 $dark-orange: #fcc6a3;
 $med-orange: #ffd8be;
 $light-orange: #ffeedd;
+$med-orange2: #f7ddc4;
 $deep-pink: #ec3a5b;
 $dark-pink: #ff778f;
 $med-pink: #ff99ab;
 $light-pink: #ffd2dc;
+$med-grey: #c3c3cf;
+$light-grey: #dfdfed;
 $ghost-white: #f8f7ff;
 $shell-white: #f9f8ff;
 $white: #f0f3ff;
 $egg-white: #f3f6fd;
-$light-black: rgb(70, 70, 70);
+$dark-black: #232323;
+$med-black: #2d2d2d;
+$light-black: #464646;
 $boldest: 900;
 $bolder: 700;
 $bold: 500;
@@ -32,22 +37,22 @@ html {
 
 h1 {
   font-size: 4rem;
-  color: rgb(35, 35, 35);
+  color: $dark-black;
 }
 
 h2 {
   font-size: 3rem;
-  color: rgb(45, 45, 45);
+  color: $med-black;
 }
 
 h3 {
   font-size: 2rem;
-  color: rgb(45, 45, 45);
+  color: $med-black;
 }
 
 h4 {
   font-size: 1.8rem;
-  color: rgb(45, 45, 45);
+  color: $med-black;
 }
 
 p {

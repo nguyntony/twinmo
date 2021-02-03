@@ -1,4 +1,5 @@
 import {useLocation} from 'react-router-dom'
+import userProfilePicture from '../../assets/demo_assets/stevenuni.jpg'
 
 export default function Sidarbar() {
 
@@ -9,10 +10,11 @@ export default function Sidarbar() {
     // backgroundColor: '#c6c6fa',
     textDecoration: 'underline',
     textDecorationColor: '#ff778f',
-    textDecorationThickness: '0.2rem'
+    textDecorationThickness: '2px',
+    // color: '#ff99ab'
   }
 
-  const dashboardHighlight = currentPath === '/member/dashboard' ? {...highlight} : null
+  const dashboardHighlight = currentPath === '/member/home' ? {...highlight} : null
   const friendsHighlight = currentPath === '/member/friends' ? {...highlight} : null
   const payRequestHighlight = currentPath === '/member/pay-request' ? {...highlight} : null
 
@@ -20,7 +22,7 @@ export default function Sidarbar() {
     <section id="sidebar">
 
       <div className="profilePicture">
-        {/* <img src="" alt=""/> */}
+        <img src={userProfilePicture} alt="profile pic"/>
         {/* will need to grab data here */}
       </div>
 
@@ -31,7 +33,7 @@ export default function Sidarbar() {
 
       <nav id="dashNav">
         <ul>
-          <li><a href="/member/dashboard" style={dashboardHighlight}>Dashboard</a></li>
+          <li><a href="/member/home" style={dashboardHighlight}>Dashboard</a></li>
           <li><a href="/member/friends" style={friendsHighlight}>Friends</a></li>
           <li><a href="/member/pay-request" style={payRequestHighlight}>Pay / Request</a></li>
         </ul>
