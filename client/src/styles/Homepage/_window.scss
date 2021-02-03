@@ -1,0 +1,25 @@
+#homepageContainer {
+  background: $dark-purple;
+  border-radius: 2.5rem;
+  box-shadow: 15px 15px 15px rgba(46, 54, 68, 0.4);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 3rem;
+  width: 120rem; // this will need to be changed possibly
+  z-index: 100;
+  margin: 3rem;
+  // position: relative;
+
+  .contentContainer {
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    padding: 2rem;
+  }
+}
+
+@import "./background";
+@import "./home";
+@import "./homeForms";
+@import "./about";
+@import "./nav";

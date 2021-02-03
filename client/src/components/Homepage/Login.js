@@ -15,8 +15,10 @@ export default function Login() {
     const resp = await axios.post('/api/user/login', {email, password})
 
     if (resp.data.status) {
+      console.log('user logged in')
       setSuccessfulLogin(true)
     } else {
+      console.log('user not logged in')
       setShowMessage(true)
       setAlert(resp.data.message)
       setSuccessfulLogin(false)

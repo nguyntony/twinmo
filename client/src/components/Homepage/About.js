@@ -1,5 +1,3 @@
-// this component will briefly explain the app but also showcase the members 
-// it will contain different css to the home component
 import tonyHeadshot from '../../assets/tony-headshot.jpg'
 import tylerHeadshot from '../../assets/tyler-headshot.jpg'
 import {useState} from 'react'

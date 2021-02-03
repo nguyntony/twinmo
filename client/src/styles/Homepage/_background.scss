@@ -1,7 +1,28 @@
+#HomeWindow {
+  // background-color: $med-purple;
+  // width: 100vw;
+  // display: flex;
+  // align-self: center;
+  // justify-content: center;
+  // position: relative;
+  // overflow: hidden;
+  // height: 100vh;
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
 #bg {
   width: 100%;
   height: 100%;
   position: absolute;
+  top: 0;
+  left: 0;
+  background-color: $med-purple;
 
   .circle1,
   .circle2,
