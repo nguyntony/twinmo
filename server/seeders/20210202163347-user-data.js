@@ -13,6 +13,26 @@ module.exports = {
     */
     return await queryInterface.bulkInsert("Users", [
       {
+        first: "Steven",
+        last: "Universe",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "steven@mail.com",
+        username: "Stevenator",
+        profilePic: '/uploads/stevenuni.jpg',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Peridot",
+        last: "Glorp",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "peridot@mail.com",
+        username: "Peridactyl",
+        profilePic: '/uploads/peridot.png',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
         first: "Pearl",
         last: "Nguyen",
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
@@ -63,6 +83,7 @@ module.exports = {
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
         email: "connie@mail.com",
         username: "Blade122",
+        profilePic: '/uploads/connie.png',
         createdAt: new Date(),
         updatedAt: new Date()
       },
