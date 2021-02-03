@@ -5,14 +5,14 @@
 
   .form {
     height: 100%;
-    background-color: peachpuff;
+    // background-color: peachpuff;
 
     form {
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      // justify-content: space-around;
       height: 100%;
-      background-color: palevioletred;
+      // background-color: palevioletred;
 
       .searchBar {
         width: 35rem;
@@ -24,6 +24,70 @@
         font-family: $Noto;
         font-size: 1.5rem;
         padding: 2rem;
+      }
+
+      .friendProfilePicture {
+        width: 17rem;
+        height: 17rem;
+        border-radius: 100%;
+        background-color: peachpuff;
+        align-self: center;
+        margin: 2rem 0;
+      }
+
+      .amount {
+        height: 5rem;
+        width: 50%;
+        align-self: center;
+        outline: none;
+        border: none;
+        font-size: 3rem;
+        text-align: center;
+        font-family: $Noto;
+        font-weight: $boldest;
+        background-color: palevioletred;
+        color: $med-black;
+
+        &::placeholder {
+          color: $med-black;
+        }
+
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+        }
+      }
+
+      .type {
+        width: 100%;
+
+        ul {
+          list-style-type: none;
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          // justify-content: space-around;
+          margin: 1rem;
+
+          li {
+            width: 50%;
+            text-align: center;
+
+            input[type="radio"] {
+              // visibility: hidden;
+              display: none;
+
+              &:checked + label {
+                background: red;
+              }
+            }
+
+            label {
+              cursor: pointer;
+              font-family: $Noto;
+              font-size: 1.5rem;
+            }
+          }
+        }
       }
     }
   }
