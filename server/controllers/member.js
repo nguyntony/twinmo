@@ -5,6 +5,7 @@ const { Sequelize } = require('sequelize');
 
 const userData = async (req, res) => {
     const {id} = req.session.user;
+    console.log('USER DATA:', id);
 
     const user = await User.findOne({
         where: {

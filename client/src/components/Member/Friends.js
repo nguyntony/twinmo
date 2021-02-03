@@ -7,6 +7,7 @@ export default function Friends() {
   const [searchInput, setSearchInput] = useState('')
   const [showFriends, setShowFriends] = useState(true)
   const [showResults, setShowResults] = useState(false)
+      // ADD STATE FOR ALL FRIENDLIST. THEN CAN MAP.
 
   // evt handler
   const submitHandler = (e) => {
@@ -20,6 +21,7 @@ export default function Friends() {
     setShowFriends(true)
     setShowResults(false)
   }, [])
+      // ADD USE EFFECT FOR GRABBING ALL FRIENDS ON MOUNT.
 
   return (
     <section id="friendsContainer">
