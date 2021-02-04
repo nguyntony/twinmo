@@ -58,10 +58,12 @@
     flex-wrap: wrap;
     margin: 2rem -1rem;
     overflow-y: scroll;
+    // scrollbar-color: $med-grey black;
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    // &::-webkit-scrollbar-track {
+    //   // display: none;
+    //   // background: black;
+    // }
 
     .friendsCard {
       display: flex;
