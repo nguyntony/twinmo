@@ -38,7 +38,7 @@ export default function Home() {
         </div>
 
         <div className="title">
-          <h1><a href="#">requests</a></h1>
+          <h1><a href="/member/request">requests</a></h1>
           <div className="badge">
             <p>
               {requestAmt}

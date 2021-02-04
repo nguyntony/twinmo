@@ -55,7 +55,7 @@
 
       label {
         position: absolute;
-        bottom: 1.25rem;
+        bottom: 1rem;
         left: 2rem;
         pointer-events: none;
         transition: all 0.3s ease;
@@ -131,7 +131,7 @@
 .form input:focus + .label,
 .form input:valid + .label,
 .form input:not(:placeholder-shown):not(:focus):invalid + .label {
-  transform: translateY(-140%);
+  transform: translateY(-155%);
   font-size: 1.3rem;
   font-weight: bold;
   letter-spacing: 0.5px;
