@@ -39,12 +39,12 @@ export default function Login() {
             <form onSubmit={processLogin}>
               <div className="one-line">
                 <div className="field email">
-                  <input type="email" name="email" required autoComplete="off" placeholder=" " onChange={e => setEmail(e.target.value)}/>
+                  <input type="email" name="email" required autoComplete="off" placeholder=" " onChange={e => setEmail(e.target.value)} value={email}/>
                   <label htmlFor="email" className="label">Email</label>
                 </div>
   
                 <div className="field">
-                  <input type="password" name="password" required autoComplete="off" placeholder=" " onChange={e => setPassword(e.target.value)}/>
+                  <input type="password" name="password" required autoComplete="off" placeholder=" " onChange={e => setPassword(e.target.value)} value={password}/>
                   <label htmlFor="password" className="label">Password</label>
                 </div>
                 <div className="submit login">
