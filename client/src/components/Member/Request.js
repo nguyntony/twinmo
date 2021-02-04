@@ -22,15 +22,10 @@ export default function Request() {
   return (
     <section id="requestContainer">
       <div className="title">
-        <h1>request</h1>
+        <h1>requests from friends</h1>
+        <h4><a href="/member/pending">pending <i className="fas fa-caret-right"></i></a></h4>
       </div>
-      {/* {
-        requests && 
-        requests.map((r,idx) => (
-          <p key={idx}>{r.friendUsername} - {r.amount}</p>
-        ))
-      } */}
-
+    
       <div className="requestContentContainer">
         {
           requests &&
@@ -42,6 +37,7 @@ export default function Request() {
             name={r.friendName}
             description={r.description}
             amount={numeral(r.amount).format('$0,0.00')}
+            username={r.friendUsername}
             />
           ))
         }
