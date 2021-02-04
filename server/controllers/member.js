@@ -126,8 +126,8 @@ const findUsers = async (req, res) => {
 
 const addFriend = async (req, res) => {
     const {id} = req.session.user;
-    // const {friendID} = req.body;
-    const friendID = id+4
+    const {friendID} = req.body;
+    // const friendID = id+4
 
     const createFriendship = await Friend.create({
         userID: id,

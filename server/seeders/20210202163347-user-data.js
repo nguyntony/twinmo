@@ -19,6 +19,7 @@ module.exports = {
         email: "steven@mail.com",
         username: "stevenator",
         profilePic: '/uploads/stevenuni.jpg',
+        funds: 5000.00,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -29,6 +30,7 @@ module.exports = {
         email: "peridot@mail.com",
         username: "peridactyl",
         profilePic: '/uploads/peridot.png',
+        funds: 5000.00,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -39,6 +41,7 @@ module.exports = {
         email: "pearl@mail.com",
         username: "pearlizer",
         profilePic: '/uploads/pearl.png',
+        funds: 5000.00,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -49,6 +52,7 @@ module.exports = {
         email: "bismuth@mail.com",
         username: "down_to_bismuth",
         profilePic: '/uploads/bismuth.png',
+        funds: 5000.00,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -59,6 +63,7 @@ module.exports = {
         email: "amethyst@mail.com",
         username: "purple_puma",
         profilePic: '/uploads/amethyst.png',
+        funds: 5000.00,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -69,6 +74,7 @@ module.exports = {
         email: "lapis@mail.com",
         profilePic: '/uploads/lapis.png',
         username: "watergirl",
+        funds: 5000.00,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -79,6 +85,7 @@ module.exports = {
         email: "greg@mail.com",
         profilePic: '/uploads/greg.png',
         username: "muzak_man",
+        funds: 5000.00,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -89,6 +96,7 @@ module.exports = {
         email: "connie@mail.com",
         username: "blade122",
         profilePic: '/uploads/connie.png',
+        funds: 5000.00,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -99,6 +107,7 @@ module.exports = {
         email: "onion@mail.com",
         username: "the_abyss",
         profilePic: '/uploads/onion.png',
+        funds: 5000.00,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -109,6 +118,7 @@ module.exports = {
         email: "lars@mail.com",
         username: "the_cool_lars",
         profilePic: '/uploads/lars.png',
+        funds: 5000.00,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -119,6 +129,7 @@ module.exports = {
         email: "sadie@mail.com",
         username: "donut_girl007",
         profilePic: '/uploads/sadie.png',
+        funds: 5000.00,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -129,6 +140,7 @@ module.exports = {
         email: "doc@mail.com",
         username: "doc",
         profilePic: '/uploads/doc.png',
+        funds: 5000.00,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -139,6 +151,7 @@ module.exports = {
         email: "eyeball@mail.com",
         username: "eyeball",
         profilePic: '/uploads/eyeball.png',
+        funds: 5000.00,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -149,6 +162,18 @@ module.exports = {
         email: "army@mail.com",
         username: "army",
         profilePic: '/uploads/army.png',
+        funds: 5000.00,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Garnet",
+        last: "Duo",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "garnet@mail.com",
+        username: "g_force",
+        profilePic: '/uploads/garnet.png',
+        funds: 5000.00,
         createdAt: new Date(),
         updatedAt: new Date()
       },
