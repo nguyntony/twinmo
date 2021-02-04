@@ -1,3 +1,48 @@
 #requestContainer {
   margin-left: 3rem;
+  // background-color: cornflowerblue;
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    margin: 1rem 0;
+  }
+
+  .requestContentContainer {
+    // background-color: $light-grey;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 2rem -1rem;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .transaction {
+      // background-color: palegoldenrod;
+      width: 25rem;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: $light-grey;
+      padding: 2rem;
+      border-radius: 2rem;
+      margin: 1rem;
+
+      .icon {
+        width: 12rem;
+        height: 12rem;
+        border-radius: 100%;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
 }
