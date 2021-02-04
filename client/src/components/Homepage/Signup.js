@@ -22,7 +22,7 @@ export default function Signup() {
   const [passwordIcon, setPasswordIcon] = useState('')
   const [disableSubmit, setDisableSubmit] = useState(true)
   const [successfulSignup, setSuccessfulSignup] = useState(false)
-  const [btnColor, setBtnColor] = useState('#b7b3ba')
+  const [btnColor, setBtnColor] = useState('#dfdfed')
   const [btnPointer, setBtnPointer] = useState('unset')
   const invalidIcon = "far fa-times-circle"
   const validIcon = "far fa-check-circle"

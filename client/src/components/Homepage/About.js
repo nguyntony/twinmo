@@ -72,7 +72,7 @@ export default function About() {
                 
 
                 <p>{content[contentID].description}
-                {content[contentID].link && <a href="https://twintracker.me/">personal finance.</a>}
+                {content[contentID].link && <a href="https://twintracker.me/" target="_blank" rel="noreferrer">personal finance.</a>}
                 </p>
               
               
