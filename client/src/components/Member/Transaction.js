@@ -5,18 +5,20 @@ export default function Transaction({img, date, name, description, amount}) {
         <img src={img} alt="friend icon"/>
       </div>
 
+      <div className="amount">
+        <h4>{amount}</h4>
+      </div>
+
+
       <div className="info">
-        <h4>{description}</h4>
+        <p>{description}</p>
         <p>{date}</p>
       </div>
 
-      <div className="amount">
-        <p>{amount}</p>
-      </div>
 
       <div className="action">
-        <p><i className="far fa-check-circle approve"></i></p>
-        <p><i className="far fa-times-circle deny"></i></p>
+        <h4><i className="far fa-check-circle approve"></i></h4>
+        <h4><i className="far fa-times-circle deny"></i></h4>
       </div>
     </div>
   )
