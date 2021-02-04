@@ -12,7 +12,7 @@ const pendingList = async (req, res) => {
             type: 'request'
         },
         order: [["createdAt", "desc"]],
-        attributes: ['amount', 'createdAt', 'description', 'status', 'recipientID', 'senderID']
+        attributes: ['id', 'amount', 'createdAt', 'description', 'status', 'recipientID', 'senderID']
     })
 
     for (i of pendings) {
@@ -39,7 +39,7 @@ const requestList = async (req, res) => {
             type: 'request'
         },
         order: [["createdAt", "desc"]],
-        attributes: ['amount', 'createdAt', 'description', 'status', 'recipientID', 'senderID']
+        attributes: ['id', 'amount', 'createdAt', 'description', 'status', 'recipientID', 'senderID']
     })
 
     for (i of requests) {
