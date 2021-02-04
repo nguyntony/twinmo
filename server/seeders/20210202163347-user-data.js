@@ -38,7 +38,7 @@ module.exports = {
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
         email: "pearl@mail.com",
         username: "pearlizer",
-        profilePic: '/uploads/10a65ba3349fa4719cb9443889e7777d',
+        profilePic: '/uploads/pearl.png',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -48,6 +48,7 @@ module.exports = {
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
         email: "bismuth@mail.com",
         username: "down_to_bismuth",
+        profilePic: '/uploads/bismuth.png',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -57,6 +58,7 @@ module.exports = {
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
         email: "amethyst@mail.com",
         username: "purple_puma",
+        profilePic: '/uploads/amethyst.png',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -65,6 +67,7 @@ module.exports = {
         last: "Lazuli",
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
         email: "lapis@mail.com",
+        profilePic: '/uploads/lapis.png',
         username: "watergirl",
         createdAt: new Date(),
         updatedAt: new Date()
@@ -74,6 +77,7 @@ module.exports = {
         last: "Universe",
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
         email: "greg@mail.com",
+        profilePic: '/uploads/greg.png',
         username: "muzak_man",
         createdAt: new Date(),
         updatedAt: new Date()
@@ -94,6 +98,7 @@ module.exports = {
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
         email: "onion@mail.com",
         username: "the_abyss",
+        profilePic: '/uploads/onion.png',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -103,6 +108,7 @@ module.exports = {
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
         email: "lars@mail.com",
         username: "the_cool_lars",
+        profilePic: '/uploads/lars.png',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -112,6 +118,37 @@ module.exports = {
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
         email: "sadie@mail.com",
         username: "donut_girl007",
+        profilePic: '/uploads/sadie.png',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Ruby",
+        last: "Facet",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "doc@mail.com",
+        username: "doc",
+        profilePic: '/uploads/doc.png',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Ruby",
+        last: "Facet",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "eyeball@mail.com",
+        username: "eyeball",
+        profilePic: '/uploads/eyeball.png',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Ruby",
+        last: "Facet",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "army@mail.com",
+        username: "army",
+        profilePic: '/uploads/army.png',
         createdAt: new Date(),
         updatedAt: new Date()
       },
