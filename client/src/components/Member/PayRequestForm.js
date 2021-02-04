@@ -4,7 +4,7 @@ import {useState, useEffect} from 'react'
 export default function PayRequestForm() {
   const [searchInput, setSearchInput] = useState('')
   const [friend, setFriend] = useState(false)
-  const [amount, setAmount] = useState('')
+  const [amount, setAmount] = useState(null)
   const [type, setType] = useState('')
   
   // evnt handler 
@@ -16,10 +16,6 @@ export default function PayRequestForm() {
     e.preventDefault()
   }
 
-  const amountHandler = (e) => {
-    setAmount('$' + e.target.value)
-  }
-
   useEffect(()=> {
     setSearchInput('')
     setFriend(false)
@@ -29,7 +25,7 @@ export default function PayRequestForm() {
     <section id="payRequestForm">
         <div className="form">
           <form onSubmit={submitHandler}>
-            <input type="text" placeholder="Enter name or @username" required onChange={e => setSearchInput(e.target.value)} onBlur={showForm} className="searchBar"/>
+            <input type="text" placeholder="Enter name or @username" required onChange={e => setSearchInput(e.target.value)} value={searchInput} onBlur={showForm} className="searchBar"/>
 
             {/* conditionally render the rest after the user searches for a friend */}
 
@@ -41,7 +37,8 @@ export default function PayRequestForm() {
 
                 </div>
 
-                <input type="number" min="1" className="amount" placeholder="$0" onChange={amountHandler}/>
+
+                <input type="number" min="1" className="amount" placeholder="$0" value={amount} onChange={e => setAmount(e.target.value)} id="amount"/>
 
                 <input type="text" placeholder="Description"/>
 
