@@ -19,7 +19,7 @@ const userData = async (req, res) => {
 
 const findUsers = async (req, res) => {
     const {id} = req.session.user;
-    const {input} = req.body;
+    let {input} = req.body;
     // let input = 'ruby facet'
     console.log(input)
     let users = []
