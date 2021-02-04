@@ -1,5 +1,6 @@
 import FriendCard from './FriendCard'
 import {useEffect, useState} from 'react'
+import axios from 'axios'
 
 export default function Friends() {
 
@@ -7,12 +8,22 @@ export default function Friends() {
   const [searchInput, setSearchInput] = useState('')
   const [showFriends, setShowFriends] = useState(true)
   const [showResults, setShowResults] = useState(false)
-      // ADD STATE FOR ALL FRIENDLIST. THEN CAN MAP.
+  const [allFriends, setAllFriends] = useState([])
+  const [searchedUsers, setSearchedUsers] = useState([])
+
+  const getFriends = async () => {
+    const resp = await axios.get('/api/member/friend/find-all')
+    setAllFriends(resp.data)
+  }
 
   // evt handler
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     console.log(searchInput)
+    const resp = await axios.post('/api/member/get-users', {
+      input: searchInput
+    })
+    setSearchedUsers(resp.data)
     setShowFriends(false)
     setShowResults(true)
   }
@@ -20,25 +31,24 @@ export default function Friends() {
   useEffect(()=> {
     setShowFriends(true)
     setShowResults(false)
+    getFriends()
   }, [])
-      // ADD USE EFFECT FOR GRABBING ALL FRIENDS ON MOUNT.
 
   return (
     <section id="friendsContainer">
       <div className="searchBar">
         <div className="form">
           <form onSubmit={submitHandler}>
-            <input type="text" placeholder="Enter name or @username" required autoComplete="off" onChange={e => setSearchInput(e.target.value)}/>
+            <input type="text" placeholder="Enter name or @username" required autoComplete="off" onChange={e => setSearchInput(e.target.value)} value={searchInput}/>
             <button type="submit"><i className="fas fa-search"></i></button>
           </form>
         </div>
       </div>
 
       <div className="friendsList">
-        {/* <h3>existing friends will show here already</h3> */}
-        { showFriends && <FriendCard/> }
-        {/* I will map cards here */}
-        { showResults && <h4>these will be searched results</h4>}
+        { showFriends && allFriends.map((f, idx) => (<FriendCard first={f.first} last={f.last} profilePic={f.profilePic} username={f.username} key={idx} friendship={true}/>))}
+        { showResults && 
+        searchedUsers.map((u, idx) => (<FriendCard first={u.first} last={u.last} profilePic={u.profilePic} username={u.username} key={idx} friendship={u.friendship}/>))}
         {/* the second condition here wil be a mapping */}
       </div>
     </section>

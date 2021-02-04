@@ -19,9 +19,9 @@ const userData = async (req, res) => {
 
 const findUsers = async (req, res) => {
     const {id} = req.session.user;
-    // let {input} = req.body;
-    let input = 'ruby facet'
-
+    const {input} = req.body;
+    // let input = 'ruby facet'
+    console.log(input)
     let users = []
 
     if (input.includes(' ')) {

@@ -1,121 +1,124 @@
 #friendsContainer {
-  // width: ;
-  margin-left: 3rem;
-  display: flex;
-  flex-direction: column;
-  // background-color: palegoldenrod;
+	// width: ;
+	margin-left: 3rem;
+	display: flex;
+	flex-direction: column;
+	// background-color: palegoldenrod;
 
-  .searchBar {
-    .form {
-      form {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+	.searchBar {
+		.form {
+			form {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
 
-        input {
-          width: 100%;
-          height: 4rem;
-          border-radius: 1.2rem 0 0 1.2rem;
-          outline: none;
-          border: none;
-          background-color: $light-grey;
-          padding: 2rem;
-          font-size: 1.5rem;
-          font-family: $Noto;
-        }
+				input {
+					width: 100%;
+					height: 4rem;
+					border-radius: 1.2rem 0 0 1.2rem;
+					outline: none;
+					border: none;
+					background-color: $light-grey;
+					padding: 2rem;
+					font-size: 1.5rem;
+					font-family: $Noto;
+				}
 
-        button {
-          height: 4rem;
-          border-radius: 0 1.2rem 1.2rem 0;
-          outline: none;
-          border: none;
-          background-color: $med-grey;
-          padding: 2rem;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          position: relative;
-          cursor: pointer;
+				button {
+					height: 4rem;
+					border-radius: 0 1.2rem 1.2rem 0;
+					outline: none;
+					border: none;
+					background-color: $med-grey;
+					padding: 2rem;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					position: relative;
+					cursor: pointer;
 
-          &:hover {
-            background-color: $med-pink;
-          }
+					&:hover {
+						background-color: $med-pink;
+					}
 
-          i {
-            font-size: 1.5rem;
-            position: absolute;
-          }
-        }
-      }
-    }
-  }
+					i {
+						font-size: 1.5rem;
+						position: absolute;
+					}
+				}
+			}
+		}
+	}
 
-  .friendsList {
-    // background-color: palegreen;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 2rem -1rem;
-    overflow-y: scroll;
+	.friendsList {
+		// background-color: palegreen;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin: 2rem -1rem;
+		overflow-y: scroll;
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
+		&::-webkit-scrollbar {
+			display: none;
+		}
 
-    .friendsCard {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: fit-content;
-      background-color: $light-pink;
-      padding: 2rem;
-      border-radius: 2rem;
-      margin: 1rem;
+		.friendsCard {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			height: fit-content;
+			background-color: $light-pink;
+			padding: 2rem;
+			border-radius: 2rem;
+			margin: 1rem;
 
-      .friendProfilePicture {
-        width: 17rem;
-        height: 17rem;
-        background-color: peachpuff;
-        border-radius: 100%;
-        overflow: hidden;
-        box-shadow: 2px 2px 2px rgba(46, 54, 68, 0.4);
+			.friendProfilePicture {
+				width: 17rem;
+				height: 17rem;
+				background-color: peachpuff;
+				border-radius: 100%;
+				overflow: hidden;
+				box-shadow: 2px 2px 2px rgba(46, 54, 68, 0.4);
 
-        img {
-          width: 100%;
-        }
-      }
+				img {
+					width: 100%;
+				}
+			}
 
-      .friendInfo {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 1rem;
+			.friendInfo {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				margin: 1rem;
 
-        .friendUsername {
-          font-style: italic;
-          color: $deep-pink;
-        }
-      }
-    }
+				.friendUsername {
+					font-style: italic;
+					color: $deep-pink;
+				}
+			}
+		}
 
-    .friendship {
-      background-color: #85d473;
-      padding: 0.5rem 1.5rem;
-      border-radius: 2rem;
+		.friendship {
+			background-color: #85d473;
+			padding: 0.5rem 1.5rem;
+			border-radius: 2rem;
 
-      i {
-        color: $med-black;
-      }
-    }
+			i {
+				color: $med-black;
+			}
+		}
 
-    .notFriend {
-      background-color: $med-pink;
+		.notFriend {
+			background-color: $med-pink;
+			padding: 0.5rem 1.5rem;
+			border-radius: 2rem;
 
-      i {
-        cursor: pointer;
-      }
-    }
-  }
+			i {
+				cursor: pointer;
+				color: $med-black;
+			}
+		}
+	}
 }
