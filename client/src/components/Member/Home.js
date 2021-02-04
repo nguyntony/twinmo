@@ -1,7 +1,5 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
-import requestProfilePicture from '../../assets/demo_assets/peridot.png'
-import pendingProfilePicture from '../../assets/demo_assets/connie.png'
 import numeral from 'numeral'
 
 export default function Home() {
@@ -10,16 +8,22 @@ export default function Home() {
   const [pendingAmt, setPendingAmt] = useState('')
   const [MRPending, setMRPending] = useState('')
 
-  const getPending = async () => {
+  const getRecentData = async () => {
     const resp = await axios.get('/api/member/pending/list')
     const data = resp.data
     console.log(data[0])
     setPendingAmt(data.length)
     setMRPending(data[0])
+
+    const resp2 = await axios.get('/api/member/request/list')
+    const data2 = resp2.data
+    console.log(data2[0])
+    setRequestAmt(data2.length)
+    setMRRequest(data2[0])
   }
 
   useEffect(()=> {
-    getPending()
+    getRecentData()
   }, [])
 
   return (
@@ -27,19 +31,17 @@ export default function Home() {
       <div className="request-container">
         <div className="half-circle-bg"></div>
         <div className="icon">
-          {/* img will go here */}
-          <img src={requestProfilePicture} alt="profile pic of requester"/>
+          <img src={MRRequest.friendProfilePic} alt={MRRequest.friendName}/>
         </div>
         <div className="mostRecent">
-          <h3>$10<span className="divider"></span>🌮 Dinner</h3>
+          <h3>{numeral(MRRequest.amount).format('$0,0.00')}<span className="divider"></span>🌮 {MRRequest.description}</h3>
         </div>
 
         <div className="title">
           <h1><a href="#">requests</a></h1>
           <div className="badge">
             <p>
-              5
-              {/* will grab data */}
+              {requestAmt}
             </p>
           </div>
         </div>

@@ -25,10 +25,10 @@ module.exports = {
         type: 'request',
         description: 'Food',
         amount: 30,
-        month: 'January',
-        year: '2021',
+        month: 'December',
+        year: '2020',
         status: false,
-        createdAt: new Date(),
+        createdAt: new Date('2020-12-01'),
         updatedAt: new Date()
       },
       {
@@ -40,7 +40,7 @@ module.exports = {
         month: 'January',
         year: '2021',
         status: false,
-        createdAt: new Date(),
+        createdAt: new Date('2021-01-01'),
         updatedAt: new Date()
       },
       {
@@ -52,7 +52,7 @@ module.exports = {
         month: 'December',
         year: '2020',
         status: false,
-        createdAt: new Date(),
+        createdAt: new Date('2020-12-10'),
         updatedAt: new Date()
       }
     ])

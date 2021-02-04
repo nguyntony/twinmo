@@ -17,7 +17,7 @@ module.exports = {
         last: "Universe",
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
         email: "steven@mail.com",
-        username: "Stevenator",
+        username: "stevenator",
         profilePic: '/uploads/stevenuni.jpg',
         createdAt: new Date(),
         updatedAt: new Date()
@@ -27,7 +27,7 @@ module.exports = {
         last: "Glorp",
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
         email: "peridot@mail.com",
-        username: "Peridactyl",
+        username: "peridactyl",
         profilePic: '/uploads/peridot.png',
         createdAt: new Date(),
         updatedAt: new Date()
@@ -37,7 +37,7 @@ module.exports = {
         last: "Nguyen",
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
         email: "pearl@mail.com",
-        username: "Pearlizer",
+        username: "pearlizer",
         profilePic: '/uploads/10a65ba3349fa4719cb9443889e7777d',
         createdAt: new Date(),
         updatedAt: new Date()
@@ -47,7 +47,7 @@ module.exports = {
         last: "Nguyen",
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
         email: "bismuth@mail.com",
-        username: "Down_To_Bismuth",
+        username: "down_to_bismuth",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -56,7 +56,7 @@ module.exports = {
         last: "Nguyen",
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
         email: "amethyst@mail.com",
-        username: "Purple_Puma",
+        username: "purple_puma",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -65,7 +65,7 @@ module.exports = {
         last: "Lazuli",
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
         email: "lapis@mail.com",
-        username: "Watergirl",
+        username: "watergirl",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -83,7 +83,7 @@ module.exports = {
         last: "Maheswaran",
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
         email: "connie@mail.com",
-        username: "Blade122",
+        username: "blade122",
         profilePic: '/uploads/connie.png',
         createdAt: new Date(),
         updatedAt: new Date()
@@ -93,7 +93,7 @@ module.exports = {
         last: "?",
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
         email: "onion@mail.com",
-        username: "Onion",
+        username: "the_abyss",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -102,7 +102,7 @@ module.exports = {
         last: "Barriga",
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
         email: "lars@mail.com",
-        username: "Lars",
+        username: "the_cool_lars",
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -111,7 +111,7 @@ module.exports = {
         last: "Miller",
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
         email: "sadie@mail.com",
-        username: "Donut_Girl007",
+        username: "donut_girl007",
         createdAt: new Date(),
         updatedAt: new Date()
       },

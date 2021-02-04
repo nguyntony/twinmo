@@ -12,19 +12,19 @@ const pendingList = async (req, res) => {
             type: 'request'
         },
         order: [["createdAt", "desc"]],
-        attributes: ['amount', 'createdAt', 'description', 'status', 'recipientID']
+        attributes: ['amount', 'createdAt', 'description', 'status', 'recipientID', 'senderID']
     })
 
     for (i of pendings) {
-        const getFriend = await User.findOne({
+        const getPendingFriend = await User.findOne({
             where: {
                 id: i.recipientID
             }
         })
 
-        i.dataValues.friendName = getFriend.first+" "+getFriend.last
-        i.dataValues.friendProfilePic = getFriend.profilePic
-        i.dataValues.friendUsername = getFriend.username
+        i.dataValues.friendName = getPendingFriend.first+" "+getPendingFriend.last
+        i.dataValues.friendProfilePic = getPendingFriend.profilePic
+        i.dataValues.friendUsername = getPendingFriend.username
     }
 
     res.status(200).json(pendings)
@@ -39,19 +39,19 @@ const requestList = async (req, res) => {
             type: 'request'
         },
         order: [["createdAt", "desc"]],
-        attributes: ['amount', 'createdAt', 'description', 'status', 'recipientID']
+        attributes: ['amount', 'createdAt', 'description', 'status', 'recipientID', 'senderID']
     })
 
     for (i of requests) {
-        const getFriend = await User.findOne({
+        const getRequestFriend = await User.findOne({
             where: {
                 id: i.senderID
             }
         })
 
-        i.dataValues.friendName = getFriend.first+" "+getFriend.last
-        i.dataValues.friendProfilePic = getFriend.profilePic
-        i.dataValues.friendUsername = getFriend.username
+        i.dataValues.friendName = getRequestFriend.first+" "+getRequestFriend.last
+        i.dataValues.friendProfilePic = getRequestFriend.profilePic
+        i.dataValues.friendUsername = getRequestFriend.username
     }
 
     res.status(200).json(requests)
