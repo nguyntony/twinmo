@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 2rem -1rem;
+    margin: 0 -1rem;
     overflow-y: scroll;
 
     &::-webkit-scrollbar {
@@ -34,13 +34,62 @@
       margin: 1rem;
 
       .icon {
-        width: 12rem;
-        height: 12rem;
+        width: 17rem;
+        height: 17rem;
         border-radius: 100%;
+        background-color: peachpuff;
         overflow: hidden;
+        box-shadow: 2px 2px 2px rgba(46, 54, 68, 0.4);
+        margin: 0.5rem;
+        margin-bottom: 1rem;
 
         img {
           width: 100%;
+        }
+      }
+
+      .amount {
+        margin: 0.5rem;
+      }
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0.5rem;
+      }
+
+      .action {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0.5rem;
+        width: 40%;
+        // background-color: peachpuff;
+
+        h4 {
+          font-size: 3.2rem;
+
+          i {
+            cursor: pointer;
+            &:hover {
+              color: $ghost-white;
+            }
+          }
+
+          .approve {
+            &:hover {
+              background-color: #85d473;
+              border-radius: 100%;
+            }
+          }
+
+          .deny {
+            &:hover {
+              background-color: $med-pink;
+              border-radius: 100%;
+            }
+          }
         }
       }
     }
