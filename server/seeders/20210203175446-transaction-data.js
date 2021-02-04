@@ -17,7 +17,7 @@ module.exports = {
      * Example:
      * await queryInterface.bulkInsert('People', [{
      *   name: 'John Doe',
-     *   isBetaMember: false
+     *   isBetaMember: fals
      * }], {});
     */
     return await queryInterface.bulkInsert("Transactions", [
