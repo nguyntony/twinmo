@@ -22,10 +22,11 @@ module.exports = (sequelize, DataTypes) => {
     recipientID: DataTypes.INTEGER,
     type: DataTypes.STRING,
     description: DataTypes.STRING,
-    amount: DataTypes.INTEGER,
+    amount: DataTypes.DECIMAL(10, 2),
     month: DataTypes.STRING,
     year: DataTypes.STRING,
-    status: DataTypes.BOOLEAN
+    status: DataTypes.BOOLEAN,
+    funds: DataTypes.DECIMAL(10, 2),
   }, {
     sequelize,
     modelName: 'Transaction',

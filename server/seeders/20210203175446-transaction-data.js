@@ -26,7 +26,7 @@ module.exports = {
         recipientID: pearl.id,
         type: 'request',
         description: 'Food',
-        amount: 30,
+        amount: 30.00,
         month: 'December',
         year: '2020',
         status: false,

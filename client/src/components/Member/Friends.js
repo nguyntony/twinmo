@@ -14,6 +14,7 @@ export default function Friends() {
   const getFriends = async () => {
     const resp = await axios.get('/api/member/friend/find-all')
     setAllFriends(resp.data)
+    console.log(resp.data)
   }
 
   // evt handler
@@ -46,10 +47,9 @@ export default function Friends() {
       </div>
 
       <div className="friendsList">
-        { showFriends && allFriends.map((f, idx) => (<FriendCard first={f.first} last={f.last} profilePic={f.profilePic} username={f.username} key={idx} friendship={true}/>))}
+        { showFriends && allFriends.map((f, idx) => (<FriendCard first={f.first} last={f.last} profilePic={f.profilePic} username={f.username} key={idx} friendship={true} id={f.id}/>))}
         { showResults && 
-        searchedUsers.map((u, idx) => (<FriendCard first={u.first} last={u.last} profilePic={u.profilePic} username={u.username} key={idx} friendship={u.friendship}/>))}
-        {/* the second condition here wil be a mapping */}
+        searchedUsers.map((u, idx) => (<FriendCard first={u.first} last={u.last} profilePic={u.profilePic} username={u.username} key={idx} friendship={u.friendship} id={u.id} />))}
       </div>
     </section>
   )
