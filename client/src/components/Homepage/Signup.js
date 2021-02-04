@@ -135,19 +135,19 @@ export default function Signup() {
             <form onSubmit={processSignup}>
               <div className="one-line">
                 <div className="field">
-                  <input type="text" name="first" required autoComplete="off" placeholder=" " onChange={e => setFirst(e.target.value)}
+                  <input type="text" name="first" required autoComplete="off" placeholder=" " onChange={e => setFirst(e.target.value)} value={first}
                   />
                   <label htmlFor="first" className="label">First Name</label>
                 </div>
                 <div className="field">
-                  <input type="text" name="last" required autoComplete="off" placeholder=" " onChange={e => setLast(e.target.value)}/>
+                  <input type="text" name="last" required autoComplete="off" placeholder=" " onChange={e => setLast(e.target.value)} value={last}/>
                   <label htmlFor="last" className="label">Last Name</label>
                 </div>
               </div>
 
               <div className="one-line">
                 <div className="field email">
-                  <input type="email" name="email" required autoComplete="off" placeholder=" " onChange={e => setEmail(e.target.value)} onBlur={emailCheckHandler} onFocus={emailReset}/>
+                  <input type="email" name="email" required autoComplete="off" placeholder=" " onChange={e => setEmail(e.target.value)} onBlur={emailCheckHandler} onFocus={emailReset} value={email}/>
                   <label htmlFor="email" className="label">Email</label>
                   
                   {emailValidation && <p className="status"><i className={emailIcon}></i></p>}
@@ -157,7 +157,7 @@ export default function Signup() {
 
               <div className="one-line">
                 <div className="field">
-                  <input type="text" name="username" required autoComplete="off" placeholder=" " onChange={e => setUsername(e.target.value)} onBlur={usernameCheckHandler} onFocus={usernameReset}/>
+                  <input type="text" name="username" required autoComplete="off" placeholder=" " onChange={e => setUsername(e.target.value)} onBlur={usernameCheckHandler} onFocus={usernameReset} value={username}/>
                   <label htmlFor="username" className="label">Username</label>
 
                   {usernameValidation && <p className="status"><i className={usernameIcon}></i></p>}
@@ -167,12 +167,12 @@ export default function Signup() {
               <div className="one-line">
               
                 <div className="field">
-                  <input type="password" name="password" required autoComplete="off" placeholder=" " onChange={e => setPassword(e.target.value)}/>
+                  <input type="password" name="password" required autoComplete="off" placeholder=" " onChange={e => setPassword(e.target.value)} value={password}/>
                   <label htmlFor="password" className="label">Password</label>
                 </div>
 
                 <div className="field">
-                  <input type="password" name="password-checker" required autoComplete="off" placeholder=" " onChange={e => setPasswordConfirmation(e.target.value)}/>
+                  <input type="password" name="password-checker" required autoComplete="off" placeholder=" " onChange={e => setPasswordConfirmation(e.target.value)} value={passwordConfirmation}/>
                   <label htmlFor="password-checker" className="label">Confirm Password</label>
 
                   {passwordValidation && <p className="status"><i className={passwordIcon}></i></p>}

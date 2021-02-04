@@ -6,7 +6,9 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     const users = await User.findAll();
     const steven = users[0];
+    const peridot = users[1];
     const pearl = users[2];
+    const connie = users[7];
     /**
      * Add seed commands here.
      *
@@ -29,6 +31,30 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
+      {
+        senderID: steven.id,
+        recipientID: connie.id,
+        type: 'request',
+        description: 'Sword repair',
+        amount: 99.99,
+        month: 'January',
+        year: '2021',
+        status: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        senderID: peridot.id,
+        recipientID: steven.id,
+        type: 'request',
+        description: 'Trash Can',
+        amount: 22.08,
+        month: 'December',
+        year: '2020',
+        status: false,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
     ])
   },
 

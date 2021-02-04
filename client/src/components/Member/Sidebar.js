@@ -12,7 +12,6 @@ export default function Sidebar() {
 
   const location = useLocation()
   const currentPath = location.pathname
-  console.log('LOCATION:', currentPath)
 
   const highlight = {
     // backgroundColor: '#c6c6fa',
