@@ -1,12 +1,13 @@
 import {useState, useEffect} from 'react'
 import friendProfilePicture from '../../assets/demo_assets/peridot.png'
 import NumberFormat from 'react-number-format'
+import numeral from 'numeral'
 
 
 export default function PayRequestForm() {
   const [searchInput, setSearchInput] = useState('')
   const [friend, setFriend] = useState(false)
-  const [amount, setAmount] = useState('')
+  const [amount, setAmount] = useState(0)
   const [description, setDescription] = useState('')
   const [type, setType] = useState('')
   const [button, setButton] = useState('Pay/Request')
@@ -42,10 +43,11 @@ export default function PayRequestForm() {
                 </div>
 
 
-                {/* <input type="number" min="1" className="amount" placeholder="$0" value={amount} onChange={e => setAmount(e.target.value)} id="amount" name="amount" required/> */}
-
-                {/* testing */}
-                <NumberFormat className="amount" placeholder="$0" required id="amount" value={amount} prefix={"$"} onChange={e => setAmount(e.target.value)} min="1" name="amount" thousandSeparator={true} decimalScale={2} allowNegative={false} allowLeadingZeros={false} autoComplete="off"/>
+                <NumberFormat className="amount" placeholder="$0" required id="amount" value={amount} prefix={"$"} onChange={e => setAmount(e.target.value)} min="1" name="amount" thousandSeparator={true} decimalScale={2} allowNegative={false} allowLeadingZeros={false} autoComplete="off" onBlur={
+                  e =>{
+                    setAmount(numeral(e.target.value).format("$0,0.00"))
+                  }
+                  }/>
 
                 <input type="text" placeholder="Description" value={description} onChange={e => setDescription(e.target.value)} className="description" name="description" autoComplete="off"/>
 
