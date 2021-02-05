@@ -108,7 +108,6 @@ export default function PayRequestForm() {
               selectedFriend &&
               <>
                 <h3>{friend.name}</h3>
-                {/* NEED CSS TO CENTER IN THE MIDDLE */}
                 <div className="friendProfilePicture">
                   <img src={friend.pic} alt="friend icon"/>
                 </div>
@@ -116,7 +115,7 @@ export default function PayRequestForm() {
 
                 <NumberFormat className="amount" placeholder="$0" required id="amount" value={amount} prefix={"$"} onChange={e => setAmount(e.target.value)} min="1" name="amount" thousandSeparator={true} decimalScale={2} allowNegative={false} allowLeadingZeros={false} autoComplete="off" fixedDecimalScale={true}/>
 
-                <input type="text" placeholder="Description" value={description} onChange={e => setDescription(e.target.value)} className="description" name="description" autoComplete="off"/>
+                <input type="text" placeholder="Description" value={description} onChange={e => setDescription(e.target.value)} className="description" name="description" autoComplete="off" />
 
                 <div className="type">
                   <ul>
