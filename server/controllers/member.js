@@ -29,6 +29,9 @@ const findUsers = async (req, res) => {
         
         users = await User.findAll({
             where: {
+                id: {
+                    [Op.not]: id,
+                },
                 [Op.or]: [
                     {
                         first: {
@@ -47,39 +50,15 @@ const findUsers = async (req, res) => {
                         }
                     },
                 ],
-                id: {
-                    [Op.not]: id,
-                }
             }
 
         })
-    //     for (i of users) {
-    //         const isFriend = await Friend.findOne({
-    //             where: {
-    //                 [Op.or]: [
-    //                     {
-    //                         userID: id,
-    //                         friendID: i.id
-    //                     },
-    //                     {
-    //                         userID: i.id,
-    //                         friendID: id
-    //                     }
-    //                 ]
-    //             }
-    //         });
-
-    //     // Everyone is added a new key:value pair that is dynamically adjusted depending on who is searching for friends. That way react can easily utilize data and generate an "already friends" or "add friends" option.
-    //     if (isFriend) {
-    //         i.dataValues.friendship = true
-    //     } else {
-    //         i.dataValues.friendship = false
-    //     }
-    // }
-    // res.status(200).json(users)  
     } else {
         users = await User.findAll({
             where: {
+                id: {
+                    [Op.not]: id,
+                },
                 [Op.or]: [
                     {
                         first: {
@@ -131,7 +110,6 @@ const findUsers = async (req, res) => {
 const addFriend = async (req, res) => {
     const {id} = req.session.user;
     const {friendID} = req.body;
-    // const friendID = id+4
 
     const createFriendship = await Friend.create({
         userID: id,
