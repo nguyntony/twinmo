@@ -44,26 +44,42 @@ export default function Pending() {
   return (
     <section id="memberView">
       <div className="title">
-        <h1>pending requests</h1>
+        <h1>payments</h1>
         <h4><a href="/member/request" className="request-link">requests <i className="fas fa-caret-right"></i></a></h4>
       </div>
 
+        <div className="pendingNav">
+          <div className="titleBar">
+            <h3 
+            onClick={completedList}
+            style={completed ? selectedList : null}
+            >completed
+{/*             
+            {
+              completed ? <i className="fas fa-caret-up"></i> :
+              <i className="fas fa-caret-down"></i>
+  
+            } */}
+          </h3>
+          
+          </div>
+  
+          <div className="titleBar">
+              <h3 
+              onClick={outgoingList}
+              style={outgoing ? selectedList : null}
+              >outgoing
+              
+              {/* {
+                outgoing ? <i className="fas fa-caret-up"></i> : 
+                <i className="fas fa-caret-down"></i>
+              }
+               */}
+              </h3></div>
+        </div>
+
 
       <div className="inactiveContentContainer">
-        <div className="titleBar">
-          <h3 
-          onClick={completedList}
-          style={completed ? selectedList : null}
-          >completed requests 
-          
-          {
-            completed ? <i className="fas fa-caret-up"></i> :
-            <i className="fas fa-caret-down"></i>
-
-          }
-          
-          </h3></div>
-
         {
           completed && 
           <div className="list">
@@ -88,7 +104,7 @@ export default function Pending() {
       </div>
 
         <div className="activeContentContainer">
-          <div className="titleBar">
+          {/* <div className="titleBar">
             <h3 
             onClick={outgoingList}
             style={outgoing ? selectedList : null}
@@ -99,7 +115,7 @@ export default function Pending() {
               <i className="fas fa-caret-down"></i>
             }
             
-            </h3></div>
+            </h3></div> */}
 
         {  
             outgoing &&

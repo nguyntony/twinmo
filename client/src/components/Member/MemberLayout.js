@@ -4,7 +4,7 @@ import Home from './Home'
 import Friends from './Friends'
 import PayRequestForm from './PayRequestForm'
 import Request from './Request'
-import Pending from './Pending'
+import Payment from './Payment'
 
 export function MemberLayout(props) {
   return (
@@ -23,5 +23,5 @@ export const memberRoute = [
   {route: 'friends', path: '/member/friends', component: Friends},
   {route: 'pay/request', path: '/member/pay-request', component: PayRequestForm},
   {route: 'request', path: '/member/request', component: Request},
-  {route: 'pending', path: '/member/pending', component: Pending}
+  {route: 'pending', path: '/member/payment', component: Payment}
 ]

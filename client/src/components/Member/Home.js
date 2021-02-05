@@ -58,7 +58,7 @@ export default function Home() {
           <h3>{numeral(MRPending.amount).format('$0,0.00')}<span className="divider"></span>{MRPending.description}</h3>
         </div>
         <div className="title">
-          <h1><a href="/member/pending">pending</a></h1>
+          <h1><a href="/member/payment">payments</a></h1>
           <div className="badge">
             <p>
               {pendingAmt}

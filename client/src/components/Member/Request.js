@@ -23,7 +23,7 @@ export default function Request() {
     <section id="memberView">
       <div className="title">
         <h1>requests from friends</h1>
-        <h4><a href="/member/pending" className="pending-link">pending <i className="fas fa-caret-right"></i></a></h4>
+        <h4><a href="/member/payment" className="pending-link">payments <i className="fas fa-caret-right"></i></a></h4>
       </div>
     
       <div className="requestContentContainer">

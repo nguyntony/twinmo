@@ -6,28 +6,28 @@
   overflow-x: hidden;
   // background-color: powderblue;
   // min-width: 65rem;
-  // max-height: 45rem;
+  max-height: 65rem;
 
   // &::-webkit-scrollbar {
   //   display: none;
   // }
 
-  .titleBar {
-    margin: 0.5rem 0;
-    margin-right: 1rem;
-    position: sticky;
-    top: 0px;
-    z-index: 10;
+  // .titleBar {
+  //   margin: 0.5rem 0;
+  //   margin-right: 1rem;
+  //   position: sticky;
+  //   top: 0px;
+  //   z-index: 10;
 
-    h3 {
-      cursor: pointer;
-      background-color: $light-grey;
-      border-radius: 1rem;
-      padding: 0.5rem 1rem;
-      display: flex;
-      justify-content: space-between;
-    }
-  }
+  //   h3 {
+  //     cursor: pointer;
+  //     background-color: $light-grey;
+  //     border-radius: 1rem;
+  //     padding: 0.5rem 1rem;
+  //     display: flex;
+  //     justify-content: space-between;
+  //   }
+  // }
 
   .list {
     display: flex;
