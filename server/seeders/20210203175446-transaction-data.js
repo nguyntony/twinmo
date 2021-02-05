@@ -208,6 +208,20 @@ module.exports = {
         createdAt: new Date('2020-11-30'),
         updatedAt: new Date()
       },
+      {
+        senderID: steven.id,
+        recipientID: pearl.id,
+        type: 'request',
+        description: 'Allowance',
+        amount: 10.00,
+        month: 'May',
+        year: '2020',
+        status: true,
+        archived: false,
+        approved: false,
+        createdAt: new Date('2020-05-25'),
+        updatedAt: new Date()
+      },
     ])
   },
 

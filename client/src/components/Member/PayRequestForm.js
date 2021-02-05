@@ -42,11 +42,15 @@ export default function PayRequestForm() {
     setFriend({name, id, pic, username})
   }
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault()
     if (type) {
-
-      console.log(amount, description, type, friend.id)
+      const resp = await axios.post('/api/member/transaction/new', {
+        amount,
+        description,
+        type,
+        recipientID: friend.id,
+      })
     }
   }
   
