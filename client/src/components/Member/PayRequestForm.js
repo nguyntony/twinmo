@@ -29,7 +29,7 @@ export default function PayRequestForm() {
     setAllFriends(formatedFriends)
   }
 
-  // evnt handler 
+  // evnt handler sdf
   const showForm = (name, id, pic, username) => {
     setSelectedFriend(true)
     setDropdownList([])
