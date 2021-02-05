@@ -20,10 +20,10 @@ export default function Request() {
   }, [])
 
   return (
-    <section id="requestContainer">
+    <section id="memberView">
       <div className="title">
         <h1>requests from friends</h1>
-        <h4><a href="/member/pending">pending <i className="fas fa-caret-right"></i></a></h4>
+        <h4><a href="/member/pending" className="pending-link">pending <i className="fas fa-caret-right"></i></a></h4>
       </div>
     
       <div className="requestContentContainer">

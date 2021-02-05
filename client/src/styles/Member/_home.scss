@@ -17,7 +17,7 @@
     flex-direction: column;
     align-items: center;
     // padding: 2rem 0;
-    justify-content: space-around;
+    // justify-content: space-around;
     // box-shadow: 5px 5px 5px rgba(46, 54, 68, 0.4);
     position: relative;
     overflow: hidden;
@@ -41,6 +41,7 @@
       overflow: hidden;
       // border: 1px solid $light-black;
       box-shadow: 2px 2px 2px rgba(46, 54, 68, 0.4);
+      margin: 2rem;
 
       img {
         width: 100%;
@@ -49,7 +50,7 @@
 
     .mostRecent {
       width: 90%;
-      height: 6rem;
+      height: fit-content;
       background-color: $med-pink;
       border-radius: 1.3rem;
       display: flex;
@@ -57,9 +58,12 @@
       justify-content: center;
       align-items: center;
       z-index: 1;
+      padding: 1rem 0;
+      margin: 2rem;
 
       h3 {
         text-align: center;
+        display: block;
 
         .divider {
           height: 1rem;
@@ -77,6 +81,8 @@
 
     .title {
       position: relative;
+      position: absolute;
+      bottom: 3rem;
 
       h1 {
         a {
