@@ -152,8 +152,14 @@
       }
     }
 
-    // .transaction:hover .card-bg {
-    //   background-color: peachpuff;
-    // }
+    .transaction:hover .card-bg {
+      background-color: peachpuff;
+      transition: 0.8s;
+    }
+
+    .transaction:hover .info {
+      background-color: rgb(255, 177, 108);
+      transition: 0.8s;
+    }
   }
 }
