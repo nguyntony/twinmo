@@ -6,15 +6,18 @@
   overflow-x: hidden;
   // background-color: powderblue;
   // min-width: 65rem;
-  max-height: 45rem;
+  // max-height: 45rem;
 
   // &::-webkit-scrollbar {
   //   display: none;
   // }
 
   .titleBar {
-    margin: 1rem 0;
+    margin: 0.5rem 0;
     margin-right: 1rem;
+    position: sticky;
+    top: 0px;
+    z-index: 10;
 
     h3 {
       cursor: pointer;

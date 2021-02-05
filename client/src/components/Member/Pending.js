@@ -7,8 +7,8 @@ import moment from 'moment'
 export default function Pending() {
   const [activeRequests, setActiveRequests] = useState([])
   const [inactiveRequests, setInactiveRequests] = useState([])
-  const [showActive, setShowActive] = useState(false)
-  const [showInactive, setShowInactive] = useState(true)
+  const [outgoing, setOutgoing] = useState(false)
+  const [completed, setCompleted] = useState(true)
 
   const getRequests = async () => {
     const resp = await axios.get('/api/member/pending/list')
@@ -16,6 +16,25 @@ export default function Pending() {
     const data = resp.data
     setActiveRequests(data.filter(d => d.status !== true))
     setInactiveRequests(data.filter(d => d.status === true))
+  }
+
+  const completedList = () => {
+    if (!completed) {
+      setCompleted(true)
+      setOutgoing(false)
+    }
+  }
+
+  const outgoingList = () => {
+    if (!outgoing) {
+      setOutgoing(true)
+      setCompleted(false)
+    }
+  }
+  
+  const selectedList = {
+    backgroundColor: '#ffd8be',
+    cursor: 'unset'
   }
 
   useEffect(()=>{
@@ -33,11 +52,12 @@ export default function Pending() {
       <div className="inactiveContentContainer">
         <div className="titleBar">
           <h3 
-          onClick={()=>setShowInactive(!showInactive)}
+          onClick={completedList}
+          style={completed ? selectedList : null}
           >completed requests 
           
           {
-            showInactive ? <i className="fas fa-caret-up"></i> :
+            completed ? <i className="fas fa-caret-up"></i> :
             <i className="fas fa-caret-down"></i>
 
           }
@@ -45,7 +65,7 @@ export default function Pending() {
           </h3></div>
 
         {
-          showInactive && 
+          completed && 
           <div className="list">
             {
               inactiveRequests &&
@@ -70,18 +90,19 @@ export default function Pending() {
         <div className="activeContentContainer">
           <div className="titleBar">
             <h3 
-            onClick={()=>setShowActive(!showActive)}
+            onClick={outgoingList}
+            style={outgoing ? selectedList : null}
             >outgoing requests 
             
             {
-              showActive ? <i className="fas fa-caret-up"></i> : 
+              outgoing ? <i className="fas fa-caret-up"></i> : 
               <i className="fas fa-caret-down"></i>
             }
             
             </h3></div>
 
         {  
-            showActive &&
+            outgoing &&
             <div className="list">
             {
               activeRequests && 
