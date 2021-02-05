@@ -5,7 +5,8 @@
   overflow-y: scroll;
   overflow-x: hidden;
   // background-color: powderblue;
-  min-width: 65rem;
+  // min-width: 65rem;
+  max-height: 45rem;
 
   // &::-webkit-scrollbar {
   //   display: none;
@@ -142,15 +143,21 @@
           .approved {
             background-color: #85d473;
             border-radius: 100%;
+            cursor: unset;
           }
 
           .denied {
             background-color: $dark-pink;
             border-radius: 100%;
+            cursor: unset;
           }
 
           .archive {
             font-size: 2.9rem;
+
+            &:hover {
+              color: #f0a25e;
+            }
           }
         }
       }
@@ -163,7 +170,7 @@
   }
 
   .transaction:hover .info {
-    background-color: rgb(255, 177, 108);
+    background-color: #ffb16c;
     transition: 0.8s;
   }
 }
