@@ -49,6 +49,7 @@ export default function Sidebar() {
 
       <div className="nameCard">
         <h3>{userData.first} {userData.last}</h3>
+        <p>$5,000.12</p>
       </div>
 
       <nav id="dashNav">
