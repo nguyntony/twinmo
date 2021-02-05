@@ -46,8 +46,12 @@ const findUsers = async (req, res) => {
                             [Op.iLike]: '%'+input[0]+'%'
                         }
                     },
-                ]
+                ],
+                id: {
+                    [Op.not]: id,
+                }
             }
+
         })
     //     for (i of users) {
     //         const isFriend = await Friend.findOne({
