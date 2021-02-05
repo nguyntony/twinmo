@@ -4,6 +4,8 @@
   display: flex;
   flex-direction: column;
   height: fit-content;
+  max-height: 80rem;
+  min-width: 65rem;
 
   .title {
     // margin: 1.5rem 0;

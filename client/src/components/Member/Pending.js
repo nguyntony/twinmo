@@ -34,7 +34,15 @@ export default function Pending() {
         <div className="titleBar">
           <h3 
           onClick={()=>setShowInactive(!showInactive)}
-          >completed requests <i className="fas fa-caret-down"></i></h3></div>
+          >completed requests 
+          
+          {
+            showInactive ? <i className="fas fa-caret-up"></i> :
+            <i className="fas fa-caret-down"></i>
+
+          }
+          
+          </h3></div>
 
         {
           showInactive && 
@@ -63,7 +71,14 @@ export default function Pending() {
           <div className="titleBar">
             <h3 
             onClick={()=>setShowActive(!showActive)}
-            >outgoing requests <i className="fas fa-caret-down"></i></h3></div>
+            >outgoing requests 
+            
+            {
+              showActive ? <i className="fas fa-caret-up"></i> : 
+              <i className="fas fa-caret-down"></i>
+            }
+            
+            </h3></div>
 
         {  
             showActive &&
