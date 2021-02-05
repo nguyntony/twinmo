@@ -35,6 +35,8 @@ module.exports = {
         month: 'December',
         year: '2020',
         status: false,
+        archived: false,
+        approved: false,
         createdAt: new Date('2020-12-01'),
         updatedAt: new Date()
       },
@@ -47,6 +49,8 @@ module.exports = {
         month: 'January',
         year: '2021',
         status: false,
+        archived: false,
+        approved: false,
         createdAt: new Date('2021-01-01'),
         updatedAt: new Date()
       },
@@ -58,7 +62,9 @@ module.exports = {
         amount: 22.08,
         month: 'December',
         year: '2020',
-        status: false,
+        status: true,
+        archived: false,
+        approved: true,
         createdAt: new Date('2020-12-10'),
         updatedAt: new Date()
       },
@@ -71,6 +77,8 @@ module.exports = {
         month: 'July',
         year: '2020',
         status: false,
+        archived: false,
+        approved: false,
         createdAt: new Date('2020-7-10'),
         updatedAt: new Date()
       },
@@ -83,6 +91,8 @@ module.exports = {
         month: 'November',
         year: '2020',
         status: false,
+        archived: false,
+        approved: false,
         createdAt: new Date('2020-11-10'),
         updatedAt: new Date()
       },
@@ -95,6 +105,8 @@ module.exports = {
         month: 'December',
         year: '2020',
         status: true,
+        archived: false,
+        approved: false,
         createdAt: new Date('2020-12-25'),
         updatedAt: new Date()
       },
@@ -107,6 +119,8 @@ module.exports = {
         month: 'July',
         year: '2020',
         status: true,
+        archived: false,
+        approved: false,
         createdAt: new Date('2020-7-25'),
         updatedAt: new Date()
       },
@@ -119,6 +133,8 @@ module.exports = {
         month: 'January',
         year: '2020',
         status: false,
+        archived: false,
+        approved: false,
         createdAt: new Date('2020-01-11'),
         updatedAt: new Date()
       },
@@ -131,6 +147,8 @@ module.exports = {
         month: 'July',
         year: '2020',
         status: false,
+        archived: false,
+        approved: false,
         createdAt: new Date('2020-04-25'),
         updatedAt: new Date()
       },
@@ -143,6 +161,8 @@ module.exports = {
         month: 'December',
         year: '2020',
         status: true,
+        archived: false,
+        approved: false,
         createdAt: new Date('2020-12-25'),
         updatedAt: new Date()
       },
@@ -155,6 +175,8 @@ module.exports = {
         month: 'August',
         year: '2020',
         status: false,
+        archived: false,
+        approved: false,
         createdAt: new Date('2020-08-25'),
         updatedAt: new Date()
       },
@@ -167,6 +189,8 @@ module.exports = {
         month: 'January',
         year: '2021',
         status: true,
+        archived: false,
+        approved: true,
         createdAt: new Date('2021-01-25'),
         updatedAt: new Date()
       },
@@ -179,6 +203,8 @@ module.exports = {
         month: 'November',
         year: '2020',
         status: true,
+        archived: false,
+        approved: true,
         createdAt: new Date('2020-11-30'),
         updatedAt: new Date()
       },

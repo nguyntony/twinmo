@@ -7,6 +7,8 @@ import axios from 'axios'
 
 export default function PayRequestForm() {
   const [searchInput, setSearchInput] = useState('')
+  const [payChecked, setPayChecked] = useState(false)
+  const [requestChecked, setRequestChecked] = useState(false)
   
   const [amount, setAmount] = useState('')
   const [description, setDescription] = useState('')
@@ -31,12 +33,21 @@ export default function PayRequestForm() {
     setSelectedFriend(true)
     setDropdownList([])
     setSearchInput('')
+    setAmount('')
+    setDescription('')
+    setType('')
+    setButton('')
+    setPayChecked(false)
+    setRequestChecked(false)
     setFriend({name, id, pic, username})
   }
 
   const submitHandler = (e) => {
     e.preventDefault()
-    console.log(amount, description, type, friend.id)
+    if (type) {
+
+      console.log(amount, description, type, friend.id)
+    }
   }
   
   useEffect(()=>{
@@ -61,10 +72,6 @@ export default function PayRequestForm() {
     setSearchInput('')
     setSelectedFriend(false)
     getAllFriends()
-    setAmount('')
-    setDescription('')
-    setType('')
-    setFriend('')
   }, []) 
 
   return (
@@ -77,14 +84,11 @@ export default function PayRequestForm() {
               <input type="text" placeholder="Enter name or @username" onChange={e => setSearchInput(e.target.value)} value={searchInput}  className="searchBar" name="username" autoComplete="off"/>
 
               <div id="autocomplete-list">
-                {dropdownList.map(f => <p onClick={() => showForm(f.name, f.id, f.profilePic, f.username)} id='each-item'>{f.name} | {f.username}</p>)}
+                {dropdownList.map((f, idx) => <p key={idx} onClick={() => showForm(f.name, f.id, f.profilePic, f.username)} id='each-item'>{f.name} | {f.username}</p>)}
               </div>
             </div>
 
-            {/* conditionally render the rest after the user searches for a friend */}
-
             {
-
               selectedFriend &&
               <>
                 <h3>{friend.name}</h3>
@@ -101,8 +105,12 @@ export default function PayRequestForm() {
                 <div className="type">
                   <ul>
                     <li>
-                      <input type="radio" name="type" value={type} id="payment" 
+                      <input checked={payChecked} type="radio" name="type" value={type} id="payment" 
                       onClick={() => {
+                        if (requestChecked) {
+                          setRequestChecked(false)
+                        }
+                        setPayChecked(true)
                         setType('payment')
                         setButton('Pay')
                         }} required/>
@@ -110,8 +118,12 @@ export default function PayRequestForm() {
                     </li>
     
                     <li>
-                      <input type="radio" name="type" value={type} id="request" 
+                      <input checked={requestChecked} type="radio" name="type" value={type} id="request" 
                       onClick={() => {
+                        if (payChecked) {
+                          setPayChecked(false)
+                        }
+                        setRequestChecked(true)
                         setType('request')
                         setButton('Request')
                       }}/>
@@ -120,11 +132,8 @@ export default function PayRequestForm() {
                   </ul>
                 </div>
 
-
-
                 {type && <button type="submit">{button} money</button>}
               </>
-
             }
           </form>
         </div>
