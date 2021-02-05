@@ -6,7 +6,7 @@ export default function Transaction({img, date, name, description, amount, usern
 
   const [showAction, setShowAction] = useState(true)
   const requestPath = '/member/request'
-  const pendingPath = '/member/pending'
+  const pendingPath = '/member/payment'
 
   const location = useLocation()
   const currentPath = location.pathname
