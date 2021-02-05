@@ -27,6 +27,8 @@ module.exports = (sequelize, DataTypes) => {
     year: DataTypes.STRING,
     status: DataTypes.BOOLEAN,
     funds: DataTypes.DECIMAL(10, 2),
+    archived: DataTypes.BOOLEAN,
+    approved: DataTypes.BOOLEAN,
   }, {
     sequelize,
     modelName: 'Transaction',

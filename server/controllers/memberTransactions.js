@@ -12,7 +12,7 @@ const pendingList = async (req, res) => {
             type: 'request'
         },
         order: [["createdAt", "desc"]],
-        attributes: ['id', 'amount', 'createdAt', 'description', 'status', 'recipientID', 'senderID']
+        attributes: ['id', 'amount', 'createdAt', 'description', 'status', 'recipientID', 'senderID', 'archived', 'approved']
     })
 
     for (i of pendings) {
@@ -39,7 +39,7 @@ const requestList = async (req, res) => {
             type: 'request'
         },
         order: [["createdAt", "desc"]],
-        attributes: ['id', 'amount', 'createdAt', 'description', 'status', 'recipientID', 'senderID']
+        attributes: ['id', 'amount', 'createdAt', 'description', 'status', 'recipientID', 'senderID', 'archived', 'approved']
     })
 
     for (i of requests) {
@@ -57,7 +57,16 @@ const requestList = async (req, res) => {
     res.status(200).json(requests)
 }
 
+const processTransaction = async (req, res) => {
+    const {id} = req.session.user;
+    let {amount, description, type, recipientID} = req.body;
+
+    // Month, Year column created with moment.
+    // By default, status = false, archive = false, and approved = false
+}
+
 module.exports = {
     pendingList,
-    requestList
+    requestList,
+
 }
