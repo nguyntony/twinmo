@@ -56,6 +56,7 @@ export default function Sidebar() {
           <li><a href="/member/home" style={dashboardHighlight}>Dashboard</a></li>
           <li><a href="/member/friends" style={friendsHighlight}>Friends</a></li>
           <li><a href="/member/pay-request" style={payRequestHighlight}>Pay / Request</a></li>
+          <li><a href="#">History</a></li>
         </ul>
       </nav>
 

@@ -60,7 +60,8 @@
     .transaction {
       // background-color: palegoldenrod;
       width: 25rem;
-      height: 36rem;
+      // height: 36rem;
+      height: fit-content;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -136,8 +137,8 @@
         // margin: 0.5rem;
         width: 40%;
         // background-color: peachpuff;
-        position: absolute;
-        bottom: 1.5rem;
+        // position: absolute;
+        // bottom: 1.5rem;
 
         h4 {
           font-size: 3.2rem;
