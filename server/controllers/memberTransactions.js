@@ -38,7 +38,8 @@ const requestList = async (req, res) => {
     const requests = await Transaction.findAll({
         where: {
             recipientID: id,
-            type: 'request'
+            type: 'request',
+            status: false,
         },
         order: [["createdAt", "desc"]],
         attributes: ['id', 'amount', 'createdAt', 'description', 'status', 'recipientID', 'senderID', 'archived', 'approved']

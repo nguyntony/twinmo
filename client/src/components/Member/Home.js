@@ -18,7 +18,7 @@ export default function Home() {
     const resp2 = await axios.get('/api/member/request/list')
     const data2 = resp2.data
     console.log(data2[0])
-    setRequestAmt(data2.filter(d => !d.status).length)
+    setRequestAmt(data2.length)
     setMRRequest(data2[0])
   }
 
