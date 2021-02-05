@@ -131,6 +131,7 @@ export default function Pending() {
                 description={r.description}
                 amount={numeral(r.amount).format('$0,0.00')}
                 username={r.friendUsername}
+                status={r.status}
                 />
               ))
             }
