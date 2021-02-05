@@ -2,6 +2,8 @@ const {User} = require('../models')
 const {Op} = require('sequelize');
 const {Friend} = require('../models')
 const {Transaction} = require('../models')
+const numeral = require('numeral')
+const moment = require('moment')
 
 const pendingList = async (req, res) => {
     const {id} = req.session.user;
@@ -60,6 +62,28 @@ const requestList = async (req, res) => {
 const processTransaction = async (req, res) => {
     const {id} = req.session.user;
     let {amount, description, type, recipientID} = req.body;
+    console.log(amount, description, type, recipientID)
+
+    amount = Number(numeral(amount).format('0.00'))
+    console.log(amount)
+    console.log(moment(new Date()).format('MMMM'));
+
+    const newTransaction = await Transaction.create({
+        senderID: id,
+        recipientID,
+        type,
+        description,
+        amount,
+        month: moment(new Date()).format('MMMM'),
+        year: moment(new Date()).format('YYYY'),
+        status: false,
+        archived: false,
+        approved: false,
+    })
+    res.status(200).json({
+        status: true,
+        message: "Transaction processed"
+    });
 
     // Month, Year column created with moment.
     // By default, status = false, archive = false, and approved = false
@@ -68,5 +92,5 @@ const processTransaction = async (req, res) => {
 module.exports = {
     pendingList,
     requestList,
-
+    processTransaction
 }
