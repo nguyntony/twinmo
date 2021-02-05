@@ -9,6 +9,7 @@ export default function PayRequestForm() {
   const [searchInput, setSearchInput] = useState('')
   const [payChecked, setPayChecked] = useState(false)
   const [requestChecked, setRequestChecked] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
   
   const [amount, setAmount] = useState('')
   const [description, setDescription] = useState('')
@@ -42,6 +43,10 @@ export default function PayRequestForm() {
     setFriend({name, id, pic, username})
   }
 
+  const removeSubmittedStatus = () => {
+    setSubmitted(false)
+  }
+
   const submitHandler = async (e) => {
     e.preventDefault()
     if (type) {
@@ -51,6 +56,8 @@ export default function PayRequestForm() {
         type,
         recipientID: friend.id,
       })
+      setSubmitted(true)
+      setSelectedFriend(false)
     }
   }
   
@@ -85,12 +92,18 @@ export default function PayRequestForm() {
 
             <div id="autocomplete-container">
 
-              <input type="text" placeholder="Enter name or @username" onChange={e => setSearchInput(e.target.value)} value={searchInput}  className="searchBar" name="username" autoComplete="off"/>
+              <input type="text" placeholder="Enter name or @username" onChange={e => setSearchInput(e.target.value)} value={searchInput}  className="searchBar" name="username" autoComplete="off" onFocus={removeSubmittedStatus} />
 
               <div id="autocomplete-list">
                 {dropdownList.map((f, idx) => <p key={idx} onClick={() => showForm(f.name, f.id, f.profilePic, f.username)} id='each-item'>{f.name} | {f.username}</p>)}
               </div>
             </div>
+
+            {!selectedFriend && submitted &&
+              <>
+                <img src={friend.pic} alt=""/>
+              </>
+            }
 
             {
               selectedFriend &&

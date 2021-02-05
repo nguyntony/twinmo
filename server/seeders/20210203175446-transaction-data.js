@@ -222,6 +222,20 @@ module.exports = {
         createdAt: new Date('2020-05-25'),
         updatedAt: new Date()
       },
+      {
+        senderID: steven.id,
+        recipientID: sadie.id,
+        type: 'request',
+        description: 'Makeup',
+        amount: 8.30,
+        month: 'May',
+        year: '2020',
+        status: true,
+        archived: false,
+        approved: false,
+        createdAt: new Date('2020-05-30'),
+        updatedAt: new Date()
+      },
     ])
   },
 
