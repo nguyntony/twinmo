@@ -13,11 +13,11 @@
     flex-direction: row;
     align-items: baseline;
     justify-content: space-between;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
 
     h1 {
       text-decoration: underline;
-      text-decoration-color: #feb88a;
+      text-decoration-color: $dark-orange;
     }
 
     h4 {
