@@ -12,17 +12,10 @@
     max-height: 30rem;
     overflow: scroll;
     position: absolute;
-    // border: 1px solid $med-grey;
-    // background-color: $dark-orange;
+    top: 5rem;
+    background-color: $light-grey;
 
     border-radius: 1.2rem;
-
-    // background-color: white;
-    // padding: 0px 10px;
-    // border-left: gray 1px solid;
-    // border-right: gray 1px solid;
-
-    // border-bottom: gray 1px solid
 
     &::-webkit-scrollbar {
       display: none;
@@ -33,9 +26,7 @@
     }
 
     #each-item {
-      // border-bottom: gray 1px solid;
       width: 100%;
-      // padding: 5px;
       padding: 1rem 2rem;
       text-decoration: none;
       cursor: pointer;
@@ -43,8 +34,9 @@
       font-size: 1.5rem;
       font-family: $Noto;
       color: $med-black;
-      border &:hover {
-        background-color: $light-orange;
+
+      &:hover {
+        background-color: $med-orange2;
       }
     }
   }
