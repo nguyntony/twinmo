@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import friendProfilePicture from '../../assets/demo_assets/peridot.png'
 import NumberFormat from 'react-number-format'
-import '../../styles/Member/autocomplete.scss'
+// import '../../styles/Member/autocomplete.scss'
 import axios from 'axios'
 
 
@@ -94,9 +94,8 @@ export default function PayRequestForm() {
 
               <input type="text" placeholder="Enter name or @username" onChange={e => setSearchInput(e.target.value)} value={searchInput}  className="searchBar" name="username" autoComplete="off" onFocus={removeSubmittedStatus} />
 
-              <div id="autocomplete-list">
-                {dropdownList.map((f, idx) => <p key={idx} onClick={() => showForm(f.name, f.id, f.profilePic, f.username)} id='each-item'>{f.name} | {f.username}</p>)}
-              </div>
+              <div id="autocomplete-list">{dropdownList.map((f, idx) => <p key={idx} onClick={() => showForm(f.name, f.id, f.profilePic, f.username)} id='each-item'>{f.name} <span className="username">@{f.username}</span></p>)}</div>
+
             </div>
 
             {!selectedFriend && submitted &&
