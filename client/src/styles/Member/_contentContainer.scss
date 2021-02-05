@@ -2,7 +2,9 @@
   background-color: $egg-white;
   padding: 2rem 3rem;
   border-radius: 2.5rem;
-  height: 50rem; // will need to change this later
+  min-height: 50rem;
+  height: fit-content; // will need to change this later
+  max-height: 70rem;
   display: flex;
   flex-direction: row;
   box-shadow: 15px 15px 15px rgba(46, 54, 68, 0.4);
