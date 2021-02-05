@@ -1,44 +1,96 @@
 import {useState, useEffect} from 'react'
 import friendProfilePicture from '../../assets/demo_assets/peridot.png'
 import NumberFormat from 'react-number-format'
+import '../../styles/Member/autocomplete.scss'
+import axios from 'axios'
 
 
 export default function PayRequestForm() {
   const [searchInput, setSearchInput] = useState('')
-  const [friend, setFriend] = useState(false)
+  
   const [amount, setAmount] = useState('')
   const [description, setDescription] = useState('')
   const [type, setType] = useState('')
   const [button, setButton] = useState('Pay/Request')
   
+  const [dropdownList, setDropdownList] = useState([])
+  const [allFriends, setAllFriends] = useState([])
+  const [selectedFriend, setSelectedFriend] = useState(false)
+  const [friend, setFriend] = useState('')
+  
+  const getAllFriends = async () => {
+    const resp = await axios.get('/api/member/friend/find-all')
+    const formatedFriends = resp.data.map(d => {
+      return {id: d.id, name: d.first+' '+d.last, profilePic: d.profilePic, username: d.username}
+    })
+    setAllFriends(formatedFriends)
+  }
+
   // evnt handler 
-  const showForm = () => {
-    setFriend(true)
+  const showForm = (name, id, pic, username) => {
+    setSelectedFriend(true)
+    setDropdownList([])
+    setSearchInput('')
+    setFriend({name, id, pic, username})
   }
 
   const submitHandler = (e) => {
     e.preventDefault()
+    console.log(amount, description, type, friend.id)
   }
-
+  
+  useEffect(()=>{
+    if (searchInput.length === 0) {
+      setDropdownList([])
+    } else {
+      const filteredFriends = allFriends.filter(i => 
+        {
+          if (
+            i.name.toLowerCase().includes(searchInput.toLowerCase()) 
+            || i.username.toLowerCase().includes(searchInput.toLowerCase())
+            ){
+              return i
+            }
+        })
+      console.log(filteredFriends)
+      setDropdownList(filteredFriends)
+    }
+  }, [searchInput])
+  
   useEffect(()=> {
     setSearchInput('')
-    setFriend(false)
+    setSelectedFriend(false)
+    getAllFriends()
+    setAmount('')
+    setDescription('')
+    setType('')
+    setFriend('')
   }, []) 
 
   return (
     <section id="payRequestForm">
         <div className="form">
           <form onSubmit={submitHandler}>
-            <input type="text" placeholder="Enter name or @username" required onChange={e => setSearchInput(e.target.value)} value={searchInput} onBlur={showForm} className="searchBar" name="username" autoComplete="off"/>
+
+            <div id="autocomplete-container">
+
+              <input type="text" placeholder="Enter name or @username" onChange={e => setSearchInput(e.target.value)} value={searchInput}  className="searchBar" name="username" autoComplete="off"/>
+
+              <div id="autocomplete-list">
+                {dropdownList.map(f => <p onClick={() => showForm(f.name, f.id, f.profilePic, f.username)} id='each-item'>{f.name} | {f.username}</p>)}
+              </div>
+            </div>
 
             {/* conditionally render the rest after the user searches for a friend */}
 
             {
 
-              friend &&
+              selectedFriend &&
               <>
+                <h3>{friend.name}</h3>
+                {/* NEED CSS TO CENTER IN THE MIDDLE */}
                 <div className="friendProfilePicture">
-                  <img src={friendProfilePicture} alt="friend icon"/>
+                  <img src={friend.pic} alt="friend icon"/>
                 </div>
 
 

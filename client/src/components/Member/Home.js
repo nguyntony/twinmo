@@ -12,13 +12,13 @@ export default function Home() {
     const resp = await axios.get('/api/member/pending/list')
     const data = resp.data
     console.log(data[0])
-    setPendingAmt(data.length)
+    setPendingAmt(data.filter(d => d.status).length)
     setMRPending(data[0])
 
     const resp2 = await axios.get('/api/member/request/list')
     const data2 = resp2.data
     console.log(data2[0])
-    setRequestAmt(data2.length)
+    setRequestAmt(data2.filter(d => !d.status).length)
     setMRRequest(data2[0])
   }
 
