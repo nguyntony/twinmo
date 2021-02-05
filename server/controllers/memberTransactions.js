@@ -84,9 +84,6 @@ const processTransaction = async (req, res) => {
         status: true,
         message: "Transaction processed"
     });
-
-    // Month, Year column created with moment.
-    // By default, status = false, archive = false, and approved = false
 }
 
 module.exports = {
