@@ -33,6 +33,7 @@ export default function Home() {
         <div className="icon">
           <img src={MRRequest.friendProfilePic} alt={MRRequest.friendName}/>
         </div>
+
         <div className="mostRecent">
           <h3>{numeral(MRRequest.amount).format('$0,0.00')}<span className="divider"></span>{MRRequest.description}</h3>
         </div>
@@ -57,7 +58,7 @@ export default function Home() {
           <h3>{numeral(MRPending.amount).format('$0,0.00')}<span className="divider"></span>{MRPending.description}</h3>
         </div>
         <div className="title">
-          <h1><a href="#">pending</a></h1>
+          <h1><a href="/member/pending">pending</a></h1>
           <div className="badge">
             <p>
               {pendingAmt}
