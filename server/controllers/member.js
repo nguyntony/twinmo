@@ -11,7 +11,7 @@ const userData = async (req, res) => {
         where: {
             id
         },
-        attributes: ['first', 'last', 'username', 'profilePic']
+        attributes: ['first', 'last', 'username', 'profilePic', 'funds']
     })
 
     res.status(200).json(user)
