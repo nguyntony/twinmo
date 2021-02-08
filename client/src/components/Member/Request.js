@@ -7,6 +7,7 @@ import numeral from 'numeral'
 export default function Request() {
 
   const [requests, setRequests] = useState([])
+  const [requestProcessed, setRequestProcessed] = useState(false)
 
   const getRequests = async () => {
     const resp = await axios.get('/api/member/request/list')
@@ -17,7 +18,7 @@ export default function Request() {
   useEffect(()=> {
     getRequests()
     console.log(requests)
-  }, [])
+  }, [requestProcessed])
 
   return (
     <section id="memberView">
@@ -38,6 +39,10 @@ export default function Request() {
             description={r.description}
             amount={numeral(r.amount).format('$0,0.00')}
             username={r.friendUsername}
+            transactionID={r.id}
+            friendID={r.senderID}
+            requestProcessed={requestProcessed}
+            setRequestProcessed={setRequestProcessed}
             />
           ))
         }
