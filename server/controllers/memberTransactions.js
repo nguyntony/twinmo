@@ -33,15 +33,31 @@ const paymentList = async (req, res) => {
     })
 
     for (i of payments) {
-        const getPaymentFriend = await User.findOne({
-            where: {
-                id: i.recipientID
-            }
-        })
-
-        i.dataValues.friendName = getPaymentFriend.first+" "+getPaymentFriend.last
-        i.dataValues.friendProfilePic = getPaymentFriend.profilePic
-        i.dataValues.friendUsername = getPaymentFriend.username
+        if (i.type === 'request'){
+            const getPaymentFriend = await User.findOne({
+                where: {
+                    id: i.recipientID,
+                }
+            })
+    
+            i.dataValues.friendName = getPaymentFriend.first+" "+getPaymentFriend.last
+            i.dataValues.friendProfilePic = getPaymentFriend.profilePic
+            i.dataValues.friendUsername = getPaymentFriend.username
+        }
+        
+    }
+    for (i of payments) {
+        if (i.type === 'payment') {
+            const getPaymentFriend = await User.findOne({
+                where: {
+                    id: i.senderID,
+                }
+            })
+    
+            i.dataValues.friendName = getPaymentFriend.first+" "+getPaymentFriend.last
+            i.dataValues.friendProfilePic = getPaymentFriend.profilePic
+            i.dataValues.friendUsername = getPaymentFriend.username
+        }
     }
 
     res.status(200).json(payments)

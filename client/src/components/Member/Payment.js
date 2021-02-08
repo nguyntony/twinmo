@@ -8,16 +8,18 @@ import {Link} from 'react-router-dom'
 export default function Pending() {
   const [activeRequests, setActiveRequests] = useState([])
   const [inactiveRequests, setInactiveRequests] = useState([])
+  const [receivedPayments, setReceivedPayments] = useState([])
   const [outgoing, setOutgoing] = useState(false)
   const [completed, setCompleted] = useState(true)
   const [received, setReceived] = useState(false)
 
   const getRequests = async () => {
     const resp = await axios.get('/api/member/payment/list')
-    console.log(resp.data)
+    console.log(resp.data.filter(d => d.type === 'payment'))
     const data = resp.data
     setActiveRequests(data.filter(d => d.status !== true && d.type === 'request'))
     setInactiveRequests(data.filter(d => d.status === true && d.type === 'request'))
+    setReceivedPayments(data.filter(d => d.type === 'payment'))
   }
 
   const completedList = () => {
@@ -90,9 +92,24 @@ export default function Pending() {
         {
           received &&
           <div className="list">
-            {/* I need to write another conditional rendering here, if the list is empty then I will show a no notifications */}
             {
-              true && 
+              receivedPayments &&
+              receivedPayments.map(p => (
+                <Transaction
+                key={p.id}
+                img={p.friendProfilePic}
+                date={moment(p.createdAt).format('MMMM D, YYYY')}
+                name={p.friendName}
+                description={p.description}
+                amount={numeral(p.amount).format('$0,0.00')}
+                username={p.friendUsername}
+                status={p.status}
+                approved={p.approved}
+                />
+              ))
+              }
+            {
+              !receivedPayments && 
               <div className="noNotif">
                 <h1>no notifications</h1>
               </div>
