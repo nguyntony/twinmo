@@ -10,7 +10,7 @@ export default function Home() {
 
   const getRecentData = async () => {
     const resp = await axios.get('/api/member/payment/list')
-    const data = resp.data
+    const data = resp.data.filter(d => d.status)
     console.log(data)
     setPaymentAmount(data.length)
     setMRPending(data[0])
