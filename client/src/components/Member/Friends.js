@@ -50,7 +50,10 @@ export default function Friends() {
         { showFriends ? 
           allFriends.length > 0 
           ? allFriends.map((f, idx) => (<FriendCard first={f.first} last={f.last} profilePic={f.profilePic} username={f.username} key={idx} friendship={true} id={f.id}/>))
-          : <h1><i className="fas fa-search search"></i></h1>
+          : 
+          <section className="friendPlaceholder">
+            <h4><i className="fas fa-search search"></i></h4>
+          </section>
           // CSS THIS ICON TO BE BIGGER AND CENTERED
         : ""
         }
