@@ -3,12 +3,13 @@ import userProfilePicture from '../../assets/demo_assets/stevenuni.jpg'
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 import {Switch, Route, Redirect} from 'react-router-dom'
+import numeral from 'numeral'
 
 export default function Sidebar() {
   const [successfulLogout, setSuccessfulLogout] = useState(false);
   const [userData, setUserData] = useState({})
-  const [profilePic, setProfilePic] = useState('')
-  const [name, setName] = useState('')
+  // POSSIBLY MAKE A NEW STATE JUST FOR THE USER FUNDS. THIS WOULD MEAN MAKING A NEW ROUTE JUST FOR THE FUNDS DATA.
+  // MAKE A USEEFFECT THAT WILL LINK TO A COMMON STATE LINKED TO THE REQUEST FORM. DYNAMICLY UPDATE.
 
   const location = useLocation()
   const currentPath = location.pathname
@@ -49,7 +50,7 @@ export default function Sidebar() {
 
       <div className="nameCard">
         <h3>{userData.first} {userData.last}</h3>
-        <p>$5,000.12</p>
+        <p>{numeral(userData.funds).format('$0,0.00')}</p>
       </div>
 
       <nav id="dashNav">

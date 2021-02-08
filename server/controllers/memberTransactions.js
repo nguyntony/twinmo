@@ -63,28 +63,47 @@ const requestList = async (req, res) => {
 const processTransaction = async (req, res) => {
     const {id} = req.session.user;
     let {amount, description, type, recipientID} = req.body;
-    console.log(amount, description, type, recipientID)
 
     amount = Number(numeral(amount).format('0.00'))
-    console.log(amount)
-    console.log(moment(new Date()).format('MMMM'));
 
-    const newTransaction = await Transaction.create({
-        senderID: id,
-        recipientID,
-        type,
-        description,
-        amount,
-        month: moment(new Date()).format('MMMM'),
-        year: moment(new Date()).format('YYYY'),
-        status: false,
-        archived: false,
-        approved: false,
-    })
-    res.status(200).json({
-        status: true,
-        message: "Transaction processed"
-    });
+    if (type === 'request') {
+        const newTransaction = await Transaction.create({
+            senderID: id,
+            recipientID,
+            type,
+            description,
+            amount,
+            month: moment(new Date()).format('MMMM'),
+            year: moment(new Date()).format('YYYY'),
+            status: false,
+            archived: false,
+            approved: false,
+        })
+        res.status(200).json({
+            status: true,
+            message: "Transaction processed"
+        });
+    } else if (type === 'payment') {
+        const user = await User.findByPk(id);
+        const friend = await User.findByPk(recipientID)
+        if (user.funds - amount > 0) {
+            user.update({funds: Number(user.funds) - amount})
+            friend.update({funds: Number(user.funds) + amount})
+
+            res.status(200).json({
+                status: true,
+                message: 'Payment Processed!'
+            })
+        } else if (user.funds - amount < 0) {
+            console.log('Not enough money!', user.funds, amount, user.funds-amount)
+            res.status(200).json({
+                status: false,
+                message: 'Not enough funds!',
+                missingAMT: amount - Number(user.funds)
+            })
+        }
+    }
+
 }
 
 module.exports = {
