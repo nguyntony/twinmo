@@ -2,7 +2,6 @@ import {useState, useEffect, useContext} from 'react'
 import friendProfilePicture from '../../assets/demo_assets/peridot.png'
 import NumberFormat from 'react-number-format'
 import { FundsContext } from "./FundsContext";
-// import '../../styles/Member/autocomplete.scss'
 import axios from 'axios'
 
 
