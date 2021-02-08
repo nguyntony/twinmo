@@ -9,14 +9,10 @@
         align-items: center;
         justify-content: center;
 
-        // .checkIcon {
-        //   margin: 1rem;
-
-        //   i {
-        //     font-size: 5rem;
-        //     color: #a9a9b5;
-        //   }
-        // }
+        .search {
+          font-size: 15rem;
+          color: $light-grey;
+        }
 
         .profilePicture {
           width: 20rem;

@@ -1,33 +1,36 @@
-#sidebar {
+.sidebar {
   background-color: $dark-purple;
   margin: -2rem 0;
   margin-left: -3rem;
-  padding: 2rem 3rem;
+  // padding: 2rem 3rem;
   // width: rem; // may need to change later
   // min-width: 5rem;
-  max-width: 25rem;
+  // max-width: 25rem;
+  width: 6.5rem;
   border-radius: 2.5rem;
   position: relative;
   display: flex;
   flex-direction: column;
   // display: none;
   // height: 100%;
-  transition: 1s;
+  transition: 250ms;
 
   @include media("<1000px") {
     position: absolute;
     z-index: 10;
     height: 100%;
-    padding: 2rem;
   }
 
   .toggleIcon {
     margin: 1rem 0;
+    // padding: 2rem 1rem;
     // background-color: powderblue;
     i {
       font-size: 3rem;
       color: $ghost-white;
       cursor: pointer;
+      padding: 0 2rem;
+      padding-top: 2rem;
 
       &:hover {
         color: $med-pink;
@@ -36,11 +39,17 @@
   }
 
   .sidebarContent {
-    display: block;
+    padding: 1rem 3rem;
+    opacity: 0;
+    transition: 150ms;
+    // animation-delay: 1s;
+    align-self: center;
   }
 
   .active {
-    display: none;
+    opacity: 1;
+    transition: 150ms;
+    // animation-delay: 1s;
   }
 
   .profilePicture {
@@ -98,7 +107,7 @@
 
   #dashSubNav {
     position: absolute;
-    bottom: 0;
+    bottom: 1rem;
 
     ul {
       display: flex;
@@ -118,4 +127,42 @@
       }
     }
   }
+}
+
+.open {
+  width: 25rem;
+  transition: 250ms;
+}
+
+#quickLinks {
+  align-self: center;
+  // background: black;
+  height: 100%;
+  margin-bottom: 5rem;
+  margin-top: 1rem;
+
+  ul {
+    list-style-type: none;
+    // background-color: violet;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-around;
+
+    li {
+      margin: 2rem 0;
+      a {
+        font-size: 3rem;
+        color: $ghost-white;
+
+        &:hover {
+          color: $med-pink;
+        }
+      }
+    }
+  }
+}
+
+.logoutIcon {
+  cursor: pointer;
 }

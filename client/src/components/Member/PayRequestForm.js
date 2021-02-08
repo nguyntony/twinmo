@@ -23,7 +23,9 @@ export default function PayRequestForm() {
   const [selectedFriend, setSelectedFriend] = useState(false)
   const [friend, setFriend] = useState('')
 
-  const [updateFunds, setUpdateFunds] = useContext(FundsContext)
+  const {updateFundsContext} = useContext(FundsContext)
+  const [updateFunds, setUpdateFunds] = updateFundsContext
+  
   
   const getAllFriends = async () => {
     const resp = await axios.get('/api/member/friend/find-all')
@@ -124,9 +126,14 @@ export default function PayRequestForm() {
                   <i className="far fa-check-circle"></i>
                   <p>{message} sent!</p>
                 </div>
-
-                
               </section>
+            }
+
+            {!selectedFriend && !submitted &&
+              <section className="confirmationSection">
+                <h4><i className="fas fa-search search"></i></h4>
+              </section>
+
             }
 
             {
