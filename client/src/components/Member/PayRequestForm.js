@@ -29,7 +29,7 @@ export default function PayRequestForm() {
     setAllFriends(formatedFriends)
   }
 
-  // evnt handler sdf
+  // evnt handler
   const showForm = (name, id, pic, username) => {
     setSelectedFriend(true)
     setDropdownList([])
@@ -56,8 +56,15 @@ export default function PayRequestForm() {
         type,
         recipientID: friend.id,
       })
-      setSubmitted(true)
-      setSelectedFriend(false)
+
+      if (resp.data.status) {
+        setSubmitted(true)
+        setSelectedFriend(false)
+        // I WANT TO DYNAMICALLY UPDATE THE SIDEBAR FUNDS. WE CAN POSSIBLY DO THIS BY LINKING A STATE FROM HERE TO THE SIDEBAR. WHEN THIS PROCESSES, CHANGE THE STATE THAT FORCES THE STATE IN THE SIDEBAR TO CHANGE AND HAVE A USEEFFECT THERE THAT WILL RERENDER BASED THE STATECHANGE.
+      } else if (!resp.data.status) {
+        console.log(resp.data.message, resp.data.missingAMT)
+        // MAYBE MAKE THIS A MODAL THAT POPS OUT? HAVE THE USER EXIT OUT OR CLICK ON MODAL OR OUTSIDE TO GET OUT.
+      }
     }
   }
   
@@ -115,7 +122,8 @@ export default function PayRequestForm() {
 
                 <NumberFormat className="amount" placeholder="$0" required id="amount" value={amount} prefix={"$"} onChange={e => setAmount(e.target.value)} min="1" name="amount" thousandSeparator={true} decimalScale={2} allowNegative={false} allowLeadingZeros={false} autoComplete="off" fixedDecimalScale={true}/>
 
-                <input type="text" placeholder="Description" value={description} onChange={e => setDescription(e.target.value)} className="description" name="description" autoComplete="off" />
+                <input type="text" placeholder="Description" value={description} onChange={e => setDescription(e.target.value)} className="description" name="description" autoComplete="off" maxLength="20"/>
+                <span >{description.length}/20</span>
 
                 <div className="type">
                   <ul>
