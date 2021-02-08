@@ -5,6 +5,8 @@ import { useState } from 'react'
 import TestSignup from './components/TestSignup'
 import TestLogin from './components/TestLogin'
 
+import {FundsProvider} from './components/Member/FundsContext'
+
 import Protected from './components/Member/Protected'
 import {HomepageLayout, homeRoute} from './components/Homepage/HomeLayout'
 import {MemberLayout, memberRoute} from './components/Member/MemberLayout'
@@ -34,11 +36,13 @@ function App() {
               {/* members-only */}
               <Protected isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}>
                 
-                {memberRoute.map(r => (
-                  <Route path={r.path} key={r.route} exact>
-                    <MemberLayout component={r.component}/>
-                  </Route>
-                ))}
+                <FundsProvider>
+                  {memberRoute.map(r => (
+                    <Route path={r.path} key={r.route} exact>
+                      <MemberLayout component={r.component}/>
+                    </Route>
+                  ))}
+                </FundsProvider>
 
               </Protected>
               
