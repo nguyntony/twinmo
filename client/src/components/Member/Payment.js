@@ -12,11 +12,11 @@ export default function Pending() {
   const [received, setReceived] = useState(false)
 
   const getRequests = async () => {
-    const resp = await axios.get('/api/member/pending/list')
+    const resp = await axios.get('/api/member/payment/list')
     console.log(resp.data)
     const data = resp.data
-    setActiveRequests(data.filter(d => d.status !== true))
-    setInactiveRequests(data.filter(d => d.status === true))
+    setActiveRequests(data.filter(d => d.status !== true && d.type === 'request'))
+    setInactiveRequests(data.filter(d => d.status === true && d.type === 'request'))
   }
 
   const completedList = () => {

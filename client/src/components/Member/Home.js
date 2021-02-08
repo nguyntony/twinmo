@@ -9,7 +9,7 @@ export default function Home() {
   const [MRPending, setMRPending] = useState('')
 
   const getRecentData = async () => {
-    const resp = await axios.get('/api/member/pending/list')
+    const resp = await axios.get('/api/member/payment/list')
     const data = resp.data
     console.log(data)
     setPaymentAmount(data.length)
@@ -29,46 +29,62 @@ export default function Home() {
   return (
     <section id="dashboardContentContainer">
       <div className="request-container">
-        <div className="half-circle-bg"></div>
-        <div className="icon">
-          <img src={MRRequest.friendProfilePic} alt={MRRequest.friendName}/>
-        </div>
+        
+        
+            <div className="half-circle-bg"></div>
+            <div className="icon">
+              {MRRequest && <img src={MRRequest.friendProfilePic} alt={MRRequest.friendName}/>}
+            </div>
 
-        <div className="mostRecent">
-          {/* <h3>{numeral(MRRequest.amount).format('$0,0.00')}<span className="divider"></span>{MRRequest.description}</h3> */}
-          <h3>{numeral(MRRequest.amount).format('$0,0.00')}</h3>
-          <h3>{MRRequest.description}</h3>
-        </div>
+            <div className="mostRecent">
+              {/* <h3>{numeral(MRRequest.amount).format('$0,0.00')}<span className="divider"></span>{MRRequest.description}</h3> */}
+              {MRRequest &&
+                <>
+                <h3>{numeral(MRRequest.amount).format('$0,0.00')}</h3>
+                <h3>{MRRequest.description}</h3>
+                </>
+              }
+            </div>
 
-        <div className="title">
-          <h1><a href="/member/request">requests</a></h1>
-          <div className="badge">
-            <p>
-              {requestAmt}
-            </p>
-          </div>
-        </div>
+            <div className="title">
+              <h1><a href="/member/request">requests</a></h1>
+              <div className="badge">
+                <p>
+                  {requestAmt}
+                </p>
+              </div>
+            </div>
+
       </div>
 
 
       <div className="pending-container">
-        <div className="half-circle-bg"></div>
-        <div className="icon">
-          <img src={MRPending.friendProfilePic} alt={MRPending.friendName}/>
-        </div>
-        <div className="mostRecent">
-          {/* <h3>{numeral(MRPending.amount).format('$0,0.00')}<span className="divider"></span>{MRPending.description}</h3> */}
-          <h3>{numeral(MRPending.amount).format('$0,0.00')}</h3>
-          <h3>{MRPending.description}</h3>
-        </div>
-        <div className="title">
-          <h1><a href="/member/payment">payments</a></h1>
-          <div className="badge">
-            <p>
-              {paymentAmount}
-            </p>
+
+        
+          <div className="half-circle-bg"></div>
+          <div className="icon">
+            {MRPending && <img src={MRPending.friendProfilePic} alt={MRPending.friendName}/>}
           </div>
-        </div>
+          <div className="mostRecent">
+            {/* <h3>{numeral(MRPending.amount).format('$0,0.00')}<span className="divider"></span>{MRPending.description}</h3> */}
+            {MRPending && 
+              <>
+              <h3>{numeral(MRPending.amount).format('$0,0.00')}</h3>
+              <h3>{MRPending.description}</h3>
+              </>
+            }
+          </div>
+          <div className="title">
+            <h1><a href="/member/payment">payments</a></h1>
+            <div className="badge">
+              <p>
+                {paymentAmount}
+              </p>
+            </div>
+          </div>
+        
+        
+
       </div>
     </section>
   )
