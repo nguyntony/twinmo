@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 import numeral from 'numeral'
+import {Link} from 'react-router-dom'
 
 export default function Home() {
   const [requestAmt, setRequestAmt] = useState('')
@@ -51,7 +52,7 @@ export default function Home() {
             </div>
 
             <div className="title">
-              <h1><a href="/member/request">requests</a></h1>
+              <h1><Link to="/member/request">requests</Link></h1>
               <div className="badge">
                 <p>
                   {requestAmt}
@@ -83,7 +84,7 @@ export default function Home() {
             }
           </div>
           <div className="title">
-            <h1><a href="/member/payment">payments</a></h1>
+            <h1><Link to="/member/payment">payments</Link></h1>
             <div className="badge">
               <p>
                 {paymentAmount}
