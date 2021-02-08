@@ -33,16 +33,20 @@ export default function Home() {
         
             <div className="half-circle-bg"></div>
             <div className="icon">
-              {MRRequest && <img src={MRRequest.friendProfilePic} alt={MRRequest.friendName}/>}
+              {MRRequest ? 
+              <img src={MRRequest.friendProfilePic} alt={MRRequest.friendName}/>
+              : <img src='/uploads/nodata1.jpg'></img>
+              }
             </div>
 
             <div className="mostRecent">
               {/* <h3>{numeral(MRRequest.amount).format('$0,0.00')}<span className="divider"></span>{MRRequest.description}</h3> */}
-              {MRRequest &&
+              {MRRequest ?
                 <>
                 <h3>{numeral(MRRequest.amount).format('$0,0.00')}</h3>
                 <h3>{MRRequest.description}</h3>
                 </>
+                : <h3>No Data</h3>
               }
             </div>
 
@@ -63,15 +67,19 @@ export default function Home() {
         
           <div className="half-circle-bg"></div>
           <div className="icon">
-            {MRPending && <img src={MRPending.friendProfilePic} alt={MRPending.friendName}/>}
+            {MRPending ? 
+            <img src={MRPending.friendProfilePic} alt={MRPending.friendName}/>
+            : <img src="/uploads/nodata2.jpg" alt=""/>
+            }
           </div>
           <div className="mostRecent">
             {/* <h3>{numeral(MRPending.amount).format('$0,0.00')}<span className="divider"></span>{MRPending.description}</h3> */}
-            {MRPending && 
+            {MRPending ? 
               <>
               <h3>{numeral(MRPending.amount).format('$0,0.00')}</h3>
               <h3>{MRPending.description}</h3>
               </>
+              : <h3>No Data</h3>
             }
           </div>
           <div className="title">
