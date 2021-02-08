@@ -1,21 +1,16 @@
 import {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
-import {Switch, Route, Redirect, useLocation} from 'react-router-dom'
+import {Switch, Route, Redirect, Link, useLocation} from 'react-router-dom'
 import numeral from 'numeral'
-import { FundsContext } from "./FundsContext";
+import {FundsContext} from "./FundsContext";
 
 export default function Sidebar() {
   const [successfulLogout, setSuccessfulLogout] = useState(false);
   const [userData, setUserData] = useState({})
   const [userFunds, setUserFunds] = useState('')
-  // const [toggle, setToggle] = useContext(FundsContext)
-  // const [updateFunds, setUpdateFunds] = useContext(FundsContext)
-  // const [test, setTest] = useContext(FundsContext)
-
-  const {updateFundsContext, toggleContext, testContext} = useContext(FundsContext)
+  const {updateFundsContext, toggleContext} = useContext(FundsContext)
   const [updateFunds, setUpdateFunds] = updateFundsContext
   const [toggle, setToggle] = toggleContext
-  const [test, setTest] = testContext
 
   const location = useLocation()
   const currentPath = location.pathname
@@ -54,6 +49,7 @@ export default function Sidebar() {
 
   const toggleSidebar = () => {
     setToggle(!toggle)
+    // alert('you clicked the menu btn')
   }
 
   useEffect(() => {
@@ -64,7 +60,7 @@ export default function Sidebar() {
   useEffect(()=> {
     // console.log('Funds changed')
     getUserFunds()
-    console.log(`this is ${test}`)
+    // console.log(`this is ${test}`)
   }, [updateFunds])
 
   return (
@@ -85,17 +81,17 @@ export default function Sidebar() {
     
           <nav id="dashNav">
             <ul>
-              <li><a href="/member/home" style={dashboardHighlight}>Dashboard</a></li>
-              <li><a href="/member/friends" style={friendsHighlight}>Friends</a></li>
-              <li><a href="/member/pay-request" style={payRequestHighlight}>Pay / Request</a></li>
-              <li><a href="#">History</a></li>
+              <li><Link to="/member/home" style={dashboardHighlight}>Dashboard</Link></li>
+              <li><Link to="/member/friends" style={friendsHighlight}>Friends</Link></li>
+              <li><Link to="/member/pay-request" style={payRequestHighlight}>Pay / Request</Link></li>
+              <li><Link to="/member/history">History</Link></li>
             </ul>
           </nav>
     
           <nav id="dashSubNav">
             <ul>
-              <li><a href="#"><i className="fas fa-cog"></i></a></li>
-              <li><a onClick={processLogout} className="logoutIcon"><i className="fas fa-sign-out-alt" onClick={processLogout}></i></a></li>
+              <li><Link to="#"><i className="fas fa-cog"></i></Link></li>
+              <li><p onClick={processLogout}><i className="fas fa-sign-out-alt"></i></p></li>
             </ul>
           </nav>
         </div>
@@ -103,11 +99,11 @@ export default function Sidebar() {
         
           <nav id="quickLinks">
             <ul>
-              <li><a style={iconHome} href="/member/home"><i className="fas fa-home"></i></a></li>
-              <li><a href="/member/friends"><i className="fas fa-user-friends"></i></a></li>
-              <li><a href="/member/pay-request"><i className="fas fa-hand-holding-usd"></i></a></li>
-              <li><a href="#"><i className="fas fa-money-check-alt"></i></a></li>
-              <li><a onClick={processLogout} className="logoutIcon quickLogout"><i className="fas fa-sign-out-alt" onClick={processLogout}></i></a></li>
+              <li><Link style={iconHome} to="/member/home"><i className="fas fa-home"></i></Link></li>
+              <li><Link to="/member/friends"><i className="fas fa-user-friends"></i></Link></li>
+              <li><Link to="/member/pay-request"><i className="fas fa-hand-holding-usd"></i></Link></li>
+              <li><Link to="/member/history"><i className="fas fa-money-check-alt"></i></Link></li>
+              <li><p onClick={processLogout}><i className="fas fa-sign-out-alt"></i></p></li>
             </ul>
           </nav>
       
