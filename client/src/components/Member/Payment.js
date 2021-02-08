@@ -1,14 +1,16 @@
 import axios from 'axios';
 import {useEffect, useState} from 'react';
 import Transaction from './Transaction'
-import numeral from 'numeral'
+import numeral, { set } from 'numeral'
 import moment from 'moment'
+import { useLocation } from 'react-router-dom';
 
 export default function Pending() {
   const [activeRequests, setActiveRequests] = useState([])
   const [inactiveRequests, setInactiveRequests] = useState([])
   const [outgoing, setOutgoing] = useState(false)
   const [completed, setCompleted] = useState(true)
+  const [received, setReceived] = useState(false)
 
   const getRequests = async () => {
     const resp = await axios.get('/api/member/pending/list')
@@ -22,6 +24,7 @@ export default function Pending() {
     if (!completed) {
       setCompleted(true)
       setOutgoing(false)
+      setReceived(false)
     }
   }
 
@@ -29,6 +32,15 @@ export default function Pending() {
     if (!outgoing) {
       setOutgoing(true)
       setCompleted(false)
+      setReceived(false)
+    }
+  }
+
+  const receivedList = () => {
+    if (!received) {
+      setReceived(true)
+      setCompleted(false)
+      setOutgoing(false)
     }
   }
   
@@ -48,20 +60,21 @@ export default function Pending() {
         <h4><a href="/member/request" className="request-link">requests <i className="fas fa-caret-right"></i></a></h4>
       </div>
 
-        <div className="pendingNav">
+        <div className="paymentNav">
+          <div className="titleBar">
+            <h3
+            onClick={receivedList}
+            style={received ? selectedList : null}>
+              received
+            </h3>
+          </div>
+
           <div className="titleBar">
             <h3 
             onClick={completedList}
             style={completed ? selectedList : null}
             >completed
-{/*             
-            {
-              completed ? <i className="fas fa-caret-up"></i> :
-              <i className="fas fa-caret-down"></i>
-  
-            } */}
           </h3>
-          
           </div>
   
           <div className="titleBar">
@@ -69,14 +82,24 @@ export default function Pending() {
               onClick={outgoingList}
               style={outgoing ? selectedList : null}
               >outgoing
-              
-              {/* {
-                outgoing ? <i className="fas fa-caret-up"></i> : 
-                <i className="fas fa-caret-down"></i>
-              }
-               */}
               </h3></div>
         </div>
+
+      
+      <div className="receivedContentContainer">
+        {
+          received &&
+          <div className="list">
+            {/* I need to write another conditional rendering here, if the list is empty then I will show a no notifications */}
+            {
+              true && 
+              <div className="noNotif">
+                <h1>no notifications</h1>
+              </div>
+            }
+          </div>
+        }
+      </div>
 
 
       <div className="inactiveContentContainer">
@@ -104,18 +127,6 @@ export default function Pending() {
       </div>
 
         <div className="activeContentContainer">
-          {/* <div className="titleBar">
-            <h3 
-            onClick={outgoingList}
-            style={outgoing ? selectedList : null}
-            >outgoing requests 
-            
-            {
-              outgoing ? <i className="fas fa-caret-up"></i> : 
-              <i className="fas fa-caret-down"></i>
-            }
-            
-            </h3></div> */}
 
         {  
             outgoing &&

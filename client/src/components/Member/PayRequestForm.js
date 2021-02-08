@@ -15,7 +15,8 @@ export default function PayRequestForm() {
   const [amount, setAmount] = useState('')
   const [description, setDescription] = useState('')
   const [type, setType] = useState('')
-  const [button, setButton] = useState('Pay/Request')
+  const [button, setButton] = useState('')
+  const [message, setMessage] = useState('')
   
   const [dropdownList, setDropdownList] = useState([])
   const [allFriends, setAllFriends] = useState([])
@@ -64,9 +65,15 @@ export default function PayRequestForm() {
         setSubmitted(true)
         setSelectedFriend(false)
         setUpdateFunds(!updateFunds)
+        
+        if (button === 'Pay') {setMessage('Payment')}
+        if (button === 'Request') {setMessage('Request')}
+
+        //inside here
       } else if (!resp.data.status) {
         console.log(resp.data.message, resp.data.missingAMT)
         // MAYBE MAKE THIS A MODAL THAT POPS OUT? HAVE THE USER EXIT OUT OR CLICK ON MODAL OR OUTSIDE TO GET OUT.
+        // if there is an error then you need to set the value to true to see msg
       }
     }
   }
@@ -109,9 +116,17 @@ export default function PayRequestForm() {
             </div>
 
             {!selectedFriend && submitted &&
-              <>
-                <img src={friend.pic} alt=""/>
-              </>
+              <section className="confirmationSection">
+                <div className="profilePicture">
+                  <img src={friend.pic} alt=""/>
+                </div>
+                <div className="message">
+                  <i className="far fa-check-circle"></i>
+                  <p>{message} sent!</p>
+                </div>
+
+                
+              </section>
             }
 
             {
@@ -125,14 +140,17 @@ export default function PayRequestForm() {
 
                 <NumberFormat className="amount" placeholder="$0" required id="amount" value={amount} prefix={"$"} onChange={e => setAmount(e.target.value)} min="1" name="amount" thousandSeparator={true} decimalScale={2} allowNegative={false} allowLeadingZeros={false} autoComplete="off" fixedDecimalScale={true}/>
 
-                <input type="text" placeholder="Description" value={description} onChange={e => setDescription(e.target.value)} className="description" name="description" autoComplete="off" maxLength="20"/>
-                <span >{description.length}/20</span>
+                <div className="descriptionField">
+                {true && <span className="errorMsg">Insufficient funds</span>}
+                  <input type="text" placeholder="Description" value={description} onChange={e => setDescription(e.target.value)} className="description" name="description" autoComplete="off" maxLength="20" onBlur={undefined}/>
+                  <span className="descriptionLength">{description.length}/20</span>
+                </div>
 
                 <div className="type">
                   <ul>
                     <li>
                       <input checked={payChecked} type="radio" name="type" value={type} id="payment" 
-                      onClick={() => {
+                      onChange={() => {
                         if (requestChecked) {
                           setRequestChecked(false)
                         }
@@ -145,7 +163,7 @@ export default function PayRequestForm() {
     
                     <li>
                       <input checked={requestChecked} type="radio" name="type" value={type} id="request" 
-                      onClick={() => {
+                      onChange={() => {
                         if (payChecked) {
                           setPayChecked(false)
                         }
@@ -158,7 +176,7 @@ export default function PayRequestForm() {
                   </ul>
                 </div>
 
-                {type && <button type="submit">{button} money</button>}
+                {type && <button type="submit">{button}</button>}
               </>
             }
           </form>
