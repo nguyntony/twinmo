@@ -20,6 +20,11 @@ const paymentList = async (req, res) => {
                     recipientID: id,
                     type: 'payment',
                     status: true
+                },
+                {
+                    senderID: id,
+                    type: 'request',
+                    status: false
                 }
             ]
         },

@@ -47,7 +47,13 @@ export default function Friends() {
       </div>
 
       <div className="friendsList">
-        { showFriends && allFriends.map((f, idx) => (<FriendCard first={f.first} last={f.last} profilePic={f.profilePic} username={f.username} key={idx} friendship={true} id={f.id}/>))}
+        { showFriends ? 
+          allFriends.length > 0 
+          ? allFriends.map((f, idx) => (<FriendCard first={f.first} last={f.last} profilePic={f.profilePic} username={f.username} key={idx} friendship={true} id={f.id}/>))
+          : <h1><i className="fas fa-search search"></i></h1>
+          // CSS THIS ICON TO BE BIGGER AND CENTERED
+        : ""
+        }
         { showResults && 
         searchedUsers.map((u, idx) => (<FriendCard first={u.first} last={u.last} profilePic={u.profilePic} username={u.username} key={idx} friendship={u.friendship} id={u.id} />))}
       </div>

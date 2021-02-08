@@ -135,6 +135,7 @@ const addFriend = async (req, res) => {
 
 const findAllFriends = async (req, res) => {
     const {id} = req.session.user;
+    console.log(id)
 
     // Searches for the friendships in the table.
     const friendship = await Friend.findAll({
@@ -149,6 +150,8 @@ const findAllFriends = async (req, res) => {
             ]
         },
     })
+
+    console.log('this is all friends',friendship)
     
     const friendIDs = []
     // Sifts through the friendships to only pull the ID that doesn't match the user, which is the friend's ID.
@@ -162,17 +165,21 @@ const findAllFriends = async (req, res) => {
     }
     
     // Pulls specific user data that corresponds to the sifted friend IDs.
-    const friendList = await User.findAll({
-        where: {
-            id: {
-                [Op.or]: friendIDs
-            }
-        },
-        attributes: ['id', 'first', 'last', 'username', 'profilePic']
-    })
+    if (friendIDs.length > 0) {
+        const friendList = await User.findAll({
+            where: {
+                id: {
+                    [Op.or]: friendIDs
+                }
+            },
+            attributes: ['id', 'first', 'last', 'username', 'profilePic']
+        })
+        
     
-
-    res.status(200).json(friendList)
+        res.status(200).json(friendList)
+    } else {
+        res.status(200).json([])
+    }
 }
 
 
