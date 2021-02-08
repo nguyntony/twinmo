@@ -5,13 +5,25 @@ const { Sequelize } = require('sequelize');
 
 const userData = async (req, res) => {
     const {id} = req.session.user;
-    console.log('USER DATA:', id);
 
     const user = await User.findOne({
         where: {
             id
         },
         attributes: ['first', 'last', 'username', 'profilePic', 'funds']
+    })
+
+    res.status(200).json(user)
+}
+
+const userFunds = async (req, res) => {
+    const {id} = req.session.user;
+
+    const user = await User.findOne({
+        where:{
+            id
+        },
+        attributes: ['funds']
     })
 
     res.status(200).json(user)
@@ -167,6 +179,7 @@ const findAllFriends = async (req, res) => {
 
 module.exports = {
     userData,
+    userFunds,
     findUsers,
     addFriend,
     findAllFriends

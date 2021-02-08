@@ -1,6 +1,7 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import friendProfilePicture from '../../assets/demo_assets/peridot.png'
 import NumberFormat from 'react-number-format'
+import { FundsContext } from "./FundsContext";
 // import '../../styles/Member/autocomplete.scss'
 import axios from 'axios'
 
@@ -20,6 +21,8 @@ export default function PayRequestForm() {
   const [allFriends, setAllFriends] = useState([])
   const [selectedFriend, setSelectedFriend] = useState(false)
   const [friend, setFriend] = useState('')
+
+  const [updateFunds, setUpdateFunds] = useContext(FundsContext)
   
   const getAllFriends = async () => {
     const resp = await axios.get('/api/member/friend/find-all')
@@ -60,7 +63,7 @@ export default function PayRequestForm() {
       if (resp.data.status) {
         setSubmitted(true)
         setSelectedFriend(false)
-        // I WANT TO DYNAMICALLY UPDATE THE SIDEBAR FUNDS. WE CAN POSSIBLY DO THIS BY LINKING A STATE FROM HERE TO THE SIDEBAR. WHEN THIS PROCESSES, CHANGE THE STATE THAT FORCES THE STATE IN THE SIDEBAR TO CHANGE AND HAVE A USEEFFECT THERE THAT WILL RERENDER BASED THE STATECHANGE.
+        setUpdateFunds(!updateFunds)
       } else if (!resp.data.status) {
         console.log(resp.data.message, resp.data.missingAMT)
         // MAYBE MAKE THIS A MODAL THAT POPS OUT? HAVE THE USER EXIT OUT OR CLICK ON MODAL OR OUTSIDE TO GET OUT.
