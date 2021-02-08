@@ -8,7 +8,7 @@ export default function Sidebar() {
   const [successfulLogout, setSuccessfulLogout] = useState(false);
   const [userData, setUserData] = useState({})
   const [userFunds, setUserFunds] = useState('')
-  
+  const [toggle, setToggle] = useState(true)
   const [updateFunds, setUpdateFunds] = useContext(FundsContext)
 
   const location = useLocation()
@@ -41,6 +41,10 @@ export default function Sidebar() {
     setSuccessfulLogout(true)
   }
 
+  const toggleSidebar = () => {
+    setToggle(!toggle)
+  }
+
   useEffect(() => {
     setSuccessfulLogout(false);
     getUserData();
@@ -54,34 +58,39 @@ export default function Sidebar() {
   return (
     <section id="sidebar">
 
-      <div className="collapsed-menu"></div>
+      {/* <div className="collapsed-menu"></div> */}
 
-      <div className="desktop">
-        <div className="profilePicture">
-          <img src={userData.profilePic} alt="profile pic"/>
+
+
+        <div className="toggleIcon"><i className="fas fa-bars" onClick={toggleSidebar}></i></div>
+
+        <div className={toggle ? "sidebarContent active" : "sidebarContent"}>
+          <div className="profilePicture">
+            <img src={userData.profilePic} alt="profile pic"/>
+          </div>
+    
+          <div className="nameCard">
+            <h3>{userData.first} {userData.last}</h3>
+            <p>{numeral(userFunds).format('$0,0.00')}</p>
+          </div>
+    
+          <nav id="dashNav">
+            <ul>
+              <li><a href="/member/home" style={dashboardHighlight}>Dashboard</a></li>
+              <li><a href="/member/friends" style={friendsHighlight}>Friends</a></li>
+              <li><a href="/member/pay-request" style={payRequestHighlight}>Pay / Request</a></li>
+              <li><a href="#">History</a></li>
+            </ul>
+          </nav>
+    
+          <nav id="dashSubNav">
+            <ul>
+              <li><a href="#"><i className="fas fa-cog"></i></a></li>
+              <li><a onClick={processLogout}><i className="fas fa-sign-out-alt" onClick={processLogout}></i></a></li>
+            </ul>
+          </nav>
         </div>
-  
-        <div className="nameCard">
-          <h3>{userData.first} {userData.last}</h3>
-          <p>{numeral(userFunds).format('$0,0.00')}</p>
-        </div>
-  
-        <nav id="dashNav">
-          <ul>
-            <li><a href="/member/home" style={dashboardHighlight}>Dashboard</a></li>
-            <li><a href="/member/friends" style={friendsHighlight}>Friends</a></li>
-            <li><a href="/member/pay-request" style={payRequestHighlight}>Pay / Request</a></li>
-            <li><a href="#">History</a></li>
-          </ul>
-        </nav>
-  
-        <nav id="dashSubNav">
-          <ul>
-            <li><a href="#"><i className="fas fa-cog"></i></a></li>
-            <li><a onClick={processLogout}><i className="fas fa-sign-out-alt" onClick={processLogout}></i></a></li>
-          </ul>
-        </nav>
-      </div>
+
       <Switch>
         <Route path={currentPath} exact>
           {successfulLogout && <Redirect to='/'/>}
