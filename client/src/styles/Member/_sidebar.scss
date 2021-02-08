@@ -3,91 +3,115 @@
   margin: -2rem 0;
   margin-left: -3rem;
   padding: 2rem 3rem;
-  width: 25rem; // may need to change later
+  // width: rem; // may need to change later
+  // min-width: 5rem;
+  max-width: 25rem;
   border-radius: 2.5rem;
   position: relative;
   display: flex;
   flex-direction: column;
   // display: none;
+  // height: 100%;
+  transition: 1s;
 
   @include media("<1000px") {
-    // background-color: peachpuff;
-    // display: none;
-    width: 5rem;
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    padding: 2rem;
   }
 
-  .desktop {
+  .toggleIcon {
+    margin: 1rem 0;
+    // background-color: powderblue;
+    i {
+      font-size: 3rem;
+      color: $ghost-white;
+      cursor: pointer;
+
+      &:hover {
+        color: $med-pink;
+      }
+    }
+  }
+
+  .sidebarContent {
+    display: block;
+  }
+
+  .active {
     display: none;
-    .profilePicture {
-      width: 20rem;
-      height: 20rem;
-      border-radius: 100%;
-      // background-color: $dark-pink;
-      align-self: center;
-      overflow: hidden;
-      box-shadow: 2px 2px 2px rgba(46, 54, 68, 0.4);
+  }
 
-      img {
-        width: 100%;
-      }
+  .profilePicture {
+    width: 20rem;
+    height: 20rem;
+    border-radius: 100%;
+    // background-color: $dark-pink;
+    align-self: center;
+    overflow: hidden;
+    box-shadow: 2px 2px 2px rgba(46, 54, 68, 0.4);
+
+    img {
+      width: 100%;
     }
+  }
 
-    .nameCard {
-      padding: 1.5rem 0;
-      background-color: $egg-white;
-      margin: 1.5rem 0;
-      border-radius: 1.1rem;
-      text-align: center;
+  .nameCard {
+    padding: 1.5rem 0;
+    background-color: $egg-white;
+    margin: 1.5rem 0;
+    border-radius: 1.1rem;
+    text-align: center;
 
-      p {
-        color: $shadow-purple;
-        margin-top: 0.5rem;
-        font-weight: $bold;
-      }
+    p {
+      color: $shadow-purple;
+      margin-top: 0.5rem;
+      font-weight: $bold;
     }
+  }
 
-    #dashNav,
-    #dashSubNav {
-      ul {
-        list-style: none;
-        li {
-          margin: 0.7rem 0;
-          a {
-            color: $ghost-white;
-            text-decoration: none;
-            font-size: 1.5rem;
+  #dashNav,
+  #dashSubNav {
+    ul {
+      list-style: none;
+      li {
+        margin: 0.7rem 0;
+        a {
+          color: $ghost-white;
+          text-decoration: none;
+          font-size: 1.5rem;
 
-            &:hover {
-              color: $med-pink;
-            }
+          &:hover {
+            color: $med-pink;
           }
         }
       }
     }
+  }
 
-    #dashNav {
-      a {
-        padding: 1rem;
-      }
+  #dashNav {
+    a {
+      padding: 1rem;
     }
+  }
 
-    #dashSubNav {
-      position: absolute;
-      bottom: 1rem;
+  #dashSubNav {
+    position: absolute;
+    bottom: 0;
 
-      ul {
-        display: flex;
-        flex-direction: row;
-        li {
-          a {
-            font-size: 2.5rem;
-            i {
-              margin-right: 2rem;
-              color: $med-grey;
+    ul {
+      display: flex;
+      flex-direction: row;
+      li {
+        a {
+          font-size: 2.5rem;
+          i {
+            margin-right: 2rem;
+            color: $med-grey;
 
-              &:hover {
-                color: $med-pink;
-              }
+            &:hover {
+              color: $med-pink;
             }
           }
         }
