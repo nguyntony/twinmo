@@ -67,18 +67,40 @@
         }
       }
 
-      .description {
-        height: 6rem;
-        font-size: 1.5rem;
-        color: $med-black;
-        padding: 0 2rem;
-        font-family: $Noto;
-        background-color: $light-grey;
-        border-radius: 1.2rem;
-        outline: none;
-        border: none;
-        text-align: center;
-        margin: 1rem;
+      .descriptionField {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .description {
+          width: 100%;
+          height: 6rem;
+          font-size: 1.5rem;
+          color: $med-black;
+          padding: 0 2rem;
+          font-family: $Noto;
+          background-color: $light-grey;
+          border-radius: 1.2rem;
+          outline: none;
+          border: none;
+          text-align: center;
+          margin: 1rem;
+        }
+
+        .descriptionLength {
+          position: absolute;
+          right: 1.8rem;
+          bottom: 1.8rem;
+          font-family: $Noto;
+        }
+
+        .errorMsg {
+          font-size: 1.5rem;
+          font-family: $Noto;
+          color: $deep-pink;
+          font-weight: $bold;
+        }
       }
 
       .type {
