@@ -10,8 +10,18 @@ const pendingList = async (req, res) => {
 
     const pendings = await Transaction.findAll({
         where: {
-            senderID: id,
-            type: 'request'
+            [Op.or]: [
+                {
+                    senderID: id,
+                    type: 'request',
+                    status: true
+                },
+                {
+                    recipientID: id,
+                    type: 'payment',
+                    status: true
+                }
+            ]
         },
         order: [["createdAt", "desc"]],
         attributes: ['id', 'amount', 'createdAt', 'description', 'status', 'recipientID', 'senderID', 'archived', 'approved']
@@ -89,6 +99,19 @@ const processTransaction = async (req, res) => {
         if (user.funds - amount > 0) {
             user.update({funds: Number(user.funds) - amount})
             friend.update({funds: Number(user.funds) + amount})
+
+            const newTransaction = await Transaction.create({
+                senderID: id,
+                recipientID,
+                type,
+                description,
+                amount,
+                month: moment(new Date()).format('MMMM'),
+                year: moment(new Date()).format('YYYY'),
+                status: true,
+                archived: false,
+                approved: true,
+            })
 
             res.status(200).json({
                 status: true,

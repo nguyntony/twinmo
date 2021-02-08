@@ -5,14 +5,14 @@ import numeral from 'numeral'
 export default function Home() {
   const [requestAmt, setRequestAmt] = useState('')
   const [MRRequest, setMRRequest] = useState('')
-  const [pendingAmt, setPendingAmt] = useState('')
+  const [paymentAmount, setPaymentAmount] = useState('')
   const [MRPending, setMRPending] = useState('')
 
   const getRecentData = async () => {
     const resp = await axios.get('/api/member/pending/list')
     const data = resp.data
-    console.log(data[0])
-    setPendingAmt(data.filter(d => d.status).length)
+    console.log(data)
+    setPaymentAmount(data.length)
     setMRPending(data[0])
 
     const resp2 = await axios.get('/api/member/request/list')
@@ -65,7 +65,7 @@ export default function Home() {
           <h1><a href="/member/payment">payments</a></h1>
           <div className="badge">
             <p>
-              {pendingAmt}
+              {paymentAmount}
             </p>
           </div>
         </div>
