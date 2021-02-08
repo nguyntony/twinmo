@@ -5,7 +5,7 @@ import {useLocation} from 'react-router-dom'
 export default function Transaction({img, date, name, description, amount, username, status, approved}) {
 
   const [showAction, setShowAction] = useState(true)
-  const requestPath = '/member/request'
+  // const requestPath = '/member/request'
   const pendingPath = '/member/payment'
 
   const location = useLocation()
@@ -27,8 +27,23 @@ export default function Transaction({img, date, name, description, amount, usern
         <h3>{name}</h3>
       </div>
 
-      <div className="icon">
-        <img src={img} alt="friend icon"/>
+
+      <div className="iconStatus">
+        <div className="icon">
+          <img src={img} alt="friend icon"/>
+        </div>
+        {
+          status && 
+          <div className={ approved ? "status approved" : "status denied"}>
+            <h4>
+              {
+                approved ? <i className="far fa-check-circle"></i> : 
+                <i className="far fa-times-circle"></i>
+              }
+            </h4>
+            {/* <h4><i className="fas fa-archive archive"></i></h4> */}
+          </div>
+          }
       </div>
 
       <div className="username">
@@ -48,7 +63,7 @@ export default function Transaction({img, date, name, description, amount, usern
       </div>
     }
 
-    {
+    {/* {
       status && 
       <div className="action">
         <h4>
@@ -60,7 +75,7 @@ export default function Transaction({img, date, name, description, amount, usern
           </h4>
         <h4><i className="fas fa-archive archive"></i></h4>
       </div>
-    }
+    } */}
     </div>
   )
 }

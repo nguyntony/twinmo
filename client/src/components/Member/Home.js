@@ -35,7 +35,9 @@ export default function Home() {
         </div>
 
         <div className="mostRecent">
-          <h3>{numeral(MRRequest.amount).format('$0,0.00')}<span className="divider"></span>{MRRequest.description}</h3>
+          {/* <h3>{numeral(MRRequest.amount).format('$0,0.00')}<span className="divider"></span>{MRRequest.description}</h3> */}
+          <h3>{numeral(MRRequest.amount).format('$0,0.00')}</h3>
+          <h3>{MRRequest.description}</h3>
         </div>
 
         <div className="title">
@@ -55,7 +57,9 @@ export default function Home() {
           <img src={MRPending.friendProfilePic} alt={MRPending.friendName}/>
         </div>
         <div className="mostRecent">
-          <h3>{numeral(MRPending.amount).format('$0,0.00')}<span className="divider"></span>{MRPending.description}</h3>
+          {/* <h3>{numeral(MRPending.amount).format('$0,0.00')}<span className="divider"></span>{MRPending.description}</h3> */}
+          <h3>{numeral(MRPending.amount).format('$0,0.00')}</h3>
+          <h3>{MRPending.description}</h3>
         </div>
         <div className="title">
           <h1><a href="/member/payment">payments</a></h1>

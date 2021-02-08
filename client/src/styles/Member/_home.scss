@@ -50,7 +50,7 @@
 
     .mostRecent {
       width: 90%;
-      height: fit-content;
+      height: 7rem;
       background-color: $med-pink;
       border-radius: 1.3rem;
       display: flex;
@@ -59,24 +59,24 @@
       align-items: center;
       z-index: 1;
       padding: 1rem 0;
-      margin: 2rem;
+      // margin: 2rem;
 
       h3 {
-        text-align: center;
-        display: block;
+        // text-align: center;
+        // display: block;
 
-        .divider {
-          height: 1rem;
-          width: 0.5rem;
-          background-color: $light-black;
-          border: 2px solid $light-black;
-          border-radius: 2px;
-          margin: 0 1rem;
-        }
+        // .divider {
+        //   height: 1rem;
+        //   width: 0.5rem;
+        //   background-color: $light-black;
+        //   border: 2px solid $light-black;
+        //   border-radius: 2px;
+        //   margin: 0 1rem;
+        // }
       }
-      p {
-        text-align: center;
-      }
+      // p {
+      //   text-align: center;
+      // }
     }
 
     .title {
