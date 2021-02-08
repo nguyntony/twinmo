@@ -33,7 +33,7 @@ export default function Pending() {
   }
   
   const selectedList = {
-    backgroundColor: '#ffd8be',
+    backgroundColor: '#ffdab9',
     cursor: 'unset'
   }
 

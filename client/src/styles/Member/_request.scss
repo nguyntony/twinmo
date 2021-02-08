@@ -117,6 +117,10 @@
         bottom: -23rem;
       }
 
+      .iconStatus {
+        z-index: 1;
+      }
+
       .icon {
         width: 12rem;
         height: 12rem;
@@ -194,12 +198,12 @@
     }
 
     .transaction:hover .card-bg {
-      background-color: peachpuff;
+      background-color: #ffdab9;
       transition: 0.8s;
     }
 
     .transaction:hover .info {
-      background-color: rgb(255, 177, 108);
+      background-color: rgb(248, 177, 114);
       transition: 0.8s;
     }
   }
