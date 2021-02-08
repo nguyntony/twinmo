@@ -103,11 +103,56 @@ const processTransaction = async (req, res) => {
             })
         }
     }
+}
 
+const processUserApprove = async (req, res) => {
+    const {id} = req.session.user;
+    let {transactionID, friendID, amount} = req.body;
+    console.log(transactionID, friendID, amount)
+
+    amount = Number(numeral(amount).format('0.00'))
+    
+    const user = await User.findByPk(id);
+    const friend = await User.findByPk(friendID);
+    const transaction = await Transaction.findByPk(transactionID);
+
+    if (user.funds - amount > 0) {
+        user.update({funds: Number(user.funds) - amount})
+        friend.update({funds: Number(user.funds) + amount})
+
+        transaction.update({status: true, approved: true})
+
+        res.status(200).json({
+            status: true,
+            message: 'Payment Processed!'
+        })
+    } else if (user.funds - amount < 0) {
+        console.log('Not enough money!', user.funds, amount, user.funds-amount)
+        res.status(200).json({
+            status: false,
+            message: 'Not enough funds!',
+            missingAMT: amount - Number(user.funds)
+        })
+    }
+}
+
+const processUserDeny = async (req, res) => {
+    const {transactionID} = req.body;
+
+    console.log(transactionID);
+
+    const transaction = await Transaction.findByPk(transactionID);
+
+    transaction.update({status: true})
+    res.status(200).json({
+        message: 'Action processed!'
+    })
 }
 
 module.exports = {
     pendingList,
     requestList,
-    processTransaction
+    processTransaction,
+    processUserApprove,
+    processUserDeny
 }

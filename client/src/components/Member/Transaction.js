@@ -1,15 +1,40 @@
+import axios from 'axios'
 import {useEffect, useState} from 'react'
 import {useLocation} from 'react-router-dom'
 
 
-export default function Transaction({img, date, name, description, amount, username, status, approved}) {
+export default function Transaction({img, date, name, description, amount, username, status, approved, transactionID, friendID, requestProcessed, setRequestProcessed}) {
 
   const [showAction, setShowAction] = useState(true)
+  const [message, setMessage] = useState('')
   // const requestPath = '/member/request'
   const pendingPath = '/member/payment'
 
   const location = useLocation()
   const currentPath = location.pathname
+
+  const approvedResponseHandler = async (e) => {
+    const resp = await axios.put('/api/member/transaction/user-approve', {
+      transactionID,
+      friendID,
+      amount
+    })
+
+    if (resp.data.status) {
+      console.log(resp.data.message)
+      setRequestProcessed(!requestProcessed)
+    } else {
+      setMessage(resp.data.message)
+    }
+  }
+
+  const denyResponseHandler = async (e) => {
+    const resp = await axios.put('/api/member/transaction/user-deny', {
+      transactionID
+    })
+
+    setRequestProcessed(!requestProcessed)
+  }
 
   useEffect(()=> {
     if (currentPath === pendingPath) {setShowAction(false)}
@@ -58,24 +83,13 @@ export default function Transaction({img, date, name, description, amount, usern
     {  
       showAction &&
       <div className="action">
-        <h4><i className="far fa-check-circle approve"></i></h4>
-        <h4><i className="far fa-times-circle deny"></i></h4>
+        <h4 onClick={approvedResponseHandler}><i className="far fa-check-circle approve"></i></h4>
+        <h4 onClick={denyResponseHandler}><i className="far fa-times-circle deny"></i></h4>
       </div>
     }
 
-    {/* {
-      status && 
-      <div className="action">
-        <h4>
-          {
-            approved ? <i className="far fa-check-circle approved"></i> : 
-            <i className="far fa-times-circle denied"></i>
-          }
-          
-          </h4>
-        <h4><i className="fas fa-archive archive"></i></h4>
-      </div>
-    } */}
+    {message && <p>{message}</p>}
+
     </div>
   )
 }
