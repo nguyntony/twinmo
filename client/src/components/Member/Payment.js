@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 import Transaction from './Transaction'
 import numeral, { set } from 'numeral'
 import moment from 'moment'
+import {Link} from 'react-router-dom'
 
 export default function Pending() {
   const [activeRequests, setActiveRequests] = useState([])
@@ -56,7 +57,7 @@ export default function Pending() {
     <section id="memberView">
       <div className="title">
         <h1>payments</h1>
-        <h4><a href="/member/request" className="request-link">requests <i className="fas fa-caret-right"></i></a></h4>
+        <h4><Link to="/member/request" className="request-link">requests <i className="fas fa-caret-right"></i></Link></h4>
       </div>
 
         <div className="paymentNav">
