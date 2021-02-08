@@ -3,7 +3,6 @@ import {useEffect, useState} from 'react';
 import Transaction from './Transaction'
 import numeral, { set } from 'numeral'
 import moment from 'moment'
-import { useLocation } from 'react-router-dom';
 
 export default function Pending() {
   const [activeRequests, setActiveRequests] = useState([])

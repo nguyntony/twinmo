@@ -54,30 +54,34 @@ export default function Sidebar() {
   return (
     <section id="sidebar">
 
-      <div className="profilePicture">
-        <img src={userData.profilePic} alt="profile pic"/>
+      <div className="collapsed-menu"></div>
+
+      <div className="desktop">
+        <div className="profilePicture">
+          <img src={userData.profilePic} alt="profile pic"/>
+        </div>
+  
+        <div className="nameCard">
+          <h3>{userData.first} {userData.last}</h3>
+          <p>{numeral(userFunds).format('$0,0.00')}</p>
+        </div>
+  
+        <nav id="dashNav">
+          <ul>
+            <li><a href="/member/home" style={dashboardHighlight}>Dashboard</a></li>
+            <li><a href="/member/friends" style={friendsHighlight}>Friends</a></li>
+            <li><a href="/member/pay-request" style={payRequestHighlight}>Pay / Request</a></li>
+            <li><a href="#">History</a></li>
+          </ul>
+        </nav>
+  
+        <nav id="dashSubNav">
+          <ul>
+            <li><a href="#"><i className="fas fa-cog"></i></a></li>
+            <li><a onClick={processLogout}><i className="fas fa-sign-out-alt" onClick={processLogout}></i></a></li>
+          </ul>
+        </nav>
       </div>
-
-      <div className="nameCard">
-        <h3>{userData.first} {userData.last}</h3>
-        <p>{numeral(userFunds).format('$0,0.00')}</p>
-      </div>
-
-      <nav id="dashNav">
-        <ul>
-          <li><a href="/member/home" style={dashboardHighlight}>Dashboard</a></li>
-          <li><a href="/member/friends" style={friendsHighlight}>Friends</a></li>
-          <li><a href="/member/pay-request" style={payRequestHighlight}>Pay / Request</a></li>
-          <li><a href="#">History</a></li>
-        </ul>
-      </nav>
-
-      <nav id="dashSubNav">
-        <ul>
-          <li><a href="#"><i className="fas fa-cog"></i></a></li>
-          <li><a onClick={processLogout}><i className="fas fa-sign-out-alt" onClick={processLogout}></i></a></li>
-        </ul>
-      </nav>
       <Switch>
         <Route path={currentPath} exact>
           {successfulLogout && <Redirect to='/'/>}
