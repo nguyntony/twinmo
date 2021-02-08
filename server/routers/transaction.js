@@ -5,7 +5,7 @@ const {transactionController} = require('../controllers')
 
 router
     .get('/request/list', transactionController.requestList)
-    .get('/pending/list', transactionController.pendingList)
+    .get('/payment/list', transactionController.paymentList)
     .post('/transaction/new', transactionController.processTransaction)
     .put('/transaction/user-approve', transactionController.processUserApprove)
     .put('/transaction/user-deny', transactionController.processUserDeny)

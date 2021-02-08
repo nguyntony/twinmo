@@ -1,9 +1,9 @@
 const bcrypt = require('bcryptjs')
 const {User} = require('../models')
-// const { v4: uuidv4 } = require('uuid');
 
 const processSignup = async(req, res) => {
     let {first, last, email, username, password} = req.body;
+    console.log(345345, 'Got info');
 
     first = first.charAt(0).toUpperCase() + first.slice(1);
     last = last.charAt(0).toUpperCase() + last.slice(1);
@@ -11,17 +11,18 @@ const processSignup = async(req, res) => {
     
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
-    // const uuid = uuidv4();
+    console.log(234423, 'GENERATED HASH');
     try {
+        console.log(234234, 'Started try block');
         const newUser = await User.create({
-            // id: uuid,
             first,
             last,
             email,
             username,
-            hash
+            hash,
+            funds: 0
         })
-        // console.log('API: User created successfully.')
+        console.log('API: User created successfully.')
         res.status(200).json({
             status: true,
             message: "User created successfully"

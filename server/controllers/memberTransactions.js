@@ -5,10 +5,10 @@ const {Transaction} = require('../models')
 const numeral = require('numeral')
 const moment = require('moment')
 
-const pendingList = async (req, res) => {
+const paymentList = async (req, res) => {
     const {id} = req.session.user;
 
-    const pendings = await Transaction.findAll({
+    const payments = await Transaction.findAll({
         where: {
             [Op.or]: [
                 {
@@ -24,22 +24,22 @@ const pendingList = async (req, res) => {
             ]
         },
         order: [["createdAt", "desc"]],
-        attributes: ['id', 'amount', 'createdAt', 'description', 'status', 'recipientID', 'senderID', 'archived', 'approved']
+        attributes: ['id', 'amount', 'createdAt', 'description', 'status', 'recipientID', 'senderID', 'archived', 'approved', 'type']
     })
 
-    for (i of pendings) {
-        const getPendingFriend = await User.findOne({
+    for (i of payments) {
+        const getPaymentFriend = await User.findOne({
             where: {
                 id: i.recipientID
             }
         })
 
-        i.dataValues.friendName = getPendingFriend.first+" "+getPendingFriend.last
-        i.dataValues.friendProfilePic = getPendingFriend.profilePic
-        i.dataValues.friendUsername = getPendingFriend.username
+        i.dataValues.friendName = getPaymentFriend.first+" "+getPaymentFriend.last
+        i.dataValues.friendProfilePic = getPaymentFriend.profilePic
+        i.dataValues.friendUsername = getPaymentFriend.username
     }
 
-    res.status(200).json(pendings)
+    res.status(200).json(payments)
 }
 
 const requestList = async (req, res) => {
@@ -173,7 +173,7 @@ const processUserDeny = async (req, res) => {
 }
 
 module.exports = {
-    pendingList,
+    paymentList,
     requestList,
     processTransaction,
     processUserApprove,
