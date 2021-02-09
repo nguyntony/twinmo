@@ -132,7 +132,7 @@ export default function Pending() {
               ))
               }
             {
-              !receivedPayments && 
+              receivedPayments.length === 0 && 
               <div className="noNotif">
                 <h1>no notifications</h1>
               </div>
