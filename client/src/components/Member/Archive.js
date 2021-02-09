@@ -1,4 +1,4 @@
-export default function Archive({img, date, name, description, amount, username, status, approved}) {
+export default function Archive({img, date, name, description, amount, username, transactionDetail, archivedIcon, month, year}) {
 
   return (
     <div className="archive">
@@ -24,6 +24,7 @@ export default function Archive({img, date, name, description, amount, username,
 
       <div className="amount">
         <h4>{amount}</h4>
+        <p>{transactionDetail}</p>
       </div>
     </div>
   )
