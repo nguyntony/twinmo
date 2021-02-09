@@ -122,7 +122,8 @@ export default function TestLogin() {
     </section>
     <section>
       <form onSubmit={processPicUpload}>
-        <input type="file" name="content" onChange={e => setFile(e.target.files[0])}/>
+        <label htmlFor="file-upload">Hello</label>
+        <input id='file-upload' type="file" name="content" onChange={e => setFile(e.target.files[0])}/>
         <input type="submit" value="Submit"/>
       </form>
       <h1>Photo under</h1>
