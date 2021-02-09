@@ -150,6 +150,7 @@ const photoUpload = async (req, res) => {
     const user = await User.findByPk(id);
     
     const {file} = req
+    const profilePic = "/uploads/"+file.filename
     user.update({profilePic})
     res.status(200).json({
         status: true
