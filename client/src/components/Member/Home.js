@@ -36,7 +36,7 @@ export default function Home() {
             <div className="icon">
               {MRRequest ? 
               <img src={MRRequest.friendProfilePic} alt={MRRequest.friendName}/>
-              : <img src='/uploads/nodata1.jpg'></img>
+              : <img src='/uploads/nodata1.jpg' alt='default'></img>
               }
             </div>
 
@@ -47,7 +47,7 @@ export default function Home() {
                 <h3>{numeral(MRRequest.amount).format('$0,0.00')}</h3>
                 <h3>{MRRequest.description}</h3>
                 </>
-                : <h3>No Data</h3>
+                : <h3>😴 <span className="italic">no active requests</span></h3>
               }
             </div>
 
@@ -72,7 +72,7 @@ export default function Home() {
           <div className="icon">
             {MRPending ? 
             <img src={MRPending.friendProfilePic} alt={MRPending.friendName}/>
-            : <img src="/uploads/nodata2.jpg" alt=""/>
+            : <img src="/uploads/nodata2.jpg" alt="default"/>
             }
           </div>
           <div className="mostRecent">
@@ -82,7 +82,7 @@ export default function Home() {
               <h3>{numeral(MRPending.amount).format('$0,0.00')}</h3>
               <h3>{MRPending.description}</h3>
               </>
-              : <h3>No Data</h3>
+              : <h3>🥶 <span className="italic">no active payments</span></h3>
             }
           </div>
           <div className="title">
