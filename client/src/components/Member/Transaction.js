@@ -62,8 +62,8 @@ export default function Transaction({img, date, name, description, amount, usern
           <div className={ approved ? "status approved" : "status denied"}>
             <h4>
               {
-                approved ? <i className="far fa-check-circle"></i> : 
-                <i className="far fa-times-circle"></i>
+                approved ? <i className="fas fa-check"></i> : 
+                <i className="fas fa-times"></i>
               }
             </h4>
             {/* <h4><i className="fas fa-archive archive"></i></h4> */}

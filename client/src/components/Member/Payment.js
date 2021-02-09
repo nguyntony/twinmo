@@ -68,6 +68,10 @@ export default function Pending() {
             onClick={receivedList}
             style={received ? selectedList : null}>
               received
+
+              <span className="badge">
+                {receivedPayments ? receivedPayments.length : null}
+              </span>
             </h3>
           </div>
 
@@ -76,6 +80,10 @@ export default function Pending() {
             onClick={completedList}
             style={completed ? selectedList : null}
             >completed
+
+              <span className="badge">
+                {completedPayments ? completedPayments.length : null}
+              </span>
           </h3>
           </div>
   
@@ -84,7 +92,22 @@ export default function Pending() {
               onClick={outgoingList}
               style={outgoing ? selectedList : null}
               >outgoing
-              </h3></div>
+              </h3>
+          </div>
+
+          {
+            received &&
+            <div className="checkmark">
+              <h3><i className="fas fa-check"></i></h3>
+            </div>
+          }
+          {
+            completed &&
+            <div className="checkmark">
+              <h3><i className="fas fa-check"></i></h3>
+            </div>
+          }
+          {/* the 'button' above are for when the user wants to check that they have seen the notifications or not, we will need to make the button 'check' the items that the user is currently on, (ie. the received or completed view) */}
         </div>
 
       
