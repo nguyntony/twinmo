@@ -6,19 +6,19 @@ import moment from 'moment'
 import {Link} from 'react-router-dom'
 
 export default function Pending() {
-  const [activeRequests, setActiveRequests] = useState([])
-  const [inactiveRequests, setInactiveRequests] = useState([])
+  const [outgoingPayments, setOutgoingPayments] = useState([])
+  const [completedPayments, setCompletedPayments] = useState([])
   const [receivedPayments, setReceivedPayments] = useState([])
   const [outgoing, setOutgoing] = useState(false)
-  const [completed, setCompleted] = useState(true)
-  const [received, setReceived] = useState(false)
+  const [completed, setCompleted] = useState(false)
+  const [received, setReceived] = useState(true)
 
   const getRequests = async () => {
     const resp = await axios.get('/api/member/payment/list')
     console.log(resp.data.filter(d => d.type === 'payment'))
     const data = resp.data
-    setActiveRequests(data.filter(d => d.status !== true && d.type === 'request'))
-    setInactiveRequests(data.filter(d => d.status === true && d.type === 'request'))
+    setOutgoingPayments(data.filter(d => d.status !== true && d.type === 'request'))
+    setCompletedPayments(data.filter(d => d.status === true && d.type === 'request'))
     setReceivedPayments(data.filter(d => d.type === 'payment'))
   }
 
@@ -103,7 +103,7 @@ export default function Pending() {
                 description={p.description}
                 amount={numeral(p.amount).format('$0,0.00')}
                 username={p.friendUsername}
-                status={p.status}
+                status={false}
                 approved={p.approved}
                 />
               ))
@@ -124,8 +124,8 @@ export default function Pending() {
           completed && 
           <div className="list">
             {
-              inactiveRequests &&
-              inactiveRequests.map(r => (
+              completedPayments &&
+              completedPayments.map(r => (
                 <Transaction
                 key={r.id}
                 img={r.friendProfilePic}
@@ -139,6 +139,12 @@ export default function Pending() {
                 />
               ))
             }
+            {
+              !completedPayments && 
+              <div className="noNotif">
+                <h1>no notifications</h1>
+              </div>
+            }
           </div>
         }
       </div>
@@ -149,8 +155,8 @@ export default function Pending() {
             outgoing &&
             <div className="list">
             {
-              activeRequests && 
-              activeRequests.map(r => (
+              outgoingPayments && 
+              outgoingPayments.map(r => (
                 <Transaction
                 key={r.id}
                 img={r.friendProfilePic}
@@ -162,6 +168,12 @@ export default function Pending() {
                 status={r.status}
                 />
               ))
+            }
+            {
+              !outgoingPayments && 
+              <div className="noNotif">
+                <h1>no notifications</h1>
+              </div>
             }
             </div>
           }
