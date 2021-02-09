@@ -1,75 +1,107 @@
 #historyContainer {
-	margin-left: 3rem;
-	display: flex;
-	flex-direction: column;
+  margin-left: 3rem;
+  display: flex;
+  flex-direction: column;
 
-	.list {
-		display: flex;
-		flex-direction: column;
-		// flex-wrap: wrap;
-		overflow-y: scroll;
-		overflow-x: hidden;
-		margin: 2rem -1rem;
-		// width: 75rem;
+  .list {
+    display: flex;
+    flex-direction: column;
+    // flex-wrap: wrap;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin: 2rem -1rem;
+    // width: 75rem;
 
-		.archive {
-			width: 45rem;
-			background: $light-grey;
-			margin: 0.5rem 1rem;
-			padding: 1rem;
-			border-radius: 1.2rem;
-			display: flex;
-			flex-direction: row;
-			align-items: center;
+    .archive {
+      width: 65rem;
+      background: $light-grey;
+      margin: 0.5rem 1rem;
+      padding: 1.5rem;
+      border-radius: 1.2rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
 
-			.archiveIcon {
-				width: 33%;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				margin: 0 0.5rem 0 1rem;
-				// background-color: firebrick;
+      .archiveIcon {
+        width: 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 1rem;
 
-				.icon {
-					width: 7rem;
-					height: 7rem;
-					border-radius: 100%;
-					overflow: hidden;
-					justify-self: flex-start;
+        .icon {
+          width: 7rem;
+          height: 7rem;
+          border-radius: 100%;
+          overflow: hidden;
+          justify-self: flex-start;
 
-					img {
-						width: 100%;
-					}
-				}
-				.username {
-					h4 {
-						font-size: 1.7rem;
-					}
-					p {
-						color: $deep-pink;
-					}
-				}
-			}
+          img {
+            width: 100%;
+          }
+        }
+        .username {
+          h4 {
+            font-size: 1.7rem;
+          }
+          p {
+            color: $deep-pink;
+          }
+        }
+      }
 
-			.archiveInfo {
-				width: 42%;
-				margin: 0 1rem;
-				// background-color: peachpuff;
-			}
+      .archiveInfo {
+        width: 70%;
+        margin: 0 1rem;
+        // background-color: peachpuff;
 
-			.amount {
-				// flex-grow: 1;
-				display: flex;
-				justify-content: flex-start;
-				flex-wrap: wrap;
-				width: 25%;
-				margin: 0 1rem 0;
-			}
-		}
+        .description {
+          p {
+            font-style: italic;
+          }
+        }
+      }
 
-		.archive:nth-child(even) {
-			background-color: #d3d3e1;
-		}
-	}
+      .amount {
+        width: 35%;
+        margin: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .up,
+        .down,
+        .neutral {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding: 1rem;
+          border-radius: 2.5rem;
+
+          i {
+            font-size: 2rem;
+            margin-right: 0.5rem;
+            color: $ghost-white;
+          }
+        }
+
+        .up {
+          background-color: #85d473;
+        }
+
+        .down {
+          background-color: #ff4b4b;
+        }
+
+        .neutral {
+          background-color: $dark-orange;
+        }
+      }
+    }
+
+    .archive:nth-child(even) {
+      background-color: #d3d3e1;
+    }
+  }
 }

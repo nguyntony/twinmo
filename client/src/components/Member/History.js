@@ -42,7 +42,7 @@ export default function History() {
             <Archive
             key={a.id}
             img={a.friendProfilePic}
-            date={moment(a.createdAt).format('MMMM D, YYYY')}
+            date={moment(a.createdAt).format('MM/DD')}
             name={a.friendName}
             description={a.description}
             amount={numeral(a.amount).format('$0,0.00')}
