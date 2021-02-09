@@ -13,7 +13,7 @@
     // width: 75rem;
 
     .archive {
-      width: 65rem;
+      width: 55rem;
       background: $light-grey;
       margin: 0.5rem 1rem;
       padding: 1.5rem;
@@ -23,7 +23,7 @@
       align-items: center;
 
       .archiveIcon {
-        width: 10%;
+        width: 15%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -31,22 +31,14 @@
         margin: 0 1rem;
 
         .icon {
-          width: 7rem;
-          height: 7rem;
+          width: 8rem;
+          height: 8rem;
           border-radius: 100%;
           overflow: hidden;
           justify-self: flex-start;
 
           img {
             width: 100%;
-          }
-        }
-        .username {
-          h4 {
-            font-size: 1.7rem;
-          }
-          p {
-            color: $deep-pink;
           }
         }
       }
@@ -61,6 +53,12 @@
             font-style: italic;
           }
         }
+
+        .type {
+          p {
+            color: #8975fc;
+          }
+        }
       }
 
       .amount {
@@ -69,6 +67,10 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        p {
+          font-style: italic;
+        }
 
         .up,
         .down,
@@ -96,6 +98,18 @@
 
         .neutral {
           background-color: $dark-orange;
+        }
+
+        .received {
+          color: #2bad0d;
+        }
+
+        .sent {
+          color: #ff2b2b;
+        }
+
+        .no-change {
+          color: #e8803b;
         }
       }
     }
