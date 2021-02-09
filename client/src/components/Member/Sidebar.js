@@ -93,7 +93,7 @@ export default function Sidebar() {
     
           <nav id="dashSubNav">
             <ul>
-              <li><Link to="#"><i className="fas fa-cog"></i></Link></li>
+              <li><Link to="/member/settings"><i className="fas fa-cog"></i></Link></li>
               <li><p onClick={processLogout}><i className="fas fa-sign-out-alt"></i></p></li>
             </ul>
           </nav>
