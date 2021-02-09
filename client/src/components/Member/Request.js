@@ -47,6 +47,12 @@ export default function Request() {
             />
           ))
         }
+        {
+          requests.length === 0 &&
+          <div className="noNotif">
+            <h1>no notifications</h1>
+          </div>
+        }
       </div>
 
     </section>

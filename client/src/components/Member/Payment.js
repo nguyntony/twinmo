@@ -70,7 +70,7 @@ export default function Pending() {
               received
 
               <span className="badge">
-                {receivedPayments ? receivedPayments.length : null}
+                {receivedPayments.length === 0 ? null : receivedPayments.length}
               </span>
             </h3>
           </div>
@@ -82,7 +82,7 @@ export default function Pending() {
             >completed
 
               <span className="badge">
-                {completedPayments ? completedPayments.length : null}
+                {completedPayments.length === 0 ? null : completedPayments.length}
               </span>
           </h3>
           </div>
@@ -163,7 +163,7 @@ export default function Pending() {
               ))
             }
             {
-              !completedPayments && 
+              completedPayments.length === 0 && 
               <div className="noNotif">
                 <h1>no notifications</h1>
               </div>
@@ -193,7 +193,7 @@ export default function Pending() {
               ))
             }
             {
-              !outgoingPayments && 
+              outgoingPayments.length === 0 && 
               <div className="noNotif">
                 <h1>no notifications</h1>
               </div>
