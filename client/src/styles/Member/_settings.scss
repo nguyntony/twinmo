@@ -25,7 +25,11 @@
           margin: 1rem 0;
           margin-right: 1.5rem;
           font-size: 1.5rem;
-          color: black;
+          color: $dark-black;
+        }
+
+        .email input {
+          width: 25rem;
         }
 
         input {
@@ -51,8 +55,24 @@
           pointer-events: none;
           transition: all 0.3s ease;
           font-family: $Noto;
-          font-weight: $bold;
+          font-weight: $bolder;
           font-size: 1.25rem;
+          color: $dark-black;
+        }
+
+        .status {
+          position: absolute;
+          right: -3rem;
+          bottom: -1rem;
+          font-size: 2rem;
+
+          .fa-check-circle {
+            color: #7fda8d;
+          }
+
+          .fa-times-circle {
+            color: #ee6f59;
+          }
         }
       }
 
