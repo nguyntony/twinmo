@@ -53,11 +53,13 @@ export default function Home() {
 
             <div className="title">
               <h1><Link to="/member/request">requests</Link></h1>
-              <div className="badge">
-                <p>
-                  {requestAmt}
-                </p>
-              </div>
+              {requestAmt !== 0 &&
+                <div className="badge">
+                  <p>
+                    {requestAmt}
+                  </p>
+                </div>
+              }
             </div>
 
       </div>
@@ -85,11 +87,13 @@ export default function Home() {
           </div>
           <div className="title">
             <h1><Link to="/member/payment">payments</Link></h1>
-            <div className="badge">
-              <p>
-                {paymentAmount}
-              </p>
-            </div>
+            {paymentAmount !== 0 &&
+              <div className="badge">
+                <p>
+                  {paymentAmount}
+                </p>
+              </div>
+            }
           </div>
         
         
