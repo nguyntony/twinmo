@@ -3,7 +3,8 @@ const {Op} = require('sequelize');
 const {Friend} = require('../models')
 const {Transaction} = require('../models')
 const numeral = require('numeral')
-const moment = require('moment')
+const moment = require('moment');
+const e = require('express');
 
 const paymentList = async (req, res) => {
     const {id} = req.session.user;
@@ -205,11 +206,36 @@ const processUserDeny = async (req, res) => {
     })
 }
 
+const archive = async (req, res) => {
+    const {ids} = req.body;
+    if (ids.length > 0) {
+        for (id of ids) {
+            let transaction = await Transaction.findByPk(id);
+
+            transaction.update({archived: true})
+        }
+        res.status(200).json({
+            status: true,
+            message: 'Items archived!'
+        })
+    } else {
+        res.status(200).json({
+            status: false,
+            message: 'No items to archive!'
+        })
+    }
+}
+
+const archivedList = async (req, res) => {
+    const {id} = req.session.user;
+}
+
 module.exports = {
     paymentList,
     requestList,
     processTransaction,
     enoughFunds,
     processUserApprove,
-    processUserDeny
+    processUserDeny,
+    archive
 }

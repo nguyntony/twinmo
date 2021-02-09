@@ -10,5 +10,6 @@ router
     .post('/transaction/enough-funds', transactionController.enoughFunds)
     .put('/transaction/user-approve', transactionController.processUserApprove)
     .put('/transaction/user-deny', transactionController.processUserDeny)
+    .put('/transaction/archive', transactionController.archive)
 
 module.exports = router
