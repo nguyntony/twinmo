@@ -17,6 +17,7 @@ export default function PayRequestForm() {
   const [button, setButton] = useState('')
   const [message, setMessage] = useState('')
   
+  const [errorMsg, setErrorMsg] = useState(false)
   const [dropdownList, setDropdownList] = useState([])
   const [allFriends, setAllFriends] = useState([])
   const [selectedFriend, setSelectedFriend] = useState(false)
@@ -49,6 +50,7 @@ export default function PayRequestForm() {
   }
 
   const removeSubmittedStatus = () => {
+    setErrorMsg(false)
     setSubmitted(false)
   }
 
@@ -72,6 +74,7 @@ export default function PayRequestForm() {
 
         //inside here
       } else if (!resp.data.status) {
+        setErrorMsg(true)
         console.log(resp.data.message, resp.data.missingAMT)
         // MAYBE MAKE THIS A MODAL THAT POPS OUT? HAVE THE USER EXIT OUT OR CLICK ON MODAL OR OUTSIDE TO GET OUT.
         // if there is an error then you need to set the value to true to see msg
@@ -144,10 +147,10 @@ export default function PayRequestForm() {
                 </div>
 
 
-                <NumberFormat className="amount" placeholder="$0" required id="amount" value={amount} prefix={"$"} onChange={e => setAmount(e.target.value)} min="1" name="amount" thousandSeparator={true} decimalScale={2} allowNegative={false} allowLeadingZeros={false} autoComplete="off" fixedDecimalScale={true}/>
+                <NumberFormat className="amount" placeholder="$0" required id="amount" value={amount} prefix={"$"} onChange={e => setAmount(e.target.value)} min="1" name="amount" thousandSeparator={true} decimalScale={2} allowNegative={false} allowLeadingZeros={false} autoComplete="off" fixedDecimalScale={true} onFocus={()=> setErrorMsg(false)}/>
 
                 <div className="descriptionField">
-                {true && <span className="errorMsg">Insufficient funds</span>}
+                {errorMsg && <span className="errorMsg">Insufficient funds</span>}
                   <input type="text" placeholder="Description" value={description} onChange={e => setDescription(e.target.value)} className="description" name="description" autoComplete="off" maxLength="20" onBlur={undefined}/>
                   <span className="descriptionLength">{description.length}/20</span>
                 </div>
@@ -168,7 +171,7 @@ export default function PayRequestForm() {
                     </li>
     
                     <li>
-                      <input checked={requestChecked} type="radio" name="type" value={type} id="request" 
+                      <input checked={requestChecked} type="radio" name="type" value={type} onClick={()=> setErrorMsg(false)} id="request" 
                       onChange={() => {
                         if (payChecked) {
                           setPayChecked(false)
