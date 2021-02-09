@@ -118,3 +118,11 @@
     }
   }
 }
+
+#dashboardContainer {
+  #memberView {
+    @include media("<1000px") {
+      margin-left: 5rem;
+    }
+  }
+}
