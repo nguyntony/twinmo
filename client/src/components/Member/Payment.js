@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {useEffect, useState} from 'react';
 import Transaction from './Transaction'
-import numeral, { set } from 'numeral'
+import numeral from 'numeral'
 import moment from 'moment'
 import {Link} from 'react-router-dom'
 
@@ -106,6 +106,10 @@ export default function Pending() {
               onClick={outgoingList}
               style={outgoing ? selectedList : null}
               >outgoing
+
+              <span className="badge">
+                {outgoing.length === 0 ? null : outgoingPayments.length}
+              </span>
               </h3>
           </div>
 

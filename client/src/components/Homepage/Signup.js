@@ -100,7 +100,7 @@ export default function Signup() {
     } else if (password !== passwordConfirmation) {
       setPasswordIcon(invalidIcon)
       setPasswordValidation(true)
-    } else if (password.length === 0 && passwordConfirmation.length ===0) {
+    } else if (password.length === 0 && passwordConfirmation.length === 0) {
       setPasswordIcon(invalidIcon)
       setPasswordValidation(false)
     }
