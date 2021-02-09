@@ -12,14 +12,15 @@ export default function Pending() {
   const [outgoing, setOutgoing] = useState(false)
   const [completed, setCompleted] = useState(false)
   const [received, setReceived] = useState(true)
+  const [refreshData, setRefreshData] = useState(false)
 
   const getRequests = async () => {
     const resp = await axios.get('/api/member/payment/list')
     console.log(resp.data.filter(d => d.type === 'payment'))
     const data = resp.data
-    setOutgoingPayments(data.filter(d => d.status !== true && d.type === 'request'))
-    setCompletedPayments(data.filter(d => d.status === true && d.type === 'request'))
-    setReceivedPayments(data.filter(d => d.type === 'payment'))
+    setOutgoingPayments(data.filter(d => !d.status && d.type === 'request'))
+    setCompletedPayments(data.filter(d => d.status && d.type === 'request' && !d.archived))
+    setReceivedPayments(data.filter(d => d.type === 'payment' && !d.archived))
   }
 
   const completedList = () => {
@@ -45,6 +46,19 @@ export default function Pending() {
       setOutgoing(false)
     }
   }
+
+  const archivePage = async () => {
+    let ids = []
+    if (received) {
+      ids = receivedPayments.map(p => p.id)
+    } else if (completed) {
+      ids = completedPayments.map(p => p.id)
+    }
+
+    const resp = await axios.put('/api/member/transaction/archive', {ids})  
+    
+    if (resp.data.status) setRefreshData(!refreshData)
+  }
   
   const selectedList = {
     backgroundColor: '#ffdab9',
@@ -53,7 +67,7 @@ export default function Pending() {
 
   useEffect(()=>{
     getRequests()
-  }, [])
+  }, [refreshData])
 
   return (
     <section id="memberView">
@@ -98,13 +112,13 @@ export default function Pending() {
           {
             received &&
             <div className="checkmark">
-              <h3><i className="fas fa-check"></i></h3>
+              <h3 onClick={archivePage}><i className="fas fa-check"></i></h3>
             </div>
           }
           {
             completed &&
             <div className="checkmark">
-              <h3><i className="fas fa-check"></i></h3>
+              <h3 onClick={archivePage}><i className="fas fa-check"></i></h3>
             </div>
           }
           {/* the 'button' above are for when the user wants to check that they have seen the notifications or not, we will need to make the button 'check' the items that the user is currently on, (ie. the received or completed view) */}

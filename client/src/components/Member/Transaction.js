@@ -6,7 +6,7 @@ import { FundsContext } from "./FundsContext";
 export default function Transaction({img, date, name, description, amount, username, status, approved, transactionID, friendID, requestProcessed, setRequestProcessed}) {
 
   const [showAction, setShowAction] = useState(true)
-  const [message, setMessage] = useState('')
+  const [errorMsg, setErrorMsg] = useState(false)
 
   const {updateFundsContext} = useContext(FundsContext)
   const [updateFunds, setUpdateFunds] = updateFundsContext
@@ -28,7 +28,7 @@ export default function Transaction({img, date, name, description, amount, usern
       setUpdateFunds(!updateFunds)
       setRequestProcessed(!requestProcessed)
     } else {
-      setMessage(resp.data.message)
+      setErrorMsg(true)
     }
   }
 
@@ -45,7 +45,7 @@ export default function Transaction({img, date, name, description, amount, usern
   }, [])
 
   return (
-    <div className="transaction">
+    <div className="transaction" >
       <div className="card-bg"></div>
       {/* {
         status &&
@@ -86,13 +86,15 @@ export default function Transaction({img, date, name, description, amount, usern
 
     {  
       showAction &&
-      <div className="action">
-        <h4 onClick={approvedResponseHandler}><i className="far fa-check-circle approve"></i></h4>
-        <h4 onClick={denyResponseHandler}><i className="far fa-times-circle deny"></i></h4>
-      </div>
+      <>
+        <div className="action">
+          <h4 onClick={approvedResponseHandler}><i className="far fa-check-circle approve"></i></h4>
+          <h4 onClick={denyResponseHandler}><i className="far fa-times-circle deny"></i></h4>
+        </div>
+        { errorMsg && <p className='errorMsg'>Insufficient Funds</p> }
+      </>
     }
 
-    {message && <p>{message}</p>}
 
     </div>
   )
