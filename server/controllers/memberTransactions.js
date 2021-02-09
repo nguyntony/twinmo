@@ -149,6 +149,18 @@ const processTransaction = async (req, res) => {
     }
 }
 
+const enoughFunds = async (req, res) => {
+    const {id} = req.session.user;
+    let {amount} = req.body;
+    amount = Number(numeral(amount).format('0.00'))
+    const user = await User.findByPk(id);
+    if (user.funds - amount < 0) {
+        res.status(200).json({
+            status: false
+        })
+    }
+}
+
 const processUserApprove = async (req, res) => {
     const {id} = req.session.user;
     let {transactionID, friendID, amount} = req.body;
@@ -197,6 +209,7 @@ module.exports = {
     paymentList,
     requestList,
     processTransaction,
+    enoughFunds,
     processUserApprove,
     processUserDeny
 }
