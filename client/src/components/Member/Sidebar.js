@@ -10,7 +10,7 @@ export default function Sidebar() {
   const [userFunds, setUserFunds] = useState('')
   const {updateFundsContext, toggleContext} = useContext(FundsContext)
   const [updateFunds, setUpdateFunds] = updateFundsContext
-  // const [file, setFile] = useState('')
+  const [refreshSidebar, setRefreshSidebar] = useState(false)
 
   const [toggle, setToggle] = toggleContext
 
@@ -49,11 +49,13 @@ export default function Sidebar() {
 
   const profilePicChange = async (e) => {
     console.log(e.target.value)
-    const file = e.target.value;
+    const file = e.target.files[0];
     const data = new FormData();
     data.append('file', file)
     
-    const resp = await axios.put('/api/user/profile-picture', data)
+    const resp = await axios.put('/api/user/profile-picture', data);
+
+    if (resp.data.status) setRefreshSidebar(!refreshSidebar)
 
   }
 
@@ -69,7 +71,7 @@ export default function Sidebar() {
   useEffect(() => {
     setSuccessfulLogout(false);
     getUserData();
-  }, [])
+  }, [refreshSidebar])
 
   useEffect(()=> {
     getUserFunds()

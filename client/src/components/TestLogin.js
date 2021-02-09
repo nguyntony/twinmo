@@ -61,6 +61,7 @@ export default function TestLogin() {
 
     const data = new FormData();
     data.append('file', file)
+    console.log(data)
     try {
       const resp = await axios.put('/api/user/profile-picture', data)
       console.log('PHOTO RES SUCCESS')
