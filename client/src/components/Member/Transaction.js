@@ -1,12 +1,15 @@
 import axios from 'axios'
-import {useEffect, useState} from 'react'
+import {useEffect, useState, useContext} from 'react'
 import {useLocation} from 'react-router-dom'
-
+import { FundsContext } from "./FundsContext";
 
 export default function Transaction({img, date, name, description, amount, username, status, approved, transactionID, friendID, requestProcessed, setRequestProcessed}) {
 
   const [showAction, setShowAction] = useState(true)
   const [message, setMessage] = useState('')
+
+  const {updateFundsContext} = useContext(FundsContext)
+  const [updateFunds, setUpdateFunds] = updateFundsContext
   // const requestPath = '/member/request'
   const pendingPath = '/member/payment'
 
@@ -22,6 +25,7 @@ export default function Transaction({img, date, name, description, amount, usern
 
     if (resp.data.status) {
       console.log(resp.data.message)
+      setUpdateFunds(!updateFunds)
       setRequestProcessed(!requestProcessed)
     } else {
       setMessage(resp.data.message)
