@@ -304,10 +304,10 @@ const archivedList = async (req, res) => {
             } else if (i.approved === false) {
                 if (i.senderID === id) {
                     i.dataValues.archivedIcon = 'neutral'
-                    i.dataValues.transactionDetail = 'user request approved'
+                    i.dataValues.transactionDetail = 'user request denied'
                 } else if (i.recipientID === id) {
                     i.dataValues.archivedIcon = 'neutral'
-                    i.dataValues.transactionDetail = 'friend request approved'
+                    i.dataValues.transactionDetail = 'friend request denied'
                 }
             }
         }

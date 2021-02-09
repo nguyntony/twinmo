@@ -10,6 +10,8 @@ export default function Sidebar() {
   const [userFunds, setUserFunds] = useState('')
   const {updateFundsContext, toggleContext} = useContext(FundsContext)
   const [updateFunds, setUpdateFunds] = updateFundsContext
+  // const [file, setFile] = useState('')
+
   const [toggle, setToggle] = toggleContext
 
   const location = useLocation()
@@ -45,6 +47,16 @@ export default function Sidebar() {
     setUserFunds(resp.data.funds)
   }
 
+  const profilePicChange = async (e) => {
+    console.log(e.target.value)
+    const file = e.target.value;
+    const data = new FormData();
+    data.append('file', file)
+    
+    const resp = await axios.put('/api/user/profile-picture', data)
+
+  }
+
   const processLogout = async (e) => {
     const resp = axios.get('/api/logout');
     setSuccessfulLogout(true)
@@ -52,7 +64,6 @@ export default function Sidebar() {
 
   const toggleSidebar = () => {
     setToggle(!toggle)
-    // alert('you clicked the menu btn')
   }
 
   useEffect(() => {
@@ -61,9 +72,7 @@ export default function Sidebar() {
   }, [])
 
   useEffect(()=> {
-    // console.log('Funds changed')
     getUserFunds()
-    // console.log(`this is ${test}`)
   }, [updateFunds])
 
   return (
@@ -73,9 +82,13 @@ export default function Sidebar() {
         
         {toggle ? 
         <div className={toggle ? "sidebarContent active" : "sidebarContent"}>
-          <div className="profilePicture">
+          {/* <div className="profilePicture">
             <img src={userData.profilePic} alt="profile pic"/>
-          </div>
+          </div> */}
+          <form className='profilePicture'>
+            <label htmlFor="pp-upload"><img src={userData.profilePic} alt="profile pic"/></label>
+            <input id='pp-upload' type="file" name="content" onChange={profilePicChange}/>
+          </form>
     
           <div className="nameCard">
             <h3>{userData.first} {userData.last}</h3>
