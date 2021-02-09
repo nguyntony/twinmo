@@ -146,18 +146,14 @@ const loginStatus = (req, res) => {
 }
 
 const photoUpload = async (req, res) => {
-    // const { id } = req.session.user;
-    // const user = await User.findByPk(id);
+    const { id } = req.session.user;
+    const user = await User.findByPk(id);
     
     const {file} = req
-    console.log('/uploads/', file)
-    // console.log('GOT PHOTO REQ', file.filename);
-    // const profilePic = "/uploads/"+file.filename
-    // user.update({profilePic})
-    // res.status(200).json({
-    //     status: 'API: Photo uploaded'
-
-    // })
+    user.update({profilePic})
+    res.status(200).json({
+        status: true
+    })
 }
 
 const photo = async (req, res) => {
