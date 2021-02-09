@@ -1,0 +1,90 @@
+#settingsContainer {
+  margin-left: 6rem;
+  max-width: 50rem;
+  // height: fit-content;
+
+  .settingsForm {
+    h3 {
+      margin-top: 0.5rem;
+    }
+    p {
+      margin-bottom: 2rem;
+    }
+
+    form {
+      margin: 5rem 0;
+
+      .one-line {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 1rem 0;
+
+        .field {
+          position: relative;
+          margin: 1rem 0;
+          margin-right: 1.5rem;
+          font-size: 1.5rem;
+          color: black;
+        }
+
+        input {
+          height: 4rem;
+          width: 20rem;
+          padding: 2rem;
+          font-size: 1.5rem;
+          outline: none;
+          border: none;
+          border-radius: 2rem;
+          background-color: $light-purple;
+          font-family: $Noto;
+
+          &:focus {
+            background-color: $lighter-purple;
+          }
+        }
+
+        label {
+          position: absolute;
+          top: -1.8rem;
+          left: 2rem;
+          pointer-events: none;
+          transition: all 0.3s ease;
+          font-family: $Noto;
+          font-weight: $bold;
+          font-size: 1.25rem;
+        }
+      }
+
+      .button button {
+        margin: 1rem 0;
+        padding: 1.5rem 4rem;
+        outline: none;
+        border: none;
+        background-color: $med-orange;
+        border-radius: 2.5rem;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $deep-pink;
+        }
+
+        h4 {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
+
+// #settingsContainer {
+//   .form input:focus + .label,
+//   .form input:valid + .label,
+//   .form input:not(:placeholder-shown):not(:focus):invalid + .label {
+//     transform: translateY(-155%);
+//     font-size: 1.3rem;
+//     font-weight: bold;
+//     letter-spacing: 0.5px;
+//     color: $dark-purple;
+//   }
+// }

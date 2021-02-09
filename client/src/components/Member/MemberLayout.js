@@ -6,6 +6,7 @@ import PayRequestForm from './PayRequestForm'
 import Request from './Request'
 import Payment from './Payment'
 import History from './History'
+import Settings from './Settings'
 
 export function MemberLayout(props) {
   return (
@@ -25,5 +26,6 @@ export const memberRoute = [
   {route: 'pay/request', path: '/member/pay-request', component: PayRequestForm},
   {route: 'request', path: '/member/request', component: Request},
   {route: 'pending', path: '/member/payment', component: Payment},
-  {route: 'history', path: '/member/history', component: History}
+  {route: 'history', path: '/member/history', component: History},
+  {route: 'settings', path: '/member/settings', component: Settings}
 ]
