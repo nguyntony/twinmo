@@ -31,6 +31,9 @@ export default function Sidebar() {
   const friendsHighlight = currentPath === '/member/friends' ? {...highlight} : null
   const payRequestHighlight = currentPath === '/member/pay-request' ? {...highlight} : null
   const iconHome = currentPath === '/member/home' ? {...iconHighlight} : null
+  const iconFriend = currentPath === '/member/friends' ? {...iconHighlight} : null
+  const iconPayRequest = currentPath === '/member/pay-request' ? {...iconHighlight} : null
+  const iconHistory = currentPath === '/member/history' ? {...iconHighlight} : null
 
   const getUserData = async () => {
     const resp = await axios.get('/api/member/user-data');
@@ -100,9 +103,9 @@ export default function Sidebar() {
           <nav id="quickLinks">
             <ul>
               <li><Link style={iconHome} to="/member/home"><i className="fas fa-home"></i></Link></li>
-              <li><Link to="/member/friends"><i className="fas fa-user-friends"></i></Link></li>
-              <li><Link to="/member/pay-request"><i className="fas fa-hand-holding-usd"></i></Link></li>
-              <li><Link to="/member/history"><i className="fas fa-money-check-alt"></i></Link></li>
+              <li><Link style={iconFriend} to="/member/friends"><i className="fas fa-user-friends"></i></Link></li>
+              <li><Link style={iconPayRequest} to="/member/pay-request"><i className="fas fa-hand-holding-usd"></i></Link></li>
+              <li><Link style={iconHistory} to="/member/history"><i className="fas fa-money-check-alt"></i></Link></li>
               <li><p onClick={processLogout}><i className="fas fa-sign-out-alt"></i></p></li>
             </ul>
           </nav>

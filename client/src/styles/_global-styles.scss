@@ -86,3 +86,8 @@ p {
   border-radius: 2.5rem;
   box-shadow: 15px 15px 15px rgba(46, 54, 68, 0.4);
 }
+
+.App.loading {
+  opacity: 0;
+  transition: 0.5s;
+}

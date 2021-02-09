@@ -1,6 +1,6 @@
 import './styles/App.scss'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import TestSignup from './components/TestSignup'
 import TestLogin from './components/TestLogin'
@@ -14,10 +14,13 @@ import {MemberLayout, memberRoute} from './components/Member/MemberLayout'
 function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [load, setLoad] = useState(false)
+
+  useEffect(()=> setLoad(true), [])
 
   return (
     <Router>
-      <div className="App">
+      <div className={load ? "App" : "App loading"}>
       
           <Switch>
 

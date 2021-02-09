@@ -149,11 +149,12 @@
         flex-direction: column;
         align-items: center;
         background-color: $med-pink;
-        padding: 0.5rem 3.5rem;
+        padding: 0.5rem;
         border-radius: 1.3rem;
         text-align: center;
-        height: 5rem;
+        height: 6rem;
         justify-content: center;
+        width: 20rem;
 
         p {
           margin: 0 -2rem;
@@ -164,14 +165,14 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        // margin: 0.5rem;
-        width: 40%;
+        // margin-top: 1rem;
+        width: 50%;
         // background-color: peachpuff;
         // position: absolute;
         // bottom: 1.5rem;
 
         h4 {
-          font-size: 3.2rem;
+          font-size: 3.5rem;
 
           i {
             cursor: pointer;
