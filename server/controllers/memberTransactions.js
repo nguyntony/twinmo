@@ -118,8 +118,10 @@ const processTransaction = async (req, res) => {
         const user = await User.findByPk(id);
         const friend = await User.findByPk(recipientID)
         if (user.funds - amount > 0) {
+            // console.log(123123, 'TAKING MONEY FROM SELF', user.funds, '-', amount, Number(user.funds) - amount);
+            // log(98989, 'PUTTING MONEY IN FRIEND', friend.funds, '-', amount, )
             user.update({funds: Number(user.funds) - amount})
-            friend.update({funds: Number(user.funds) + amount})
+            friend.update({funds: Number(friend.funds) + amount})
 
             const newTransaction = await Transaction.create({
                 senderID: id,
