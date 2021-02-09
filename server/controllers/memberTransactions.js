@@ -228,6 +228,92 @@ const archive = async (req, res) => {
 
 const archivedList = async (req, res) => {
     const {id} = req.session.user;
+    const {month, year} = req.body;
+
+    const transactions = await Transaction.findAll({
+        where: {
+            // month,
+            // year,
+            archived: true,
+            [Op.or]: [
+                {
+                    recipientID: id,
+                    type: 'request',
+                    status: true
+                },
+                {
+                    recipientID: id,
+                    type: 'payment',
+                    status: true
+                },
+                {
+                    senderID: id,
+                    type: 'request',
+                    status: true
+                }
+            ]
+        },
+        order: [["createdAt", "desc"]],
+        attributes: ['id', 'amount', 'createdAt', 'description', 'status', 'recipientID', 'senderID', 'archived', 'approved', 'type', 'month', 'year']
+    })
+    for (i of transactions) {
+        if (i.type === 'request'){
+            const getPaymentFriend = await User.findOne({
+                where: {
+                    id: i.recipientID,
+                }
+            })
+    
+            i.dataValues.friendName = getPaymentFriend.first+" "+getPaymentFriend.last
+            i.dataValues.friendProfilePic = getPaymentFriend.profilePic
+            i.dataValues.friendUsername = getPaymentFriend.username
+        }
+        
+    }
+    for (i of transactions) {
+        if (i.type === 'payment') {
+            const getPaymentFriend = await User.findOne({
+                where: {
+                    id: i.senderID,
+                }
+            })
+    
+            i.dataValues.friendName = getPaymentFriend.first+" "+getPaymentFriend.last
+            i.dataValues.friendProfilePic = getPaymentFriend.profilePic
+            i.dataValues.friendUsername = getPaymentFriend.username
+        }
+    }
+    for (i of transactions) {
+        if (i.type === 'payment') {
+            if (i.senderID === id) {
+                i.dataValues.archivedIcon = 'down'
+                i.dataValues.transactionDetail = 'payment sent'
+            } else if (i.recipientID === id) {
+                i.dataValues.archivedIcon = 'up'
+                i.dataValues.transactionDetail = 'payment received'
+            }
+        } else if (i.type === 'request') {
+            if (i.approved === true) {
+                if (i.senderID === id) {
+                    i.dataValues.archivedIcon = 'up'
+                    i.dataValues.transactionDetail = 'user request approved'
+                } else if (i.recipientID === id) {
+                    i.dataValues.archivedIcon = 'down'
+                    i.dataValues.transactionDetail = 'friend request approved'
+                }
+            } else if (i.approved === false) {
+                if (i.senderID === id) {
+                    i.dataValues.archivedIcon = 'neutral'
+                    i.dataValues.transactionDetail = 'user request approved'
+                } else if (i.recipientID === id) {
+                    i.dataValues.archivedIcon = 'neutral'
+                    i.dataValues.transactionDetail = 'friend request approved'
+                }
+            }
+        }
+    }
+
+    res.status(200).json(transactions)
 }
 
 module.exports = {
@@ -237,5 +323,6 @@ module.exports = {
     enoughFunds,
     processUserApprove,
     processUserDeny,
-    archive
+    archive,
+    archivedList
 }

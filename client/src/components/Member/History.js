@@ -7,11 +7,17 @@ import numeral from 'numeral'
 export default function History() {
 
   const [archived, setArchived] = useState([])
+  const [month, setMonth] = useState(moment(new Date()).format('MMMM'))
+  const [year, setYear] = useState(moment(new Date()).format("YYYY"))
 
   const getArchives = async () => {
-    const resp = await axios.get('/api/member/payment/list')
+    const resp = await axios.post('/api/member/transaction/archive/list', {
+      month, 
+      year
+    })
     const data = resp.data
-    setArchived(data.filter(d => d.status !== true && d.type === 'request'))
+    console.log(data)
+    setArchived(data)
   }
 
   useEffect(()=> {
@@ -41,8 +47,10 @@ export default function History() {
             description={a.description}
             amount={numeral(a.amount).format('$0,0.00')}
             username={a.friendUsername}
-            status={false}
-            approved={a.approved}
+            transactionDetail={a.transactionDetail}
+            archivedIcon={a.archivedIcon}
+            month={a.month}
+            year={a.year}
             />
           ))
         }
