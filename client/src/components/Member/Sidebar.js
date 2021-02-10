@@ -102,7 +102,7 @@ export default function Sidebar() {
             <input id='pp-upload' type="file" name="content" onClick={()=> setPPErrorMsg('')} onChange={profilePicChange}/>
           </form>
 
-          <p style={{color:'white', textAlign:'center'}}>{PPErrorMsg}</p>
+          <p className='pp-error-msg'>{PPErrorMsg}</p>
     
           <div className="nameCard">
             <h3>{userData.first} {userData.last}</h3>
