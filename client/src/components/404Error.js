@@ -33,7 +33,7 @@ export default function ErrorPage() {
                 <div class="box__description-text">It seems like we couldn't find the page you were looking for</div>
                 </div>
                 
-                <Link to="/member/home" target="_blank" class="box__button">Go Home</Link>
+                <Link to="/member/home" class="box__button">Go Home</Link>
                 
             </div>
             
