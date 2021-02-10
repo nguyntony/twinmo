@@ -25,10 +25,14 @@ export default function History() {
   }
 
   const monthSelection = async (date) => {
-    setMonth(date.split(' ')[0])
-    setYear(date.split(' ')[1])
-    setShowDropDown(!showDropDown)
-    setLoading(true)
+    if (date === (month+' '+year)){
+      setShowDropDown(!showDropDown)
+    } else {
+      setMonth(date.split(' ')[0])
+      setYear(date.split(' ')[1])
+      setShowDropDown(!showDropDown)
+      setLoading(true)
+    }
   }
 
   const getMonths = async () => {
@@ -67,7 +71,6 @@ export default function History() {
     {  
     loading ? <Loader loading={loading}/> :
     <div className="list">
-        {/* I will map here, I will need to grab data for archived true items */}
         {
           archived &&
           archived.map(a => (

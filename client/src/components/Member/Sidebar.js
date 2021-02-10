@@ -8,9 +8,9 @@ export default function Sidebar() {
   const [successfulLogout, setSuccessfulLogout] = useState(false);
   const [userData, setUserData] = useState({})
   const [userFunds, setUserFunds] = useState('')
-  const {updateFundsContext, toggleContext} = useContext(FundsContext)
+  const {updateFundsContext, toggleContext, refreshSidebarContext} = useContext(FundsContext)
   const [updateFunds, setUpdateFunds] = updateFundsContext
-  const [refreshSidebar, setRefreshSidebar] = useState(false)
+  const [refreshSidebar, setRefreshSidebar] = refreshSidebarContext
 
   const [toggle, setToggle] = toggleContext
 
@@ -54,17 +54,18 @@ export default function Sidebar() {
     const data = new FormData();
     data.append('file', file)
     console.log(file)
-    
-    if (file.size < 1572864) {
-      if (file.type === 'image/jepg' || 'image/png'){
-        const resp = await axios.put('/api/user/profile-picture', data);
-        if (resp.data.status) setRefreshSidebar(!refreshSidebar)
-      } else {
-        setPPErrorMsg('File must be in png or jpeg format')
+    if (file) {
+      if (file.size < 1572864) {
+        if (file.type === 'image/jepg' || file.type === 'image/png'){
+          const resp = await axios.put('/api/user/profile-picture', data);
+          if (resp.data.status) setRefreshSidebar(!refreshSidebar)
+        } else {
+          setPPErrorMsg('File must be in png or jpeg format')
+        }
+      } 
+      else {
+        setPPErrorMsg('File size is too large.')
       }
-    } 
-    else {
-      setPPErrorMsg('File size is too large.')
     }
   }
 
@@ -98,7 +99,7 @@ export default function Sidebar() {
           </div> */}
           <form className='profilePicture'>
             <label htmlFor="pp-upload"><img src={userData.profilePic} alt="profile pic"/></label>
-            <input id='pp-upload' type="file" name="content" onChange={profilePicChange}/>
+            <input id='pp-upload' type="file" name="content" onClick={()=> setPPErrorMsg('')} onChange={profilePicChange}/>
           </form>
 
           <p style={{color:'white', textAlign:'center'}}>{PPErrorMsg}</p>

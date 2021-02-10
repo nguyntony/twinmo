@@ -1,7 +1,9 @@
 import loginImage from '../../assets/login.png'
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import axios from 'axios'
 import {Switch, Route, Redirect} from 'react-router-dom'
+
+import {AuthContext} from './AuthContext'
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -10,15 +12,19 @@ export default function Login() {
   const [alert, setAlert] = useState('')
   const [successfulLogin, setSuccessfulLogin] = useState(false)
 
+  // const [isLoggedIn, setIsLoggedIn] = useContext(AuthContext)
+
   const processLogin = async (e) => {
     e.preventDefault();
     const resp = await axios.post('/api/user/login', {email, password})
 
     if (resp.data.status) {
       console.log('user logged in')
+      // setIsLoggedIn(true)
       setSuccessfulLogin(true)
     } else {
       console.log('user not logged in')
+      // setIsLoggedIn(false)
       setShowMessage(true)
       setAlert(resp.data.message)
       setSuccessfulLogin(false)
