@@ -53,9 +53,15 @@ export default function Sidebar() {
     const data = new FormData();
     data.append('file', file)
     
-    const resp = await axios.put('/api/user/profile-picture', data);
+    if (file.size < 1572864) {
+      const resp = await axios.put('/api/user/profile-picture', data);
+      if (resp.data.status) setRefreshSidebar(!refreshSidebar)
+    } 
+    // else {
+    //   setPPErrorMsg('')
+    // }
 
-    if (resp.data.status) setRefreshSidebar(!refreshSidebar)
+
 
   }
 

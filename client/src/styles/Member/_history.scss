@@ -1,121 +1,121 @@
 #historyContainer {
-  margin-left: 3rem;
-  display: flex;
-  flex-direction: column;
+	margin-left: 3rem;
+	display: flex;
+	flex-direction: column;
 
-  .list {
-    display: flex;
-    flex-direction: column;
-    // flex-wrap: wrap;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    margin: 2rem -1rem;
-    // width: 75rem;
+	.list {
+		display: flex;
+		flex-direction: column;
+		// flex-wrap: wrap;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		margin: 2rem -1rem;
+		// width: 75rem;
 
-    .archive {
-      width: 55rem;
-      background: $light-grey;
-      margin: 0.5rem 1rem;
-      padding: 1.5rem;
-      border-radius: 1.2rem;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
+		.archive {
+			width: 55rem;
+			background: $light-grey;
+			margin: 0.5rem 1rem;
+			padding: 1.5rem;
+			border-radius: 1.2rem;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
 
-      .archiveIcon {
-        width: 15%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 0 1rem;
+			.archiveIcon {
+				width: 15%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				margin: 0 1rem;
 
-        .icon {
-          width: 8rem;
-          height: 8rem;
-          border-radius: 100%;
-          overflow: hidden;
-          justify-self: flex-start;
+				.icon {
+					width: 8rem;
+					height: 8rem;
+					border-radius: 100%;
+					overflow: hidden;
+					justify-self: flex-start;
 
-          img {
-            width: 100%;
-          }
-        }
-      }
+					img {
+						width: 100%;
+					}
+				}
+			}
 
-      .archiveInfo {
-        width: 70%;
-        margin: 0 1rem;
-        // background-color: peachpuff;
+			.archiveInfo {
+				width: 70%;
+				margin: 0 1rem;
+				// background-color: peachpuff;
 
-        .description {
-          p {
-            font-style: italic;
-          }
-        }
+				.description {
+					p {
+						font-style: italic;
+					}
+				}
 
-        .type {
-          p {
-            color: #8975fc;
-          }
-        }
-      }
+				.type {
+					p {
+						color: #8975fc;
+					}
+				}
+			}
 
-      .amount {
-        width: 35%;
-        margin: 0 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+			.amount {
+				width: 35%;
+				margin: 0 1rem;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
 
-        p {
-          font-style: italic;
-        }
+				p {
+					font-style: italic;
+				}
 
-        .up,
-        .down,
-        .neutral {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          padding: 1rem;
-          border-radius: 2.5rem;
+				.received,
+				.sent,
+				.declined {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					padding: 1rem;
+					border-radius: 2.5rem;
 
-          i {
-            font-size: 2rem;
-            margin-right: 0.5rem;
-            color: $ghost-white;
-          }
-        }
+					i {
+						font-size: 2rem;
+						margin-right: 0.5rem;
+						color: $ghost-white;
+					}
+				}
 
-        .up {
-          background-color: #85d473;
-        }
+				.received {
+					background-color: #85d473;
+				}
 
-        .down {
-          background-color: #ff4b4b;
-        }
+				.sent {
+					background-color: #ff4b4b;
+				}
 
-        .neutral {
-          background-color: $dark-orange;
-        }
+				.declined {
+					background-color: $dark-orange;
+				}
 
-        .received {
-          color: #2bad0d;
-        }
+				.up {
+					color: #2bad0d;
+				}
 
-        .sent {
-          color: #ff2b2b;
-        }
+				.down {
+					color: #ff2b2b;
+				}
 
-        .no-change {
-          color: #e8803b;
-        }
-      }
-    }
+				.no-change {
+					color: #e8803b;
+				}
+			}
+		}
 
-    .archive:nth-child(even) {
-      background-color: #d3d3e1;
-    }
-  }
+		.archive:nth-child(even) {
+			background-color: #d3d3e1;
+		}
+	}
 }
