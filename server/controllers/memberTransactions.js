@@ -234,7 +234,6 @@ const archivedList = async (req, res) => {
         where: {
             // month,
             // year,
-            archived: true,
             [Op.or]: [
                 {
                     recipientID: id,
@@ -244,20 +243,23 @@ const archivedList = async (req, res) => {
                 {
                     recipientID: id,
                     type: 'payment',
-                    status: true
+                    status: true,
+                    archived: true
                 },
                 {
                     senderID: id,
                     type: 'request',
-                    status: true
+                    status: true,
+                    archived: true
                 }
             ]
         },
         order: [["createdAt", "desc"]],
         attributes: ['id', 'amount', 'createdAt', 'description', 'status', 'recipientID', 'senderID', 'archived', 'approved', 'type', 'month', 'year']
     })
+
     for (i of transactions) {
-        if (i.type === 'request'){
+        if (i.type === 'request' && i.senderID === id){
             const getPaymentFriend = await User.findOne({
                 where: {
                     id: i.recipientID,
@@ -267,9 +269,19 @@ const archivedList = async (req, res) => {
             i.dataValues.friendName = getPaymentFriend.first+" "+getPaymentFriend.last
             i.dataValues.friendProfilePic = getPaymentFriend.profilePic
             i.dataValues.friendUsername = getPaymentFriend.username
+        } else {
+            const getPaymentFriend = await User.findOne({
+                where: {
+                    id: i.senderID,
+                }
+            })
+    
+            i.dataValues.friendName = getPaymentFriend.first+" "+getPaymentFriend.last
+            i.dataValues.friendProfilePic = getPaymentFriend.profilePic
+            i.dataValues.friendUsername = getPaymentFriend.username
         }
-        
     }
+
     for (i of transactions) {
         if (i.type === 'payment') {
             const getPaymentFriend = await User.findOne({
@@ -286,28 +298,28 @@ const archivedList = async (req, res) => {
     for (i of transactions) {
         if (i.type === 'payment') {
             if (i.senderID === id) {
-                i.dataValues.archivedIcon = 'down'
-                i.dataValues.transactionDetail = 'payment sent'
+                i.dataValues.archivedIcon = 'sent'
+                i.dataValues.transactionDetail = 'You sent a payment'
             } else if (i.recipientID === id) {
-                i.dataValues.archivedIcon = 'up'
-                i.dataValues.transactionDetail = 'payment received'
+                i.dataValues.archivedIcon = 'received'
+                i.dataValues.transactionDetail = 'sent you a payment'
             }
         } else if (i.type === 'request') {
             if (i.approved === true) {
                 if (i.senderID === id) {
-                    i.dataValues.archivedIcon = 'up'
-                    i.dataValues.transactionDetail = 'user request approved'
+                    i.dataValues.archivedIcon = 'received'
+                    i.dataValues.transactionDetail = 'You sent a request to'
                 } else if (i.recipientID === id) {
-                    i.dataValues.archivedIcon = 'down'
-                    i.dataValues.transactionDetail = 'friend request approved'
+                    i.dataValues.archivedIcon = 'sent'
+                    i.dataValues.transactionDetail = 'sent you a request'
                 }
             } else if (i.approved === false) {
                 if (i.senderID === id) {
-                    i.dataValues.archivedIcon = 'neutral'
-                    i.dataValues.transactionDetail = 'user request denied'
+                    i.dataValues.archivedIcon = 'declined'
+                    i.dataValues.transactionDetail = 'You sent a request to'
                 } else if (i.recipientID === id) {
-                    i.dataValues.archivedIcon = 'neutral'
-                    i.dataValues.transactionDetail = 'friend request denied'
+                    i.dataValues.archivedIcon = 'declined'
+                    i.dataValues.transactionDetail = 'sent you a request'
                 }
             }
         }
