@@ -3,7 +3,6 @@ const {User} = require('../models')
 
 const processSignup = async(req, res) => {
     let {first, last, email, username, password} = req.body;
-    console.log(345345, 'Got info');
 
     first = first.charAt(0).toUpperCase() + first.slice(1);
     last = last.charAt(0).toUpperCase() + last.slice(1);
@@ -11,9 +10,7 @@ const processSignup = async(req, res) => {
     
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
-    console.log(234423, 'GENERATED HASH');
     try {
-        console.log(234234, 'Started try block');
         const newUser = await User.create({
             first,
             last,
@@ -166,6 +163,51 @@ const photo = async (req, res) => {
     })
 }
 
+const settingsUpdate = async (req, res) => {
+    const {id} = req.session.user;
+    let {first, last, email, username, password, newPassword} = req.body;
+
+    const toUpdate = {}
+
+    first = first.charAt(0).toUpperCase() + first.slice(1);
+    last = last.charAt(0).toUpperCase() + last.slice(1);
+    // username = username.toLowerCase();
+
+    if (first) {
+        toUpdate.first = first
+    }
+    if (last) {
+        toUpdate.last = last
+    }
+    if (email) {
+        toUpdate.email = email
+    }
+    if (username) {
+        toUpdate.username = username
+    }
+    if (newPassword) {
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(newPassword, salt);
+        toUpdate.hash = hash
+    }
+
+    const user = await User.findByPk(id);
+    
+    const isValid = bcrypt.compareSync(password, user.hash);
+        if (isValid) {
+            user.update(toUpdate)
+            res.status(200).json({
+                status: true,
+                message: 'Settings have been updated'
+            })
+        } else {
+            res.status(200).json({
+                message: 'Password is incorrect',
+                status: false
+            })
+        }
+}
+
 
 module.exports = {
     processSignup,
@@ -175,5 +217,6 @@ module.exports = {
     uniqueEmailCheck,
     uniqueUsernameCheck,
     photo,
-    logout
+    logout,
+    settingsUpdate
 }

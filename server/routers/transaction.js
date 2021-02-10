@@ -12,5 +12,6 @@ router
     .put('/transaction/user-deny', transactionController.processUserDeny)
     .put('/transaction/archive', transactionController.archive)
     .post('/transaction/archive/list', transactionController.archivedList)
+    .get('/transaction/archive/date-list', transactionController.monthlyCache)
 
 module.exports = router
