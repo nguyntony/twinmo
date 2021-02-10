@@ -50,19 +50,25 @@
   text-decoration-color: $dark-orange;
   text-decoration-thickness: 0.3rem;
   width: fit-content;
+  margin-top: 0.2rem;
 
   #history-autocomplete-list {
     width: 30rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-height: 30rem;
+    max-height: 40rem;
     overflow-y: scroll;
     overflow-x: hidden;
     position: absolute;
     top: 3rem;
-    background-color: $light-purple;
-    border-radius: 1.2rem;
+    // glass
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
 
     &::-webkit-scrollbar {
       display: none;
@@ -82,7 +88,7 @@
       font-weight: $bold;
       font-family: $Noto;
       color: $med-black;
-      border: 1px solid $ghost-white;
+      // border: 1px solid $ghost-white;
 
       &:hover {
         background-color: $light-orange;
