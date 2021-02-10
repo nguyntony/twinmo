@@ -226,14 +226,53 @@ const archive = async (req, res) => {
     }
 }
 
+const monthlyCache = async (req, res) => {
+    const {id} = req.session.user;
+    const transactions = await Transaction.findAll({
+        where: {
+            [Op.or]: [
+                {
+                    recipientID: id,
+                    type: 'request',
+                    status: true
+                },
+                {
+                    recipientID: id,
+                    type: 'payment',
+                    status: true,
+                    archived: true
+                },
+                {
+                    senderID: id,
+                    type: 'request',
+                    status: true,
+                    archived: true
+                }
+            ]
+        },
+        order: [["createdAt", "desc"]],
+        attributes: ['month', 'year']
+    })
+
+    cache = [];
+    const uniqueDates = transactions.map(t => {
+        const editedDate = (t.month+ ' '+ t.year)
+        if (!cache.includes(editedDate)) {
+            cache.push(editedDate)
+        }
+    })
+
+    res.status(200).json(cache)
+}
+
 const archivedList = async (req, res) => {
     const {id} = req.session.user;
     const {month, year} = req.body;
 
     const transactions = await Transaction.findAll({
         where: {
-            // month,
-            // year,
+            month,
+            year,
             [Op.or]: [
                 {
                     recipientID: id,
@@ -336,5 +375,6 @@ module.exports = {
     processUserApprove,
     processUserDeny,
     archive,
-    archivedList
+    archivedList,
+    monthlyCache
 }

@@ -26,6 +26,8 @@ export default function Settings() {
   const invalidIcon = "far fa-times-circle"
   const validIcon = "far fa-check-circle"
 
+  const [submitMessage, setSubmitMessage] = useState('')
+
   // events
 
   // if the current password === the current password check then it will turn on the button
@@ -33,6 +35,33 @@ export default function Settings() {
   // const currentPasswordConfirmation = () => {
   //   if (currentPassword === currentPasswordCheck) {setDisabled(false)}
   // }
+
+  // Submit button to change the information.
+  const submitHandler = async (e) => {
+    e.preventDefault()
+    const resp = await axios.put('/api/member/user/update', {
+      first,
+      last,
+      email,
+      username,
+      password: currentPassword,
+      newPassword
+    })
+
+    if (resp.data.status) {
+      setSubmitMessage(resp.data.message)
+    } else {
+      setSubmitMessage(resp.data.message)
+    }
+    setFirst('')
+    setLast('')
+    setEmail('')
+    setUsername('')
+    setNewPassword('')
+    setNewPasswordCheck('')
+    setCurrectPasswordCheck('')
+    setCurrentPassword('')
+  }
 
   // I need to grab the api for emails
   const isEmailUnique = async () => {
@@ -130,13 +159,17 @@ export default function Settings() {
     // console.log(`validIcon ${validIcon}`)
   }, [currentPassword, currentPasswordCheck, showEmailIcon, showUserIcon, showNew, newIcon])
 
+  useEffect(()=> {
+    setSubmitMessage('')
+  }, [])
+
   return (
     <section id="settingsContainer">
       <h1>profile</h1>
       <div className="settingsForm">
         <h3>Update your information</h3>
         <p>Fill out the fields that you wish to update then enter your current password to save the changes.</p>
-        <form>
+        <form onSubmit={submitHandler}>
           {/* FIRST & LAST NAME */}
               <div className="one-line">
                 <div className="field">
@@ -182,14 +215,15 @@ export default function Settings() {
               </div>
 
               {/* NEW PASSWORD */}
+              {/* NEW STATE. IF THERE IS CONTENT IN NEW PASSWORD, MAKE THE CONFIRM NEW PASSWORD REQUIRED */}
               <div className="one-line">
                 
                 <div className="field">
-                  <input type="password" name="new-password" required autoComplete="off" placeholder=" " onChange={e=>setNewPassword(e.target.value)} value={newPassword}/>
+                  <input type="password" name="new-password"  autoComplete="off" placeholder=" " onChange={e=>setNewPassword(e.target.value)} value={newPassword}/>
                   <label htmlFor="password" className="label">New Password</label>
                 </div>
                 <div className="field">
-                  <input type="password" name="new-password-checker" required autoComplete="off" placeholder=" " onChange={e=>setNewPasswordCheck(e.target.value)} 
+                  <input type="password" name="new-password-checker"  autoComplete="off" placeholder=" " onChange={e=>setNewPasswordCheck(e.target.value)} 
                   value={newPasswordCheck}/>
                   <label htmlFor="password-checker" className="label">Confirm New Password</label>
 
@@ -218,6 +252,7 @@ export default function Settings() {
               <div className="button">
                 <button type="submit" disabled={disabled} style={disabled ? buttonStyle : null}><h4>Save changes</h4></button>
               </div>
+              <p>{submitMessage}</p>
             </form>
       </div>
     </section>

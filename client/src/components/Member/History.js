@@ -9,6 +9,9 @@ export default function History() {
   const [archived, setArchived] = useState([])
   const [month, setMonth] = useState(moment(new Date()).format('MMMM'))
   const [year, setYear] = useState(moment(new Date()).format("YYYY"))
+  const [monthCache, setMonthCache] = useState([])
+
+  const [showDropDown, setShowDropDown] = useState(false)
 
   const getArchives = async () => {
     const resp = await axios.post('/api/member/transaction/archive/list', {
@@ -16,22 +19,52 @@ export default function History() {
       year
     })
     const data = resp.data
-    console.log(data)
     setArchived(data)
   }
 
+  const monthSelection = async (date) => {
+    setMonth(date.split(' ')[0])
+    setYear(date.split(' ')[1])
+    setShowDropDown(!showDropDown)
+  }
+
+  const getMonths = async () => {
+    const resp = await axios.get('/api/member/transaction/archive/date-list')
+    console.log('this is months', resp.data);
+    const data = resp.data
+    setMonthCache(data)
+  }
+
+  useEffect(()=> {
+    getMonths()
+  }, [])
+
   useEffect(()=> {
     getArchives()
-  }, [])
+  }, [month, year])
 
   return (
     <section id="historyContainer">
       <h1>history</h1>
-      <div className="filterSearch">
-        <form>
+      {/* <div className="filterSearch">
+        <form> */}
           {/* going to add a filter here, so we can look at past months I don't want to do this tho, bc working with a dropdwon menu */}
-          <h3>February 2021</h3>
+          {/* <h3 onClick={()=> setShowDropDown(!showDropDown)}>{month} {year}</h3>
+          {showDropDown && }
         </form>
+      </div> */}
+      <div id="history-autocomplete-container">
+
+        <h3 onClick={()=> setShowDropDown(!showDropDown)}>{month} {year}</h3>
+
+        {showDropDown && 
+          <div id="history-autocomplete-list">
+            {monthCache.map((f, idx) => 
+              <p key={idx} onClick={() => monthSelection(f)} id='history-each-item'><span className='date'>{f}</span></p>)
+            }
+          </div>
+        }
+
       </div>
 
       <div className="list">

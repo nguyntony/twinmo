@@ -15,5 +15,6 @@ router
     .post('/user/email-check', userController.uniqueEmailCheck)
     .post('/user/username-check', userController.uniqueUsernameCheck)
     .get('/user/logout', userController.logout)
+    .put('/member/user/update', userController.settingsUpdate)
 
 module.exports = router

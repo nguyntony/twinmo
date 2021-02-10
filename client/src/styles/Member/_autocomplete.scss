@@ -1,43 +1,87 @@
 #autocomplete-container {
-  /*the container must be positioned relative:*/
-  position: relative;
-  display: inline-block;
-  margin-bottom: 25px;
+	/*the container must be positioned relative:*/
+	position: relative;
+	display: inline-block;
+	margin-bottom: 25px;
 
-  #autocomplete-list {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-height: 30rem;
-    overflow: scroll;
-    position: absolute;
-    top: 5rem;
-    background-color: $light-grey;
+	#autocomplete-list {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		max-height: 30rem;
+		overflow: scroll;
+		position: absolute;
+		top: 5rem;
+		background-color: $light-grey;
 
-    border-radius: 1.2rem;
+		border-radius: 1.2rem;
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
+		&::-webkit-scrollbar {
+			display: none;
+		}
 
-    .username {
-      color: $deep-pink;
-    }
+		.username {
+			color: $deep-pink;
+		}
 
-    #each-item {
-      width: 100%;
-      padding: 1rem 2rem;
-      text-decoration: none;
-      cursor: pointer;
-      text-align: center;
-      font-size: 1.5rem;
-      font-family: $Noto;
-      color: $med-black;
+		#each-item {
+			width: 100%;
+			padding: 1rem 2rem;
+			text-decoration: none;
+			cursor: pointer;
+			text-align: center;
+			font-size: 1.5rem;
+			font-family: $Noto;
+			color: $med-black;
 
-      &:hover {
-        background-color: $light-orange;
-      }
-    }
-  }
+			&:hover {
+				background-color: $light-orange;
+			}
+		}
+	}
+}
+
+#history-autocomplete-container {
+	/*the container must be positioned relative:*/
+	position: relative;
+	display: inline-block;
+	// margin-bottom: 25px;
+
+	#history-autocomplete-list {
+		width: 30%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		max-height: 20rem;
+		overflow: scroll;
+		position: absolute;
+		top: 3rem;
+		background-color: rgb(124, 125, 134);
+
+		border-radius: 1.2rem;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+
+		.date {
+			color: $deep-pink;
+		}
+
+		#history-each-item {
+			width: 100%;
+			padding: 1rem 2rem;
+			text-decoration: none;
+			cursor: pointer;
+			text-align: center;
+			font-size: 1.5rem;
+			font-family: $Noto;
+			color: $med-black;
+
+			&:hover {
+				background-color: $light-orange;
+			}
+		}
+	}
 }
