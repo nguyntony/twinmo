@@ -3,6 +3,7 @@
   position: relative;
   display: inline-block;
   margin-bottom: 25px;
+  z-index: 10;
 
   #autocomplete-list {
     width: 100%;

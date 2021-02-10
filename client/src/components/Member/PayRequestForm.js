@@ -1,32 +1,52 @@
 import {useState, useEffect, useContext} from 'react'
-import friendProfilePicture from '../../assets/demo_assets/peridot.png'
 import NumberFormat from 'react-number-format'
 import { FundsContext } from "./FundsContext";
 import axios from 'axios'
-
+import {useSpring, animated} from 'react-spring'
 
 export default function PayRequestForm() {
+
+  // FORM HOOKS
   const [searchInput, setSearchInput] = useState('')
   const [payChecked, setPayChecked] = useState(false)
   const [requestChecked, setRequestChecked] = useState(false)
   const [submitted, setSubmitted] = useState(false)
-  
   const [amount, setAmount] = useState('')
   const [description, setDescription] = useState('')
   const [type, setType] = useState('')
   const [button, setButton] = useState('')
   const [message, setMessage] = useState('')
-  
   const [errorMsg, setErrorMsg] = useState(false)
   const [dropdownList, setDropdownList] = useState([])
   const [allFriends, setAllFriends] = useState([])
   const [selectedFriend, setSelectedFriend] = useState(false)
   const [friend, setFriend] = useState('')
 
+  // HOOK TO 
   const {updateFundsContext} = useContext(FundsContext)
   const [updateFunds, setUpdateFunds] = updateFundsContext
+
+  // ANIMATIONS
+
+  const [toggle, setToggle] = useState(false)
+  const [errorToggle, setErrorToggle] = useState(false)
+  const [sent, setSent] = useState(false)
+
+
+  const fallIn = useSpring({
+    opacity: toggle ? 1 : 0,
+    transform: toggle ? "translateY(0%)" : "translateY(-10%)"
+  })
+  const slideUp = useSpring({
+    opacity: errorToggle ? 1 : 0,
+    transform: errorToggle ? "translateY(0%)" : "translateY(-10%)",
+  })
+  const grow = useSpring({
+    transform: sent ? "scale(1)" : "scale(0.1)"
+  })
+
   
-  
+  // DB AXIOS CALL
   const getAllFriends = async () => {
     const resp = await axios.get('/api/member/friend/find-all')
     const formatedFriends = resp.data.map(d => {
@@ -35,7 +55,7 @@ export default function PayRequestForm() {
     setAllFriends(formatedFriends)
   }
 
-  // evnt handler
+  // EVENT HANDLER FNS
   const showForm = (name, id, pic, username) => {
     setSelectedFriend(true)
     setDropdownList([])
@@ -47,11 +67,21 @@ export default function PayRequestForm() {
     setPayChecked(false)
     setRequestChecked(false)
     setFriend({name, id, pic, username})
+    setToggle(true)
+    setErrorToggle(false)
+    setSent(false)
   }
 
+  
   const removeSubmittedStatus = () => {
     setErrorMsg(false)
     setSubmitted(false)
+    setToggle(false)
+  }
+
+  const messageReset = () => {
+    setErrorToggle(false)
+    setErrorMsg(false)
   }
 
   const submitHandler = async (e) => {
@@ -68,6 +98,7 @@ export default function PayRequestForm() {
         setSubmitted(true)
         setSelectedFriend(false)
         setUpdateFunds(!updateFunds)
+        setSent(true)
         
         if (button === 'Pay') {setMessage('Payment')}
         if (button === 'Request') {setMessage('Request')}
@@ -75,9 +106,8 @@ export default function PayRequestForm() {
         //inside here
       } else if (!resp.data.status) {
         setErrorMsg(true)
-        console.log(resp.data.message, resp.data.missingAMT)
-        // MAYBE MAKE THIS A MODAL THAT POPS OUT? HAVE THE USER EXIT OUT OR CLICK ON MODAL OR OUTSIDE TO GET OUT.
-        // if there is an error then you need to set the value to true to see msg
+        setErrorToggle(true)
+        // console.log(resp.data.message, resp.data.missingAMT)
       }
     }
   }
@@ -95,7 +125,7 @@ export default function PayRequestForm() {
               return i
             }
         })
-      console.log(filteredFriends)
+      // console.log(filteredFriends)
       setDropdownList(filteredFriends)
     }
   }, [searchInput])
@@ -120,7 +150,7 @@ export default function PayRequestForm() {
             </div>
 
             {!selectedFriend && submitted &&
-              <section className="confirmationSection">
+              <animated.section className="confirmationSection" style={grow}>
                 <div className="profilePicture">
                   <img src={friend.pic} alt=""/>
                 </div>
@@ -128,7 +158,7 @@ export default function PayRequestForm() {
                   <i className="far fa-check-circle"></i>
                   <p>{message} sent!</p>
                 </div>
-              </section>
+              </animated.section>
             }
 
             {!selectedFriend && !submitted &&
@@ -141,16 +171,17 @@ export default function PayRequestForm() {
             {
               selectedFriend &&
               <>
+                <animated.div className="selectedFriend" style={fallIn}>
                 <h3>{friend.name}</h3>
                 <div className="friendProfilePicture">
                   <img src={friend.pic} alt="friend icon"/>
                 </div>
 
 
-                <NumberFormat className="amount" placeholder="$0" required id="amount" value={amount} prefix={"$"} onChange={e => setAmount(e.target.value)} min="1" name="amount" thousandSeparator={true} decimalScale={2} allowNegative={false} allowLeadingZeros={false} autoComplete="off" fixedDecimalScale={true} onFocus={()=> setErrorMsg(false)}/>
+                <NumberFormat className="amount" placeholder="$0" required id="amount" value={amount} prefix={"$"} onChange={e => setAmount(e.target.value)} min="1" name="amount" thousandSeparator={true} decimalScale={2} allowNegative={false} allowLeadingZeros={false} autoComplete="off" fixedDecimalScale={true} onFocus={messageReset}/>
 
                 <div className="descriptionField">
-                {errorMsg && <span className="errorMsg">Insufficient funds</span>}
+                {errorMsg && <animated.span className="errorMsg" style={slideUp}>Insufficient funds</animated.span>}
                   <input type="text" placeholder="Description" value={description} onChange={e => setDescription(e.target.value)} className="description" name="description" autoComplete="off" maxLength="20" onBlur={undefined}/>
                   <span className="descriptionLength">{description.length}/20</span>
                 </div>
@@ -186,6 +217,7 @@ export default function PayRequestForm() {
                 </div>
 
                 {type && <button type="submit">{button}</button>}
+                </animated.div>
               </>
             }
           </form>
