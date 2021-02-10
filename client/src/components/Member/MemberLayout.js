@@ -28,4 +28,5 @@ export const memberRoute = [
   {route: 'pending', path: '/member/payment', component: Payment},
   {route: 'history', path: '/member/history', component: History},
   {route: 'settings', path: '/member/settings', component: Settings}
+  
 ]
