@@ -21,5 +21,5 @@ export const homeRoute = [
   {route: 'home', path: '/', component: Home},
   {route: 'login', path: '/user/login', component: Login},
   {route: 'signup', path: '/user/signup', component: Signup},
-  {route: 'about', path: '/about', component: About}
+  {route: 'about', path: '/about', component: About},
 ]

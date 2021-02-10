@@ -1,5 +1,6 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useState, useContext} from 'react'
 import axios from 'axios'
+import {FundsContext} from "./FundsContext";
 
 export default function Settings() {
 
@@ -25,6 +26,9 @@ export default function Settings() {
   const invalidIcon = "far fa-times-circle"
   const validIcon = "far fa-check-circle"
 
+  const {refreshSidebarContext} = useContext(FundsContext)
+  const [refreshSidebar, setRefreshSidebar] = refreshSidebarContext
+
   const [submitMessage, setSubmitMessage] = useState('')
 
   // events
@@ -49,6 +53,7 @@ export default function Settings() {
 
     if (resp.data.status) {
       setSubmitMessage('Changes have been succesfully updated.')
+      setRefreshSidebar(!refreshSidebar)
     } else {
       setSubmitMessage('Incorrect password.')
     }

@@ -1,8 +1,10 @@
 import axios from "axios"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import { Redirect } from 'react-router-dom'
 
 export default function Protected(props) {
   const {isLoggedIn, setIsLoggedIn} = props
+  const [fetching, setFetching] = useState(true)
 
   // may need it's own piece of state like 'fetching', by default it's true 'I'm trying to grab information' 
 
@@ -11,8 +13,9 @@ export default function Protected(props) {
     const resp = await axios.get('/api/login-status')
     if (resp.data.status) {
       setIsLoggedIn(true)
-      // setFetching to false bc we are done with that
+      setFetching(false)
     } else {
+      setFetching(false)
       setIsLoggedIn(false)
     }
   }
@@ -23,8 +26,8 @@ export default function Protected(props) {
 
   return (
     <>
-      {isLoggedIn && props.children}
-      {/* we need &&, !fetching && !isLoggedIn <Redirect/> */}
+      {!fetching && isLoggedIn && props.children}
+      {!fetching && !isLoggedIn && <Redirect to='/user/login'/>}
     </>
   )
 }
