@@ -1,179 +1,186 @@
 .sidebar {
-  background-color: $dark-purple;
-  margin: -2rem 0;
-  margin-left: -3rem;
-  // padding: 2rem 3rem;
-  // width: rem; // may need to change later
-  // min-width: 5rem;
-  // max-width: 25rem;
-  width: 6.5rem;
-  border-radius: 2.5rem;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  // display: none;
-  // height: 100%;
-  transition: 250ms;
+	background-color: $dark-purple;
+	margin: -2rem 0;
+	margin-left: -3rem;
+	// padding: 2rem 3rem;
+	// width: rem; // may need to change later
+	// min-width: 5rem;
+	// max-width: 25rem;
+	width: 6.5rem;
+	border-radius: 2.5rem;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	// display: none;
+	// height: 100%;
+	transition: 250ms;
 
-  @include media("<1000px") {
-    position: absolute;
-    z-index: 10;
-    height: 100%;
-  }
+	@include media("<1000px") {
+		position: absolute;
+		z-index: 10;
+		height: 100%;
+	}
 
-  .toggleIcon {
-    margin: 1rem 0;
-    // padding: 2rem 1rem;
-    // background-color: powderblue;
-    i {
-      font-size: 3rem;
-      color: $ghost-white;
-      cursor: pointer;
-      padding: 0 2rem;
-      padding-top: 2rem;
+	.toggleIcon {
+		margin: 1rem 0;
+		// padding: 2rem 1rem;
+		// background-color: powderblue;
+		i {
+			font-size: 3rem;
+			color: $ghost-white;
+			cursor: pointer;
+			padding: 0 2rem;
+			padding-top: 2rem;
 
-      &:hover {
-        color: $med-pink;
-      }
-    }
-  }
+			&:hover {
+				color: $med-pink;
+			}
+		}
+	}
 
-  .sidebarContent {
-    padding: 1rem 3rem;
-    opacity: 0;
-    transition: 150ms;
-    // animation-delay: 1s;
-    align-self: center;
-  }
+	.sidebarContent {
+		padding: 1rem 3rem;
+		opacity: 0;
+		transition: 150ms;
+		// animation-delay: 1s;
+		align-self: center;
 
-  .active {
-    opacity: 1;
-    transition: 150ms;
-    // animation-delay: 1s;
-  }
+		.pp-error-msg {
+			margin: 0.5rem 0;
+			margin-top: 1rem;
+			color: $ghost-white;
+			text-align: center;
+		}
+	}
 
-  .profilePicture {
-    width: 20rem;
-    height: 20rem;
-    border-radius: 100%;
-    // background-color: $dark-pink;
-    align-self: center;
-    overflow: hidden;
-    box-shadow: 2px 2px 2px rgba(46, 54, 68, 0.4);
+	.active {
+		opacity: 1;
+		transition: 150ms;
+		// animation-delay: 1s;
+	}
 
-    img {
-      width: 100%;
-      cursor: pointer;
-    }
+	.profilePicture {
+		width: 20rem;
+		height: 20rem;
+		border-radius: 100%;
+		// background-color: $dark-pink;
+		align-self: center;
+		overflow: hidden;
+		box-shadow: 2px 2px 2px rgba(46, 54, 68, 0.4);
 
-    input {
-      display: none;
-    }
-  }
+		img {
+			width: 100%;
+			cursor: pointer;
+		}
 
-  .nameCard {
-    padding: 1.5rem 0;
-    background-color: $egg-white;
-    margin: 1.5rem 0;
-    border-radius: 1.1rem;
-    text-align: center;
+		input {
+			display: none;
+		}
+	}
 
-    p {
-      color: $shadow-purple;
-      margin-top: 0.5rem;
-      font-weight: $bold;
-    }
-  }
+	.nameCard {
+		padding: 1.5rem 0;
+		background-color: $egg-white;
+		margin: 1.5rem 0;
+		border-radius: 1.1rem;
+		text-align: center;
 
-  #dashNav,
-  #dashSubNav {
-    ul {
-      list-style: none;
-      li {
-        margin: 0.7rem 0;
-        a {
-          color: $ghost-white;
-          text-decoration: none;
-          font-size: 1.5rem;
+		p {
+			color: $shadow-purple;
+			margin-top: 0.5rem;
+			font-weight: $bold;
+		}
+	}
 
-          &:hover {
-            color: $med-pink;
-          }
-        }
-      }
-    }
-  }
+	#dashNav,
+	#dashSubNav {
+		ul {
+			list-style: none;
+			li {
+				margin: 0.7rem 0;
+				a {
+					color: $ghost-white;
+					text-decoration: none;
+					font-size: 1.5rem;
 
-  #dashNav {
-    a {
-      padding: 1rem;
-    }
-  }
+					&:hover {
+						color: $med-pink;
+					}
+				}
+			}
+		}
+	}
 
-  #dashSubNav {
-    position: absolute;
-    bottom: 1rem;
+	#dashNav {
+		a {
+			padding: 1rem;
+		}
+	}
 
-    ul {
-      display: flex;
-      flex-direction: row;
-      li {
-        a,
-        p {
-          font-size: 2.5rem;
-          cursor: pointer;
-          i {
-            margin-right: 2rem;
-            color: $med-grey;
+	#dashSubNav {
+		position: absolute;
+		bottom: 1rem;
 
-            &:hover {
-              color: $med-pink;
-            }
-          }
-        }
-      }
-    }
-  }
+		ul {
+			display: flex;
+			flex-direction: row;
+			li {
+				a,
+				p {
+					font-size: 2.5rem;
+					cursor: pointer;
+					i {
+						margin-right: 2rem;
+						color: $med-grey;
+
+						&:hover {
+							color: $med-pink;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 .open {
-  width: 25rem;
-  transition: 250ms;
+	width: 25rem;
+	transition: 250ms;
 }
 
 #quickLinks {
-  align-self: center;
-  // background: black;
-  height: 100%;
-  margin-bottom: 5rem;
-  margin-top: 1rem;
+	align-self: center;
+	// background: black;
+	height: 100%;
+	margin-bottom: 5rem;
+	margin-top: 1rem;
 
-  ul {
-    list-style-type: none;
-    // background-color: violet;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    // justify-content: space-around;
+	ul {
+		list-style-type: none;
+		// background-color: violet;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		// justify-content: space-around;
 
-    li {
-      margin: 2rem 0;
-      // background-color: gold;
+		li {
+			margin: 2rem 0;
+			// background-color: gold;
 
-      a,
-      p {
-        font-size: 3rem;
-        color: $ghost-white;
-        cursor: pointer;
+			a,
+			p {
+				font-size: 3rem;
+				color: $ghost-white;
+				cursor: pointer;
 
-        &:hover {
-          color: $med-pink;
-        }
-      }
-    }
-  }
+				&:hover {
+					color: $med-pink;
+				}
+			}
+		}
+	}
 }
 
 .logoutIcon {
-  cursor: pointer;
+	cursor: pointer;
 }
