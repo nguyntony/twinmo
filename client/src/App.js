@@ -11,7 +11,7 @@ import Protected from './components/Member/Protected'
 import {HomepageLayout, homeRoute} from './components/Homepage/HomeLayout'
 import {MemberLayout, memberRoute} from './components/Member/MemberLayout'
 
-
+import Error from './components/404Error'
 
 function App() {
 
@@ -44,14 +44,14 @@ function App() {
                           <MemberLayout component={r.component}/>
                         </Route>
                       ))}
-                      <Route path='*'><Redirect to='/member/home' /></Route>
                       {/* Could change to a 404 component as well. But redirect to /member/home */}
                     </FundsProvider>
     
+                    <Route path='*' component={Error}/>
                   </Protected>
                 </Route>
 
-                <Route path='*' component={TestSignup}/>
+                <Route path='*' component={Error}/>
                 {/* Needs 404 component */}
               
           </Switch>
