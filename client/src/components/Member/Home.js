@@ -8,6 +8,7 @@ export default function Home() {
   const [MRRequest, setMRRequest] = useState('')
   const [paymentAmount, setPaymentAmount] = useState('')
   const [MRPending, setMRPending] = useState('')
+  const [loading, setLoading] = useState(true)
 
   const getRecentData = async () => {
     const resp = await axios.get('/api/member/payment/list')
@@ -21,11 +22,14 @@ export default function Home() {
     console.log(data2[0])
     setRequestAmt(data2.length)
     setMRRequest(data2[0])
+    setLoading(false)
   }
 
   useEffect(()=> {
     getRecentData()
   }, [])
+
+  if (loading) {return(<></>)}
 
   return (
     <section id="dashboardContentContainer">
