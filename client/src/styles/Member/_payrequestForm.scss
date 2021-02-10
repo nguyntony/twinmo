@@ -14,6 +14,12 @@
       height: 100%;
       // background-color: palevioletred;
 
+      .selectedFriend {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
       h3 {
         align-self: center;
         margin: 1rem 0;
