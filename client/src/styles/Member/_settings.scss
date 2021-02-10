@@ -93,6 +93,12 @@
           font-size: 2rem;
         }
       }
+
+      #updateStatus {
+        color: $deep-pink;
+        font-weight: $bold;
+        margin-top: 1rem;
+      }
     }
   }
 }

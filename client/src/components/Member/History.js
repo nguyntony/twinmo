@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 import axios from 'axios'
 import moment from 'moment'
 import numeral from 'numeral'
+import Loader from './Loading'
 
 export default function History() {
 
@@ -10,8 +11,8 @@ export default function History() {
   const [month, setMonth] = useState(moment(new Date()).format('MMMM'))
   const [year, setYear] = useState(moment(new Date()).format("YYYY"))
   const [monthCache, setMonthCache] = useState([])
-
   const [showDropDown, setShowDropDown] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   const getArchives = async () => {
     const resp = await axios.post('/api/member/transaction/archive/list', {
@@ -20,12 +21,14 @@ export default function History() {
     })
     const data = resp.data
     setArchived(data)
+    setLoading(false)
   }
 
   const monthSelection = async (date) => {
     setMonth(date.split(' ')[0])
     setYear(date.split(' ')[1])
     setShowDropDown(!showDropDown)
+    setLoading(true)
   }
 
   const getMonths = async () => {
@@ -46,13 +49,7 @@ export default function History() {
   return (
     <section id="historyContainer">
       <h1>history</h1>
-      {/* <div className="filterSearch">
-        <form> */}
-          {/* going to add a filter here, so we can look at past months I don't want to do this tho, bc working with a dropdwon menu */}
-          {/* <h3 onClick={()=> setShowDropDown(!showDropDown)}>{month} {year}</h3>
-          {showDropDown && }
-        </form>
-      </div> */}
+
       <div id="history-autocomplete-container">
 
         <h3 onClick={()=> setShowDropDown(!showDropDown)}>{month} {year}</h3>
@@ -67,7 +64,9 @@ export default function History() {
 
       </div>
 
-      <div className="list">
+    {  
+    loading ? <Loader loading={loading}/> :
+    <div className="list">
         {/* I will map here, I will need to grab data for archived true items */}
         {
           archived &&
@@ -88,7 +87,7 @@ export default function History() {
           ))
         }
 
-      </div>
+      </div>}
 
     </section>
   )

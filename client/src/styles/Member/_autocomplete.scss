@@ -1,87 +1,92 @@
 #autocomplete-container {
-	/*the container must be positioned relative:*/
-	position: relative;
-	display: inline-block;
-	margin-bottom: 25px;
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+  margin-bottom: 25px;
 
-	#autocomplete-list {
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		max-height: 30rem;
-		overflow: scroll;
-		position: absolute;
-		top: 5rem;
-		background-color: $light-grey;
+  #autocomplete-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 30rem;
+    overflow: scroll;
+    position: absolute;
+    top: 5rem;
+    background-color: $light-grey;
 
-		border-radius: 1.2rem;
+    border-radius: 1.2rem;
 
-		&::-webkit-scrollbar {
-			display: none;
-		}
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
-		.username {
-			color: $deep-pink;
-		}
+    .username {
+      color: $deep-pink;
+    }
 
-		#each-item {
-			width: 100%;
-			padding: 1rem 2rem;
-			text-decoration: none;
-			cursor: pointer;
-			text-align: center;
-			font-size: 1.5rem;
-			font-family: $Noto;
-			color: $med-black;
+    #each-item {
+      width: 100%;
+      padding: 1rem 2rem;
+      text-decoration: none;
+      cursor: pointer;
+      text-align: center;
+      font-size: 1.5rem;
+      font-family: $Noto;
+      color: $med-black;
 
-			&:hover {
-				background-color: $light-orange;
-			}
-		}
-	}
+      &:hover {
+        background-color: $light-orange;
+      }
+    }
+  }
 }
 
 #history-autocomplete-container {
-	/*the container must be positioned relative:*/
-	position: relative;
-	display: inline-block;
-	// margin-bottom: 25px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: $dark-orange;
+  text-decoration-thickness: 0.3rem;
+  width: fit-content;
 
-	#history-autocomplete-list {
-		width: 30%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		max-height: 20rem;
-		overflow: scroll;
-		position: absolute;
-		top: 3rem;
-		background-color: rgb(124, 125, 134);
+  #history-autocomplete-list {
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 30rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    top: 3rem;
+    background-color: $light-purple;
+    border-radius: 1.2rem;
 
-		border-radius: 1.2rem;
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
-		&::-webkit-scrollbar {
-			display: none;
-		}
+    .date {
+      color: $med-black;
+    }
 
-		.date {
-			color: $deep-pink;
-		}
+    #history-each-item {
+      width: 100%;
+      padding: 1.5rem 2rem;
+      text-decoration: none;
+      cursor: pointer;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: $bold;
+      font-family: $Noto;
+      color: $med-black;
+      border: 1px solid $ghost-white;
 
-		#history-each-item {
-			width: 100%;
-			padding: 1rem 2rem;
-			text-decoration: none;
-			cursor: pointer;
-			text-align: center;
-			font-size: 1.5rem;
-			font-family: $Noto;
-			color: $med-black;
-
-			&:hover {
-				background-color: $light-orange;
-			}
-		}
-	}
+      &:hover {
+        background-color: $light-orange;
+      }
+    }
+  }
 }

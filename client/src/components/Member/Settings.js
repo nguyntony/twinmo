@@ -1,6 +1,5 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios'
-import { set } from 'numeral'
 
 export default function Settings() {
 
@@ -49,9 +48,9 @@ export default function Settings() {
     })
 
     if (resp.data.status) {
-      setSubmitMessage(resp.data.message)
+      setSubmitMessage('Changes have been succesfully updated.')
     } else {
-      setSubmitMessage(resp.data.message)
+      setSubmitMessage('Incorrect password.')
     }
     setFirst('')
     setLast('')
@@ -252,7 +251,7 @@ export default function Settings() {
               <div className="button">
                 <button type="submit" disabled={disabled} style={disabled ? buttonStyle : null}><h4>Save changes</h4></button>
               </div>
-              <p>{submitMessage}</p>
+              <p id="updateStatus">{submitMessage}</p>
             </form>
       </div>
     </section>
