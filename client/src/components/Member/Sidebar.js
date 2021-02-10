@@ -14,6 +14,8 @@ export default function Sidebar() {
 
   const [toggle, setToggle] = toggleContext
 
+  const [PPErrorMsg, setPPErrorMsg] = useState('')
+
   const location = useLocation()
   const currentPath = location.pathname
 
@@ -48,21 +50,22 @@ export default function Sidebar() {
   }
 
   const profilePicChange = async (e) => {
-    console.log(e.target.value)
     const file = e.target.files[0];
     const data = new FormData();
     data.append('file', file)
+    console.log(file)
     
     if (file.size < 1572864) {
-      const resp = await axios.put('/api/user/profile-picture', data);
-      if (resp.data.status) setRefreshSidebar(!refreshSidebar)
+      if (file.type === 'image/jepg' || 'image/png'){
+        const resp = await axios.put('/api/user/profile-picture', data);
+        if (resp.data.status) setRefreshSidebar(!refreshSidebar)
+      } else {
+        setPPErrorMsg('File must be in png or jpeg format')
+      }
     } 
-    // else {
-    //   setPPErrorMsg('')
-    // }
-
-
-
+    else {
+      setPPErrorMsg('File size is too large.')
+    }
   }
 
   const processLogout = async (e) => {
@@ -97,6 +100,8 @@ export default function Sidebar() {
             <label htmlFor="pp-upload"><img src={userData.profilePic} alt="profile pic"/></label>
             <input id='pp-upload' type="file" name="content" onChange={profilePicChange}/>
           </form>
+
+          <p style={{color:'white', textAlign:'center'}}>{PPErrorMsg}</p>
     
           <div className="nameCard">
             <h3>{userData.first} {userData.last}</h3>
@@ -127,7 +132,7 @@ export default function Sidebar() {
               <li><Link style={iconFriend} to="/member/friends"><i className="fas fa-user-friends"></i></Link></li>
               <li><Link style={iconPayRequest} to="/member/pay-request"><i className="fas fa-hand-holding-usd"></i></Link></li>
               <li><Link style={iconHistory} to="/member/history"><i className="fas fa-money-check-alt"></i></Link></li>
-              <li><p onClick={processLogout}><i className="fas fa-sign-out-alt"></i></p></li>
+              {/* <li><p onClick={processLogout}><i className="fas fa-sign-out-alt"></i></p></li> */}
             </ul>
           </nav>
       
