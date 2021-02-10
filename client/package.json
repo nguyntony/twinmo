@@ -7,7 +7,6 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
-    "gsap": "^3.6.0",
     "moment": "^2.29.1",
     "numeral": "^2.0.6",
     "react": "^17.0.1",

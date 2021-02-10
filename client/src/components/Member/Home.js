@@ -1,11 +1,13 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import numeral from 'numeral'
-// import {useSpring, animated} from 'react-spring'
 import Loader from './Loading'
+import {useSpring, animated} from 'react-spring'
+
 
 export default function Home() {
+  // HOOKS
   const [requestAmt, setRequestAmt] = useState('')
   const [MRRequest, setMRRequest] = useState('')
   const [paymentAmount, setPaymentAmount] = useState('')
@@ -13,8 +15,12 @@ export default function Home() {
   const [loading, setLoading] = useState(true)
 
   // ANIMATIONS
-  // const fade = useSpring({from: {opacity: 0}, opacity: 1})
+  const easeIn = useSpring({
+    transform: !loading ? "translateY(0%)" : "translateY(10%)",
+    opacity: !loading ? 1 : 0,
+  })
 
+  // API CALL
   const getRecentData = async () => {
     const resp = await axios.get('/api/member/payment/list')
     const data = resp.data.filter(d => d.status && !d.archived)
@@ -31,27 +37,26 @@ export default function Home() {
     setLoading(false)
   }
 
+  // ONLOAD
   useEffect(()=> {
     getRecentData()
   }, [])
-
 
   return (
     <section id="dashboardContentContainer">
       {loading ? <Loader loading={loading}/> : 
       <>
-        <div className="request-container">
-          
+        <animated.div className="request-container" style={easeIn}>
+        
               <div className="half-circle-bg"></div>
               <div className="icon">
                 {MRRequest ? 
                 <img src={MRRequest.friendProfilePic} alt={MRRequest.friendName}/>
                 : <img src='/uploads/nodata1.jpg' alt='default'></img>
-                }
+              }
               </div>
 
               <div className="mostRecent">
-                {/* <h3>{numeral(MRRequest.amount).format('$0,0.00')}<span className="divider"></span>{MRRequest.description}</h3> */}
                 {MRRequest ?
                   <>
                   <h3>{numeral(MRRequest.amount).format('$0,0.00')}</h3>
@@ -72,10 +77,10 @@ export default function Home() {
                 }
               </div>
 
-        </div>
+        </animated.div>
 
 
-        <div className="pending-container">
+        <animated.div className="pending-container" style={easeIn}>
 
           
             <div className="half-circle-bg"></div>
@@ -86,7 +91,6 @@ export default function Home() {
               }
             </div>
             <div className="mostRecent">
-              {/* <h3>{numeral(MRPending.amount).format('$0,0.00')}<span className="divider"></span>{MRPending.description}</h3> */}
               {MRPending ? 
                 <>
                 <h3>{numeral(MRPending.amount).format('$0,0.00')}</h3>
@@ -105,7 +109,7 @@ export default function Home() {
                 </div>
               }
             </div>
-        </div>
+        </animated.div>
         </>
       }
     </section>
