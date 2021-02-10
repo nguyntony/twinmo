@@ -72,7 +72,6 @@ export default function PayRequestForm() {
     setSent(false)
   }
 
-  
   const removeSubmittedStatus = () => {
     setErrorMsg(false)
     setSubmitted(false)
@@ -86,6 +85,7 @@ export default function PayRequestForm() {
 
   const submitHandler = async (e) => {
     e.preventDefault()
+
     if (type) {
       const resp = await axios.post('/api/member/transaction/new', {
         amount,
@@ -95,23 +95,23 @@ export default function PayRequestForm() {
       })
 
       if (resp.data.status) {
+        // if the submission is successful
         setSubmitted(true)
         setSelectedFriend(false)
         setUpdateFunds(!updateFunds)
         setSent(true)
-        
         if (button === 'Pay') {setMessage('Payment')}
-        if (button === 'Request') {setMessage('Request')}
+        else if (button === 'Request') {setMessage('Request')}
 
-        //inside here
       } else if (!resp.data.status) {
+        // submission unsuccessul
         setErrorMsg(true)
         setErrorToggle(true)
-        // console.log(resp.data.message, resp.data.missingAMT)
       }
     }
   }
   
+  // ONLOAD 
   useEffect(()=>{
     if (searchInput.length === 0) {
       setDropdownList([])
@@ -141,14 +141,14 @@ export default function PayRequestForm() {
         <div className="form">
           <form onSubmit={submitHandler}>
 
+            {/* AUTOCOMPLETE CONTAINER */}
             <div id="autocomplete-container">
-
               <input type="text" placeholder="Enter name or @username" onChange={e => setSearchInput(e.target.value)} value={searchInput}  className="searchBar" name="username" autoComplete="off" onFocus={removeSubmittedStatus} />
 
               <div id="autocomplete-list">{dropdownList.map((f, idx) => <p key={idx} onClick={() => showForm(f.name, f.id, f.profilePic, f.username)} id='each-item'>{f.name} <span className="username">@{f.username}</span></p>)}</div>
-
             </div>
 
+            {/* SUCCESS MESSAGE */}
             {!selectedFriend && submitted &&
               <animated.section className="confirmationSection" style={grow}>
                 <div className="profilePicture">
@@ -161,31 +161,35 @@ export default function PayRequestForm() {
               </animated.section>
             }
 
+            {/* DEFAULT STYLE */}
             {!selectedFriend && !submitted &&
               <section className="confirmationSection">
                 <h4><i className="fas fa-search search"></i></h4>
               </section>
-
             }
 
+            {/* FORM FIELDS */}
             {
               selectedFriend &&
               <>
                 <animated.div className="selectedFriend" style={fallIn}>
                 <h3>{friend.name}</h3>
+                {/* PROFILE PICTURE */}
                 <div className="friendProfilePicture">
                   <img src={friend.pic} alt="friend icon"/>
                 </div>
-
-
+                
+                {/* AMOUNT INPUT */}
                 <NumberFormat className="amount" placeholder="$0" required id="amount" value={amount} prefix={"$"} onChange={e => setAmount(e.target.value)} min="1" name="amount" thousandSeparator={true} decimalScale={2} allowNegative={false} allowLeadingZeros={false} autoComplete="off" fixedDecimalScale={true} onFocus={messageReset}/>
 
+                {/* DESCRIPTION INPUT */}
                 <div className="descriptionField">
                 {errorMsg && <animated.span className="errorMsg" style={slideUp}>Insufficient funds</animated.span>}
-                  <input type="text" placeholder="Description" value={description} onChange={e => setDescription(e.target.value)} className="description" name="description" autoComplete="off" maxLength="20" onBlur={undefined}/>
+                  <input type="text" placeholder="Description" value={description} onChange={e => setDescription(e.target.value)} className="description" name="description" autoComplete="off" maxLength="20"/>
                   <span className="descriptionLength">{description.length}/20</span>
                 </div>
 
+                {/* TYPE RADIO BUTTON */}
                 <div className="type">
                   <ul>
                     <li>
@@ -216,6 +220,7 @@ export default function PayRequestForm() {
                   </ul>
                 </div>
 
+                {/* BUTTON */}
                 {type && <button type="submit">{button}</button>}
                 </animated.div>
               </>
