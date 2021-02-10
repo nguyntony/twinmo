@@ -7,21 +7,21 @@ export default function Archive({img, date, name, description, amount, username,
   const up = "fas fa-chevron-circle-up"
   const down = "fas fa-chevron-circle-down"
   const neutral = "fas fa-minus-circle"
-  const received = "received"
-  const sent = "sent"
+  const received = "up"
+  const sent = "down"
   const denied = "no-change"
 
 
   useEffect(()=> {
-    if (archivedIcon === "up") {
+    if (archivedIcon === "received") {
       setIcon(up) 
       setCaption(received)
     }
-    else if (archivedIcon === "down") {
+    else if (archivedIcon === "sent") {
       setIcon(down)
       setCaption(sent)
     }
-    else if (archivedIcon === "neutral") {
+    else if (archivedIcon === "declined") {
       setIcon(neutral)
       setCaption(denied)
     }
@@ -45,13 +45,16 @@ export default function Archive({img, date, name, description, amount, username,
           <p><span className="date">{date}</span> {description}</p>
         </div>
         <div className="type">
-          <p className="message">friend sent a request</p>
+          {transactionDetail.split(' ')[0] === 'sent' ?
+          <p className="message">{name.split(' ')[0]} {transactionDetail}</p>
+          : <p className="message">{transactionDetail} {name.split(' ')[0]}</p>
+          }
         </div>
       </div>
 
       <div className="amount">
         <h4 className={archivedIcon}><i className={icon}></i>{amount}</h4>
-        <p className={caption}>{transactionDetail}</p>
+        <p className={caption}>{archivedIcon}</p>
       </div>
     </div>
   )
