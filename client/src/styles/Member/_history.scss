@@ -1,117 +1,139 @@
 #historyContainer {
-  margin-left: 3rem;
-  display: flex;
-  flex-direction: column;
-  min-width: 25rem;
+	margin-left: 3rem;
+	display: flex;
+	flex-direction: column;
+	min-width: 25rem;
 
-  .list {
-    display: flex;
-    flex-direction: column;
-    // flex-wrap: wrap;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    margin: 2rem -1rem;
-    // width: 75rem;
+	.history-center {
+		padding-top: 10rem;
+	}
 
-    .archive {
-      width: 55rem;
-      background: $light-grey;
-      margin: 0.5rem 1rem;
-      padding: 1.5rem;
-      border-radius: 1.2rem;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
+	.list {
+		display: flex;
+		flex-direction: column;
+		// flex-wrap: wrap;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		margin: 2rem -1rem;
+		// width: 75rem;
 
-      .archiveIcon {
-        width: 15%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 0 1rem;
+		height: 100%;
 
-        .icon {
-          width: 8rem;
-          height: 8rem;
-          border-radius: 100%;
-          overflow: hidden;
-          justify-self: flex-start;
+		.historyPlaceholder {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
 
-          img {
-            width: 100%;
-          }
-        }
-      }
+			h4 {
+				font-size: 15rem;
+				color: $light-grey;
+			}
 
-      .archiveInfo {
-        width: 70%;
-        margin: 0 1rem;
-        // background-color: peachpuff;
+			p {
+				color: $med-grey;
+			}
+		}
 
-        .type {
-          p {
-            color: #8975fc;
-            font-style: italic;
-          }
-        }
-      }
+		.archive {
+			width: 55rem;
+			background: $light-grey;
+			margin: 0.5rem 1rem;
+			padding: 1.5rem;
+			border-radius: 1.2rem;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
 
-      .amount {
-        width: 35%;
-        margin: 0 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+			.archiveIcon {
+				width: 15%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				margin: 0 1rem;
 
-        p {
-          font-style: italic;
-        }
+				.icon {
+					width: 8rem;
+					height: 8rem;
+					border-radius: 100%;
+					overflow: hidden;
+					justify-self: flex-start;
 
-        .received,
-        .sent,
-        .declined {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          padding: 1rem;
-          border-radius: 2.5rem;
+					img {
+						width: 100%;
+					}
+				}
+			}
 
-          i {
-            font-size: 2rem;
-            margin-right: 0.5rem;
-            color: $ghost-white;
-          }
-        }
+			.archiveInfo {
+				width: 70%;
+				margin: 0 1rem;
+				// background-color: peachpuff;
 
-        .received {
-          background-color: #85d473;
-        }
+				.type {
+					p {
+						color: #8975fc;
+						font-style: italic;
+					}
+				}
+			}
 
-        .sent {
-          background-color: #ff4b4b;
-        }
+			.amount {
+				width: 35%;
+				margin: 0 1rem;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
 
-        .declined {
-          background-color: $dark-orange;
-        }
+				p {
+					font-style: italic;
+				}
 
-        .up {
-          color: #2bad0d;
-        }
+				.received,
+				.sent,
+				.declined {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					padding: 1rem;
+					border-radius: 2.5rem;
 
-        .down {
-          color: #ff2b2b;
-        }
+					i {
+						font-size: 2rem;
+						margin-right: 0.5rem;
+						color: $ghost-white;
+					}
+				}
 
-        .no-change {
-          color: #e8803b;
-        }
-      }
-    }
+				.received {
+					background-color: #85d473;
+				}
 
-    .archive:nth-child(even) {
-      background-color: #d3d3e1;
-    }
-  }
+				.sent {
+					background-color: #ff4b4b;
+				}
+
+				.declined {
+					background-color: $dark-orange;
+				}
+
+				.up {
+					color: #2bad0d;
+				}
+
+				.down {
+					color: #ff2b2b;
+				}
+
+				.no-change {
+					color: #e8803b;
+				}
+			}
+		}
+
+		.archive:nth-child(even) {
+			background-color: #d3d3e1;
+		}
+	}
 }

@@ -56,7 +56,7 @@ export default function History() {
 
       <div id="history-autocomplete-container">
 
-        <h3 onClick={()=> setShowDropDown(!showDropDown)}>{month} {year}</h3>
+        <h3 onClick={()=> monthCache.length > 0 && setShowDropDown(!showDropDown)}>{month} {year}</h3>
 
         {showDropDown && 
           <div id="history-autocomplete-list">
@@ -70,27 +70,36 @@ export default function History() {
 
     {  
     loading ? <Loader loading={loading}/> :
-    <div className="list">
-        {
-          archived &&
-          archived.map(a => (
-            <Archive
-            key={a.id}
-            img={a.friendProfilePic}
-            date={moment(a.createdAt).format('MM/DD')}
-            name={a.friendName}
-            description={a.description}
-            amount={numeral(a.amount).format('$0,0.00')}
-            username={a.friendUsername}
-            transactionDetail={a.transactionDetail}
-            archivedIcon={a.archivedIcon}
-            month={a.month}
-            year={a.year}
-            />
-          ))
-        }
+    <div className={archived.length === 0 ? 'list history-center' : 'list'}>
+      {
+        archived &&
+        archived.map(a => (
+          <Archive
+          key={a.id}
+          img={a.friendProfilePic}
+          date={moment(a.createdAt).format('MM/DD')}
+          name={a.friendName}
+          description={a.description}
+          amount={numeral(a.amount).format('$0,0.00')}
+          username={a.friendUsername}
+          transactionDetail={a.transactionDetail}
+          archivedIcon={a.archivedIcon}
+          month={a.month}
+          year={a.year}
+          />
+        ))
+      }
 
-      </div>}
+      {
+      archived.length === 0 && 
+      <section className='historyPlaceholder'>
+        <h4><i class="far fa-folder-open"></i></h4>
+        <p>No recent data</p>
+      </section>
+      }
+    </div>
+    }
+
 
     </section>
   )

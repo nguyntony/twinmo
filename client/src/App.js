@@ -38,16 +38,19 @@ function App() {
                 <Route path='/member'>
                   <Protected isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}>
                     
-                    <FundsProvider>
-                      {memberRoute.map(r => (
-                        <Route path={r.path} key={r.route} exact>
-                          <MemberLayout component={r.component}/>
-                        </Route>
-                      ))}
-                      {/* Could change to a 404 component as well. But redirect to /member/home */}
-                    </FundsProvider>
-    
-                    <Route path='*' component={Error}/>
+                        <FundsProvider>
+                          <Switch>
+
+                            {memberRoute.map(r => (
+                              <Route path={r.path} key={r.route} exact>
+                                <MemberLayout component={r.component}/>
+                              </Route>
+                            ))}
+                            {/* Could change to a 404 component as well. But redirect to /member/home */}
+                            <Route path='*' component={Error}/>
+                          </Switch>
+                        </FundsProvider>
+        
                   </Protected>
                 </Route>
 
