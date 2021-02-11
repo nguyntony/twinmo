@@ -25,6 +25,8 @@ export default function Nav() {
   // {/* if path does not equal what I want then dont render the nav */}
   // {/* if path !== 'members-only' then render nav : null */}
 
+  const [toggle, setToggle] = useState(true)
+
   useEffect(()=> {
     if (currentPath === homePath || currentPath === loginPath || currentPath === signupPath || currentPath === aboutPath) {
       setShowNav(true)
@@ -36,7 +38,7 @@ export default function Nav() {
   return (
     <>
     {showNav ? 
-      <nav id="homeNav">
+      <nav className="homeNav">
         <h2>twinmo</h2>
         
         <ul className="nav-list">
@@ -47,6 +49,23 @@ export default function Nav() {
       </nav> 
       :
         null
+    }
+
+    {showNav ? 
+      <nav className="responsive">
+        <h2>twinmo</h2>
+
+        <div className="menu">
+          <div className="toggleIcon"><i className="fas fa-caret-down" onClick={() => setToggle(!toggle)}></i></div>
+          <ul className={toggle ? "responsiveNav hidden" : "responsiveNav"}>
+            <Link to='/'><li style={homeUnderline}>home</li></Link>
+            <Link to='/about'><li style={aboutUnderline}>about</li></Link>
+            <Link to='/user/login'><li style={loginUnderline}>login</li></Link>
+          </ul>
+        </div>
+      </nav> 
+      :
+      null
     }
     </>
   )
