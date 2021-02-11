@@ -10,11 +10,25 @@
   margin: 3rem;
   // position: relative;
 
+  @include media("<420px") {
+    margin: 1rem;
+  }
+
+  @include media("<600px") {
+    padding: 1rem 1.5rem;
+  }
+
   .contentContainer {
     flex-grow: 1;
     width: 100%;
     display: flex;
     padding: 2rem;
+
+    @include media("<=900px") {
+      flex-direction: column;
+    }
+
+    // @include media;
   }
 }
 
