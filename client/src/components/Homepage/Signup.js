@@ -128,7 +128,7 @@ export default function Signup() {
 
   return (
     <section className="contentContainer">
-      <div className="mainContentContainer">
+      <div className="mainContentContainer signupContainer">
         <div className="description">
           <div className="form">
             <h1>Create account</h1>
@@ -194,7 +194,7 @@ export default function Signup() {
         </div>
       </div>
       
-      <div className="heroImg">
+      <div className="heroImg signupForm">
         <img src={signupImage} alt="signup man"/>
       </div>
     </section>
