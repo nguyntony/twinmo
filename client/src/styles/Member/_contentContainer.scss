@@ -17,6 +17,13 @@
   z-index: 100;
   // display: none;
   position: relative;
+
+  @include media("<420px") {
+    padding: 2rem 0;
+  }
+  @include media("<=528px") {
+    padding: 2rem 0;
+  }
 }
 @import "./background";
 @import "./sidebar";

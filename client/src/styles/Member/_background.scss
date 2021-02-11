@@ -8,6 +8,10 @@
   overflow: hidden;
   position: relative;
 
+  @include media("<420px") {
+    align-items: unset;
+    overflow: unset;
+  }
   // the window will act as the 'App', I personally do not want to touch the app so I made a window that will cover that entire container.
 }
 
@@ -19,6 +23,10 @@
   left: 0;
   background-color: $light-purple;
   // this is the child of the window and acts as the background, its sibling is the content container which will hold the other information.
+  @include media("<420px") {
+    height: 125vh;
+    overflow: hidden;
+  }
 
   .circle1,
   .circle2,

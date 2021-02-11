@@ -8,6 +8,18 @@
   margin-left: 3rem;
   // transform: translateY(10%);
 
+  @include media("<1000px") {
+    margin-left: 6rem;
+  }
+
+  @include media("<825px") {
+    flex-direction: column;
+  }
+
+  // @include media("<420px") {
+  //   margin-left: 7rem;
+  // }
+
   .request-container,
   .pending-container {
     width: 30rem;
@@ -23,6 +35,10 @@
     position: relative;
     overflow: hidden;
     margin: 2rem;
+
+    @include media("<420px") {
+      width: 25rem;
+    }
 
     .half-circle-bg {
       position: absolute;
@@ -124,10 +140,10 @@
   }
 }
 
-#dashboardContainer {
-  #memberView {
-    @include media("<1000px") {
-      margin-left: 5rem;
-    }
-  }
-}
+// #dashboardContainer {
+//   #memberView {
+//     @include media(">1000px") {
+//       margin-left: 5rem;
+//     }
+//   }
+// }

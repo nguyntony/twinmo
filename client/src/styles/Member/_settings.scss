@@ -1,7 +1,10 @@
 #settingsContainer {
   margin-left: 6rem;
   max-width: 50rem;
-  // height: fit-content;
+
+  @include media("<688px") {
+    margin-left: 8rem;
+  }
 
   .settingsForm {
     h3 {
@@ -13,12 +16,21 @@
 
     form {
       margin: 5rem 0;
+      @include media("<688px") {
+        flex-direction: column;
+        display: flex;
+      }
 
       .one-line {
         display: flex;
         flex-direction: row;
         align-items: center;
         margin: 1rem 0;
+
+        @include media("<688px") {
+          flex-direction: column;
+          margin: unset;
+        }
 
         .field {
           position: relative;
@@ -75,6 +87,13 @@
           }
         }
       }
+
+      // .button {
+      //   @include media("<688px") {
+      //     display: flex;
+      //     justify-content: center;
+      //   }
+      // }
 
       .button button {
         margin: 1rem 0;

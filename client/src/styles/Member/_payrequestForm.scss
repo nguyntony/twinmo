@@ -2,6 +2,13 @@
   width: 100%;
   margin-left: 3rem;
   // background-color: peachpuff;
+  @include media("<1000px") {
+    margin-left: 6rem;
+  }
+
+  @include media("<528px") {
+    padding: 0rem 2rem;
+  }
 
   .form {
     height: 100%;
@@ -26,7 +33,9 @@
       }
 
       .searchBar {
-        width: 35rem;
+        // width: 35rem;
+        min-width: 35rem;
+        width: 100%;
         height: 4rem;
         border-radius: 1.2rem;
         outline: none;
@@ -35,6 +44,10 @@
         font-family: $Noto;
         font-size: 1.5rem;
         padding: 2rem;
+
+        @include media("<=528px") {
+          min-width: 25rem;
+        }
       }
 
       .friendProfilePicture {
