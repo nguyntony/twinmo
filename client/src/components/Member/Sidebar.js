@@ -4,6 +4,20 @@ import {Switch, Route, Redirect, Link, useLocation} from 'react-router-dom'
 import numeral from 'numeral'
 import {FundsContext} from "./FundsContext";
 
+function useWindowSize() {
+  const [size, setSize] = useState([window.innerHeight, window.innerWidth]);
+  useEffect(()=> {
+    const resizeHandler = () => {
+      setSize([window.innerHeight, window.innerWidth]);
+    };
+    window.addEventListener('resize', resizeHandler);
+    return () => {
+      window.removeEventListener('resize', resizeHandler);
+    }
+  }, [])
+  return size
+}
+
 export default function Sidebar() {
   const [successfulLogout, setSuccessfulLogout] = useState(false);
   const [userData, setUserData] = useState({})
@@ -15,6 +29,10 @@ export default function Sidebar() {
   const [toggle, setToggle] = toggleContext
 
   const [PPErrorMsg, setPPErrorMsg] = useState('')
+
+  // Hook for controlling the sidebar depending on screen size.
+  const [height, width] = useWindowSize();
+  if (width < 1000) setToggle(false)
 
   const location = useLocation()
   const currentPath = location.pathname
@@ -75,6 +93,7 @@ export default function Sidebar() {
   }
 
   const toggleSidebar = () => {
+    console.log(toggle)
     setToggle(!toggle)
   }
 
@@ -86,6 +105,8 @@ export default function Sidebar() {
   useEffect(()=> {
     getUserFunds()
   }, [updateFunds])
+
+
 
   return (
     <section className={toggle ? "sidebar open" : "sidebar"}>
