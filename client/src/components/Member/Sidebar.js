@@ -5,10 +5,10 @@ import numeral from 'numeral'
 import {FundsContext} from "./FundsContext";
 
 function useWindowSize() {
-  const [size, setSize] = useState([window.innerHeight, window.innerWidth]);
+  const [size, setSize] = useState(window.innerWidth);
   useEffect(()=> {
     const resizeHandler = () => {
-      setSize([window.innerHeight, window.innerWidth]);
+      setSize(window.innerWidth);
     };
     window.addEventListener('resize', resizeHandler);
     return () => {
@@ -31,8 +31,7 @@ export default function Sidebar() {
   const [PPErrorMsg, setPPErrorMsg] = useState('')
 
   // Hook for controlling the sidebar depending on screen size.
-  const [height, width] = useWindowSize();
-  if (width < 1000) setToggle(false)
+  const width = useWindowSize();
 
   const location = useLocation()
   const currentPath = location.pathname
@@ -93,7 +92,7 @@ export default function Sidebar() {
   }
 
   const toggleSidebar = () => {
-    console.log(toggle)
+    // console.log(toggle)
     setToggle(!toggle)
   }
 
@@ -106,7 +105,9 @@ export default function Sidebar() {
     getUserFunds()
   }, [updateFunds])
 
-
+useEffect(()=> {
+  if (width < 1000) setToggle(false)
+}, [width])
 
   return (
     <section className={toggle ? "sidebar open" : "sidebar"}>

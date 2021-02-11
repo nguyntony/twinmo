@@ -1,264 +1,306 @@
 #memberView {
-	margin-left: 3rem;
-	// background-color: cornflowerblue;
-	display: flex;
-	flex-direction: column;
-	height: fit-content;
-	max-height: 80rem;
-	min-width: 65rem;
+  margin-left: 3rem;
+  // background-color: cornflowerblue;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  max-height: 80rem;
+  min-width: 65rem;
 
-	.title {
-		// margin: 1.5rem 0;
-		display: flex;
-		flex-direction: row;
-		align-items: baseline;
-		justify-content: space-between;
-		padding-bottom: 1rem;
+  @include media("<1000px") {
+    margin-left: 6rem;
+  }
+  @include media("<820px") {
+    margin-left: 6rem;
+    min-width: 35rem;
+  }
+  @include media("<=528px") {
+    margin-left: 7.5rem;
+    min-width: 28rem;
+  }
+  @include media("<420px") {
+    margin-left: 8rem;
+    min-width: 28rem;
+  }
 
-		h1 {
-			text-decoration: underline;
-			text-decoration-color: $dark-orange;
-		}
+  .title {
+    // margin: 1.5rem 0;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 1rem;
 
-		h4 {
-			position: relative;
+    @include media("<820px") {
+      flex-direction: column;
+    }
 
-			.request-link,
-			.pending-link {
-				text-decoration: none;
-				color: $med-black;
-				display: block;
-				width: 8.6rem;
-				// background-color: peachpuff;
+    h1,
+    h4 {
+      @include media("<820px") {
+        display: block;
+      }
+    }
 
-				&:hover {
-					color: #f89e62;
-				}
-			}
+    h1 {
+      text-decoration: underline;
+      text-decoration-color: $dark-orange;
+    }
 
-			.pending-link {
-				width: 9.5rem;
-			}
+    h4 {
+      position: relative;
 
-			i {
-				position: absolute;
-				bottom: 0;
-				right: 0;
-			}
-		}
-	}
+      .request-link,
+      .pending-link {
+        text-decoration: none;
+        color: $med-black;
+        display: block;
+        width: 8.6rem;
+        // background-color: peachpuff;
 
-	.paymentNav {
-		width: 99%;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
+        &:hover {
+          color: #f89e62;
+        }
+      }
 
-		.titleBar {
-			margin: 0.5rem 0;
-			margin-right: 1rem;
-			// position: sticky;
-			// top: 0px;
-			// z-index: 10;
-			width: 50%;
+      .pending-link {
+        width: 9.5rem;
+      }
 
-			h3 {
-				cursor: pointer;
-				background-color: $light-grey;
-				border-radius: 1rem;
-				padding: 0.5rem 1rem;
-				display: flex;
-				align-items: center;
+      i {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+    }
+  }
 
-				.badge {
-					margin-left: 0.5rem;
-					// background-color: $deep-pink;
-					// padding: 0.2rem 0.6rem;
-					border-radius: 100%;
-					color: $deep-pink;
-					// color: $ghost-white;
-					font-size: 1.5rem;
-				}
-			}
-		}
+  .paymentNav {
+    width: 99%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
-		.checkmark {
-			// background-color: black;
-			margin: 0.5rem 0;
-			margin-right: 1rem;
-		}
+    @include media("<=420px") {
+      flex-direction: column;
+      width: unset;
+    }
 
-		h3 {
-			cursor: pointer;
-			background-color: $light-grey;
-			border-radius: 1rem;
-			padding: 0.5rem 1rem;
+    .titleBar {
+      margin: 0.5rem 0;
+      margin-right: 1rem;
+      // position: sticky;
+      // top: 0px;
+      // z-index: 10;
+      width: 50%;
 
-			&:hover {
-				background-color: $orange-highlight;
-			}
-		}
-	}
+      @include media("<=420px") {
+        width: 90%;
+      }
 
-	.requestContentContainer {
-		// background-color: $light-grey;
-		flex-grow: 1;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		margin: 0 -1rem;
-		overflow-y: scroll;
-		// &::-webkit-scrollbar {
-		//   display: none;
-		// }
+      h3 {
+        cursor: pointer;
+        background-color: $light-grey;
+        border-radius: 1rem;
+        padding: 0.5rem 1rem;
+        display: flex;
+        align-items: center;
 
-		.noNotif {
-			// background-color: peachpuff;
-			width: 100%;
-			height: 40rem;
-			display: flex;
-			flex-direction: row;
-			justify-content: center;
-			align-items: center;
+        .badge {
+          margin-left: 0.5rem;
+          // background-color: $deep-pink;
+          // padding: 0.2rem 0.6rem;
+          border-radius: 100%;
+          color: $deep-pink;
+          // color: $ghost-white;
+          font-size: 1.5rem;
+        }
+      }
+    }
 
-			h1 {
-				color: $light-grey;
-			}
-		}
+    .checkmark {
+      // background-color: black;
+      margin: 0.5rem 0;
+      margin-right: 1rem;
+    }
 
-		.transaction {
-			// background-color: palegoldenrod;
-			width: 25rem;
-			// height: 36rem;
-			height: fit-content;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			background-color: $light-grey;
-			padding: 2rem;
-			border-radius: 2rem;
-			margin: 1rem;
-			position: relative;
-			overflow: hidden;
+    h3 {
+      cursor: pointer;
+      background-color: $light-grey;
+      border-radius: 1rem;
+      padding: 0.5rem 1rem;
 
-			.name,
-			.icon,
-			.username,
-			.info,
-			.amount,
-			.action {
-				margin: 0.5rem 0;
-				z-index: 1;
-			}
+      &:hover {
+        background-color: $orange-highlight;
+      }
+    }
+  }
 
-			.errorMsg {
-				font-size: 1.5rem;
-				font-family: $Noto;
-				color: $deep-pink;
-				font-weight: $bold;
-				z-index: 1;
-				position: absolute;
-				bottom: 0.5rem;
-			}
+  .requestContentContainer {
+    // background-color: $light-grey;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 -1rem;
+    overflow-y: scroll;
+    // &::-webkit-scrollbar {
+    //   display: none;
+    // }
+    @include media("<=528px") {
+      padding-left: 4.5rem;
+    }
+    @include media("<=420px") {
+      padding-left: 1rem;
+    }
 
-			.card-bg {
-				width: 50rem;
-				height: 45rem;
-				border-radius: 50%;
-				background-color: $light-pink;
-				position: absolute;
-				bottom: -23rem;
-			}
+    .noNotif {
+      // background-color: peachpuff;
+      width: 100%;
+      height: 40rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
 
-			.iconStatus {
-				z-index: 1;
-			}
+      h1 {
+        color: $light-grey;
+      }
+    }
 
-			.icon {
-				width: 12rem;
-				height: 12rem;
-				border-radius: 100%;
-				background-color: peachpuff;
-				overflow: hidden;
-				box-shadow: 2px 2px 2px rgba(46, 54, 68, 0.4);
+    .transaction {
+      // background-color: palegoldenrod;
+      width: 25rem;
+      // height: 36rem;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: $light-grey;
+      padding: 2rem;
+      border-radius: 2rem;
+      margin: 1rem;
+      position: relative;
+      overflow: hidden;
 
-				img {
-					width: 100%;
-				}
-			}
+      .name,
+      .icon,
+      .username,
+      .info,
+      .amount,
+      .action {
+        margin: 0.5rem 0;
+        z-index: 1;
+      }
 
-			.username {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				p {
-					color: $deep-pink;
-					font-style: italic;
-				}
-			}
+      .errorMsg {
+        font-size: 1.5rem;
+        font-family: $Noto;
+        color: $deep-pink;
+        font-weight: $bold;
+        z-index: 1;
+        position: absolute;
+        bottom: 0.5rem;
+      }
 
-			.info {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				background-color: $med-pink;
-				padding: 0.5rem;
-				border-radius: 1.3rem;
-				text-align: center;
-				height: 6rem;
-				justify-content: center;
-				width: 20rem;
+      .card-bg {
+        width: 50rem;
+        height: 45rem;
+        border-radius: 50%;
+        background-color: $light-pink;
+        position: absolute;
+        bottom: -23rem;
+      }
 
-				p {
-					margin: 0 -2rem;
-				}
-			}
+      .iconStatus {
+        z-index: 1;
+      }
 
-			.action {
-				display: flex;
-				flex-direction: row;
-				justify-content: space-between;
-				// margin-top: 1rem;
-				width: 50%;
-				// background-color: peachpuff;
-				// position: absolute;
-				// bottom: 1.5rem;
+      .icon {
+        width: 12rem;
+        height: 12rem;
+        border-radius: 100%;
+        background-color: peachpuff;
+        overflow: hidden;
+        box-shadow: 2px 2px 2px rgba(46, 54, 68, 0.4);
 
-				h4 {
-					font-size: 3.5rem;
+        img {
+          width: 100%;
+        }
+      }
 
-					i {
-						cursor: pointer;
-						// &:hover {
-						//   // color: $ghost-white;
-						// }
-					}
+      .username {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p {
+          color: $deep-pink;
+          font-style: italic;
+        }
+      }
 
-					.approve {
-						&:hover {
-							background-color: #85d473;
-							border-radius: 100%;
-						}
-					}
+      .info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $med-pink;
+        padding: 0.5rem;
+        border-radius: 1.3rem;
+        text-align: center;
+        height: 6rem;
+        justify-content: center;
+        width: 20rem;
 
-					.deny {
-						&:hover {
-							background-color: $dark-pink;
-							border-radius: 100%;
-						}
-					}
-				}
-			}
-		}
+        p {
+          margin: 0 -2rem;
+        }
+      }
 
-		.transaction:hover .card-bg {
-			background-color: #ffdab9;
-			transition: 0.8s;
-		}
+      .action {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        // margin-top: 1rem;
+        width: 50%;
+        // background-color: peachpuff;
+        // position: absolute;
+        // bottom: 1.5rem;
 
-		.transaction:hover .info {
-			background-color: rgb(248, 177, 114);
-			transition: 0.8s;
-		}
-	}
+        h4 {
+          font-size: 3.5rem;
+
+          i {
+            cursor: pointer;
+            // &:hover {
+            //   // color: $ghost-white;
+            // }
+          }
+
+          .approve {
+            &:hover {
+              background-color: #85d473;
+              border-radius: 100%;
+            }
+          }
+
+          .deny {
+            &:hover {
+              background-color: $dark-pink;
+              border-radius: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .transaction:hover .card-bg {
+      background-color: #ffdab9;
+      transition: 0.8s;
+    }
+
+    .transaction:hover .info {
+      background-color: rgb(248, 177, 114);
+      transition: 0.8s;
+    }
+  }
 }
