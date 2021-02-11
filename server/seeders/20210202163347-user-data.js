@@ -177,6 +177,193 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
+      {
+        first: "Wolfgang",
+        last: "Bogdanow",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "wolfgang@mail.com",
+        username: "wolfgang",
+        profilePic: '/uploads/wolfgang.jpg',
+        funds: 34.90,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Nomi",
+        last: "Marks",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "nomi@mail.com",
+        username: "tech_wiz",
+        profilePic: '/uploads/nomi.jpg',
+        funds: 744.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Lito",
+        last: "Rodriguez",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "nomi@mail.com",
+        username: "tech_wiz",
+        profilePic: '/uploads/lito.jpg',
+        funds: 744.99,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Riley",
+        last: "Blue",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "riley@mail.com",
+        username: "das_sound",
+        profilePic: '/uploads/riley.jpg',
+        funds: 124.29,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Kala",
+        last: "Dendekar",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "kala@mail.com",
+        username: "goddess",
+        profilePic: '/uploads/kala.jpg',
+        funds: 8221.49,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Sun",
+        last: "Bak",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "sun@mail.com",
+        username: "twin_fists",
+        profilePic: '/uploads/sun.png',
+        funds: 284.22,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Will",
+        last: "Gorski",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "will@mail.com",
+        username: "code_blue",
+        profilePic: '/uploads/will.jpg',
+        funds: 492.14,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Capheus",
+        last: "Onyango",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "capheus@mail.com",
+        username: "van_damn",
+        profilePic: '/uploads/capheus.jpg',
+        funds: 106.79,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "David",
+        last: "Rose",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "david@mail.com",
+        username: "oh_my_gawd",
+        profilePic: '/uploads/david.jpg',
+        funds: 4554.37,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Alexis",
+        last: "Rose",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "alexis@mail.com",
+        username: "queen_b",
+        profilePic: '/uploads/alexis.jpg',
+        funds: 4554.37,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Moira",
+        last: "Rose",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "moira@mail.com",
+        username: "bebe",
+        profilePic: '/uploads/moira.jpg',
+        funds: 4554.37,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Johnny",
+        last: "Rose",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "johnny@mail.com",
+        username: "ex_billionare",
+        profilePic: '/uploads/johnny.jpg',
+        funds: 4554.37,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Jocelyn",
+        last: "Schitt",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "jocelyn@mail.com",
+        username: "wifey",
+        profilePic: '/uploads/jocelyn.jpg',
+        funds: 4554.37,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Roland",
+        last: "Schitt",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "roland@mail.com",
+        username: "hubby",
+        profilePic: '/uploads/roland.jpg',
+        funds: 4554.37,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Twyla",
+        last: "Sands",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "twyla@mail.com",
+        username: "lone_worker",
+        profilePic: '/uploads/twyla.jpg',
+        funds: 4554.37,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Ted",
+        last: "Mullins",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "ted@mail.com",
+        username: "animal_lover1",
+        profilePic: '/uploads/ted.jpg',
+        funds: 4554.37,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Stevie",
+        last: "Budd",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "stevie@mail.com",
+        username: "kms",
+        profilePic: '/uploads/stevie.jpg',
+        funds: 4554.37,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
     ], {})
   },
 
