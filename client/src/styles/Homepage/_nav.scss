@@ -1,8 +1,12 @@
 #homepageContainer {
-  #homeNav {
+  .homeNav {
     align-items: center;
     display: flex;
     justify-content: space-between;
+
+    @include media("<=1001px") {
+      display: none;
+    }
 
     h2 {
       color: $ghost-white;
@@ -29,6 +33,63 @@
         @extend h3;
         color: $ghost-white;
         font-weight: $bolder;
+      }
+    }
+  }
+  .responsive {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // background-color: peachpuff;
+
+    @include media(">=1000px") {
+      display: none;
+    }
+
+    h2 {
+      color: $ghost-white;
+      font-weight: $boldest;
+    }
+
+    .menu {
+      position: relative;
+      .toggleIcon {
+        color: $ghost-white;
+        font-size: 4rem;
+        cursor: pointer;
+      }
+
+      .responsiveNav {
+        list-style: none;
+        position: absolute;
+        top: 4.5rem;
+        left: -10rem;
+        background-color: $med-purple;
+        // padding: 0rem 2rem;
+        z-index: 10;
+        border-radius: 1.2rem;
+        font-weight: $bolder;
+        box-shadow: 2px 2px 2px rgba(46, 54, 68, 0.4);
+
+        a {
+          text-decoration: none;
+          font-size: 2rem;
+          margin: 1rem 0;
+          color: $ghost-white;
+
+          &:hover {
+            background-color: $light-grey;
+          }
+        }
+
+        li {
+          margin: 0rem 2rem;
+          padding: 2rem;
+        }
+      }
+
+      .hidden {
+        display: none;
       }
     }
   }
