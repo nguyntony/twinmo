@@ -134,6 +134,17 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        first: "Ali",
+        last: "Wong",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "ali@mail.com",
+        username: "new_mom",
+        profilePic: '/uploads/ali.png',
+        funds: 4338.10,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
         first: "Ruby",
         last: "Facet",
         hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
@@ -317,6 +328,17 @@ module.exports = {
         username: "wifey",
         profilePic: '/uploads/jocelyn.jpg',
         funds: 4554.37,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        first: "Tyler",
+        last: "Nguyen",
+        hash: "$2a$10$qj.lITVk0berjRBEKsMdWudTvGhwQAsoY1dtrg52HchsNOhcouxJO",
+        email: "tyler@mail.com",
+        username: "nguyntyler",
+        profilePic: '/uploads/defaultProfile.jpg',
+        funds: 5431.99,
         createdAt: new Date(),
         updatedAt: new Date()
       },
