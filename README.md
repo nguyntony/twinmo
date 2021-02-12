@@ -26,17 +26,16 @@ twinmo is a reflection of that, similar to our finance tracker, we designed a fo
 
 
 ## 💥 Features
-- Account creation
-- Update profile
-- Profile picture upload
-- Send/Request money
-- Add/Search users 
-- History log 
-- Notifications
-
-## ☄️ Future Features
-- Split payment
-- Add rejection comment
+| Current                | Upcoming                            |
+|------------------------|-------------------------------------|
+| Account creation       | Split payment                       |
+| Profile update         | Add request denied comment          |
+| Profile picture upload | More fluid animations / transitions |
+| Send / Request money   | Dark mode / Color themes            |
+| Add / Search users     |                                     |
+| History Log            |                                     |
+| Notification badges    |                                     |
+| Mobile responsive      |                                     |
 
 ## 🥵 Challenges 
 - In the beginning, communicating from our server to our client was a bit challenging but we took it one step at a time. We created test data that the client would send from forms and began building the pieces that we needed in order to save it to our database. 
@@ -47,3 +46,6 @@ Check out our awesome user guide on how to use twinmo [here](https://github.com/
 
 ## ✊🏼 Team
 [Tyler Nguyen](https://github.com/nguyntyler) | [Tony Nguyen](https://github.com/nguyntony)
+
+## ❗️ Disclaimer 
+For security purposes, twinmo is only for demonstration and all initial funds are hardcoded. However, who knows what may happen in the future 😉
