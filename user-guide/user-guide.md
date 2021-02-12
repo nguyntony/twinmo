@@ -10,36 +10,36 @@ Upon logging into your account, you will be met with a user dashboard that will 
 
 The sidebar will be present throughout the entire app. It allows you to navigate through the different areas of the application, see your current funds, log out, change your user data via settings, and even change your profile picture by clicking the displayed profile picture. (It can be minimized by clicking the hamburger)
 
-![Dashboard]()
+![Dashboard](https://github.com/nguyntony/twinmo/blob/main/user-guide/dashboard.png)
 
 ## Friends List :
 
 When entering the friends tab, you will be met with a list of people you are currently friends with.
 
-![Friends List Default]()
+![Friends List Default](https://github.com/nguyntony/twinmo/blob/main/user-guide/friend-list.png)
 
 Searching users in the search bar will return users that match your query. Users can be search by first and/or last name or username. Green icons indicate existing friendship with that user. Red icons will allow you to add them as a friend for future transactions.
 
-![Friends List Search]()
+![Friends List Search](https://github.com/nguyntony/twinmo/blob/main/user-guide/friend-search.png)
 
 ## Transactions :
 
 To initiate a transaction, search a friend in the dropdown. An autocomplete list will be generated as you type.
 
-![Transaction Friend Search]()
+![Transaction Friend Search](https://github.com/nguyntony/twinmo/blob/main/user-guide/friend-pay-search.png)
 
 Selecting a friend will render a form for the user to input various information.
 
 -   Selecting 'Payment' will automatically process the transaction.
 -   Selecting 'Request' will send a notification to the friend where they must accept or deny the request.
 
-![Transaction Form]()
+![Transaction Form](https://github.com/nguyntony/twinmo/blob/main/user-guide/pay-form.png)
 
 ## Payments Dashboard (Outgoing) :
 
 From the home dashboard, selecting the right hand side 'Payments' card will allow you to see your outgoing requests. A badge next to the tab will display the amount of outgoing requests you have at the moment.
 
-![Payments Outgoing]()
+![Payments Outgoing](https://github.com/nguyntony/twinmo/blob/main/user-guide/payment-outgoing.png)
 
 ## Requests Dashboard :
 
@@ -50,7 +50,7 @@ From here, two options are presented:
 -   accepting the request will process the transaction and send the notification to the sender.
 -   denying the request will close the transaction and also send a notification to the sender.
 
-![Requests Received]()
+![Requests Received](https://github.com/nguyntony/twinmo/blob/main/user-guide/requests.png)
 
 ## Payments Dashboard (Completed) :
 
@@ -58,7 +58,7 @@ Coming back to Steven's account, you can now see the responded request in the 'C
 
 Again, a badge will represent how many new completed requests you have. This number, along with the received tab, will be calculated in the home screen badge.
 
-![Payments Completed]()
+![Payments Completed](https://github.com/nguyntony/twinmo/blob/main/user-guide/payment-completed.png)
 
 ## Payments Dashboard (Received) :
 
@@ -66,7 +66,7 @@ Any direct payments from your friends will be displayed here.
 
 To clear this list or the completed list, a button will be provided at the end of the tabs that will allow the user to 'mark all as seen' and clear the list. (This option is only there while you are in the received or completed tabs)
 
-![Payments Received]()
+![Payments Received](https://github.com/nguyntony/twinmo/blob/main/user-guide/payment-received.png)
 
 ## History
 
@@ -74,4 +74,4 @@ Once a transaction has been marked as read, it will displayed here for future vi
 
 Only transactions made in the selected time will be displayed.
 
-![History]()
+![History](https://github.com/nguyntony/twinmo/blob/main/user-guide/history.png)
