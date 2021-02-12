@@ -1,11 +1,11 @@
 # twinmo
 ![twinmo homepage](https://github.com/nguyntony/twinmo/blob/main/user-guide/homepage.png)
+- - - -
 
 ## 💸 Summary
 twinmo is a Venmo clone that uses Express and React. It is one of the apps that [Tyler](https://github.com/nguyntyler) and I have created, feel free to also check out our finance tracker ([Demo](https://twintracker.me/) | [Repo](https://github.com/nguyntony/finance-tracker)).
 
 🌟 Fun fact: the name ‘twinmo’ comes from our name. **T** for Tyler and Tony and **win** from our last name, ‘Nguyen’ (which is pronounced as win)! And no, we are not related 😅
-- - - -
 
 ## 🌱 Inspiration
 Our first app dealt with personal finances. We created a focused dashboard where the user is able to keep track of their expenses and maintain saving goals! We wanted to continue with that theme so we decided to create a clone of Venmo. When thinking about Venmo, we both agreed that we like the social aspect of it (ie. having friends, sending money back and forth) but we didn’t care too much for the posts and comments that other users are able to create on your transaction. 
