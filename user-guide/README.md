@@ -1,6 +1,6 @@
 # User Guide
 
-## Dashboard :
+## 🏠 Dashboard :
 
 Upon logging into the account, the user will be met with a dashboard that will display two cards.
 
@@ -12,7 +12,7 @@ The sidebar will be present throughout the entire app. It allows the user to nav
 
 ![Dashboard](https://github.com/nguyntony/twinmo/blob/main/user-guide/dashboard.png)
 
-## Friends List :
+## 👯‍♂️ Friends List :
 
 When entering the friends tab, the user will be met with a list of people you are currently friends with.
 
@@ -22,7 +22,7 @@ Searching users in the search bar will return users that match your query. Users
 
 ![Friends List Search](https://github.com/nguyntony/twinmo/blob/main/user-guide/friend-search.png)
 
-## Transactions :
+## 💰 Transactions :
 
 To initiate a transaction, search a friend in the dropdown. An autocomplete list will be generated as the user type.
 
@@ -35,13 +35,13 @@ Selecting a friend will render a form for the user to input various information.
 
 ![Transaction Form](https://github.com/nguyntony/twinmo/blob/main/user-guide/pay-form.png)
 
-## Payments Dashboard (Outgoing) :
+## 📬 Payments Dashboard (Outgoing) :
 
 From the home dashboard, selecting the right hand side 'Payments' card will allow the user to see their outgoing requests. A badge next to the tab will display the amount of outgoing requests they have at the moment.
 
 ![Payments Outgoing](https://github.com/nguyntony/twinmo/blob/main/user-guide/payment-outgoing.png)
 
-## Payments Dashboard (Completed) :
+## ✅ Payments Dashboard (Completed) :
 
 Any requests the user sent out that has been responded to will appear here. An icon next to the friend will represent either an approved or denied request.
 
@@ -49,7 +49,7 @@ Again, a badge will represent how many new completed requests the user has. This
 
 ![Payments Completed](https://github.com/nguyntony/twinmo/blob/main/user-guide/payment-completed.png)
 
-## Payments Dashboard (Received) :
+## 📩 Payments Dashboard (Received) :
 
 Any direct payments from friends will be displayed here.
 
@@ -57,7 +57,7 @@ To clear this list or the completed list, a button will be provided at the end o
 
 ![Payments Received](https://github.com/nguyntony/twinmo/blob/main/user-guide/payment-received.png)
 
-## Requests Dashboard :
+## 💬 Requests Dashboard :
 
 From the home dashboard, selecting the left hand side 'Requests' card will display all incoming requests. Here, Alexis will see the request Steven just made to her.
 
@@ -68,7 +68,7 @@ From here, two options are presented:
 
 ![Requests Received](https://github.com/nguyntony/twinmo/blob/main/user-guide/requests.png)
 
-## History :
+## 📆 History :
 
 Once a transaction has been marked as read, it will displayed here for future view. By default, the current month/year will be selected. The user is able to selected previous dates by clicking the date and selecting a new one from the dropdown provided.
 
@@ -76,7 +76,7 @@ Only transactions made in the selected time will be displayed.
 
 ![History](https://github.com/nguyntony/twinmo/blob/main/user-guide/history.png)
 
-## Mobile-Responsiveness :
+## 📱 Mobile-Responsiveness :
 
 Here is a showcase of the mobile-responsiveness.
 
