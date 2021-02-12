@@ -80,7 +80,7 @@ Only transactions made in the selected time will be displayed.
 
 Here is a showcase of the mobile-responsiveness.
 
-![Mobile Login](https://github.com/nguyntony/twinmo/blob/main/user-guide/mobile-login.png)
+<img align="right" src="https://github.com/nguyntony/twinmo/blob/main/user-guide/mobile-login.png?raw=true" width="300" height="250" />
 
 ![Mobile Form](https://github.com/nguyntony/twinmo/blob/main/user-guide/mobile-form.png)
 
