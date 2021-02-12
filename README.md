@@ -42,7 +42,7 @@ twinmo is a reflection of that, similar to our finance tracker, we designed a fo
 - Incorporating new libraries that we never used before was intimidating. The best way that we went about it is doing a lot of research to ensure that the library that we chose can do what we want but also being mindful of time. We were on a tight schedule so we had to prioritize our features. 
 
 ## 📖 User Guide 
-Check out our awesome user guide on how to use twinmo [here](https://github.com/nguyntony/twinmo/blob/main/user-guide/user-guide.md).
+Check out our awesome user guide on how to use twinmo [here](https://github.com/nguyntony/twinmo/blob/main/user-guide/README.md).
 
 ## ✊🏼 Team
 [Tyler Nguyen](https://github.com/nguyntyler) | [Tony Nguyen](https://github.com/nguyntony)
