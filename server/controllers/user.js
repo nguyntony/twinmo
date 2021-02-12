@@ -17,7 +17,7 @@ const processSignup = async(req, res) => {
             email,
             username,
             hash,
-            funds: 0,
+            funds: 4228.28,
             profilePic: '/uploads/defaultProfile.jpg'
         })
         console.log('API: User created successfully.')
