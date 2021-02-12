@@ -46,3 +46,6 @@ Check out our awesome user guide on how to use twinmo [here](https://github.com/
 
 ## ✊🏼 Team
 [Tyler Nguyen](https://github.com/nguyntyler) | [Tony Nguyen](https://github.com/nguyntony)
+
+## ❗️ Disclaimer 
+For security purposes, twinmo is only for demonstration and all initial funds are hardcoded. However, who knows what may happen in the future 😉
