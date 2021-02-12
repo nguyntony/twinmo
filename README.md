@@ -13,11 +13,11 @@ twinmo is a reflection of that, similar to our finance tracker, we designed a fo
 ### Client-side
 - React
 - React Router Dom
-- React Number Format (format forms to display currency)
-- React Spring (animation)
-- React Spinners (loading animation)
-- Moment (format dates)
-- Numeral (format currency)
+- [React Number Format](https://github.com/s-yadav/react-number-format) (format forms to display currency)
+- [React Spring](https://www.react-spring.io/) (animation)
+- [React Spinners](https://github.com/davidhu2000/react-spinners) (loading animation)
+- [Moment](https://momentjs.com/docs/) (format dates)
+- [Numeral](https://www.npmjs.com/package/numeral) (format currency)
 
 ### Server-side
 - Bcrypt JS (password encryption)
@@ -26,7 +26,7 @@ twinmo is a reflection of that, similar to our finance tracker, we designed a fo
 - Express Session
 - Sequelize
 - Morgan
-- Multer (upload user photos)
+- [Multer](https://www.npmjs.com/package/multer) (upload user photos)
 
 ## Features
 - Account creation
@@ -46,5 +46,4 @@ twinmo is a reflection of that, similar to our finance tracker, we designed a fo
 - Incorporating new libraries that we never used before was intimidating. The best way that we went about it is doing a lot of research to ensure that the library that we chose can do what we want but also being mindful of time. We were on a tight schedule so we had to prioritize our features. 
 
 ## Team
-[Tyler Nguyen](https://github.com/nguyntyler)
-[Tony Nguyen](https://github.com/nguyntony)
+[Tyler Nguyen](https://github.com/nguyntyler) | [Tony Nguyen](https://github.com/nguyntony)
