@@ -68,10 +68,20 @@ From here, two options are presented:
 
 ![Requests Received](https://github.com/nguyntony/twinmo/blob/main/user-guide/requests.png)
 
-## History
+## History :
 
 Once a transaction has been marked as read, it will displayed here for future view. By default, the current month/year will be selected. The user is able to selected previous dates by clicking the date and selecting a new one from the dropdown provided.
 
 Only transactions made in the selected time will be displayed.
 
 ![History](https://github.com/nguyntony/twinmo/blob/main/user-guide/history.png)
+
+## Mobile-Responsiveness :
+
+Here is a showcase of the mobile-responsiveness.
+
+![Mobile Login](https://github.com/nguyntony/twinmo/blob/main/user-guide/mobile-login.png)
+
+![Mobile Form](https://github.com/nguyntony/twinmo/blob/main/user-guide/mobile-form.png)
+
+![Mobile History](https://github.com/nguyntony/twinmo/blob/main/user-guide/mobile-history.png)
