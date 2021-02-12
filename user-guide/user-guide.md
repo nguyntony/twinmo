@@ -84,4 +84,4 @@ Here is a showcase of the mobile-responsiveness.
 
 <img align="center" src="https://github.com/nguyntony/twinmo/blob/main/user-guide/mobile-form.png?raw=true" height="400" />
 
-<img align="right" src="https://github.com/nguyntony/twinmo/blob/main/user-guide/mobile-history.png?raw=true" height="400" />
+<img align="center" src="https://github.com/nguyntony/twinmo/blob/main/user-guide/mobile-history.png?raw=true" height="400" />
