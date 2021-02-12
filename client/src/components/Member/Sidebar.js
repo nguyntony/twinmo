@@ -73,7 +73,7 @@ export default function Sidebar() {
     console.log(file)
     if (file) {
       if (file.size < 1572864) {
-        if (file.type === 'image/jepg' || file.type === 'image/png'){
+        if (file.type === 'image/jpeg' || file.type === 'image/png'){
           const resp = await axios.put('/api/user/profile-picture', data);
           if (resp.data.status) setRefreshSidebar(!refreshSidebar)
         } else {
