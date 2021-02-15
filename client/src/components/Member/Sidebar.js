@@ -103,7 +103,9 @@ export default function Sidebar() {
   }, [updateFunds])
 
 useEffect(()=> {
-  if (width < 1000) setToggle(false)
+  if (width < 1000 && toggle) setToggle(false)
+
+  if (width > 1000 && !toggle) setToggle(true)
 }, [width])
 
   return (
@@ -113,9 +115,6 @@ useEffect(()=> {
         
         {toggle ? 
         <div className={toggle ? "sidebarContent active" : "sidebarContent"}>
-          {/* <div className="profilePicture">
-            <img src={userData.profilePic} alt="profile pic"/>
-          </div> */}
           <form className='profilePicture'>
             <label htmlFor="pp-upload"><img src={userData.profilePic} alt="profile pic"/></label>
             <input id='pp-upload' type="file" name="content" onClick={()=> setPPErrorMsg('')} onChange={profilePicChange}/>
