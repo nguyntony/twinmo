@@ -1,12 +1,4 @@
 #HomeWindow {
-  // background-color: $med-purple;
-  // width: 100vw;
-  // display: flex;
-  // align-self: center;
-  // justify-content: center;
-  // position: relative;
-  // overflow: hidden;
-  // height: 100vh;
   align-items: center;
   display: flex;
   height: 100vh;
@@ -101,5 +93,3 @@
     }
   }
 }
-
-// the above does not work as intended, may need to set bg container to have a higher z idx instead of using position absolute. make the circles be position absolute/fixed and then control their placement via top,btm,left,right

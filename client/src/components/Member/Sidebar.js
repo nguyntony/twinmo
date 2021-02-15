@@ -37,11 +37,9 @@ export default function Sidebar() {
   const currentPath = location.pathname
 
   const highlight = {
-    // backgroundColor: '#c6c6fa',
     textDecoration: 'underline',
     textDecorationColor: '#ff778f',
     textDecorationThickness: '2px',
-    // color: '#ff99ab'
   }
 
   const iconHighlight = {
@@ -70,7 +68,7 @@ export default function Sidebar() {
     const file = e.target.files[0];
     const data = new FormData();
     data.append('file', file)
-    console.log(file)
+    // console.log(file)
     if (file) {
       if (file.size < 1572864) {
         if (file.type === 'image/jpeg' || file.type === 'image/png'){
@@ -92,7 +90,6 @@ export default function Sidebar() {
   }
 
   const toggleSidebar = () => {
-    // console.log(toggle)
     setToggle(!toggle)
   }
 

@@ -2,11 +2,8 @@
 .inactiveContentContainer,
 .receivedContentContainer {
   flex-wrap: wrap;
-  // margin: 0 1rem;
   overflow-y: scroll;
   overflow-x: hidden;
-  // background-color: powderblue;
-  // min-width: 65rem;
   max-height: 65rem;
 
   @include media("<=528px") {
@@ -22,10 +19,8 @@
     flex-wrap: wrap;
     margin: 0 -1rem;
     margin-right: 1rem;
-    // background-color: palevioletred;
 
     .noNotif {
-      // background-color: peachpuff;
       width: 100%;
       height: 40rem;
       display: flex;
@@ -38,9 +33,7 @@
     }
 
     .transaction {
-      // background-color: palegoldenrod;
       width: 25rem;
-      // height: 30rem;
       height: fit-content;
       display: flex;
       flex-direction: column;
@@ -109,7 +102,6 @@
         background-color: peachpuff;
         overflow: hidden;
         box-shadow: 2px 2px 2px rgba(46, 54, 68, 0.4);
-        // z-index: 1;
 
         img {
           width: 100%;
@@ -147,20 +139,13 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        // margin: 0.5rem;
         width: 40%;
-        // background-color: peachpuff;
-        // position: absolute;
-        // bottom: 1.5rem;
 
         h4 {
           font-size: 3.2rem;
 
           i {
             cursor: pointer;
-            // &:hover {
-            //   // color: $ghost-white;
-            // }
           }
 
           .approve {
@@ -176,26 +161,6 @@
               border-radius: 100%;
             }
           }
-
-          // .approved {
-          //   background-color: #85d473;
-          //   border-radius: 100%;
-          //   cursor: unset;
-          // }
-
-          // .denied {
-          //   background-color: $dark-pink;
-          //   border-radius: 100%;
-          //   cursor: unset;
-          // }
-
-          // .archive {
-          //   font-size: 2.9rem;
-
-          //   &:hover {
-          //     color: #f0a25e;
-          //   }
-          // }
         }
       }
     }
@@ -211,13 +176,3 @@
     transition: 0.8s;
   }
 }
-
-// .inactiveContentContainer {
-//   .transaction {
-//     .archive {
-//       position: absolute;
-//       right: 1rem;
-//       top: 1rem;
-//     }
-//   }
-// }

@@ -62,7 +62,6 @@
 
       h3 {
         color: rgba($med-orange, 0.9);
-        // font-size: 2rem;
         @include media("<=700px") {
           font-size: 1.5rem;
         }

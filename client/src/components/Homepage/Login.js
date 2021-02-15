@@ -1,9 +1,7 @@
 import loginImage from '../../assets/login.png'
-import {useState, useEffect, useContext} from 'react'
+import {useState, useEffect } from 'react'
 import axios from 'axios'
-import {Switch, Route, Redirect} from 'react-router-dom'
-
-import {AuthContext} from './AuthContext'
+import {Switch, Route, Redirect, Link} from 'react-router-dom'
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -12,26 +10,21 @@ export default function Login() {
   const [alert, setAlert] = useState('')
   const [successfulLogin, setSuccessfulLogin] = useState(false)
 
-  // const [isLoggedIn, setIsLoggedIn] = useContext(AuthContext)
-
   const processLogin = async (e) => {
     e.preventDefault();
     const resp = await axios.post('/api/user/login', {email, password})
 
     if (resp.data.status) {
-      console.log('user logged in')
-      // setIsLoggedIn(true)
+      // console.log('user logged in')
       setSuccessfulLogin(true)
     } else {
-      console.log('user not logged in')
-      // setIsLoggedIn(false)
+      // console.log('user not logged in')
       setShowMessage(true)
       setAlert(resp.data.message)
       setSuccessfulLogin(false)
     }
   }
   
-  // onload set successful login to false
   useEffect(() => {
     setSuccessfulLogin(false)
   }, [])
@@ -58,7 +51,7 @@ export default function Login() {
                 </div>
               </div>
               {showMessage && <p id="alert">{alert}</p>}
-              <p className="message">Not a member? <a href="/user/signup">Signup</a></p>
+              <p className="message">Not a member? <Link to="/user/signup">Signup</Link></p>
             </form>
 
             <Switch>

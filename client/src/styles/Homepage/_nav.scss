@@ -40,7 +40,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    // background-color: peachpuff;
 
     @include media(">=1000px") {
       display: none;
@@ -64,12 +63,9 @@
         position: absolute;
         top: 4.5rem;
         left: -10rem;
-        // background-color: $med-purple;
         background: rgba(255, 255, 255, 0.75);
-        // box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        // padding: 0rem 2rem;
         z-index: 10;
         border-radius: 1.2rem;
         font-weight: $bolder;
@@ -80,10 +76,6 @@
           font-size: 2rem;
           margin: 1rem 0;
           color: $dark-purple;
-
-          // &:hover {
-          //   background-color: $light-grey;
-          // }
         }
 
         li {

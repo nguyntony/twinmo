@@ -1,7 +1,7 @@
 import signupImage from '../../assets/signup.png'
 import {useEffect, useState} from 'react'
 import axios from 'axios';
-import {Switch, Route, Redirect} from 'react-router-dom'
+import {Switch, Route, Redirect, Link} from 'react-router-dom'
 
 export default function Signup() {
 
@@ -181,7 +181,7 @@ export default function Signup() {
               <div className="submit signup">
                 <button type="submit" disabled={disableSubmit}><i className="fas fa-arrow-alt-circle-right" style={disabledBtnStyle}></i></button>
               </div>
-              <p className="message">Already a member? <a href="/user/login">Login</a></p>
+              <p className="message">Already a member? <Link to="/user/login">Login</Link></p>
             </form>
 
             <Switch>
