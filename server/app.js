@@ -51,10 +51,13 @@ app.use(express.json())
 
 app.use(routes);
 
-// app.get('/member/', requireLogin, (req, res) => {
-//     console.log(req.session.user);
-//     const { username } = req.session.user
-// })
+app.get('/*', function(req, res) {
+	res.sendFile(path.join(__dirname, '/public/index.html'), function(err) {
+	if (err) {
+		res.status(500).send(err)
+	}
+	})
+})
 
 server.listen(PORT, HOST, () => {
     console.log(`Listening at http://${HOST}:${PORT}`);
