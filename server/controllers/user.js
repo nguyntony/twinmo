@@ -20,13 +20,11 @@ const processSignup = async(req, res) => {
             funds: 4228.28,
             profilePic: '/uploads/defaultProfile.jpg'
         })
-        console.log('API: User created successfully.')
         res.status(200).json({
             status: true,
             message: "User created successfully"
         });
     } catch (e) {
-        console.log(e.name);
         if (e.name === "SequelizeUniqueConstraintError") {
             res.status(200).json({
                 status: false,
@@ -65,7 +63,6 @@ const uniqueEmailCheck = async (req, res) => {
             email
         }
     })
-    console.log(user)
     if (user) {
         res.status(200).json({
             status: true,
@@ -90,19 +87,16 @@ const processLogin = async (req, res) => {
     if (user) {
         const isValid = bcrypt.compareSync(password, user.hash);
         if (isValid) {
-            // console.log('API: Password Success')
             req.session.user = {
                 id: user.id
             }
             req.session.save(() => {
-                // console.log('API: Login Success');
                 res.status(200).json({
                     message: "Login successful",
                     status: true
                 });
             })
         } else {
-            // console.log('API: Email or Password is incorrect.');
             res.status(200).json({
                 message: 'Email or Password is incorrect',
                 status: false
@@ -110,7 +104,6 @@ const processLogin = async (req, res) => {
         }
     
     } else {
-        // console.log("API: invalid email");
         res.status(200).json({
             message: "User does not exist",
             status: false
@@ -119,7 +112,6 @@ const processLogin = async (req, res) => {
 }
 
 const logout = (req, res) => {
-    console.log('API: Logging Out')
     req.session.destroy(() => {
         res.status(200).json({
             message: 'Logout success'
@@ -128,7 +120,6 @@ const logout = (req, res) => {
 }
 
 const loginStatus = (req, res) => {
-    // console.log('API: Checking login status')
     if (req.session.user) {
         res.status(200).json({
             status: true,
@@ -171,7 +162,6 @@ const settingsUpdate = async (req, res) => {
 
     first = first.charAt(0).toUpperCase() + first.slice(1);
     last = last.charAt(0).toUpperCase() + last.slice(1);
-    // username = username.toLowerCase();
 
     if (first) {
         toUpdate.first = first

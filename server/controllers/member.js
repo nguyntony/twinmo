@@ -32,9 +32,9 @@ const userFunds = async (req, res) => {
 const findUsers = async (req, res) => {
     const {id} = req.session.user;
     let {input} = req.body;
-    console.log(input)
     let users = []
 
+    // In the case a user inputs two names, we can use both to check between first/last, last/first, or username.
     if (input.includes(' ')) {
         input = input.split(' ')
         
@@ -64,6 +64,7 @@ const findUsers = async (req, res) => {
             }
 
         })
+        // If the user just inputs one name.
     } else {
         users = await User.findAll({
             where: {
@@ -91,7 +92,7 @@ const findUsers = async (req, res) => {
             attributes: ['id', 'first', 'last', 'username', 'profilePic']
         })
     }
-    // Used to tell a component whether or not a user is friends with someone or not. When searching for a friend, if that 
+    // It looks through the searched users and checks to see if they are friends.
     for (i of users) {
         const isFriend = await Friend.findOne({
             where: {
@@ -135,7 +136,6 @@ const addFriend = async (req, res) => {
 
 const findAllFriends = async (req, res) => {
     const {id} = req.session.user;
-    console.log(id)
 
     // Searches for the friendships in the table.
     const friendship = await Friend.findAll({
@@ -150,8 +150,6 @@ const findAllFriends = async (req, res) => {
             ]
         },
     })
-
-    console.log('this is all friends',friendship)
     
     const friendIDs = []
     // Sifts through the friendships to only pull the ID that doesn't match the user, which is the friend's ID.
