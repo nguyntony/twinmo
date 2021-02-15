@@ -297,21 +297,17 @@ const archivedList = async (req, res) => {
             i.dataValues.friendName = getPaymentFriend.first+" "+getPaymentFriend.last
             i.dataValues.friendProfilePic = getPaymentFriend.profilePic
             i.dataValues.friendUsername = getPaymentFriend.username
-            i.dataValues.recipientName = getPaymentFriend.first+" "+getPaymentFriend.last
 
-        } else {
+        } else if (i.type === 'request' && i.recipientID === id) {
             const getSenderFriend = await User.findOne({
                 where: {
                     id: i.senderID,
                 }
             })
-            console.log(getSenderFriend)
-            console.log(getSenderFriend.first);
     
-            i.dataValues.friendProfilePic = getSenderFriend.profilePic
             i.dataValues.friendName = getSenderFriend.first+" "+getSenderFriend.last
+            i.dataValues.friendProfilePic = getSenderFriend.profilePic
             i.dataValues.friendUsername = getSenderFriend.username
-            i.dataValues.senderName = getSenderFriend.first+" "+getSenderFriend.last
 
         }
     }
@@ -327,7 +323,7 @@ const archivedList = async (req, res) => {
             i.dataValues.friendName = getPaymentFriend.first+" "+getPaymentFriend.last
             i.dataValues.friendProfilePic = getPaymentFriend.profilePic
             i.dataValues.friendUsername = getPaymentFriend.username
-        } else {
+        } else if (i.type === 'payment' && i.senderID === id) {
             const getPaymentFriend = await User.findOne({
                 where: {
                     id: i.recipientID,
