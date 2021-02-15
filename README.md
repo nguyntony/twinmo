@@ -16,9 +16,9 @@ twinmo is a reflection of that, similar to our finance tracker, we designed a fo
 
 | Client-Side                                            | Server-Side                   |
 |--------------------------------------------------------|-------------------------------|
-| React                                                  | [Bcryptjs](https://www.npmjs.com/package/bcryptjs) (password encyption) |
+| React                                                  | Express/Node |
 | [React Router Dom](https://reactrouter.com/)                                       | [Dotenv](https://www.npmjs.com/package/dotenv)                        |
-| [React Number Format](https://github.com/s-yadav/react-number-format) (format forms to display currency) | Express/Node                  |
+| [React Number Format](https://github.com/s-yadav/react-number-format) (format forms to display currency) | [Bcryptjs](https://www.npmjs.com/package/bcryptjs) (password encyption)                 |
 | [React Spring](https://www.react-spring.io/) (animation)                               | [Express Session](https://www.npmjs.com/package/express-session)               |
 | [React Spinners](https://github.com/davidhu2000/react-spinners) (loading animation)                     | [Sequelize](https://sequelize.org/)                     |
 | [Moment](https://momentjs.com/docs/) (format dates)                                  | [Multer](https://www.npmjs.com/package/multer) (upload user photo)    |
