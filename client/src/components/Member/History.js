@@ -20,8 +20,7 @@ export default function History() {
       month, 
       year
     })
-    console.log(resp.data[0].friendName)
-    console.log(resp.data)
+    // console.log(resp.data)
     const data = resp.data
     setArchived(data)
     setLoading(false)
@@ -40,7 +39,7 @@ export default function History() {
 
   const getMonths = async () => {
     const resp = await axios.get('/api/member/transaction/archive/date-list')
-    console.log('this is months', resp.data);
+    // console.log('this is months', resp.data);
     const data = resp.data
     setMonthCache(data)
   }
