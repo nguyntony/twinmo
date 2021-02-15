@@ -108,7 +108,7 @@ export default function Pending() {
               >outgoing
 
               <span className="badge">
-                {outgoing.length === 0 ? null : outgoingPayments.length}
+                {outgoingPayments.length === 0 ? null : outgoingPayments.length}
               </span>
               </h3>
           </div>

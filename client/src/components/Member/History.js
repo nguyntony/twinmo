@@ -58,7 +58,7 @@ export default function History() {
 
       <div id="history-autocomplete-container">
 
-        <h3 onClick={()=> monthCache.length > 0 && setShowDropDown(!showDropDown)}>{month} {year}</h3>
+        <h3 onClick={()=> monthCache.length > 0 && setShowDropDown(!showDropDown)}>{month} {year} <i className="fas fa-caret-down"></i></h3>
 
         {showDropDown && 
           <div id="history-autocomplete-list">
