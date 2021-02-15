@@ -21,10 +21,6 @@ export default function Nav() {
   const loginUnderline = currentPath === '/user/login' ? {...underline} : null
   const aboutUnderline = currentPath === '/about' ? {...underline} : null
 
-  // I can do the logic here to render a nav or not
-  // {/* if path does not equal what I want then dont render the nav */}
-  // {/* if path !== 'members-only' then render nav : null */}
-
   const [toggle, setToggle] = useState(true)
 
   useEffect(()=> {

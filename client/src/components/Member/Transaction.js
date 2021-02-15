@@ -3,14 +3,13 @@ import {useEffect, useState, useContext} from 'react'
 import {useLocation} from 'react-router-dom'
 import { FundsContext } from "./FundsContext";
 
-export default function Transaction({img, date, name, description, amount, username, status, approved, transactionID, friendID, requestProcessed, setRequestProcessed}) {
+export default function Transaction({img, name, description, amount, username, status, approved, transactionID, friendID, requestProcessed, setRequestProcessed}) {
 
   const [showAction, setShowAction] = useState(true)
   const [errorMsg, setErrorMsg] = useState(false)
 
   const {updateFundsContext} = useContext(FundsContext)
   const [updateFunds, setUpdateFunds] = updateFundsContext
-  // const requestPath = '/member/request'
   const pendingPath = '/member/payment'
 
   const location = useLocation()
@@ -24,7 +23,7 @@ export default function Transaction({img, date, name, description, amount, usern
     })
 
     if (resp.data.status) {
-      console.log(resp.data.message)
+      // console.log(resp.data.message)
       setUpdateFunds(!updateFunds)
       setRequestProcessed(!requestProcessed)
     } else {
@@ -47,11 +46,6 @@ export default function Transaction({img, date, name, description, amount, usern
   return (
     <div className="transaction" >
       <div className="card-bg"></div>
-      {/* {
-        status &&
-        <div className="archive"><h4 id="test"><i className="fas fa-archive"></i></h4></div>
-        
-      } */}
       <div className="name">
         <h3>{name}</h3>
       </div>
@@ -70,7 +64,6 @@ export default function Transaction({img, date, name, description, amount, usern
                 <i className="fas fa-times"></i>
               }
             </h4>
-            {/* <h4><i className="fas fa-archive archive"></i></h4> */}
           </div>
           }
       </div>

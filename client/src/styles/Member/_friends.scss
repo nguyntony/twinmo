@@ -1,9 +1,7 @@
 #friendsContainer {
-  // width: ;
   margin-left: 3rem;
   display: flex;
   flex-direction: column;
-  // background-color: palegoldenrod;
 
   @include media("<1000px") {
     margin-left: 6rem;
@@ -65,19 +63,12 @@
   }
 
   .friendsList {
-    // background-color: palegreen;
     flex-grow: 1;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin: 2rem -1rem;
     overflow-y: scroll;
-    // scrollbar-color: $med-grey black;
-
-    // &::-webkit-scrollbar-track {
-    //   // display: none;
-    //   // background: black;
-    // }
 
     @include media("<=528px") {
       min-width: 30rem;
@@ -85,7 +76,6 @@
 
     .friendPlaceholder {
       flex-grow: 1;
-      // background-color: black;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -102,7 +92,6 @@
       flex-direction: column;
       align-items: center;
       height: fit-content;
-      // background-color: $med-orange;
       background-color: $light-grey;
       padding: 2rem;
       border-radius: 2rem;

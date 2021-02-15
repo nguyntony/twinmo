@@ -88,13 +88,6 @@
         }
       }
 
-      // .button {
-      //   @include media("<688px") {
-      //     display: flex;
-      //     justify-content: center;
-      //   }
-      // }
-
       .button button {
         margin: 1rem 0;
         padding: 1.5rem 4rem;
@@ -121,15 +114,3 @@
     }
   }
 }
-
-// #settingsContainer {
-//   .form input:focus + .label,
-//   .form input:valid + .label,
-//   .form input:not(:placeholder-shown):not(:focus):invalid + .label {
-//     transform: translateY(-155%);
-//     font-size: 1.3rem;
-//     font-weight: bold;
-//     letter-spacing: 0.5px;
-//     color: $dark-purple;
-//   }
-// }

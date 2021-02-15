@@ -16,7 +16,7 @@ export default function Pending() {
 
   const getRequests = async () => {
     const resp = await axios.get('/api/member/payment/list')
-    console.log(resp.data.filter(d => d.type === 'payment'))
+    // console.log(resp.data.filter(d => d.type === 'payment'))
     const data = resp.data
     setOutgoingPayments(data.filter(d => !d.status && d.type === 'request'))
     setCompletedPayments(data.filter(d => d.status && d.type === 'request' && !d.archived))
@@ -125,7 +125,6 @@ export default function Pending() {
               <h3 onClick={archivePage}><i className="fas fa-check"></i></h3>
             </div>
           }
-          {/* the 'button' above are for when the user wants to check that they have seen the notifications or not, we will need to make the button 'check' the items that the user is currently on, (ie. the received or completed view) */}
         </div>
 
       

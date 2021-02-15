@@ -12,13 +12,13 @@ export default function Request() {
 
   const getRequests = async () => {
     const resp = await axios.get('/api/member/request/list')
-    console.log(resp.data)
+    // console.log(resp.data)
     setRequests(resp.data.filter(d => !d.status))
   }
 
   useEffect(()=> {
     getRequests()
-    console.log(requests)
+    // console.log(requests)
   }, [requestProcessed])
 
   return (

@@ -32,14 +32,6 @@ export default function Settings() {
   const [submitMessage, setSubmitMessage] = useState('')
 
   // events
-
-  // if the current password === the current password check then it will turn on the button
-  // I will accomplish that with an onblur
-  // const currentPasswordConfirmation = () => {
-  //   if (currentPassword === currentPasswordCheck) {setDisabled(false)}
-  // }
-
-  // Submit button to change the information.
   const submitHandler = async (e) => {
     e.preventDefault()
     const resp = await axios.put('/api/member/user/update', {
@@ -67,7 +59,6 @@ export default function Settings() {
     setCurrentPassword('')
   }
 
-  // I need to grab the api for emails
   const isEmailUnique = async () => {
     const resp = await axios.post('/api/user/email-check', {email});
 
@@ -158,9 +149,6 @@ export default function Settings() {
       setShowCurrent(false)
       setDisabled(true)
     }
-    // console.log(`emailIcon ${emailIcon}`)
-    // console.log(`showEmailIcon ${showEmailIcon}`)
-    // console.log(`validIcon ${validIcon}`)
   }, [currentPassword, currentPasswordCheck, showEmailIcon, showUserIcon, showNew, newIcon])
 
   useEffect(()=> {

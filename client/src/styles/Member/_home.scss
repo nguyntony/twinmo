@@ -6,7 +6,6 @@
   width: 100%;
   margin: 1rem;
   margin-left: 3rem;
-  // transform: translateY(10%);
 
   @include media("<1000px") {
     margin-left: 6rem;
@@ -15,10 +14,6 @@
   @include media("<825px") {
     flex-direction: column;
   }
-
-  // @include media("<420px") {
-  //   margin-left: 7rem;
-  // }
 
   .request-container,
   .pending-container {
@@ -29,9 +24,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    // padding: 2rem 0;
-    // justify-content: space-around;
-    // box-shadow: 5px 5px 5px rgba(46, 54, 68, 0.4);
     position: relative;
     overflow: hidden;
     margin: 2rem;
@@ -52,11 +44,9 @@
     .icon {
       width: 17rem;
       height: 17rem;
-      // background-color: $deep-pink;
       border-radius: 100%;
       position: relative;
       overflow: hidden;
-      // border: 1px solid $light-black;
       box-shadow: 2px 2px 2px rgba(46, 54, 68, 0.4);
       margin: 2rem;
 
@@ -76,24 +66,6 @@
       align-items: center;
       z-index: 1;
       padding: 1rem 0;
-      // margin: 2rem;
-
-      h3 {
-        // text-align: center;
-        // display: block;
-
-        // .divider {
-        //   height: 1rem;
-        //   width: 0.5rem;
-        //   background-color: $light-black;
-        //   border: 2px solid $light-black;
-        //   border-radius: 2px;
-        //   margin: 0 1rem;
-        // }
-      }
-      // p {
-      //   text-align: center;
-      // }
 
       .italic {
         font-style: italic;
@@ -139,11 +111,3 @@
     }
   }
 }
-
-// #dashboardContainer {
-//   #memberView {
-//     @include media(">1000px") {
-//       margin-left: 5rem;
-//     }
-//   }
-// }

@@ -3,19 +3,15 @@
   padding: 2rem 3rem;
   border-radius: 2.5rem;
   min-height: 60rem;
-  height: fit-content; // will need to change this later
-  // max-height: 90rem;
+  height: fit-content;
   max-height: 85rem;
   display: flex;
   flex-direction: row;
   box-shadow: 15px 15px 15px rgba(46, 54, 68, 0.4);
-  // background: rgba(255, 255, 255, 0.1);
-  // backdrop-filter: blur(20px);
-  width: fit-content; //may need to change?
-  max-width: 145rem; // may need to change?
+  width: fit-content;
+  max-width: 145rem;
   margin: 3rem;
   z-index: 100;
-  // display: none;
   position: relative;
 
   @include media("<420px") {

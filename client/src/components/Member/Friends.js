@@ -60,7 +60,6 @@ export default function Friends() {
           <section className="friendPlaceholder">
             <h4><i className="fas fa-search search"></i></h4>
           </section>
-          // CSS THIS ICON TO BE BIGGER AND CENTERED
         : ""
         }
         { showResults && 

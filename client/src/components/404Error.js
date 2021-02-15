@@ -1,4 +1,4 @@
-import {Redirect, Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 export default function ErrorPage() {
     return (

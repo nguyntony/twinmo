@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 
-export default function Archive({img, date, name, description, amount, username, transactionDetail, archivedIcon, month, year}) {
+export default function Archive({img, date, name, description, amount, transactionDetail, archivedIcon}) {
 
   const [icon, setIcon] = useState('')
   const [caption, setCaption] = useState('')
