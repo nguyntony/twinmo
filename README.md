@@ -1,6 +1,6 @@
 # twinmo
 ![twinmo homepage](https://github.com/nguyntony/twinmo/blob/main/user-guide/homepage.png)
-#### twinmo is lIVE, check it out <a href="https://twinmo.me/" target="_blank">HERE</a>
+#### twinmo is LIVE, check it out <a href="https://twinmo.me/" target="_blank">HERE</a>
 - - - -
 
 ## 💸 Summary
