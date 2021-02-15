@@ -150,19 +150,6 @@ const processTransaction = async (req, res) => {
     }
 }
 
-// When the user tries to accept a request, if they don't have enough funds, it won't allow them to approve it.
-// const enoughFunds = async (req, res) => {
-//     const {id} = req.session.user;
-//     let {amount} = req.body;
-//     amount = Number(numeral(amount).format('0.00'))
-//     const user = await User.findByPk(id);
-//     if (user.funds - amount < 0) {
-//         res.status(200).json({
-//             status: false
-//         })
-//     }
-// }
-
 const processUserApprove = async (req, res) => {
     const {id} = req.session.user;
     let {transactionID, friendID, amount} = req.body;
@@ -284,6 +271,11 @@ const archivedList = async (req, res) => {
                 },
                 {
                     senderID: id,
+                    type: 'payment',
+                    status: true,
+                },
+                {
+                    senderID: id,
                     type: 'request',
                     status: true,
                     archived: true
@@ -305,7 +297,27 @@ const archivedList = async (req, res) => {
             i.dataValues.friendName = getPaymentFriend.first+" "+getPaymentFriend.last
             i.dataValues.friendProfilePic = getPaymentFriend.profilePic
             i.dataValues.friendUsername = getPaymentFriend.username
+            i.dataValues.recipientName = getPaymentFriend.first+" "+getPaymentFriend.last
+
         } else {
+            const getSenderFriend = await User.findOne({
+                where: {
+                    id: i.senderID,
+                }
+            })
+            console.log(getSenderFriend)
+            console.log(getSenderFriend.first);
+    
+            i.dataValues.friendProfilePic = getSenderFriend.profilePic
+            i.dataValues.friendName = getSenderFriend.first+" "+getSenderFriend.last
+            i.dataValues.friendUsername = getSenderFriend.username
+            i.dataValues.senderName = getSenderFriend.first+" "+getSenderFriend.last
+
+        }
+    }
+
+    for (i of transactions) {
+        if (i.type === 'payment' && i.recipientID === id) {
             const getPaymentFriend = await User.findOne({
                 where: {
                     id: i.senderID,
@@ -315,14 +327,10 @@ const archivedList = async (req, res) => {
             i.dataValues.friendName = getPaymentFriend.first+" "+getPaymentFriend.last
             i.dataValues.friendProfilePic = getPaymentFriend.profilePic
             i.dataValues.friendUsername = getPaymentFriend.username
-        }
-    }
-
-    for (i of transactions) {
-        if (i.type === 'payment') {
+        } else {
             const getPaymentFriend = await User.findOne({
                 where: {
-                    id: i.senderID,
+                    id: i.recipientID,
                 }
             })
     
@@ -335,7 +343,7 @@ const archivedList = async (req, res) => {
         if (i.type === 'payment') {
             if (i.senderID === id) {
                 i.dataValues.archivedIcon = 'sent'
-                i.dataValues.transactionDetail = 'You sent a payment'
+                i.dataValues.transactionDetail = 'You sent a payment to'
             } else if (i.recipientID === id) {
                 i.dataValues.archivedIcon = 'received'
                 i.dataValues.transactionDetail = 'sent you a payment'
@@ -368,7 +376,6 @@ module.exports = {
     paymentList,
     requestList,
     processTransaction,
-    // enoughFunds,
     processUserApprove,
     processUserDeny,
     archive,

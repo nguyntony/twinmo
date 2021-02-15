@@ -15,10 +15,13 @@ export default function History() {
   const [loading, setLoading] = useState(true)
 
   const getArchives = async () => {
+    setArchived([])
     const resp = await axios.post('/api/member/transaction/archive/list', {
       month, 
       year
     })
+    console.log(resp.data[0].friendName)
+    console.log(resp.data)
     const data = resp.data
     setArchived(data)
     setLoading(false)
