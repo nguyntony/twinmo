@@ -23,7 +23,7 @@ export default function Friends() {
   // evt handler
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(searchInput)
+    setSearchedUsers([])
     const resp = await axios.post('/api/member/get-users', {
       input: searchInput
     })
