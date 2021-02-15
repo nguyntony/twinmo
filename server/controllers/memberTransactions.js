@@ -33,6 +33,7 @@ const paymentList = async (req, res) => {
         attributes: ['id', 'amount', 'createdAt', 'description', 'status', 'recipientID', 'senderID', 'archived', 'approved', 'type']
     })
 
+    // For every payment, we get the friend's data to display. Needs to check if the user is the sender or recipient.
     for (i of payments) {
         if (i.type === 'request'){
             const getPaymentFriend = await User.findOne({
@@ -140,7 +141,6 @@ const processTransaction = async (req, res) => {
                 message: 'Payment Processed!'
             })
         } else if (user.funds - amount < 0) {
-            console.log('Not enough money!', user.funds, amount, user.funds-amount)
             res.status(200).json({
                 status: false,
                 message: 'Not enough funds!',
@@ -150,22 +150,22 @@ const processTransaction = async (req, res) => {
     }
 }
 
-const enoughFunds = async (req, res) => {
-    const {id} = req.session.user;
-    let {amount} = req.body;
-    amount = Number(numeral(amount).format('0.00'))
-    const user = await User.findByPk(id);
-    if (user.funds - amount < 0) {
-        res.status(200).json({
-            status: false
-        })
-    }
-}
+// When the user tries to accept a request, if they don't have enough funds, it won't allow them to approve it.
+// const enoughFunds = async (req, res) => {
+//     const {id} = req.session.user;
+//     let {amount} = req.body;
+//     amount = Number(numeral(amount).format('0.00'))
+//     const user = await User.findByPk(id);
+//     if (user.funds - amount < 0) {
+//         res.status(200).json({
+//             status: false
+//         })
+//     }
+// }
 
 const processUserApprove = async (req, res) => {
     const {id} = req.session.user;
     let {transactionID, friendID, amount} = req.body;
-    console.log(transactionID, friendID, amount)
 
     amount = Number(numeral(amount).format('0.00'))
     
@@ -184,7 +184,6 @@ const processUserApprove = async (req, res) => {
             message: 'Payment Processed!'
         })
     } else if (user.funds - amount < 0) {
-        console.log('Not enough money!', user.funds, amount, user.funds-amount)
         res.status(200).json({
             status: false,
             message: 'Not enough funds!',
@@ -195,8 +194,6 @@ const processUserApprove = async (req, res) => {
 
 const processUserDeny = async (req, res) => {
     const {transactionID} = req.body;
-
-    console.log(transactionID);
 
     const transaction = await Transaction.findByPk(transactionID);
 
@@ -371,7 +368,7 @@ module.exports = {
     paymentList,
     requestList,
     processTransaction,
-    enoughFunds,
+    // enoughFunds,
     processUserApprove,
     processUserDeny,
     archive,
