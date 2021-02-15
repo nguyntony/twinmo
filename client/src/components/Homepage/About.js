@@ -8,8 +8,8 @@ export default function About() {
 
   const content = [
     {
-      title: 'What is twinmo?',
-      description: `twinmo takes the best from both Venmo and Zelle. It features a more focused view of Venmo but redesigning the look and feel of Zelle. Keep track of your payments and requests. Check out our sister app for `,
+      title: 'What is ',
+      description: `twinmo takes the best from both Venmo and Zelle. It features a more tailored view of Venmo but redesigning the look and feel of Zelle. Keep track of your payments and requests. Check out our sister app for `,
       link: true,
       subtitle: 'Venmo/Zelle Clone',
       contact: null,
@@ -64,7 +64,9 @@ export default function About() {
           <div className="aboutContent">
             
               <div className="titleHeading">
-                <h1>{content[contentID].title}</h1>
+                <h1>{content[contentID].title}
+                {content[contentID].link && <span><a href="https://github.com/nguyntony/twinmo" target="_blank" rel="noreferrer">twinmo</a>?</span>}
+                </h1>
                 {content[contentID].subtitle && <h3>{content[contentID].subtitle}</h3>}
               </div>
 
