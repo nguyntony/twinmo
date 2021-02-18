@@ -1,73 +1,73 @@
 .heroImg {
-  display: flex;
-  justify-content: center;
-  flex: 1;
-  margin: 1rem;
-  overflow: hidden;
+	display: flex;
+	justify-content: center;
+	flex: 1;
+	margin: 1rem;
+	overflow: hidden;
 
-  @include media("<=650px") {
-    max-width: 40rem;
-    align-self: center;
-    margin-bottom: 3rem;
-  }
+	@include media("<=650px") {
+		max-width: 40rem;
+		align-self: center;
+		margin-bottom: 3rem;
+	}
 
-  img {
-    width: 90%;
-    object-fit: contain;
-    height: 100%;
-  }
+	img {
+		width: 90%;
+		object-fit: contain;
+		height: 100%;
+	}
 }
 
 .signupForm {
-  @include media("<=900px") {
-    width: 30rem;
-    align-self: center;
-  }
+	@include media("<=900px") {
+		width: 30rem;
+		align-self: center;
+	}
 }
 
 .signupContainer {
-  @include media("<600px") {
-    align-self: center;
-  }
+	@include media("<600px") {
+		align-self: center;
+	}
 }
 .mainContentContainer {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  margin-left: 3rem;
+	flex: 1;
+	display: flex;
+	align-items: center;
+	margin-left: 3rem;
 
-  .homeContent {
-    height: 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    position: relative;
+	.homeContent {
+		height: 70%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		position: relative;
 
-    .joinBtn {
-      @include bigBtn;
-    }
+		.joinBtn {
+			@include bigBtn;
+		}
 
-    .description {
-      h1 {
-        color: $ghost-white;
-        margin-bottom: 1rem;
-      }
+		.description {
+			h1 {
+				color: $ghost-white;
+				margin-bottom: 1rem;
+			}
 
-      h2 {
-        color: $med-orange;
-        margin-bottom: 0.5rem;
+			h2 {
+				color: $med-orange;
+				margin-bottom: 0.5rem;
 
-        .emphasis {
-          font-style: italic;
-        }
-      }
+				.emphasis {
+					font-style: italic;
+				}
+			}
 
-      h3 {
-        color: rgba($med-orange, 0.9);
-        @include media("<=700px") {
-          font-size: 1.5rem;
-        }
-      }
-    }
-  }
+			h3 {
+				color: rgba($med-orange, 0.9);
+				@include media("<=700px") {
+					font-size: 1.5rem;
+				}
+			}
+		}
+	}
 }
