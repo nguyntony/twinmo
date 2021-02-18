@@ -3,6 +3,7 @@
   justify-content: center;
   flex: 1;
   margin: 1rem;
+  overflow: hidden;
 
   @include media("<=650px") {
     max-width: 40rem;
@@ -13,6 +14,7 @@
   img {
     width: 90%;
     object-fit: contain;
+    height: 100%;
   }
 }
 
