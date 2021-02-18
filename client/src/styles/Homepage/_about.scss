@@ -55,6 +55,7 @@
         &:hover {
           transform: scale(1.05);
           transition: 1s;
+          overflow: hidden;
         }
       }
     }
@@ -62,12 +63,13 @@
     .one {
       position: absolute;
       bottom: 1rem;
-      z-index: 1;
+      z-index: 2;
     }
 
     .two {
       position: absolute;
       right: 0;
+      z-index: 1;
     }
 
     .three {
